@@ -5,7 +5,20 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2F59083B-FB24-434B-9875-659794F1959F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sloader.Bootstrapper", "Sloader.Bootstrapper\Sloader.Bootstrapper.csproj", "{A2C75CAD-DF34-4F0D-A514-74B74CEA1EE6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sloader.Bootstrapper", "src\Sloader.Bootstrapper\Sloader.Bootstrapper.csproj", "{A2C75CAD-DF34-4F0D-A514-74B74CEA1EE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sloader.Web", "src\Sloader.Web\Sloader.Web.csproj", "{2CADB3BF-9C9F-4993-9077-FAD2BD70EF82}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{57539E61-7728-4669-9E4D-C7AED6499053}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\AzureWebsitePublishModule.psm1 = PublishScripts\AzureWebsitePublishModule.psm1
+		PublishScripts\Publish-WebApplicationWebsite.ps1 = PublishScripts\Publish-WebApplicationWebsite.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{1ADAE2B3-9DE5-47DD-A632-73B169C087CC}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Configurations\SloaderWeb-WAWS-dev.json = PublishScripts\Configurations\SloaderWeb-WAWS-dev.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,11 +30,17 @@ Global
 		{A2C75CAD-DF34-4F0D-A514-74B74CEA1EE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2C75CAD-DF34-4F0D-A514-74B74CEA1EE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2C75CAD-DF34-4F0D-A514-74B74CEA1EE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CADB3BF-9C9F-4993-9077-FAD2BD70EF82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CADB3BF-9C9F-4993-9077-FAD2BD70EF82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CADB3BF-9C9F-4993-9077-FAD2BD70EF82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CADB3BF-9C9F-4993-9077-FAD2BD70EF82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A2C75CAD-DF34-4F0D-A514-74B74CEA1EE6} = {2F59083B-FB24-434B-9875-659794F1959F}
+		{2CADB3BF-9C9F-4993-9077-FAD2BD70EF82} = {2F59083B-FB24-434B-9875-659794F1959F}
+		{1ADAE2B3-9DE5-47DD-A632-73B169C087CC} = {57539E61-7728-4669-9E4D-C7AED6499053}
 	EndGlobalSection
 EndGlobal
