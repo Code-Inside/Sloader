@@ -11,6 +11,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sloader.Web", "src\Sloader.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sloader.Types", "src\Sloader.Types\Sloader.Types.csproj", "{FED02DCF-63A5-42B1-B9B7-5CFCED9851A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sloader.Tests", "tests\Sloader.Tests\Sloader.Tests.csproj", "{9457897C-7B70-44DF-B569-DF78DEC1DAE9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{DE234D16-59BA-41D6-B01C-4D307AEF2374}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{95D6708A-7A89-486B-929C-E62D5252C44F}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +38,10 @@ Global
 		{FED02DCF-63A5-42B1-B9B7-5CFCED9851A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FED02DCF-63A5-42B1-B9B7-5CFCED9851A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FED02DCF-63A5-42B1-B9B7-5CFCED9851A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9457897C-7B70-44DF-B569-DF78DEC1DAE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9457897C-7B70-44DF-B569-DF78DEC1DAE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9457897C-7B70-44DF-B569-DF78DEC1DAE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9457897C-7B70-44DF-B569-DF78DEC1DAE9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,5 +50,6 @@ Global
 		{A2C75CAD-DF34-4F0D-A514-74B74CEA1EE6} = {2F59083B-FB24-434B-9875-659794F1959F}
 		{2CADB3BF-9C9F-4993-9077-FAD2BD70EF82} = {2F59083B-FB24-434B-9875-659794F1959F}
 		{FED02DCF-63A5-42B1-B9B7-5CFCED9851A0} = {2F59083B-FB24-434B-9875-659794F1959F}
+		{9457897C-7B70-44DF-B569-DF78DEC1DAE9} = {DE234D16-59BA-41D6-B01C-4D307AEF2374}
 	EndGlobalSection
 EndGlobal

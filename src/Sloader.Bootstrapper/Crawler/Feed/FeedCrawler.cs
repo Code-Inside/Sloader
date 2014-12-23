@@ -20,6 +20,9 @@ namespace Sloader.Bootstrapper.Crawler.Feed
         {
             var results = new List<FeedCrawlerResult>();
 
+            if (string.IsNullOrWhiteSpace(ConfiguredFeeds))
+                return results;
+
             foreach (var feed in ConfiguredFeeds.Split(';'))
             {
                 var rssFeed = new FeedCrawlerResult();
