@@ -19,6 +19,9 @@ namespace Sloader.Bootstrapper
 
         public async Task<CrawlerRun> RunAllCrawlers()
         {
+            System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
+            watch.Start();
+
             var crawlerRunResult = new CrawlerRun();
 
             // Feeds
@@ -44,6 +47,8 @@ namespace Sloader.Bootstrapper
                 crawlerRunResult.Results.AddRange(twitterResults);
             }
 
+            watch.Stop();
+            crawlerRunResult.RunDurationInMilliseconds = watch.ElapsedMilliseconds;
             crawlerRunResult.RunOn = DateTime.UtcNow;
 
             return crawlerRunResult;

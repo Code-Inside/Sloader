@@ -11,5 +11,6 @@ namespace Sloader.Types
         }
         public DateTime RunOn { get; set; }
         public List<BaseCrawlerResult> Results { get; set; }
+        public long RunDurationInMilliseconds { get; set; }
     }
 }
