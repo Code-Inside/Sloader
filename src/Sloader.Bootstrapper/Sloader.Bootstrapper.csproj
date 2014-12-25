@@ -100,6 +100,8 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="Crawler\Feed\FeedCrawler.cs" />
+    <Compile Include="Crawler\Feed\FeedLoader.cs" />
+    <Compile Include="Crawler\Feed\IFeedLoader.cs" />
     <Compile Include="Crawler\Twitter\TwitterCrawler.cs" />
     <Compile Include="Crawler\Twitter\TwitterCrawlerConfig.cs" />
     <Compile Include="ICrawler.cs" />

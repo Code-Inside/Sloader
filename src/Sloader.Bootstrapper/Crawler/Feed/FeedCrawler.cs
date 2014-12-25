@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.ServiceModel.Syndication;
 using System.Threading.Tasks;
-using System.Xml;
 using System.Xml.Linq;
 using Newtonsoft.Json.Linq;
 using Sloader.Types;
@@ -15,7 +12,20 @@ namespace Sloader.Bootstrapper.Crawler.Feed
 {
     public class FeedCrawler : ICrawler<List<FeedCrawlerResult>>
     {
+        private readonly IFeedLoader _feedLoader;
+
+        public FeedCrawler() : this(new FeedLoader())
+        {
+
+        }
+
+        public FeedCrawler(IFeedLoader loader)
+        {
+            _feedLoader = loader;
+        }
+
         public string ConfiguredFeeds { get; set; }
+        
         public async Task<List<FeedCrawlerResult>> DoWorkAsync()
         {
             var results = new List<FeedCrawlerResult>();
@@ -30,7 +40,7 @@ namespace Sloader.Bootstrapper.Crawler.Feed
                 rssFeed.Key = feed;
                 rssFeed.FeedItems = new List<FeedCrawlerResult.FeedItem>();
 
-                var syndicationFeed = GetFeed(feed);
+                var syndicationFeed = _feedLoader.Get(feed);
 
                 foreach (var feedItem in syndicationFeed.Items.OrderBy(x => x.PublishDate))
                 {
@@ -92,22 +102,6 @@ namespace Sloader.Bootstrapper.Crawler.Feed
             }
 
             return results;
-        }
-
-        private static SyndicationFeed GetFeed(string url)
-        {
-            Trace.TraceInformation("GetFeed invoked with url: " + url);
-            try
-            {
-                var reader = XmlReader.Create(url);
-                var feed = SyndicationFeed.Load(reader);
-                return feed;
-            }
-            catch (WebException exc)
-            {
-                Trace.TraceError("GetFeed: " + exc.Message);
-                return new SyndicationFeed();
-            }
         }
 
         public List<FeedCrawlerResult> DoWork()
