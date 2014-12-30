@@ -28,7 +28,7 @@ namespace Sloader.Bootstrapper.Crawler.Feed
             var jTwitterToken = JToken.Parse(twitterContent);
             var twitterCounter = jTwitterToken.SelectToken("count");
 
-            if (twitterCounter == null || twitterCounter.HasValues == false)
+            if (twitterCounter == null)
                 return 0;
 
             return twitterCounter.Value<int>();

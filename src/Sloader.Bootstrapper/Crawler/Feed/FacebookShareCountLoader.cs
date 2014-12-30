@@ -30,7 +30,7 @@ namespace Sloader.Bootstrapper.Crawler.Feed
             var jFacebookToken = JToken.Parse(facebookContent);
             var facebookCounter = jFacebookToken.SelectToken("shares");
 
-            if (facebookCounter == null || facebookCounter.HasValues == false)
+            if (facebookCounter == null)
                 return 0;
 
             return facebookCounter.Value<int>();
