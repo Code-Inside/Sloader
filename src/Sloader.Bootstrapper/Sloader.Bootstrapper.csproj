@@ -98,6 +98,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigKeys.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Crawler\Feed\FeedCrawler.cs" />
     <Compile Include="Crawler\Feed\FeedLoader.cs" />
