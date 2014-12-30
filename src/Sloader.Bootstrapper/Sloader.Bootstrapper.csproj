@@ -96,6 +96,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WorldDomination.HttpClient.Helpers">
+      <HintPath>..\..\packages\WorldDomination.HttpClient.Helpers.2.0\lib\net45\WorldDomination.HttpClient.Helpers.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigKeys.cs" />

@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.ServiceModel.Syndication;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Newtonsoft.Json.Linq;
 using Sloader.Types;
+using WorldDomination.Net.Http;
 
 namespace Sloader.Bootstrapper.Crawler.Feed
 {
@@ -35,10 +34,10 @@ namespace Sloader.Bootstrapper.Crawler.Feed
 
             foreach (var feed in ConfiguredFeeds.Split(';'))
             {
-                var rssFeed = new FeedCrawlerResult();
-                rssFeed.Type = KnownCrawler.Feed;
-                rssFeed.Key = feed;
-                rssFeed.FeedItems = new List<FeedCrawlerResult.FeedItem>();
+                var crawlerResult = new FeedCrawlerResult();
+                crawlerResult.Type = KnownCrawler.Feed;
+                crawlerResult.Key = feed;
+                crawlerResult.FeedItems = new List<FeedCrawlerResult.FeedItem>();
 
                 var syndicationFeed = _feedLoader.Get(feed);
 
@@ -57,56 +56,60 @@ namespace Sloader.Bootstrapper.Crawler.Feed
                         }
                     }
 
-                    var httpClient = new HttpClient();
-
-                    // Get Twitter Counts... with bad code...
+                    // Get Twitter Counts...
                     string twitterUrl = "http://urls.api.twitter.com/1/urls/count.json?url=" + feedItem.Id;
-
-                    var twitterResult = await httpClient.GetAsync(twitterUrl);
-                    var jTwitterToken = JToken.Parse(twitterResult.Content.ReadAsStringAsync().Result);
+                    string twitterContent;
+                    using (var httpClient = HttpClientFactory.GetHttpClient())
+                    {
+                        // twitterContent sample:
+                        // {"count":0,"url":"http://...url..."}
+                        twitterContent = await httpClient.GetStringAsync(twitterUrl);
+                    }
+                    var jTwitterToken = JToken.Parse(twitterContent);
                     var twitterCounter = jTwitterToken.SelectToken("count");
 
-                    // Get Facebook Shares... with bad code..
+                    // Get Facebook Shares... 
                     string facebookUrl = "https://graph.facebook.com/?id=" + feedItem.Id;
-
-                    var facebookResult = await httpClient.GetAsync(facebookUrl);
-                    var jFacebookToken = JToken.Parse(facebookResult.Content.ReadAsStringAsync().Result);
+                    string facebookContent;
+                    using (var httpClient = HttpClientFactory.GetHttpClient())
+                    {
+                        // facebookContent sample:
+                        // {"id":"http://...url...","shares":1} or just
+                        // {"id":"http://...url..."}
+                        facebookContent = await httpClient.GetStringAsync(facebookUrl);
+                    }
+                    var jFacebookToken = JToken.Parse(facebookContent);
                     var facebookCounter = jFacebookToken.SelectToken("shares");
 
-                    var rssItem = new FeedCrawlerResult.FeedItem();
-                    rssItem.Title = feedItem.Title.Text;
+                    var crawlerResultItem = new FeedCrawlerResult.FeedItem();
+                    crawlerResultItem.Title = feedItem.Title.Text;
                     if (twitterCounter != null)
                     {
-                        rssItem.TweetsCount = twitterCounter.Value<int>();
+                        crawlerResultItem.TweetsCount = twitterCounter.Value<int>();
                     }
 
                     if (facebookCounter != null)
                     {
-                        rssItem.FacebookCount = facebookCounter.Value<int>();
+                        crawlerResultItem.FacebookCount = facebookCounter.Value<int>();
                     }
 
-                    rssItem.CommentsCount = commentCount;
+                    crawlerResultItem.CommentsCount = commentCount;
 
                     if (feedItem.Summary != null)
                     {
-                        rssItem.Summary = feedItem.Summary.Text;
+                        crawlerResultItem.Summary = feedItem.Summary.Text;
                     }
 
-                    rssItem.Href = feedItem.Id;
-                    rssItem.PublishedOn = feedItem.PublishDate.Date;
+                    crawlerResultItem.Href = feedItem.Id;
+                    crawlerResultItem.PublishedOn = feedItem.PublishDate.Date;
 
-                    rssFeed.FeedItems.Add(rssItem);
+                    crawlerResult.FeedItems.Add(crawlerResultItem);
                 }
 
-                results.Add(rssFeed);
+                results.Add(crawlerResult);
             }
 
             return results;
-        }
-
-        public List<FeedCrawlerResult> DoWork()
-        {
-            throw new NotImplementedException("Use DoWorkAsync.");
         }
     }
 }

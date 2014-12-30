@@ -19,10 +19,6 @@ namespace Sloader.Bootstrapper.Crawler.Twitter
         }
 
         public TwitterCrawlerConfig Config { get; set; }
-        public List<TwitterCrawlerResult> DoWork()
-        {
-            throw new NotImplementedException("Use DoWorkAsync.");
-        }
 
         public async Task<List<TwitterCrawlerResult>> DoWorkAsync()
         {

@@ -4,7 +4,6 @@ namespace Sloader.Bootstrapper
 {
     public interface ICrawler<T>
     {
-        T DoWork();
         Task<T> DoWorkAsync();
     }
 }
