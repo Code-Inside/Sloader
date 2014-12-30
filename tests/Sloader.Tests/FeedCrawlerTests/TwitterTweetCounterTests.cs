@@ -22,5 +22,33 @@ namespace Sloader.Tests.FeedCrawlerTests
 
             Assert.Equal(0, await sut.GetAsync("http://blog.something.com"));
         }
+
+        [Fact]
+        public async Task Loader_Should_Return_TwitterCount_If_Everything_Is_Ok()
+        {
+            const string responseData = "{'count':1337,'url':'http://...url...'}";
+
+            var messageResponse = FakeHttpMessageHandler.GetStringHttpResponseMessage(responseData);
+
+            HttpClientFactory.MessageHandler = new FakeHttpMessageHandler("*", messageResponse);
+
+            var sut = new TwitterTweetCountLoader();
+
+            Assert.Equal(1337, await sut.GetAsync("http://blog.something.com"));
+        }
+
+        [Fact]
+        public async Task Loader_Should_Return_0_Without_Any_Tweets()
+        {
+            const string responseData = "{'count':0,'url':'http://...url...'}";
+
+            var messageResponse = FakeHttpMessageHandler.GetStringHttpResponseMessage(responseData);
+
+            HttpClientFactory.MessageHandler = new FakeHttpMessageHandler("*", messageResponse);
+
+            var sut = new TwitterTweetCountLoader();
+
+            Assert.Equal(0, await sut.GetAsync("http://blog.something.com"));
+        }
     }
 }

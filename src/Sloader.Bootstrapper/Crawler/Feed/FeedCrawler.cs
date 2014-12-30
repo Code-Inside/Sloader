@@ -64,7 +64,7 @@ namespace Sloader.Bootstrapper.Crawler.Feed
                     crawlerResultItem.Title = feedItem.Title.Text;
 
                     crawlerResultItem.TweetsCount = await _twitterLoader.GetAsync(feedItem.Id);
-                 //   crawlerResultItem.FacebookCount = await _facebookLoader.GetAsync(feedItem.Id);
+                    crawlerResultItem.FacebookCount = await _facebookLoader.GetAsync(feedItem.Id);
 
                     crawlerResultItem.CommentsCount = commentCount;
 
