@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using WorldDomination.Net.Http;
@@ -14,7 +15,15 @@ namespace Sloader.Bootstrapper.Crawler.Feed
             {
                 // twitterContent sample:
                 // {"count":0,"url":"http://...url..."}
-                twitterContent = await httpClient.GetStringAsync(twitterUrl);
+                var response = await httpClient.GetAsync(twitterUrl);
+                if (response.IsSuccessStatusCode) {
+                    twitterContent = await response.Content.ReadAsStringAsync();
+                }
+                else
+                {
+                    Trace.TraceWarning("Could not load TwitterCounts for URL: " + twitterUrl);
+                    return 0;
+                }
             }
             var jTwitterToken = JToken.Parse(twitterContent);
             var twitterCounter = jTwitterToken.SelectToken("count");
