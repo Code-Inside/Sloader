@@ -12,15 +12,19 @@ namespace Sloader.Bootstrapper.Crawler.Feed
     public class FeedCrawler : ICrawler<List<FeedCrawlerResult>>
     {
         private readonly IFeedLoader _feedLoader;
+        private readonly ITwitterTweetCountLoader _twitterLoader;
+        private readonly IFacebookShareCountLoader _facebookLoader;
 
-        public FeedCrawler() : this(new FeedLoader())
+        public FeedCrawler() : this(new FeedLoader(), new TwitterTweetCountLoader(), new FacebookShareCountLoader())
         {
 
         }
 
-        public FeedCrawler(IFeedLoader loader)
+        public FeedCrawler(IFeedLoader loader, ITwitterTweetCountLoader twitterLoader, IFacebookShareCountLoader facebookLoader)
         {
             _feedLoader = loader;
+            _twitterLoader = twitterLoader;
+            _facebookLoader = facebookLoader;
         }
 
         public string ConfiguredFeeds { get; set; }
@@ -55,43 +59,12 @@ namespace Sloader.Bootstrapper.Crawler.Feed
                             commentCount = int.Parse(extensionElement.Value);
                         }
                     }
-
-                    // Get Twitter Counts...
-                    string twitterUrl = "http://urls.api.twitter.com/1/urls/count.json?url=" + feedItem.Id;
-                    string twitterContent;
-                    using (var httpClient = HttpClientFactory.GetHttpClient())
-                    {
-                        // twitterContent sample:
-                        // {"count":0,"url":"http://...url..."}
-                        twitterContent = await httpClient.GetStringAsync(twitterUrl);
-                    }
-                    var jTwitterToken = JToken.Parse(twitterContent);
-                    var twitterCounter = jTwitterToken.SelectToken("count");
-
-                    // Get Facebook Shares... 
-                    string facebookUrl = "https://graph.facebook.com/?id=" + feedItem.Id;
-                    string facebookContent;
-                    using (var httpClient = HttpClientFactory.GetHttpClient())
-                    {
-                        // facebookContent sample:
-                        // {"id":"http://...url...","shares":1} or just
-                        // {"id":"http://...url..."}
-                        facebookContent = await httpClient.GetStringAsync(facebookUrl);
-                    }
-                    var jFacebookToken = JToken.Parse(facebookContent);
-                    var facebookCounter = jFacebookToken.SelectToken("shares");
-
+                    
                     var crawlerResultItem = new FeedCrawlerResult.FeedItem();
                     crawlerResultItem.Title = feedItem.Title.Text;
-                    if (twitterCounter != null)
-                    {
-                        crawlerResultItem.TweetsCount = twitterCounter.Value<int>();
-                    }
 
-                    if (facebookCounter != null)
-                    {
-                        crawlerResultItem.FacebookCount = facebookCounter.Value<int>();
-                    }
+                    crawlerResultItem.TweetsCount = await _twitterLoader.GetAsync(feedItem.Id);
+                 //   crawlerResultItem.FacebookCount = await _facebookLoader.GetAsync(feedItem.Id);
 
                     crawlerResultItem.CommentsCount = commentCount;
 

@@ -103,9 +103,13 @@
   <ItemGroup>
     <Compile Include="ConfigKeys.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="Crawler\Feed\FacebookShareCountLoader.cs" />
     <Compile Include="Crawler\Feed\FeedCrawler.cs" />
     <Compile Include="Crawler\Feed\FeedLoader.cs" />
+    <Compile Include="Crawler\Feed\IFacebookShareCountLoader.cs" />
     <Compile Include="Crawler\Feed\IFeedLoader.cs" />
+    <Compile Include="Crawler\Feed\ITwitterTweetCountLoader.cs" />
+    <Compile Include="Crawler\Feed\TwitterTweetCountLoader.cs" />
     <Compile Include="Crawler\Twitter\TwitterCrawler.cs" />
     <Compile Include="Crawler\Twitter\TwitterCrawlerConfig.cs" />
     <Compile Include="ICrawler.cs" />
