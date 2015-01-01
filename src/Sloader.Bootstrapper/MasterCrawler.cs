@@ -38,7 +38,7 @@ namespace Sloader.Bootstrapper
                 string.IsNullOrEmpty(_secrets.TwitterConsumerKey) == false &&
                 string.IsNullOrEmpty(_secrets.TwitterConsumerSecret) == false)
             {
-                var twitterCrawler = new TwitterCrawler();
+                var twitterCrawler = new TwitterTimelineCrawler();
                 twitterCrawler.Config.Handles = _config.TwitterHandles;
                 twitterCrawler.Config.ConsumerKey = _secrets.TwitterConsumerKey;
                 twitterCrawler.Config.ConsumerSecret = _secrets.TwitterConsumerSecret;

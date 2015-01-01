@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Sloader.Types
 {
-    public class TwitterCrawlerResult : BaseCrawlerResult
+    public class TwitterTimelineCrawlerResult : BaseCrawlerResult
     {
         public class Tweet
         {

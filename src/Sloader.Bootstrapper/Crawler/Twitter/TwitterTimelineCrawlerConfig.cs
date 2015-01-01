@@ -1,6 +1,6 @@
 namespace Sloader.Bootstrapper.Crawler.Twitter
 {
-    public class TwitterCrawlerConfig
+    public class TwitterTimelineCrawlerConfig
     {
         public string Handles { get; set; }
         public string ConsumerKey { get; set; }

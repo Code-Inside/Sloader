@@ -11,31 +11,31 @@ using Sloader.Types;
 
 namespace Sloader.Bootstrapper.Crawler.Twitter
 {
-    public class TwitterCrawler : ICrawler<List<TwitterCrawlerResult>>
+    public class TwitterTimelineCrawler : ICrawler<List<TwitterTimelineCrawlerResult>>
     {
-        public TwitterCrawler()
+        public TwitterTimelineCrawler()
         {
-            Config = new TwitterCrawlerConfig();
+            Config = new TwitterTimelineCrawlerConfig();
         }
 
-        public TwitterCrawlerConfig Config { get; set; }
+        public TwitterTimelineCrawlerConfig Config { get; set; }
 
-        public async Task<List<TwitterCrawlerResult>> DoWorkAsync()
+        public async Task<List<TwitterTimelineCrawlerResult>> DoWorkAsync()
         {
-            var results = new List<TwitterCrawlerResult>();
+            var results = new List<TwitterTimelineCrawlerResult>();
 
             var oauth = await GetTwitterAccessToken(Config.ConsumerKey, Config.ConsumerSecret);
 
             foreach (var handle in Config.Handles.Split(';'))
             {
-                var result = new TwitterCrawlerResult();
+                var result = new TwitterTimelineCrawlerResult();
 
                 result.Key = handle;
-                result.Type = KnownCrawler.Twitter;
-                result.Tweets = new List<TwitterCrawlerResult.Tweet>();
+                result.Type = KnownCrawler.TwitterTimeline;
+                result.Tweets = new List<TwitterTimelineCrawlerResult.Tweet>();
 
                 var twitterResult = await GetTwitterTimeline(oauth, handle);
-                result.Tweets.AddRange(new List<TwitterCrawlerResult.Tweet>(twitterResult));
+                result.Tweets.AddRange(new List<TwitterTimelineCrawlerResult.Tweet>(twitterResult));
 
                 results.Add(result);
             }
@@ -65,7 +65,7 @@ namespace Sloader.Bootstrapper.Crawler.Twitter
             return accessToken.Value<string>();
         }
 
-        private static async Task<List<TwitterCrawlerResult.Tweet>> GetTwitterTimeline(string oauthToken, string screenname)
+        private static async Task<List<TwitterTimelineCrawlerResult.Tweet>> GetTwitterTimeline(string oauthToken, string screenname)
         {
             Trace.TraceInformation("GetTwitterTimeline invoked with screenname:" + screenname);
 
@@ -81,7 +81,7 @@ namespace Sloader.Bootstrapper.Crawler.Twitter
 
             string timeline = await response.Content.ReadAsStringAsync();
 
-            var resultForThisHandle = JsonConvert.DeserializeObject<List<TwitterCrawlerResult.Tweet>>(timeline);
+            var resultForThisHandle = JsonConvert.DeserializeObject<List<TwitterTimelineCrawlerResult.Tweet>>(timeline);
 
             return resultForThisHandle;
         }
