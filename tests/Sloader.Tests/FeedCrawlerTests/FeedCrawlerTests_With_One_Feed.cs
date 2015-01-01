@@ -52,6 +52,19 @@ namespace Sloader.Tests.FeedCrawlerTests
         }
 
         [Fact]
+        public async Task Crawler_Detects_Correct_Count_Of_Comments()
+        {
+            var result = await InvokeSut();
+
+            var staticGuidFromSampleWithThreeComments =
+                "http://slashdot.feedsportal.com/c/35028/f/647410/s/41c58897/sc/1/l/0Ltech0Bslashdot0Borg0Cstory0C140C120C250C1792590Cus0Enavy0Esells0Etop0Egun0Eaircraft0Ecarrier0Efor0Eone0Epenny0Dutm0Isource0Frss10B0Amainlinkanon0Gutm0Imedium0Ffeed/story01.htm";
+
+            var specificFeedItem = result.First().FeedItems.Single(x => x.Href == staticGuidFromSampleWithThreeComments);
+
+            Assert.Equal(3, specificFeedItem.CommentsCount);
+        }
+
+        [Fact]
         public async Task Crawler_Returns_Correct_FacebookShares()
         {
             var result = await InvokeSut(0, 1337);
