@@ -101,21 +101,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigKeys.cs" />
-    <Compile Include="Constants.cs" />
-    <Compile Include="Crawler\Feed\FacebookShareCountLoader.cs" />
-    <Compile Include="Crawler\Feed\FeedCrawler.cs" />
-    <Compile Include="Crawler\Feed\FeedLoader.cs" />
-    <Compile Include="Crawler\Feed\IFacebookShareCountLoader.cs" />
-    <Compile Include="Crawler\Feed\IFeedLoader.cs" />
-    <Compile Include="Crawler\Feed\ITwitterTweetCountLoader.cs" />
-    <Compile Include="Crawler\Feed\TwitterTweetCountLoader.cs" />
-    <Compile Include="Crawler\Twitter\TwitterTimelineCrawler.cs" />
-    <Compile Include="Crawler\Twitter\TwitterTimelineCrawlerConfig.cs" />
-    <Compile Include="ICrawler.cs" />
-    <Compile Include="MasterCrawler.cs" />
-    <Compile Include="MasterCrawlerConfig.cs" />
-    <Compile Include="MasterCrawlerSecrets.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -143,6 +128,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Sloader.Crawler\Sloader.Crawler.csproj">
+      <Project>{093e48d7-9567-48ef-aa73-915355480200}</Project>
+      <Name>Sloader.Crawler</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sloader.Types\Sloader.Types.csproj">
       <Project>{fed02dcf-63a5-42b1-b9b7-5cfced9851a0}</Project>
       <Name>Sloader.Types</Name>

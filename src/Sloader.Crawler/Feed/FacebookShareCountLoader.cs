@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using WorldDomination.Net.Http;
 
-namespace Sloader.Bootstrapper.Crawler.Feed
+namespace Sloader.Crawler.Feed
 {
     public class FacebookShareCountLoader : IFacebookShareCountLoader
     {

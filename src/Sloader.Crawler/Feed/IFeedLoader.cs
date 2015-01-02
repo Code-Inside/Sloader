@@ -1,6 +1,6 @@
 using System.ServiceModel.Syndication;
 
-namespace Sloader.Bootstrapper.Crawler.Feed
+namespace Sloader.Crawler.Feed
 {
     public interface IFeedLoader
     {

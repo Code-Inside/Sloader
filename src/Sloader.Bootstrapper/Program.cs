@@ -10,7 +10,9 @@ using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using Microsoft.WindowsAzure.Storage.Shared.Protocol;
 using Newtonsoft.Json;
+using Sloader.Crawler;
 using Sloader.Types;
+using Constants = Sloader.Crawler.Constants;
 
 namespace Sloader.Bootstrapper
 {

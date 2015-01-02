@@ -1,4 +1,4 @@
-﻿namespace Sloader.Bootstrapper
+﻿namespace Sloader.Crawler
 {
     public class MasterCrawlerSecrets
     {

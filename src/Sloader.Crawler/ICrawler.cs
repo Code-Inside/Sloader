@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Sloader.Bootstrapper
+namespace Sloader.Crawler
 {
     public interface ICrawler<T>
     {

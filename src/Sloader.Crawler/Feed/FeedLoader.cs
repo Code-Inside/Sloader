@@ -3,7 +3,7 @@ using System.Net;
 using System.ServiceModel.Syndication;
 using System.Xml;
 
-namespace Sloader.Bootstrapper.Crawler.Feed
+namespace Sloader.Crawler.Feed
 {
     public class FeedLoader : IFeedLoader
     {

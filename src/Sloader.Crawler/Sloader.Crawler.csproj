@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9457897C-7B70-44DF-B569-DF78DEC1DAE9}</ProjectGuid>
+    <ProjectGuid>{093E48D7-9567-48EF-AA73-915355480200}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sloader.Tests</RootNamespace>
-    <AssemblyName>Sloader.Tests</AssemblyName>
+    <RootNamespace>Sloader.Crawler</RootNamespace>
+    <AssemblyName>Sloader.Crawler</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,8 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FakeItEasy">
-      <HintPath>..\..\packages\FakeItEasy.1.25.1\lib\net40\FakeItEasy.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.7\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,42 +50,36 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WorldDomination.HttpClient.Helpers, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="WorldDomination.HttpClient.Helpers">
       <HintPath>..\..\packages\WorldDomination.HttpClient.Helpers.2.0\lib\net45\WorldDomination.HttpClient.Helpers.dll</HintPath>
     </Reference>
-    <Reference Include="xunit">
-      <HintPath>..\..\packages\xunit.1.9.2\lib\net20\xunit.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DemoTest.cs" />
-    <Compile Include="FeedCrawlerTests\FacebookShareCounterTests.cs" />
-    <Compile Include="FeedCrawlerTests\FeedCrawlerTests_With_One_Feed.cs" />
-    <Compile Include="FeedCrawlerTests\TwitterTweetCounterTests.cs" />
+    <Compile Include="ConfigKeys.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Feed\FacebookShareCountLoader.cs" />
+    <Compile Include="Feed\FeedCrawler.cs" />
+    <Compile Include="Feed\FeedLoader.cs" />
+    <Compile Include="Feed\IFacebookShareCountLoader.cs" />
+    <Compile Include="Feed\IFeedLoader.cs" />
+    <Compile Include="Feed\ITwitterTweetCountLoader.cs" />
+    <Compile Include="Feed\TwitterTweetCountLoader.cs" />
+    <Compile Include="Twitter\TwitterTimelineCrawler.cs" />
+    <Compile Include="Twitter\TwitterTimelineCrawlerConfig.cs" />
+    <Compile Include="ICrawler.cs" />
+    <Compile Include="MasterCrawler.cs" />
+    <Compile Include="MasterCrawlerConfig.cs" />
+    <Compile Include="MasterCrawlerSecrets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestHelperForCurrentProject.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="FeedCrawlerTests\Samples\SlashDotRss.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\Sloader.Bootstrapper\Sloader.Bootstrapper.csproj">
-      <Project>{A2C75CAD-DF34-4F0D-A514-74B74CEA1EE6}</Project>
-      <Name>Sloader.Bootstrapper</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\src\Sloader.Crawler\Sloader.Crawler.csproj">
-      <Project>{093e48d7-9567-48ef-aa73-915355480200}</Project>
-      <Name>Sloader.Crawler</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\src\Sloader.Types\Sloader.Types.csproj">
-      <Project>{FED02DCF-63A5-42B1-B9B7-5CFCED9851A0}</Project>
+    <ProjectReference Include="..\Sloader.Types\Sloader.Types.csproj">
+      <Project>{fed02dcf-63a5-42b1-b9b7-5cfced9851a0}</Project>
       <Name>Sloader.Types</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />

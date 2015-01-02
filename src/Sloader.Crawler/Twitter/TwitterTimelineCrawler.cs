@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Sloader.Types;
 
-namespace Sloader.Bootstrapper.Crawler.Twitter
+namespace Sloader.Crawler.Twitter
 {
     public class TwitterTimelineCrawler : ICrawler<List<TwitterTimelineCrawlerResult>>
     {

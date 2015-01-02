@@ -3,11 +3,9 @@ using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using Newtonsoft.Json.Linq;
 using Sloader.Types;
-using WorldDomination.Net.Http;
 
-namespace Sloader.Bootstrapper.Crawler.Feed
+namespace Sloader.Crawler.Feed
 {
     public class FeedCrawler : ICrawler<List<FeedCrawlerResult>>
     {

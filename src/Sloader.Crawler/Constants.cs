@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Sloader.Bootstrapper
+namespace Sloader.Crawler
 {
     public static class Constants
     {

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using FakeItEasy;
-using Sloader.Bootstrapper.Crawler.Feed;
+using Sloader.Crawler.Feed;
 using Sloader.Types;
 using WorldDomination.Net.Http;
 using Xunit;

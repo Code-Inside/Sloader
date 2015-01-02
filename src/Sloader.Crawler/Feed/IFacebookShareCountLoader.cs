@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Sloader.Bootstrapper.Crawler.Feed
+namespace Sloader.Crawler.Feed
 {
     public interface IFacebookShareCountLoader
     {

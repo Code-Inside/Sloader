@@ -1,6 +1,6 @@
 using System.Net;
 using System.Threading.Tasks;
-using Sloader.Bootstrapper.Crawler.Feed;
+using Sloader.Crawler.Feed;
 using WorldDomination.Net.Http;
 using Xunit;
 

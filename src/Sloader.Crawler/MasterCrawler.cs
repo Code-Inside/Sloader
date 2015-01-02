@@ -1,10 +1,10 @@
 using System;
 using System.Threading.Tasks;
-using Sloader.Bootstrapper.Crawler.Feed;
-using Sloader.Bootstrapper.Crawler.Twitter;
+using Sloader.Crawler.Feed;
+using Sloader.Crawler.Twitter;
 using Sloader.Types;
 
-namespace Sloader.Bootstrapper
+namespace Sloader.Crawler
 {
     public class MasterCrawler
     {
