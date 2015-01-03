@@ -19,7 +19,7 @@ namespace Sloader.Crawler
 
         public async Task<CrawlerRun> RunAllCrawlers()
         {
-            System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
+            var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
 
             var crawlerRunResult = new CrawlerRun();
