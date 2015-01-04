@@ -13,8 +13,15 @@ namespace Sloader.Crawler.Twitter
 {
     public class TwitterTimelineCrawler : ICrawler<List<TwitterTimelineCrawlerResult>>
     {
-        public TwitterTimelineCrawler()
+        private readonly ITwitterOAuthTokenLoader _oAuthTokenLoader;
+
+        public TwitterTimelineCrawler() : this(new TwitterOAuthTokenLoader())
         {
+        }
+
+        public TwitterTimelineCrawler(ITwitterOAuthTokenLoader oAuthTokenLoader)
+        {
+            _oAuthTokenLoader = oAuthTokenLoader;
             Config = new TwitterTimelineCrawlerConfig();
         }
 
@@ -24,7 +31,9 @@ namespace Sloader.Crawler.Twitter
         {
             var results = new List<TwitterTimelineCrawlerResult>();
 
-            var oauth = await GetTwitterAccessToken(Config.ConsumerKey, Config.ConsumerSecret);
+            var oauth = await _oAuthTokenLoader.GetAsync(Config.ConsumerKey, Config.ConsumerSecret);
+            if (oauth == string.Empty)
+                return results;
 
             foreach (var handle in Config.Handles.Split(';'))
             {
@@ -42,29 +51,7 @@ namespace Sloader.Crawler.Twitter
 
             return results;
         }
-
-        private static async Task<string> GetTwitterAccessToken(string consumerKey, string consumerSecret)
-        {
-            var client = new HttpClient();
-
-            var authHeaderParameter = Convert.ToBase64String(Encoding.UTF8.GetBytes(Uri.EscapeDataString(consumerKey) + ":" +
-                                                                                    Uri.EscapeDataString((consumerSecret))));
-
-            var postBody = "grant_type=client_credentials";
-
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authHeaderParameter);
-
-            var response = await client.PostAsync("https://api.twitter.com/oauth2/token", new StringContent(postBody, Encoding.UTF8, "application/x-www-form-urlencoded"));
-
-            response.EnsureSuccessStatusCode();
-
-            string oauthtoken = await response.Content.ReadAsStringAsync();
-            var jToken = JToken.Parse(oauthtoken);
-            var accessToken = jToken.SelectToken("access_token");
-
-            return accessToken.Value<string>();
-        }
-
+    
         private static async Task<List<TwitterTimelineCrawlerResult.Tweet>> GetTwitterTimeline(string oauthToken, string screenname)
         {
             Trace.TraceInformation("GetTwitterTimeline invoked with screenname:" + screenname);

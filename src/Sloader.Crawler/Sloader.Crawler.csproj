@@ -64,6 +64,8 @@
     <Compile Include="Feed\IFeedLoader.cs" />
     <Compile Include="Feed\ITwitterTweetCountLoader.cs" />
     <Compile Include="Feed\TwitterTweetCountLoader.cs" />
+    <Compile Include="Twitter\ITwitterOAuthTokenLoader.cs" />
+    <Compile Include="Twitter\TwitterOAuthTokenLoader.cs" />
     <Compile Include="Twitter\TwitterTimelineCrawler.cs" />
     <Compile Include="Twitter\TwitterTimelineCrawlerConfig.cs" />
     <Compile Include="ICrawler.cs" />
