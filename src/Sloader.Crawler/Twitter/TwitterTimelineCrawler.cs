@@ -1,13 +1,10 @@
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Sloader.Types;
+using WorldDomination.Net.Http;
 
 namespace Sloader.Crawler.Twitter
 {
@@ -56,21 +53,24 @@ namespace Sloader.Crawler.Twitter
         {
             Trace.TraceInformation("GetTwitterTimeline invoked with screenname:" + screenname);
 
-            var client = new HttpClient();
+            using (var httpClient = HttpClientFactory.GetHttpClient())
+            {
+                var timelineFormat =
+                    "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name={0}&include_rts=1&exclude_replies=1&count=5";
+                var timelineUrl = string.Format(timelineFormat, screenname);
 
-            var timelineFormat = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name={0}&include_rts=1&exclude_replies=1&count=5";
-            var timelineUrl = string.Format(timelineFormat, screenname);
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", oauthToken);
+                var response = await httpClient.GetAsync(timelineUrl);
 
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", oauthToken);
-            var response = await client.GetAsync(timelineUrl);
+                response.EnsureSuccessStatusCode();
 
-            response.EnsureSuccessStatusCode();
+                string timeline = await response.Content.ReadAsStringAsync();
 
-            string timeline = await response.Content.ReadAsStringAsync();
+                var resultForThisHandle =
+                    JsonConvert.DeserializeObject<List<TwitterTimelineCrawlerResult.Tweet>>(timeline);
 
-            var resultForThisHandle = JsonConvert.DeserializeObject<List<TwitterTimelineCrawlerResult.Tweet>>(timeline);
-
-            return resultForThisHandle;
+                return resultForThisHandle;
+            }
         }
     }
 }
