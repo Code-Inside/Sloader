@@ -69,7 +69,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="TwitterTimelineCrawlerTests\Sample\1.1_user_timeline.json" />
+    <EmbeddedResource Include="TwitterTimelineCrawlerTests\Sample\user_timeline.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FeedCrawlerTests\Samples\SlashDotRss.xml" />

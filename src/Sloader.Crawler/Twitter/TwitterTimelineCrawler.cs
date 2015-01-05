@@ -32,6 +32,9 @@ namespace Sloader.Crawler.Twitter
             if (oauth == string.Empty)
                 return results;
 
+            if (string.IsNullOrWhiteSpace(Config.Handles))
+                return results;
+
             foreach (var handle in Config.Handles.Split(';'))
             {
                 var result = new TwitterTimelineCrawlerResult();
