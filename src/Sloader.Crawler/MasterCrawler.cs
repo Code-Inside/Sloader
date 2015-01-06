@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Sloader.Crawler.DependencyServices;
 using Sloader.Crawler.Feed;
 using Sloader.Crawler.Twitter;
 using Sloader.Types;
@@ -38,13 +39,18 @@ namespace Sloader.Crawler
                 string.IsNullOrEmpty(_secrets.TwitterConsumerKey) == false &&
                 string.IsNullOrEmpty(_secrets.TwitterConsumerSecret) == false)
             {
-                var twitterCrawler = new TwitterTimelineCrawler();
-                twitterCrawler.Config.Handles = _config.TwitterHandles;
-                twitterCrawler.Config.ConsumerKey = _secrets.TwitterConsumerKey;
-                twitterCrawler.Config.ConsumerSecret = _secrets.TwitterConsumerSecret;
+                ITwitterOAuthTokenService oAuthTokenLoader = new TwitterOAuthTokenService();
+                var oauth = await oAuthTokenLoader.GetAsync(_secrets.TwitterConsumerKey, _secrets.TwitterConsumerSecret);
+                if (oauth != string.Empty)
+                {
+                    var twitterCrawler = new TwitterTimelineCrawler();
+                    twitterCrawler.Config.Handles = _config.TwitterHandles;
+                    twitterCrawler.Config.OAuthToken = oauth;
 
-                var twitterResults = await twitterCrawler.DoWorkAsync();
-                crawlerRunResult.Results.AddRange(twitterResults);
+                    var twitterResults = await twitterCrawler.DoWorkAsync();
+                    crawlerRunResult.Results.AddRange(twitterResults);
+                }
+                
             }
 
             watch.Stop();

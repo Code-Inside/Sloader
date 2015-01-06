@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using WorldDomination.Net.Http;
 
-namespace Sloader.Crawler.Twitter
+namespace Sloader.Crawler.DependencyServices
 {
-    public class TwitterOAuthTokenLoader : ITwitterOAuthTokenLoader
+    public class TwitterOAuthTokenService : ITwitterOAuthTokenService
     {
         public async Task<string> GetAsync(string consumerKey, string consumerSecret)
         {

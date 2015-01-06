@@ -22,13 +22,7 @@ namespace Sloader.Tests.TwitterTimelineCrawlerTests
 
             HttpClientFactory.MessageHandler = new FakeHttpMessageHandler("*", messageResponse);
 
-
-            var twitterOAuthMock = A.Fake<ITwitterOAuthTokenLoader>();
-            A.CallTo(() => twitterOAuthMock.GetAsync(string.Empty, string.Empty))
-                .WithAnyArguments()
-                .Returns(Guid.NewGuid().ToString());
-
-            var sut = new TwitterTimelineCrawler(twitterOAuthMock);
+            var sut = new TwitterTimelineCrawler();
             sut.Config = config;
             var result = await sut.DoWorkAsync();
             return result;
@@ -37,7 +31,7 @@ namespace Sloader.Tests.TwitterTimelineCrawlerTests
         [Fact]
         public async Task Crawler_Should_Return_Correct_Number_Of_Tweets_In_Timeline()
         {
-            var result = await InvokeSut(new TwitterTimelineCrawlerConfig() { ConsumerKey = "test", ConsumerSecret = "test", Handles = "test"});
+            var result = await InvokeSut(new TwitterTimelineCrawlerConfig() { OAuthToken = Guid.NewGuid().ToString(), Handles = "test"});
             Assert.Equal(5, result.First().Tweets.Count);
         }
 
@@ -45,7 +39,7 @@ namespace Sloader.Tests.TwitterTimelineCrawlerTests
         [Fact]
         public async Task Crawler_Should_Return_EmptyList_If_Nothing_Is_Configured()
         {
-            var result = await InvokeSut(new TwitterTimelineCrawlerConfig() { ConsumerKey = "test", ConsumerSecret = "test" });
+            var result = await InvokeSut(new TwitterTimelineCrawlerConfig() { });
             Assert.Equal(0, result.Count);
         }
     }

@@ -10,15 +10,9 @@ namespace Sloader.Crawler.Twitter
 {
     public class TwitterTimelineCrawler : ICrawler<List<TwitterTimelineCrawlerResult>>
     {
-        private readonly ITwitterOAuthTokenLoader _oAuthTokenLoader;
 
-        public TwitterTimelineCrawler() : this(new TwitterOAuthTokenLoader())
+        public TwitterTimelineCrawler()
         {
-        }
-
-        public TwitterTimelineCrawler(ITwitterOAuthTokenLoader oAuthTokenLoader)
-        {
-            _oAuthTokenLoader = oAuthTokenLoader;
             Config = new TwitterTimelineCrawlerConfig();
         }
 
@@ -27,10 +21,6 @@ namespace Sloader.Crawler.Twitter
         public async Task<List<TwitterTimelineCrawlerResult>> DoWorkAsync()
         {
             var results = new List<TwitterTimelineCrawlerResult>();
-
-            var oauth = await _oAuthTokenLoader.GetAsync(Config.ConsumerKey, Config.ConsumerSecret);
-            if (oauth == string.Empty)
-                return results;
 
             if (string.IsNullOrWhiteSpace(Config.Handles))
                 return results;
@@ -43,7 +33,7 @@ namespace Sloader.Crawler.Twitter
                 result.Type = KnownCrawler.TwitterTimeline;
                 result.Tweets = new List<TwitterTimelineCrawlerResult.Tweet>();
 
-                var twitterResult = await GetTwitterTimeline(oauth, handle);
+                var twitterResult = await GetTwitterTimeline(Config.OAuthToken, handle);
                 result.Tweets.AddRange(new List<TwitterTimelineCrawlerResult.Tweet>(twitterResult));
 
                 results.Add(result);
