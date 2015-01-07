@@ -37,7 +37,7 @@ namespace Sloader.Tests.TwitterTimelineCrawlerTests
 
 
         [Fact]
-        public async Task Crawler_Should_Return_EmptyResult_If_Nothing_Is_Configured()
+        public async Task Crawler_Must_Not_Return_Null_If_Nothing_Is_Configured()
         {
             var result = await InvokeSut(new TwitterTimelineCrawlerConfig());
             Assert.NotNull(result);

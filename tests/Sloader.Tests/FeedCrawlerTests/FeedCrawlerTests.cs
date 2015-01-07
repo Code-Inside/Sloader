@@ -13,7 +13,7 @@ namespace Sloader.Tests.FeedCrawlerTests
     {
         private const string slashdotRssSamplePath = "FeedCrawlerTests.Samples.SlashDotRss.xml";
 
-        public async Task<FeedCrawlerResult> InvokeSut(int twitterCounts = 0, int facebookShares = 0)
+        public async Task<FeedCrawlerResult> InvokeSut(int twitterCounts = 0, int facebookShares = 0, string feed = "http://rss.slashdot.org/Slashdot/slashdot")
         {
             var feedLoaderMock = A.Fake<IFeedLoader>();
             var staticFeed = SyndicationFeed.Load(new XmlTextReader(TestHelperForCurrentProject.GetTestFileStream(slashdotRssSamplePath)));
@@ -26,7 +26,7 @@ namespace Sloader.Tests.FeedCrawlerTests
             A.CallTo(() => facebokLoaderMock.GetAsync(string.Empty)).WithAnyArguments().Returns(facebookShares);
 
             var sut = new FeedCrawler(feedLoaderMock, twitterLoaderMock, facebokLoaderMock);
-            sut.ConfiguredFeed = "http://rss.slashdot.org/Slashdot/slashdot";
+            sut.ConfiguredFeed = feed;
             return await sut.DoWorkAsync();
         }
 
@@ -60,6 +60,13 @@ namespace Sloader.Tests.FeedCrawlerTests
             {
                 Assert.Equal(1337, feedItem.FacebookCount);
             }
+        }
+
+        [Fact]
+        public async Task Crawler_Must_Not_Return_Null_If_Nothing_Is_Configured()
+        {
+            var result = await InvokeSut(0,0, string.Empty);
+            Assert.NotNull(result);
         }
 
         [Fact]
