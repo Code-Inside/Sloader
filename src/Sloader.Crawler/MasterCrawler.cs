@@ -39,20 +39,23 @@ namespace Sloader.Crawler
             }
 
             // Tweets
-            if (_config.TwitterHandles != null &&
+            if (string.IsNullOrWhiteSpace(_config.TwitterHandles) == false &&
                 string.IsNullOrEmpty(_secrets.TwitterConsumerKey) == false &&
                 string.IsNullOrEmpty(_secrets.TwitterConsumerSecret) == false)
             {
                 ITwitterOAuthTokenService oAuthTokenLoader = new TwitterOAuthTokenService();
                 var oauth = await oAuthTokenLoader.GetAsync(_secrets.TwitterConsumerKey, _secrets.TwitterConsumerSecret);
-                if (oauth != string.Empty)
+                if (string.IsNullOrWhiteSpace(oauth) == false)
                 {
-                    var twitterCrawler = new TwitterTimelineCrawler();
-                    twitterCrawler.Config.Handles = _config.TwitterHandles;
-                    twitterCrawler.Config.OAuthToken = oauth;
+                    foreach (var handle in _config.TwitterHandles.Split(';'))
+                    {
+                        var twitterCrawler = new TwitterTimelineCrawler();
+                        twitterCrawler.Config.Handle = handle;
+                        twitterCrawler.Config.OAuthToken = oauth;
 
-                    var twitterResults = await twitterCrawler.DoWorkAsync();
-                    crawlerRunResult.Results.AddRange(twitterResults);
+                        var twitterResult = await twitterCrawler.DoWorkAsync();
+                        crawlerRunResult.Results.Add(twitterResult);
+                    }
                 }
                 
             }

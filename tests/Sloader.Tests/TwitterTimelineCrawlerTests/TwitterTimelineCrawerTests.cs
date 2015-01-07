@@ -13,7 +13,7 @@ namespace Sloader.Tests.TwitterTimelineCrawlerTests
 {
     public class TwitterTimelineCrawerTests
     {
-        private static async Task<List<TwitterTimelineCrawlerResult>> InvokeSut(TwitterTimelineCrawlerConfig config)
+        private static async Task<TwitterTimelineCrawlerResult> InvokeSut(TwitterTimelineCrawlerConfig config)
         {
             string responseData =
                 TestHelperForCurrentProject.GetTestFileContent("TwitterTimelineCrawlerTests.Sample.user_timeline.json");
@@ -31,16 +31,16 @@ namespace Sloader.Tests.TwitterTimelineCrawlerTests
         [Fact]
         public async Task Crawler_Should_Return_Correct_Number_Of_Tweets_In_Timeline()
         {
-            var result = await InvokeSut(new TwitterTimelineCrawlerConfig { OAuthToken = Guid.NewGuid().ToString(), Handles = "test"});
-            Assert.Equal(5, result.First().Tweets.Count);
+            var result = await InvokeSut(new TwitterTimelineCrawlerConfig { OAuthToken = Guid.NewGuid().ToString(), Handle = "test"});
+            Assert.Equal(5, result.Tweets.Count);
         }
 
 
         [Fact]
-        public async Task Crawler_Should_Return_EmptyList_If_Nothing_Is_Configured()
+        public async Task Crawler_Should_Return_EmptyResult_If_Nothing_Is_Configured()
         {
             var result = await InvokeSut(new TwitterTimelineCrawlerConfig());
-            Assert.Equal(0, result.Count);
+            Assert.NotNull(result);
         }
     }
 }

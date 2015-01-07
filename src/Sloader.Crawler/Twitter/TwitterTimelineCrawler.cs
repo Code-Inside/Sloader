@@ -8,7 +8,7 @@ using WorldDomination.Net.Http;
 
 namespace Sloader.Crawler.Twitter
 {
-    public class TwitterTimelineCrawler : ICrawler<List<TwitterTimelineCrawlerResult>>
+    public class TwitterTimelineCrawler : ICrawler<TwitterTimelineCrawlerResult>
     {
 
         public TwitterTimelineCrawler()
@@ -18,30 +18,23 @@ namespace Sloader.Crawler.Twitter
 
         public TwitterTimelineCrawlerConfig Config { get; set; }
 
-        public async Task<List<TwitterTimelineCrawlerResult>> DoWorkAsync()
+        public async Task<TwitterTimelineCrawlerResult> DoWorkAsync()
         {
-            var results = new List<TwitterTimelineCrawlerResult>();
+            if (string.IsNullOrWhiteSpace(Config.Handle))
+                return new TwitterTimelineCrawlerResult();
 
-            if (string.IsNullOrWhiteSpace(Config.Handles))
-                return results;
+            var result = new TwitterTimelineCrawlerResult();
 
-            foreach (var handle in Config.Handles.Split(';'))
-            {
-                var result = new TwitterTimelineCrawlerResult();
+            result.Key = Config.Handle;
+            result.Type = KnownCrawler.TwitterTimeline;
+            result.Tweets = new List<TwitterTimelineCrawlerResult.Tweet>();
 
-                result.Key = handle;
-                result.Type = KnownCrawler.TwitterTimeline;
-                result.Tweets = new List<TwitterTimelineCrawlerResult.Tweet>();
+            var twitterResult = await GetTwitterTimeline(Config.OAuthToken, Config.Handle);
+            result.Tweets.AddRange(new List<TwitterTimelineCrawlerResult.Tweet>(twitterResult));
 
-                var twitterResult = await GetTwitterTimeline(Config.OAuthToken, handle);
-                result.Tweets.AddRange(new List<TwitterTimelineCrawlerResult.Tweet>(twitterResult));
-
-                results.Add(result);
-            }
-
-            return results;
+            return result;
         }
-    
+
         private static async Task<List<TwitterTimelineCrawlerResult.Tweet>> GetTwitterTimeline(string oauthToken, string screenname)
         {
             Trace.TraceInformation("GetTwitterTimeline invoked with screenname:" + screenname);
