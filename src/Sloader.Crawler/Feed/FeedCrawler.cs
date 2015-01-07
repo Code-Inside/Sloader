@@ -7,13 +7,14 @@ using Sloader.Types;
 
 namespace Sloader.Crawler.Feed
 {
-    public class FeedCrawler : ICrawler<List<FeedCrawlerResult>>
+    public class FeedCrawler : ICrawler<FeedCrawlerResult>
     {
         private readonly IFeedLoader _feedLoader;
         private readonly ITwitterTweetCountLoader _twitterLoader;
         private readonly IFacebookShareCountLoader _facebookLoader;
 
-        public FeedCrawler() : this(new FeedLoader(), new TwitterTweetCountLoader(), new FacebookShareCountLoader())
+        public FeedCrawler()
+            : this(new FeedLoader(), new TwitterTweetCountLoader(), new FacebookShareCountLoader())
         {
 
         }
@@ -25,62 +26,55 @@ namespace Sloader.Crawler.Feed
             _facebookLoader = facebookLoader;
         }
 
-        public string ConfiguredFeeds { get; set; }
-        
-        public async Task<List<FeedCrawlerResult>> DoWorkAsync()
+        public string ConfiguredFeed { get; set; }
+
+        public async Task<FeedCrawlerResult> DoWorkAsync()
         {
-            var results = new List<FeedCrawlerResult>();
+            if (string.IsNullOrWhiteSpace(ConfiguredFeed))
+                return new FeedCrawlerResult();
 
-            if (string.IsNullOrWhiteSpace(ConfiguredFeeds))
-                return results;
+            var crawlerResult = new FeedCrawlerResult();
+            crawlerResult.Type = KnownCrawler.Feed;
+            crawlerResult.Key = ConfiguredFeed;
+            crawlerResult.FeedItems = new List<FeedCrawlerResult.FeedItem>();
 
-            foreach (var feed in ConfiguredFeeds.Split(';'))
+            var syndicationFeed = _feedLoader.Get(ConfiguredFeed);
+
+            foreach (var feedItem in syndicationFeed.Items.OrderBy(x => x.PublishDate))
             {
-                var crawlerResult = new FeedCrawlerResult();
-                crawlerResult.Type = KnownCrawler.Feed;
-                crawlerResult.Key = feed;
-                crawlerResult.FeedItems = new List<FeedCrawlerResult.FeedItem>();
+                int commentCount = 0;
 
-                var syndicationFeed = _feedLoader.Get(feed);
-
-                foreach (var feedItem in syndicationFeed.Items.OrderBy(x => x.PublishDate))
+                foreach (SyndicationElementExtension extension in feedItem.ElementExtensions)
                 {
-                    int commentCount = 0;
+                    var extensionElement = extension.GetObject<XElement>();
 
-                    foreach (SyndicationElementExtension extension in feedItem.ElementExtensions)
+                    if (extensionElement.Name.LocalName == "comments" &&
+                        extensionElement.Name.NamespaceName == "http://purl.org/rss/1.0/modules/slash/")
                     {
-                        var extensionElement = extension.GetObject<XElement>();
-
-                        if (extensionElement.Name.LocalName == "comments" &&
-                            extensionElement.Name.NamespaceName == "http://purl.org/rss/1.0/modules/slash/")
-                        {
-                            commentCount = int.Parse(extensionElement.Value);
-                        }
+                        commentCount = int.Parse(extensionElement.Value);
                     }
-                    
-                    var crawlerResultItem = new FeedCrawlerResult.FeedItem();
-                    crawlerResultItem.Title = feedItem.Title.Text;
-
-                    crawlerResultItem.TweetsCount = await _twitterLoader.GetAsync(feedItem.Id);
-                    crawlerResultItem.FacebookCount = await _facebookLoader.GetAsync(feedItem.Id);
-
-                    crawlerResultItem.CommentsCount = commentCount;
-
-                    if (feedItem.Summary != null)
-                    {
-                        crawlerResultItem.Summary = feedItem.Summary.Text;
-                    }
-
-                    crawlerResultItem.Href = feedItem.Id;
-                    crawlerResultItem.PublishedOn = feedItem.PublishDate.Date;
-
-                    crawlerResult.FeedItems.Add(crawlerResultItem);
                 }
 
-                results.Add(crawlerResult);
+                var crawlerResultItem = new FeedCrawlerResult.FeedItem();
+                crawlerResultItem.Title = feedItem.Title.Text;
+
+                crawlerResultItem.TweetsCount = await _twitterLoader.GetAsync(feedItem.Id);
+                crawlerResultItem.FacebookCount = await _facebookLoader.GetAsync(feedItem.Id);
+
+                crawlerResultItem.CommentsCount = commentCount;
+
+                if (feedItem.Summary != null)
+                {
+                    crawlerResultItem.Summary = feedItem.Summary.Text;
+                }
+
+                crawlerResultItem.Href = feedItem.Id;
+                crawlerResultItem.PublishedOn = feedItem.PublishDate.Date;
+
+                crawlerResult.FeedItems.Add(crawlerResultItem);
             }
 
-            return results;
+            return crawlerResult;
         }
     }
 }

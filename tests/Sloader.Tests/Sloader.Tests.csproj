@@ -60,7 +60,7 @@
   <ItemGroup>
     <Compile Include="DemoTest.cs" />
     <Compile Include="FeedCrawlerTests\FacebookShareCounterTests.cs" />
-    <Compile Include="FeedCrawlerTests\FeedCrawlerTests_With_One_Feed.cs" />
+    <Compile Include="FeedCrawlerTests\FeedCrawlerTests.cs" />
     <Compile Include="FeedCrawlerTests\TwitterTweetCounterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestHelperForCurrentProject.cs" />

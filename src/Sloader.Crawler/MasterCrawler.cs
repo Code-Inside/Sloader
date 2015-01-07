@@ -26,12 +26,16 @@ namespace Sloader.Crawler
             var crawlerRunResult = new CrawlerRun();
 
             // Feeds
-            if (_config.Feeds != null)
+            if (string.IsNullOrWhiteSpace(_config.Feeds) == false)
             {
-                var feedCrawler = new FeedCrawler();
-                feedCrawler.ConfiguredFeeds = _config.Feeds;
-                var feedResults = await feedCrawler.DoWorkAsync();
-                crawlerRunResult.Results.AddRange(feedResults);
+                foreach (var feed in _config.Feeds.Split(';'))
+                {
+                    var feedCrawler = new FeedCrawler();
+                    feedCrawler.ConfiguredFeed = feed;
+                    var feedResult = await feedCrawler.DoWorkAsync();
+                    crawlerRunResult.Results.Add(feedResult);
+                }
+              
             }
 
             // Tweets
