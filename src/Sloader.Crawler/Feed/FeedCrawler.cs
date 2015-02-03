@@ -68,7 +68,15 @@ namespace Sloader.Crawler.Feed
                     crawlerResultItem.Summary = feedItem.Summary.Text;
                 }
 
-                crawlerResultItem.Href = feedItem.Id;
+                if (feedItem.Links.Any())
+                {
+                    crawlerResultItem.Href = feedItem.Links.First().Uri.ToString();
+                }
+                else
+                {
+                    crawlerResultItem.Href = feedItem.Id;
+                }
+
                 crawlerResultItem.PublishedOn = feedItem.PublishDate.Date;
 
                 crawlerResult.FeedItems.Add(crawlerResultItem);
