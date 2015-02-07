@@ -55,7 +55,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigKeys.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Feed\FacebookShareCountLoader.cs" />
     <Compile Include="Feed\FeedCrawler.cs" />
@@ -70,11 +69,13 @@
     <Compile Include="Twitter\TwitterTimelineCrawlerConfig.cs" />
     <Compile Include="ICrawler.cs" />
     <Compile Include="MasterCrawler.cs" />
-    <Compile Include="MasterCrawlerConfig.cs" />
-    <Compile Include="MasterCrawlerSecrets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Sloader.Shared\Sloader.Shared.csproj">
+      <Project>{A2B2BDF7-8FD9-4849-8FCF-89305FCC5FE7}</Project>
+      <Name>Sloader.Shared</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sloader.Types\Sloader.Types.csproj">
       <Project>{fed02dcf-63a5-42b1-b9b7-5cfced9851a0}</Project>
       <Name>Sloader.Types</Name>

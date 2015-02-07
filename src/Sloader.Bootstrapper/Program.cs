@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using Newtonsoft.Json;
 using Sloader.Crawler;
+using Sloader.Shared;
 using Sloader.Types;
 using Constants = Sloader.Crawler.Constants;
 

@@ -22,6 +22,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{95D670
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sloader.Crawler", "src\Sloader.Crawler\Sloader.Crawler.csproj", "{093E48D7-9567-48EF-AA73-915355480200}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sloader.Shared", "src\Sloader.Shared\Sloader.Shared.csproj", "{A2B2BDF7-8FD9-4849-8FCF-89305FCC5FE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{093E48D7-9567-48EF-AA73-915355480200}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{093E48D7-9567-48EF-AA73-915355480200}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{093E48D7-9567-48EF-AA73-915355480200}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2B2BDF7-8FD9-4849-8FCF-89305FCC5FE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2B2BDF7-8FD9-4849-8FCF-89305FCC5FE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2B2BDF7-8FD9-4849-8FCF-89305FCC5FE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2B2BDF7-8FD9-4849-8FCF-89305FCC5FE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,5 +64,6 @@ Global
 		{FED02DCF-63A5-42B1-B9B7-5CFCED9851A0} = {2F59083B-FB24-434B-9875-659794F1959F}
 		{9457897C-7B70-44DF-B569-DF78DEC1DAE9} = {DE234D16-59BA-41D6-B01C-4D307AEF2374}
 		{093E48D7-9567-48EF-AA73-915355480200} = {2F59083B-FB24-434B-9875-659794F1959F}
+		{A2B2BDF7-8FD9-4849-8FCF-89305FCC5FE7} = {2F59083B-FB24-434B-9875-659794F1959F}
 	EndGlobalSection
 EndGlobal

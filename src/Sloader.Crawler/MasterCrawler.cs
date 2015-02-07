@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Sloader.Crawler.DependencyServices;
 using Sloader.Crawler.Feed;
 using Sloader.Crawler.Twitter;
+using Sloader.Shared;
 using Sloader.Types;
 
 namespace Sloader.Crawler

@@ -132,6 +132,10 @@
       <Project>{093e48d7-9567-48ef-aa73-915355480200}</Project>
       <Name>Sloader.Crawler</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Sloader.Shared\Sloader.Shared.csproj">
+      <Project>{A2B2BDF7-8FD9-4849-8FCF-89305FCC5FE7}</Project>
+      <Name>Sloader.Shared</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sloader.Types\Sloader.Types.csproj">
       <Project>{fed02dcf-63a5-42b1-b9b7-5cfced9851a0}</Project>
       <Name>Sloader.Types</Name>
