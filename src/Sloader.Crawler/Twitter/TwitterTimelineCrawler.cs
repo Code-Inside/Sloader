@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Sloader.Shared;
 using Sloader.Types;
 using WorldDomination.Net.Http;
 

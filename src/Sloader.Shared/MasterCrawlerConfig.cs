@@ -5,4 +5,6 @@ namespace Sloader.Shared
         public string Feeds { get; set; }
         public string TwitterHandles { get; set; } 
     }
+
+
 }

@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigKeys.cs" />
+    <Compile Include="KnownCrawler.cs" />
     <Compile Include="MasterCrawlerConfig.cs" />
     <Compile Include="MasterCrawlerSecrets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

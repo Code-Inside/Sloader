@@ -1,7 +1,4 @@
-﻿using System.Linq;
-using System.Text;
-
-namespace Sloader.Types
+﻿namespace Sloader.Shared
 {
     public static class KnownCrawler
     {
