@@ -11,26 +11,21 @@ namespace Sloader.Crawler.Twitter
 {
     public class TwitterTimelineCrawler : ICrawler<TwitterTimelineCrawlerResult>
     {
-
-        public TwitterTimelineCrawler()
-        {
-            Config = new TwitterTimelineCrawlerConfig();
-        }
-
-        public TwitterTimelineCrawlerConfig Config { get; set; }
+        public string Handle { get; set; }
+        public string OAuthToken { get; set; }
 
         public async Task<TwitterTimelineCrawlerResult> DoWorkAsync()
         {
-            if (string.IsNullOrWhiteSpace(Config.Handle))
+            if (string.IsNullOrWhiteSpace(Handle))
                 return new TwitterTimelineCrawlerResult();
 
             var result = new TwitterTimelineCrawlerResult();
 
-            result.Key = Config.Handle;
+            result.Key = Handle;
             result.Type = KnownCrawler.TwitterTimeline;
             result.Tweets = new List<TwitterTimelineCrawlerResult.Tweet>();
 
-            var twitterResult = await GetTwitterTimeline(Config.OAuthToken, Config.Handle);
+            var twitterResult = await GetTwitterTimeline(OAuthToken, Handle);
             result.Tweets.AddRange(new List<TwitterTimelineCrawlerResult.Tweet>(twitterResult));
 
             return result;

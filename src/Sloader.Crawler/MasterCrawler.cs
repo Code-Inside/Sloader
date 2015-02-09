@@ -32,7 +32,7 @@ namespace Sloader.Crawler
                 foreach (var feed in _config.Feeds.Split(';'))
                 {
                     var feedCrawler = new FeedCrawler();
-                    feedCrawler.ConfiguredFeed = feed;
+                    feedCrawler.Feed = feed;
                     var feedResult = await feedCrawler.DoWorkAsync();
                     crawlerRunResult.Results.Add(feedResult);
                 }
@@ -51,8 +51,8 @@ namespace Sloader.Crawler
                     foreach (var handle in _config.TwitterHandles.Split(';'))
                     {
                         var twitterCrawler = new TwitterTimelineCrawler();
-                        twitterCrawler.Config.Handle = handle;
-                        twitterCrawler.Config.OAuthToken = oauth;
+                        twitterCrawler.Handle = handle;
+                        twitterCrawler.OAuthToken = oauth;
 
                         var twitterResult = await twitterCrawler.DoWorkAsync();
                         crawlerRunResult.Results.Add(twitterResult);

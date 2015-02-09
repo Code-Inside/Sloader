@@ -27,7 +27,7 @@ namespace Sloader.Tests.FeedCrawlerTests
             A.CallTo(() => facebokLoaderMock.GetAsync(string.Empty)).WithAnyArguments().Returns(facebookShares);
 
             var sut = new FeedCrawler(feedLoaderMock, twitterLoaderMock, facebokLoaderMock);
-            sut.ConfiguredFeed = feed;
+            sut.Feed = feed;
             return await sut.DoWorkAsync();
         }
 
@@ -45,7 +45,7 @@ namespace Sloader.Tests.FeedCrawlerTests
             A.CallTo(() => facebokLoaderMock.GetAsync(string.Empty)).WithAnyArguments().Returns(facebookShares);
 
             var sut = new FeedCrawler(feedLoaderMock, twitterLoaderMock, facebokLoaderMock);
-            sut.ConfiguredFeed = feed;
+            sut.Feed = feed;
             return await sut.DoWorkAsync();
         }
 
