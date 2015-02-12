@@ -56,18 +56,23 @@
     <Reference Include="xunit">
       <HintPath>..\..\packages\xunit.1.9.2\lib\net20\xunit.dll</HintPath>
     </Reference>
+    <Reference Include="YamlDotNet">
+      <HintPath>..\..\packages\YamlDotNet.3.5.1\lib\net35\YamlDotNet.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DemoTest.cs" />
     <Compile Include="FeedCrawlerTests\FacebookShareCounterTests.cs" />
     <Compile Include="FeedCrawlerTests\FeedCrawlerTests.cs" />
     <Compile Include="FeedCrawlerTests\TwitterTweetCounterTests.cs" />
+    <Compile Include="MasterCrawlerConfigTests\MasterCrawlerConfigTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestHelperForCurrentProject.cs" />
     <Compile Include="TwitterTimelineCrawlerTests\TwitterTimelineCrawerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <EmbeddedResource Include="MasterCrawlerConfigTests\Sample.yaml" />
     <None Include="packages.config" />
     <EmbeddedResource Include="TwitterTimelineCrawlerTests\Sample\user_timeline.json" />
   </ItemGroup>
@@ -82,6 +87,10 @@
     <ProjectReference Include="..\..\src\Sloader.Crawler\Sloader.Crawler.csproj">
       <Project>{093e48d7-9567-48ef-aa73-915355480200}</Project>
       <Name>Sloader.Crawler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Sloader.Shared\Sloader.Shared.csproj">
+      <Project>{A2B2BDF7-8FD9-4849-8FCF-89305FCC5FE7}</Project>
+      <Name>Sloader.Shared</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\src\Sloader.Types\Sloader.Types.csproj">
       <Project>{FED02DCF-63A5-42B1-B9B7-5CFCED9851A0}</Project>
