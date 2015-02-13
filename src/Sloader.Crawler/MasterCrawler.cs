@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Sloader.Crawler.DependencyServices;
 using Sloader.Crawler.Feed;
@@ -27,20 +28,20 @@ namespace Sloader.Crawler
             var crawlerRunResult = new CrawlerRun();
 
             // Feeds
-            if (string.IsNullOrWhiteSpace(_config.Feeds) == false)
+            if (_config.FeedsToCrawl.Any())
             {
-                foreach (var feed in _config.Feeds.Split(';'))
+                foreach (var feed in _config.FeedsToCrawl)
                 {
                     var feedCrawler = new FeedCrawler();
-                    feedCrawler.Feed = feed;
-                    var feedResult = await feedCrawler.DoWorkAsync();
+                    feedCrawler.Url = feed.Url;
+                    var feedResult = await feedCrawler.DoWorkAsync(feed.ResultIdentifier);
                     crawlerRunResult.Results.Add(feedResult);
                 }
               
             }
 
             // Tweets
-            if (string.IsNullOrWhiteSpace(_config.TwitterHandles) == false &&
+            if (_config.TwitterTimelinesToCrawl.Any() &&
                 string.IsNullOrEmpty(_secrets.TwitterConsumerKey) == false &&
                 string.IsNullOrEmpty(_secrets.TwitterConsumerSecret) == false)
             {
@@ -48,13 +49,13 @@ namespace Sloader.Crawler
                 var oauth = await oAuthTokenLoader.GetAsync(_secrets.TwitterConsumerKey, _secrets.TwitterConsumerSecret);
                 if (string.IsNullOrWhiteSpace(oauth) == false)
                 {
-                    foreach (var handle in _config.TwitterHandles.Split(';'))
+                    foreach (var handle in _config.TwitterTimelinesToCrawl)
                     {
                         var twitterCrawler = new TwitterTimelineCrawler();
-                        twitterCrawler.Handle = handle;
+                        twitterCrawler.Handle = handle.Handle;
                         twitterCrawler.OAuthToken = oauth;
 
-                        var twitterResult = await twitterCrawler.DoWorkAsync();
+                        var twitterResult = await twitterCrawler.DoWorkAsync(handle.ResultIdentifier);
                         crawlerRunResult.Results.Add(twitterResult);
                     }
                 }

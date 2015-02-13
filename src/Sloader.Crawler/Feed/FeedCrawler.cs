@@ -27,19 +27,19 @@ namespace Sloader.Crawler.Feed
             _facebookLoader = facebookLoader;
         }
 
-        public string Feed { get; set; }
+        public string Url { get; set; }
 
-        public async Task<FeedCrawlerResult> DoWorkAsync()
+        public async Task<FeedCrawlerResult> DoWorkAsync(string resultIdentifier)
         {
-            if (string.IsNullOrWhiteSpace(Feed))
+            if (string.IsNullOrWhiteSpace(Url))
                 return new FeedCrawlerResult();
 
             var crawlerResult = new FeedCrawlerResult();
-            crawlerResult.Type = KnownCrawler.Feed;
-            crawlerResult.Key = Feed;
+            crawlerResult.ResultType = KnownCrawler.Feed;
+            crawlerResult.ResultIdentifier = resultIdentifier;
             crawlerResult.FeedItems = new List<FeedCrawlerResult.FeedItem>();
 
-            var syndicationFeed = _feedLoader.Get(Feed);
+            var syndicationFeed = _feedLoader.Get(Url);
 
             foreach (var feedItem in syndicationFeed.Items.OrderBy(x => x.PublishDate))
             {

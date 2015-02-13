@@ -7,8 +7,6 @@ namespace Sloader.Shared
     public class MasterCrawlerConfig
     {
         public IList<FeedCrawlerConfig> FeedsToCrawl { get; set; } 
-        public string Feeds { get; set; }
-        public string TwitterHandles { get; set; }
         public IList<TwitterTimelineCrawlerConfig> TwitterTimelinesToCrawl { get; set; } 
     }
 }

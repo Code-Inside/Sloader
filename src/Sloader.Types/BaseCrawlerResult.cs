@@ -2,7 +2,7 @@
 {
     public abstract class BaseCrawlerResult
     {
-        public string Type { get; set; }
-        public string Key { get; set; }
+        public string ResultType { get; set; }
+        public string ResultIdentifier { get; set; }
     }
 }

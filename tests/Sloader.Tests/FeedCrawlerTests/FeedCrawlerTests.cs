@@ -27,8 +27,8 @@ namespace Sloader.Tests.FeedCrawlerTests
             A.CallTo(() => facebokLoaderMock.GetAsync(string.Empty)).WithAnyArguments().Returns(facebookShares);
 
             var sut = new FeedCrawler(feedLoaderMock, twitterLoaderMock, facebokLoaderMock);
-            sut.Feed = feed;
-            return await sut.DoWorkAsync();
+            sut.Url = feed;
+            return await sut.DoWorkAsync("github");
         }
 
 
@@ -45,8 +45,8 @@ namespace Sloader.Tests.FeedCrawlerTests
             A.CallTo(() => facebokLoaderMock.GetAsync(string.Empty)).WithAnyArguments().Returns(facebookShares);
 
             var sut = new FeedCrawler(feedLoaderMock, twitterLoaderMock, facebokLoaderMock);
-            sut.Feed = feed;
-            return await sut.DoWorkAsync();
+            sut.Url = feed;
+            return await sut.DoWorkAsync("slashdot");
         }
 
         [Fact]
@@ -109,6 +109,14 @@ namespace Sloader.Tests.FeedCrawlerTests
             {
                 Assert.True(feedItem.Href.StartsWith("https://github.com/"));
             }
+        }
+
+
+        [Fact]
+        public async Task Crawler_Returns_Result_With_Correct_Identifier()
+        {
+            var result = await InvokeGitHubSut(0, 0);
+            Assert.Equal("github", result.ResultIdentifier);
         }
 
     }

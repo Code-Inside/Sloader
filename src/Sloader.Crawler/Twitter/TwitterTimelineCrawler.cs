@@ -14,15 +14,15 @@ namespace Sloader.Crawler.Twitter
         public string Handle { get; set; }
         public string OAuthToken { get; set; }
 
-        public async Task<TwitterTimelineCrawlerResult> DoWorkAsync()
+        public async Task<TwitterTimelineCrawlerResult> DoWorkAsync(string resultIdentifier)
         {
             if (string.IsNullOrWhiteSpace(Handle))
                 return new TwitterTimelineCrawlerResult();
 
             var result = new TwitterTimelineCrawlerResult();
 
-            result.Key = Handle;
-            result.Type = KnownCrawler.TwitterTimeline;
+            result.ResultIdentifier = resultIdentifier;
+            result.ResultType = KnownCrawler.TwitterTimeline;
             result.Tweets = new List<TwitterTimelineCrawlerResult.Tweet>();
 
             var twitterResult = await GetTwitterTimeline(OAuthToken, Handle);
