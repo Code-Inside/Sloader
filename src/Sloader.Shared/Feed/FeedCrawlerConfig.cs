@@ -1,3 +1,6 @@
+using System.ComponentModel;
+using YamlDotNet.Serialization;
+
 namespace Sloader.Shared.Feed
 {
     public class FeedCrawlerConfig : BaseCrawlerConfig
@@ -8,7 +11,11 @@ namespace Sloader.Shared.Feed
         }
 
         public string Url { get; set; }
+
+        [DefaultValue(true)]
         public bool LoadSocialLinkCounters { get; set; }
+
+        [DefaultValue(true)]
         public bool LoadFullContent { get; set; }
 
     }
