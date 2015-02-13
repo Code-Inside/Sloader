@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using Sloader.Crawler;
 using Sloader.Shared;
 using Sloader.Types;
+using YamlDotNet.Serialization;
 using Constants = Sloader.Crawler.Constants;
 
 namespace Sloader.Bootstrapper
@@ -39,11 +40,13 @@ namespace Sloader.Bootstrapper
         {
             var client = new HttpClient();
 #if DEBUG
-            var configString = await client.GetStringAsync("https://raw.githubusercontent.com/Code-Inside/Hub/master/CrawlerConfig.json");
+            var configString = await client.GetStringAsync("https://raw.githubusercontent.com/Code-Inside/Sloader/master/src/Sloader.Web/App_Data/Sloader.yml");
 #else
             var configString = await client.GetStringAsync(ConfigurationManager.AppSettings[ConfigKeys.MasterCrawlerConfigPath]);
 #endif
-            var config = JsonConvert.DeserializeObject<MasterCrawlerConfig>(configString);
+
+            var deserializer = new Deserializer();
+            var config = deserializer.Deserialize<MasterCrawlerConfig>(new StringReader(configString));
 
             var secrets = new MasterCrawlerSecrets();
             secrets.TwitterConsumerKey = ConfigurationManager.AppSettings[ConfigKeys.SecretTwitterConsumerKey];
