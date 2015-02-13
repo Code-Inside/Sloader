@@ -4,28 +4,28 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Sloader.Shared;
+using Sloader.Shared.Twitter;
 using Sloader.Types;
 using WorldDomination.Net.Http;
 
 namespace Sloader.Crawler.Twitter
 {
-    public class TwitterTimelineCrawler : ICrawler<TwitterTimelineCrawlerResult>
+    public class TwitterTimelineCrawler : ICrawler<TwitterTimelineCrawlerResult, TwitterTimelineCrawlerConfig>
     {
-        public string Handle { get; set; }
         public string OAuthToken { get; set; }
 
-        public async Task<TwitterTimelineCrawlerResult> DoWorkAsync(string resultIdentifier)
+        public async Task<TwitterTimelineCrawlerResult> DoWorkAsync(TwitterTimelineCrawlerConfig config)
         {
-            if (string.IsNullOrWhiteSpace(Handle))
+            if (string.IsNullOrWhiteSpace(config.Handle))
                 return new TwitterTimelineCrawlerResult();
 
             var result = new TwitterTimelineCrawlerResult();
 
-            result.ResultIdentifier = resultIdentifier;
+            result.ResultIdentifier = config.ResultIdentifier;
             result.ResultType = KnownCrawler.TwitterTimeline;
             result.Tweets = new List<TwitterTimelineCrawlerResult.Tweet>();
 
-            var twitterResult = await GetTwitterTimeline(OAuthToken, Handle);
+            var twitterResult = await GetTwitterTimeline(OAuthToken, config.Handle);
             result.Tweets.AddRange(new List<TwitterTimelineCrawlerResult.Tweet>(twitterResult));
 
             return result;

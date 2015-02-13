@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 
 namespace Sloader.Crawler
 {
-    public interface ICrawler<T>
+    public interface ICrawler<TResult, TConfig>
     {
-        Task<T> DoWorkAsync(string resultIdentifier);
+        Task<TResult> DoWorkAsync(TConfig config);
     }
 }

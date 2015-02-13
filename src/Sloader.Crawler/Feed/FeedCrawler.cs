@@ -4,11 +4,12 @@ using System.ServiceModel.Syndication;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Sloader.Shared;
+using Sloader.Shared.Feed;
 using Sloader.Types;
 
 namespace Sloader.Crawler.Feed
 {
-    public class FeedCrawler : ICrawler<FeedCrawlerResult>
+    public class FeedCrawler : ICrawler<FeedCrawlerResult, FeedCrawlerConfig>
     {
         private readonly IFeedLoader _feedLoader;
         private readonly ITwitterTweetCountLoader _twitterLoader;
@@ -27,19 +28,18 @@ namespace Sloader.Crawler.Feed
             _facebookLoader = facebookLoader;
         }
 
-        public string Url { get; set; }
 
-        public async Task<FeedCrawlerResult> DoWorkAsync(string resultIdentifier)
+        public async Task<FeedCrawlerResult> DoWorkAsync(FeedCrawlerConfig config)
         {
-            if (string.IsNullOrWhiteSpace(Url))
+            if (string.IsNullOrWhiteSpace(config.Url))
                 return new FeedCrawlerResult();
 
             var crawlerResult = new FeedCrawlerResult();
             crawlerResult.ResultType = KnownCrawler.Feed;
-            crawlerResult.ResultIdentifier = resultIdentifier;
+            crawlerResult.ResultIdentifier = config.ResultIdentifier;
             crawlerResult.FeedItems = new List<FeedCrawlerResult.FeedItem>();
 
-            var syndicationFeed = _feedLoader.Get(Url);
+            var syndicationFeed = _feedLoader.Get(config.Url);
 
             foreach (var feedItem in syndicationFeed.Items.OrderBy(x => x.PublishDate))
             {

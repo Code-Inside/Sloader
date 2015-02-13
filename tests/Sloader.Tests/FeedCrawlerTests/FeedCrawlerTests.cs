@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using FakeItEasy;
 using Sloader.Crawler.Feed;
+using Sloader.Shared.Feed;
 using Sloader.Types;
 using Xunit;
 
@@ -27,8 +28,11 @@ namespace Sloader.Tests.FeedCrawlerTests
             A.CallTo(() => facebokLoaderMock.GetAsync(string.Empty)).WithAnyArguments().Returns(facebookShares);
 
             var sut = new FeedCrawler(feedLoaderMock, twitterLoaderMock, facebokLoaderMock);
-            sut.Url = feed;
-            return await sut.DoWorkAsync("github");
+
+            var config = new FeedCrawlerConfig();
+            config.Url = feed;
+
+            return await sut.DoWorkAsync(config);
         }
 
 
@@ -45,8 +49,11 @@ namespace Sloader.Tests.FeedCrawlerTests
             A.CallTo(() => facebokLoaderMock.GetAsync(string.Empty)).WithAnyArguments().Returns(facebookShares);
 
             var sut = new FeedCrawler(feedLoaderMock, twitterLoaderMock, facebokLoaderMock);
-            sut.Url = feed;
-            return await sut.DoWorkAsync("slashdot");
+
+            var config = new FeedCrawlerConfig();
+            config.Url = feed;
+
+            return await sut.DoWorkAsync(config);
         }
 
         [Fact]
@@ -116,7 +123,7 @@ namespace Sloader.Tests.FeedCrawlerTests
         public async Task Crawler_Returns_Result_With_Correct_Identifier()
         {
             var result = await InvokeGitHubSut(0, 0);
-            Assert.Equal("github", result.ResultIdentifier);
+            Assert.Equal("https://github.com/robertmuehsig.atom", result.ResultIdentifier);
         }
 
     }
