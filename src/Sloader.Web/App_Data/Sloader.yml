@@ -1,0 +1,15 @@
+﻿FeedsToCrawl:
+- Url: http://blogin.codeinside.eu/feed
+  LoadSocialLinkCounters: true
+  LoadFullContent: true
+- Url: https://github.com/robertmuehsig.atom
+  LoadSocialLinkCounters: false
+  LoadFullContent: false
+- Url: https://github.com/oliverguhr.atom
+  LoadSocialLinkCounters: false
+  LoadFullContent: false
+
+TwitterTimelinesToCrawl:
+- Handle: codeinsideblog
+- Handle: robert0muehsig
+- Handle: oliverguhr
