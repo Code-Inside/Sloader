@@ -8,7 +8,6 @@
     <owners>Code Inside Team</owners>
     <licenseUrl>https://github.com/Code-Inside/Sloader/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/Code-Inside/Sloader</projectUrl>
-    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Result Type Definitions</description>
     <releaseNotes>Development.</releaseNotes>
