@@ -9,7 +9,7 @@ namespace Sloader.Tests.MasterCrawlerConfigTests
     public class MasterCrawlerConfigTests
     {
         [Fact]
-        public async Task Deserialize_Of_Testdata_To_MasterCrawlerConfig_Works()
+        public void Deserialize_Of_Testdata_To_MasterCrawlerConfig_Works()
         {
             string yaml = TestHelperForCurrentProject.GetTestFileContent("MasterCrawlerConfigTests.Sample.yaml");
 

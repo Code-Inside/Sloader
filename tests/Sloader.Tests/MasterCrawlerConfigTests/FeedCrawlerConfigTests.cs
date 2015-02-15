@@ -14,7 +14,7 @@ namespace Sloader.Tests.MasterCrawlerConfigTests
     public class FeedCrawlerConfigTests
     {
         // [Fact] - Currently not supported by YamlDotNet
-        public async Task Default_For_LoadSocialLinkCounters_Is_True()
+        public void Default_For_LoadSocialLinkCounters_Is_True()
         {
             StringBuilder fakeYaml = new StringBuilder();
             fakeYaml.AppendLine("FeedsToCrawl:");
@@ -28,7 +28,7 @@ namespace Sloader.Tests.MasterCrawlerConfigTests
         }
 
         // [Fact] - Currently not supported by YamlDotNet
-        public async Task Default_For_LoadFullContent_Is_True()
+        public void Default_For_LoadFullContent_Is_True()
         {
             StringBuilder fakeYaml = new StringBuilder();
             fakeYaml.AppendLine("FeedsToCrawl:");
@@ -42,7 +42,7 @@ namespace Sloader.Tests.MasterCrawlerConfigTests
         }
 
         [Fact]
-        public async Task Url_Is_Identifier()
+        public void Url_Is_Identifier()
         {
             StringBuilder fakeYaml = new StringBuilder();
             fakeYaml.AppendLine("FeedsToCrawl:");
