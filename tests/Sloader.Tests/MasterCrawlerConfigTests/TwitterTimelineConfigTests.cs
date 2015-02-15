@@ -14,7 +14,7 @@ namespace Sloader.Tests.MasterCrawlerConfigTests
     {
       
         [Fact]
-        public async Task Handle_Is_Identifier()
+        public void Handle_Is_Identifier()
         {
             StringBuilder fakeYaml = new StringBuilder();
             fakeYaml.AppendLine("TwitterTimelinesToCrawl:");
