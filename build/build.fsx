@@ -8,9 +8,12 @@ RestorePackages()
 let artifactsDir = @".\artifacts\"
 let artifactsBuildDir = "./artifacts/build/"
 let artifactsTestsDir  = "./artifacts/tests/"
+
+let toolNugetExe = @".nuget\nuget.exe"
+
+let resultsNuGetPkg = @".\src\Sloader.Results\Sloader.Results.nuspec"
 let artifactsResultsNugetSrcDir  = @".\artifacts\nuget-results-src\"
 let artifactsResultsNugetPkgDir  = @".\artifacts\nuget-results-pkg\"
-let toolNugetExe = @".nuget\nuget.exe"
 
 // Targets
 Target "Clean" (fun _ ->
@@ -39,15 +42,13 @@ Target "RunTests" (fun _ ->
 )
 
 // Poor mans NuGet Pack Solution for FAKE...
-let resultsNuGetPkg = @".\src\Sloader.Results\Sloader.Results.nuspec"
-
 Target "CreateNuGetPackages" (fun _ ->
 
     trace "Create Assembly for NuGet Packages..."
     // The Path stuff is sooo wrong, but I have no idea how to do this elegant
     !! "src/Sloader.Results/*.csproj"
      |> MSBuildRelease artifactsResultsNugetSrcDir "Build"
-     |> Log "TestBuild-Output: "
+     |> Log "NuGet Assembly Build-Output: "
 
     trace "Create NuGet Packages..."
     CreateDir artifactsResultsNugetPkgDir

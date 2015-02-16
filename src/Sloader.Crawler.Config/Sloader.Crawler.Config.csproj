@@ -52,12 +52,6 @@
     <Compile Include="Twitter\TwitterTimelineCrawlerConfig.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sloader.Types\Sloader.Results.csproj">
-      <Project>{FED02DCF-63A5-42B1-B9B7-5CFCED9851A0}</Project>
-      <Name>Sloader.Results</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
