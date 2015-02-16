@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Sloader.Types
+namespace Sloader.Results
 {
     public class CrawlerRun
     {

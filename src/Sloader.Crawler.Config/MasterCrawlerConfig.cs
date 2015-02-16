@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Sloader.Shared.Feed;
-using Sloader.Shared.Twitter;
+using Sloader.Crawler.Config.Feed;
+using Sloader.Crawler.Config.Twitter;
 
-namespace Sloader.Shared
+namespace Sloader.Crawler.Config
 {
     public class MasterCrawlerConfig
     {

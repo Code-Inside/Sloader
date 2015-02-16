@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
-using Sloader.Shared;
+using Sloader.Crawler.Config;
 using Xunit;
 using YamlDotNet.Serialization;
 

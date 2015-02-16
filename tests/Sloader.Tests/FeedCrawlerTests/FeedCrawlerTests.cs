@@ -3,9 +3,9 @@ using System.ServiceModel.Syndication;
 using System.Threading.Tasks;
 using System.Xml;
 using FakeItEasy;
+using Sloader.Crawler.Config.Feed;
 using Sloader.Crawler.Feed;
-using Sloader.Shared.Feed;
-using Sloader.Types;
+using Sloader.Results;
 using Xunit;
 
 namespace Sloader.Tests.FeedCrawlerTests

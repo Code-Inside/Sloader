@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Sloader.Shared;
+using Sloader.Crawler.Config;
 using Xunit;
 using YamlDotNet.Core;
 using YamlDotNet.Serialization;

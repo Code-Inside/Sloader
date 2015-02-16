@@ -1,4 +1,4 @@
-namespace Sloader.Shared.Twitter
+namespace Sloader.Crawler.Config.Twitter
 {
     public class TwitterTimelineCrawlerConfig : BaseCrawlerConfig
     {

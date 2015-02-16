@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Sloader.Crawler.Config.Twitter;
 using Sloader.Crawler.Twitter;
-using Sloader.Shared.Twitter;
-using Sloader.Types;
+using Sloader.Results;
 using WorldDomination.Net.Http;
 using Xunit;
 

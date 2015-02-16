@@ -3,9 +3,9 @@ using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using Sloader.Shared;
-using Sloader.Shared.Feed;
-using Sloader.Types;
+using Sloader.Crawler.Config;
+using Sloader.Crawler.Config.Feed;
+using Sloader.Results;
 
 namespace Sloader.Crawler.Feed
 {

@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Sloader.Types</id>
+    <id>Sloader.Results</id>
     <version>0.1</version>
-    <title>Sloader.Types</title>
+    <title>Sloader.Results</title>
     <authors>Code Inside Team</authors>
     <owners>Code Inside Team</owners>
     <licenseUrl>https://github.com/Code-Inside/Sloader/blob/master/LICENSE</licenseUrl>

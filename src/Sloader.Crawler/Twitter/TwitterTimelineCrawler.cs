@@ -3,9 +3,9 @@ using System.Diagnostics;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Sloader.Shared;
-using Sloader.Shared.Twitter;
-using Sloader.Types;
+using Sloader.Crawler.Config;
+using Sloader.Crawler.Config.Twitter;
+using Sloader.Results;
 using WorldDomination.Net.Http;
 
 namespace Sloader.Crawler.Twitter

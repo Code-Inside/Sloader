@@ -1,7 +1,6 @@
 using System.ComponentModel;
-using YamlDotNet.Serialization;
 
-namespace Sloader.Shared.Feed
+namespace Sloader.Crawler.Config.Feed
 {
     public class FeedCrawlerConfig : BaseCrawlerConfig
     {

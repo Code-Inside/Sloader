@@ -1,4 +1,4 @@
-namespace Sloader.Shared
+namespace Sloader.Crawler.Config
 {
     public abstract class BaseCrawlerConfig
     {

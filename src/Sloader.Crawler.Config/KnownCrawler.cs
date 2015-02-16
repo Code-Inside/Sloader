@@ -1,4 +1,4 @@
-﻿namespace Sloader.Shared
+﻿namespace Sloader.Crawler.Config
 {
     public static class KnownCrawler
     {

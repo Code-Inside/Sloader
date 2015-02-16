@@ -39,7 +39,7 @@ Target "RunTests" (fun _ ->
 
 
 
-let nuspec = @".\src\Sloader.Types\Sloader.Types.nuspec"
+let nuspec = @".\src\Sloader.Results\Sloader.Results.nuspec"
 // Poor mans NuGet Pack Solution for FAKE...  
 Target "CreateNuGetPackages" (fun _ ->
     trace "Create NuGet Packages..."

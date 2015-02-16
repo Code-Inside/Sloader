@@ -1,4 +1,4 @@
-﻿namespace Sloader.Types
+﻿namespace Sloader.Results
 {
     public abstract class BaseCrawlerResult
     {

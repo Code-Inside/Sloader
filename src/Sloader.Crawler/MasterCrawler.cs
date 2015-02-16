@@ -1,11 +1,11 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Sloader.Crawler.Config;
 using Sloader.Crawler.DependencyServices;
 using Sloader.Crawler.Feed;
 using Sloader.Crawler.Twitter;
-using Sloader.Shared;
-using Sloader.Types;
+using Sloader.Results;
 
 namespace Sloader.Crawler
 {

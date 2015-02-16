@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Sloader.Types
+namespace Sloader.Results
 {
     public class TwitterTimelineCrawlerResult : BaseCrawlerResult
     {
