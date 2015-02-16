@@ -8,7 +8,8 @@ RestorePackages()
 let artifactsDir = @".\artifacts\"
 let artifactsBuildDir = "./artifacts/build/"
 let artifactsTestsDir  = "./artifacts/tests/"
-let artifactsNugetDir  = @".\artifacts\nuget\"
+let artifactsResultsNugetSrcDir  = @".\artifacts\nuget-results-src\"
+let artifactsResultsNugetPkgDir  = @".\artifacts\nuget-results-pkg\"
 let toolNugetExe = @".nuget\nuget.exe"
 
 // Targets
@@ -37,17 +38,23 @@ Target "RunTests" (fun _ ->
       |> xUnit (fun p -> {p with OutputDir = artifactsTestsDir })
 )
 
+// Poor mans NuGet Pack Solution for FAKE...
+let resultsNuGetPkg = @".\src\Sloader.Results\Sloader.Results.nuspec"
 
-
-let nuspec = @".\src\Sloader.Results\Sloader.Results.nuspec"
-// Poor mans NuGet Pack Solution for FAKE...  
 Target "CreateNuGetPackages" (fun _ ->
+
+    trace "Create Assembly for NuGet Packages..."
+    // The Path stuff is sooo wrong, but I have no idea how to do this elegant
+    !! "src/Sloader.Results/*.csproj"
+     |> MSBuildRelease artifactsResultsNugetSrcDir "Build"
+     |> Log "TestBuild-Output: "
+
     trace "Create NuGet Packages..."
-    CreateDir artifactsNugetDir
+    CreateDir artifactsResultsNugetPkgDir
     let result =
         ExecProcess (fun info -> 
             info.FileName <- toolNugetExe
-            info.Arguments <- "pack " + nuspec + " -OutputDirectory " + artifactsNugetDir
+            info.Arguments <- "pack " + resultsNuGetPkg + " -OutputDirectory " + artifactsResultsNugetPkgDir + " -BasePath " + artifactsResultsNugetSrcDir
         ) (System.TimeSpan.FromMinutes 1.)
  
     if result <> 0 then failwith "Failed result from NuGet"
