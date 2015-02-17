@@ -13,7 +13,7 @@ let toolNugetExe = @".nuget\nuget.exe"
 
 let resultsNuGetPkg = @".\src\Sloader.Results\Sloader.Results.nuspec"
 let artifactsResultsNugetSrcDir  = @".\artifacts\nuget-results-src\"
-let artifactsResultsNugetPkgDir  = @".\artifacts\nuget-results-pkg\"
+let artifactsPkgDir  = @".\artifacts\nuget-pkg\"
 
 // Targets
 Target "Clean" (fun _ ->
@@ -51,11 +51,11 @@ Target "CreateNuGetPackages" (fun _ ->
      |> Log "NuGet Assembly Build-Output: "
 
     trace "Create NuGet Packages..."
-    CreateDir artifactsResultsNugetPkgDir
+    CreateDir artifactsPkgDir
     let result =
         ExecProcess (fun info -> 
             info.FileName <- toolNugetExe
-            info.Arguments <- "pack " + resultsNuGetPkg + " -OutputDirectory " + artifactsResultsNugetPkgDir + " -BasePath " + artifactsResultsNugetSrcDir
+            info.Arguments <- "pack " + resultsNuGetPkg + " -OutputDirectory " + artifactsPkgDir + " -BasePath " + artifactsResultsNugetSrcDir
         ) (System.TimeSpan.FromMinutes 1.)
  
     if result <> 0 then failwith "Failed result from NuGet"
