@@ -27,6 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sloader.Results", "src\Sloa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{90760E0A-E00F-457C-8726-3C3D3221D798}"
 	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
 		build\build.fsx = build\build.fsx
 	EndProjectSection
 EndProject
