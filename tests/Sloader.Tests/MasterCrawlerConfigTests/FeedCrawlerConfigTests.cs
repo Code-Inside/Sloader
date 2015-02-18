@@ -13,7 +13,7 @@ namespace Sloader.Tests.MasterCrawlerConfigTests
 {
     public class FeedCrawlerConfigTests
     {
-        // [Fact] - Currently not supported by YamlDotNet
+        [Fact]
         public void Default_For_LoadSocialLinkCounters_Is_True()
         {
             StringBuilder fakeYaml = new StringBuilder();
@@ -25,20 +25,6 @@ namespace Sloader.Tests.MasterCrawlerConfigTests
             var configValue = result.FeedsToCrawl.First();
 
             Assert.True(configValue.LoadSocialLinkCounters);
-        }
-
-        // [Fact] - Currently not supported by YamlDotNet
-        public void Default_For_LoadFullContent_Is_True()
-        {
-            StringBuilder fakeYaml = new StringBuilder();
-            fakeYaml.AppendLine("FeedsToCrawl:");
-            fakeYaml.AppendLine("- Url: http://blogin.codeinside.eu/feed");
-
-            var deserializer = new Deserializer();
-            var result = deserializer.Deserialize<MasterCrawlerConfig>(new StringReader(fakeYaml.ToString()));
-            var configValue = result.FeedsToCrawl.First();
-
-            Assert.True(configValue.LoadFullContent);
         }
 
         [Fact]

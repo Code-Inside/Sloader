@@ -4,6 +4,11 @@ namespace Sloader.Crawler.Config.Feed
 {
     public class FeedCrawlerConfig : BaseCrawlerConfig
     {
+        public FeedCrawlerConfig()
+        {
+            LoadSocialLinkCounters = true;
+        }
+
         public override string ResultIdentifier
         {
             get { return Url; }
@@ -11,11 +16,6 @@ namespace Sloader.Crawler.Config.Feed
 
         public string Url { get; set; }
 
-        [DefaultValue(true)]
         public bool LoadSocialLinkCounters { get; set; }
-
-        [DefaultValue(true)]
-        public bool LoadFullContent { get; set; }
-
     }
 }
