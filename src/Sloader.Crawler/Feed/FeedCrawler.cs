@@ -11,19 +11,19 @@ namespace Sloader.Crawler.Feed
 {
     public class FeedCrawler : ICrawler<FeedCrawlerResult, FeedCrawlerConfig>
     {
-        private readonly IFeedLoader _feedLoader;
+        private readonly ISyndicationFeedAbstraction _feedAbstraction;
         private readonly ITwitterTweetCountLoader _twitterLoader;
         private readonly IFacebookShareCountLoader _facebookLoader;
 
         public FeedCrawler()
-            : this(new FeedLoader(), new TwitterTweetCountLoader(), new FacebookShareCountLoader())
+            : this(new SyndicationFeedAbstraction(), new TwitterTweetCountLoader(), new FacebookShareCountLoader())
         {
 
         }
 
-        public FeedCrawler(IFeedLoader loader, ITwitterTweetCountLoader twitterLoader, IFacebookShareCountLoader facebookLoader)
+        public FeedCrawler(ISyndicationFeedAbstraction syndicationFeedAbstraction, ITwitterTweetCountLoader twitterLoader, IFacebookShareCountLoader facebookLoader)
         {
-            _feedLoader = loader;
+            _feedAbstraction = syndicationFeedAbstraction;
             _twitterLoader = twitterLoader;
             _facebookLoader = facebookLoader;
         }
@@ -39,7 +39,7 @@ namespace Sloader.Crawler.Feed
             crawlerResult.ResultIdentifier = config.ResultIdentifier;
             crawlerResult.FeedItems = new List<FeedCrawlerResult.FeedItem>();
 
-            var syndicationFeed = _feedLoader.Get(config.Url);
+            var syndicationFeed = _feedAbstraction.Get(config.Url);
 
             foreach (var feedItem in syndicationFeed.Items.OrderBy(x => x.PublishDate))
             {

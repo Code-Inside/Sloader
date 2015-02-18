@@ -2,7 +2,7 @@ using System.ServiceModel.Syndication;
 
 namespace Sloader.Crawler.Feed
 {
-    public interface IFeedLoader
+    public interface ISyndicationFeedAbstraction
     {
         SyndicationFeed Get(string url);
     }

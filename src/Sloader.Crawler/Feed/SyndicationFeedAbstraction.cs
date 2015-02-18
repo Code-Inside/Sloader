@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace Sloader.Crawler.Feed
 {
-    public class FeedLoader : IFeedLoader
+    public class SyndicationFeedAbstraction : ISyndicationFeedAbstraction
     {
         public SyndicationFeed Get(string url)
         {
