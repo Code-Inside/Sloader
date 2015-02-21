@@ -19,11 +19,7 @@ namespace Sloader.Web.Controllers
         {
             var viewModel = new HomeIndexViewModel();
             viewModel.MasterCrawlerConfigPath = ConfigurationManager.AppSettings[ConfigKeys.MasterCrawlerConfigPath];
-            if (viewModel.MasterCrawlerConfigPath == null)
-            {
-                viewModel.MasterCrawlerConfigIsReadable = false;
-            }
-            else
+            if (viewModel.MasterCrawlerConfigPathIsConfigured)
             {
                 var client = new HttpClient();
 
@@ -38,7 +34,6 @@ namespace Sloader.Web.Controllers
                 secrets.TwitterConsumerSecret = ConfigurationManager.AppSettings[ConfigKeys.SecretTwitterConsumerSecret];
 
                 viewModel.MasterCrawlerConfigIsTwitterConsumerConfigured = secrets.IsTwitterConsumerConfigured;
-
             }
 
             return View(viewModel);

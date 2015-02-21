@@ -21,7 +21,28 @@ namespace Sloader.Web.Models
             }
         }
 
-        public bool MasterCrawlerConfigIsReadable { get; set; }
+        public bool MasterCrawlerConfigIsReadable
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(MasterCrawlerRawConfig))
+                    return false;
+
+                return true;
+            }
+        }
+
+        public bool MasterCrawlerConfigIsValid
+        {
+            get
+            {
+                if (MasterCrawlerConfig == null)
+                    return false;
+
+                return true;
+            }
+        }
+
         public MasterCrawlerConfig MasterCrawlerConfig { get; set; }
         public bool MasterCrawlerConfigIsTwitterConsumerConfigured { get; set; }
         public string MasterCrawlerRawConfig { get; set; }
