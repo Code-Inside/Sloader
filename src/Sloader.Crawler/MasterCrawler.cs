@@ -40,9 +40,7 @@ namespace Sloader.Crawler
             }
 
             // Tweets
-            if (_config.TwitterTimelinesToCrawl.Any() &&
-                string.IsNullOrEmpty(_secrets.TwitterConsumerKey) == false &&
-                string.IsNullOrEmpty(_secrets.TwitterConsumerSecret) == false)
+            if (_config.TwitterTimelinesToCrawl.Any() && _secrets.IsTwitterConsumerConfigured)
             {
                 ITwitterOAuthTokenService oAuthTokenLoader = new TwitterOAuthTokenService();
                 var oauth = await oAuthTokenLoader.GetAsync(_secrets.TwitterConsumerKey, _secrets.TwitterConsumerSecret);

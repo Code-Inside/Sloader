@@ -30,16 +30,18 @@ namespace Sloader.Web.Controllers
                 var configString = await client.GetStringAsync(ConfigurationManager.AppSettings[ConfigKeys.MasterCrawlerConfigPath]);
 
                 var deserializer = new Deserializer();
+                viewModel.MasterCrawlerRawConfig = configString;
                 viewModel.MasterCrawlerConfig = deserializer.Deserialize<MasterCrawlerConfig>(new StringReader(configString));
 
                 var secrets = new MasterCrawlerSecrets();
                 secrets.TwitterConsumerKey = ConfigurationManager.AppSettings[ConfigKeys.SecretTwitterConsumerKey];
                 secrets.TwitterConsumerSecret = ConfigurationManager.AppSettings[ConfigKeys.SecretTwitterConsumerSecret];
 
+                viewModel.MasterCrawlerConfigIsTwitterConsumerConfigured = secrets.IsTwitterConsumerConfigured;
+
             }
 
-
-            return View();
+            return View(viewModel);
         }
 
         public ActionResult About()
