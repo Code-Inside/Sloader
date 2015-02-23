@@ -20,7 +20,7 @@ namespace Sloader.Tests.MasterCrawlerConfigTests
             fakeYaml.AppendLine("FeedsToCrawl:");
             fakeYaml.AppendLine("- Url: http://blogin.codeinside.eu/feed");
 
-            var deserializer = new Deserializer();
+            var deserializer = MasterCrawlerConfigLoader.SloaderYamlDeserializer;
             var result = deserializer.Deserialize<MasterCrawlerConfig>(new StringReader(fakeYaml.ToString()));
             var configValue = result.FeedsToCrawl.First();
 
@@ -34,7 +34,7 @@ namespace Sloader.Tests.MasterCrawlerConfigTests
             fakeYaml.AppendLine("FeedsToCrawl:");
             fakeYaml.AppendLine("- Url: http://blogin.codeinside.eu/feed");
 
-            var deserializer = new Deserializer();
+            var deserializer = MasterCrawlerConfigLoader.SloaderYamlDeserializer;
             var result = deserializer.Deserialize<MasterCrawlerConfig>(new StringReader(fakeYaml.ToString()));
             var configValue = result.FeedsToCrawl.First();
 

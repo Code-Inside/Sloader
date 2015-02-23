@@ -10,3 +10,7 @@ TwitterTimelinesToCrawl:
 - Handle: codeinsideblog
 - Handle: robert0muehsig
 - Handle: oliverguhr
+
+SomeOtherContent:
+- WhichIsNotBoundToAnyThing
+- Yeah!

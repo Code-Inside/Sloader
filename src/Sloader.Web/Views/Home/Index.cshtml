@@ -17,19 +17,13 @@
             <p><b>Configured @ConfigKeys.MasterCrawlerConfigPath:</b></p>
             <pre>@Model.MasterCrawlerConfigPath</pre>
 
-            if (Model.MasterCrawlerConfigIsReadable)
+            if (Model.MasterCrawlerConfigIsValid)
             {
-                <p><b>Config Content:</b></p>
-                <pre>@Model.MasterCrawlerRawConfig</pre>
-
-                if (Model.MasterCrawlerConfigIsValid)
-                {
-                    <p><b>Config is a valid MasterCrawlerConfig!</b></p>
-                }
-
-                <p><b>Secrets (@ConfigKeys.SecretTwitterConsumerKey, @ConfigKeys.SecretTwitterConsumerSecret): </b></p>
-                <p>@Model.MasterCrawlerConfigIsTwitterConsumerConfigured</p>
+                <p><b>Config is a valid MasterCrawlerConfig!</b></p>
             }
+
+            <p><b>Secrets (@ConfigKeys.SecretTwitterConsumerKey, @ConfigKeys.SecretTwitterConsumerSecret): </b></p>
+            <p>@Model.MasterCrawlerConfigIsTwitterConsumerConfigured</p>
         }
         else
         {

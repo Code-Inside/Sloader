@@ -21,13 +21,9 @@ namespace Sloader.Web.Controllers
             viewModel.MasterCrawlerConfigPath = ConfigurationManager.AppSettings[ConfigKeys.MasterCrawlerConfigPath];
             if (viewModel.MasterCrawlerConfigPathIsConfigured)
             {
-                var client = new HttpClient();
+                var config = await MasterCrawlerConfigLoader.GetAsync(ConfigurationManager.AppSettings[ConfigKeys.MasterCrawlerConfigPath]);
 
-                var configString = await client.GetStringAsync(ConfigurationManager.AppSettings[ConfigKeys.MasterCrawlerConfigPath]);
-
-                var deserializer = new Deserializer();
-                viewModel.MasterCrawlerRawConfig = configString;
-                viewModel.MasterCrawlerConfig = deserializer.Deserialize<MasterCrawlerConfig>(new StringReader(configString));
+                viewModel.MasterCrawlerConfig = config;
 
                 var secrets = new MasterCrawlerSecrets();
                 secrets.TwitterConsumerKey = ConfigurationManager.AppSettings[ConfigKeys.SecretTwitterConsumerKey];

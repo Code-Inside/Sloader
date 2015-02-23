@@ -20,7 +20,7 @@ namespace Sloader.Tests.MasterCrawlerConfigTests
             fakeYaml.AppendLine("TwitterTimelinesToCrawl:");
             fakeYaml.AppendLine("- Handle: codeinsideblog");
 
-            var deserializer = new Deserializer();
+            var deserializer = MasterCrawlerConfigLoader.SloaderYamlDeserializer;
             var result = deserializer.Deserialize<MasterCrawlerConfig>(new StringReader(fakeYaml.ToString()));
             var configValue = result.TwitterTimelinesToCrawl.First();
 
