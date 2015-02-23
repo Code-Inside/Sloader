@@ -42,8 +42,9 @@ namespace Sloader.Bootstrapper
             var config = await MasterCrawlerConfigLoader.GetAsync(
                     "https://raw.githubusercontent.com/Code-Inside/Sloader/master/src/Sloader.Web/App_Data/Sloader.yml");
 #else
-            var config = await MasterCrawlerConfigLoader.Get(ConfigurationManager.AppSettings[ConfigKeys.MasterCrawlerConfigPath])
-                var configString = await client.GetStringAsync(ConfigurationManager.AppSettings[ConfigKeys.MasterCrawlerConfigPath]);
+            var config =
+                await
+                    MasterCrawlerConfigLoader.GetAsync(ConfigurationManager.AppSettings[ConfigKeys.MasterCrawlerConfigPath]);
 #endif
 
             var secrets = new MasterCrawlerSecrets();
