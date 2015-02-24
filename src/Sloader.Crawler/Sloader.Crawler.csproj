@@ -58,7 +58,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants.cs" />
     <Compile Include="Feed\FacebookShareCountLoader.cs" />
     <Compile Include="Feed\FeedCrawler.cs" />
     <Compile Include="Feed\SyndicationFeedAbstraction.cs" />

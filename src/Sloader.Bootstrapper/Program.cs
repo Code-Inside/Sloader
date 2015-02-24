@@ -9,7 +9,7 @@ using Sloader.Crawler;
 using Sloader.Crawler.Config;
 using Sloader.Results;
 using YamlDotNet.Serialization;
-using Constants = Sloader.Crawler.Constants;
+using Constants = Sloader.Crawler.Config.Constants;
 
 namespace Sloader.Bootstrapper
 {
@@ -29,7 +29,7 @@ namespace Sloader.Bootstrapper
         }
 
         [NoAutomaticTrigger]
-        public static void SaveToAzure([Blob("sloader/data.json")]TextWriter writer, string json)
+        public static void SaveToAzure([Blob(Constants.SloaderAzureBlobPath)]TextWriter writer, string json)
         {
             writer.Write(json);
 

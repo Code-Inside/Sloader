@@ -13,7 +13,7 @@ namespace Sloader.Tests.MasterCrawlerConfigTests
         {
             string yaml = TestHelperForCurrentProject.GetTestFileContent("MasterCrawlerConfigTests.Sample.yaml");
 
-            var deserializer = MasterCrawlerConfigLoader.SloaderYamlDeserializer;
+            var deserializer = Constants.SloaderYamlDeserializer;
             var result = deserializer.Deserialize<MasterCrawlerConfig>(new StringReader(yaml));
 
             Assert.Equal(3, result.FeedsToCrawl.Count);
