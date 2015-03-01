@@ -34,5 +34,6 @@ namespace Sloader.Web.Models
 
         public MasterCrawlerConfig MasterCrawlerConfig { get; set; }
         public bool MasterCrawlerConfigIsTwitterConsumerConfigured { get; set; }
+        public string ResultData { get; set; }
     }
 }

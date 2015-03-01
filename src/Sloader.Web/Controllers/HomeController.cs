@@ -7,6 +7,8 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
 using Sloader.Crawler.Config;
 using Sloader.Web.Models;
 using YamlDotNet.Serialization;
@@ -30,6 +32,22 @@ namespace Sloader.Web.Controllers
                 secrets.TwitterConsumerSecret = ConfigurationManager.AppSettings[ConfigKeys.SecretTwitterConsumerSecret];
 
                 viewModel.MasterCrawlerConfigIsTwitterConsumerConfigured = secrets.IsTwitterConsumerConfigured;
+            }
+
+            var azureWebJobStorage = ConfigurationManager.AppSettings[ConfigKeys.AzureWebJobStorage];
+            if (azureWebJobStorage != null)
+            {
+                CloudStorageAccount storageAccount = CloudStorageAccount.Parse(azureWebJobStorage);
+                CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+                CloudBlobContainer container = blobClient.GetContainerReference(Constants.SloaderAzureBlobContainer);
+                container.CreateIfNotExists();
+
+                var file = await container.GetBlobReferenceFromServerAsync(Constants.SloaderAzureBlobFileName);
+                using (var memoryStream = new MemoryStream())
+                {
+                    await file.DownloadToStreamAsync(memoryStream);
+                    viewModel.ResultData = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
+                }
             }
 
             return View(viewModel);

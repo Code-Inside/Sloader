@@ -29,5 +29,11 @@
         {
             <p><b>Configure @ConfigKeys.MasterCrawlerConfigPath!</b></p>
         }
+        
+        @if (string.IsNullOrWhiteSpace(Model.ResultData) == false)
+        {
+            <p><b>ResultData from @Constants.SloaderAzureBlobContainer / @Constants.SloaderAzureBlobFileName:</b></p>
+            <pre>@Model.ResultData</pre>
+        }
     </div>
 </div>

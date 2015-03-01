@@ -29,7 +29,7 @@ namespace Sloader.Bootstrapper
         }
 
         [NoAutomaticTrigger]
-        public static void SaveToAzure([Blob(Constants.SloaderAzureBlobPath)]TextWriter writer, string json)
+        public static void SaveToAzure([Blob(Constants.SloaderAzureBlobContainer + "/" + Constants.SloaderAzureBlobFileName)]TextWriter writer, string json)
         {
             writer.Write(json);
 

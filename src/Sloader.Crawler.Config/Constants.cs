@@ -6,7 +6,8 @@ namespace Sloader.Crawler.Config
 
     public static class Constants
     {
-        public const string SloaderAzureBlobPath = "sloader/data.json";
+        public const string SloaderAzureBlobContainer = "sloader";
+        public const string SloaderAzureBlobFileName = "data.json";
 
         public static Deserializer SloaderYamlDeserializer
         {
