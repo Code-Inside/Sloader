@@ -9,7 +9,9 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
+using Newtonsoft.Json;
 using Sloader.Crawler.Config;
+using Sloader.Results;
 using Sloader.Web.Models;
 using YamlDotNet.Serialization;
 
@@ -46,7 +48,10 @@ namespace Sloader.Web.Controllers
                 using (var memoryStream = new MemoryStream())
                 {
                     await file.DownloadToStreamAsync(memoryStream);
-                    viewModel.ResultData = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
+                    viewModel.ResultText = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
+
+                    viewModel.ResultData = JsonConvert.DeserializeObject<CrawlerRun>(viewModel.ResultText,
+                        Constants.CrawlerJsonSerializerSettings);
                 }
             }
 

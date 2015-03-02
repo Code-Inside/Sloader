@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Sloader.Crawler.Config;
+using Sloader.Results;
 
 namespace Sloader.Web.Models
 {
@@ -34,6 +35,7 @@ namespace Sloader.Web.Models
 
         public MasterCrawlerConfig MasterCrawlerConfig { get; set; }
         public bool MasterCrawlerConfigIsTwitterConsumerConfigured { get; set; }
-        public string ResultData { get; set; }
+        public CrawlerRun ResultData { get; set; }
+        public string ResultText { get; set; }
     }
 }

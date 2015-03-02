@@ -1,6 +1,7 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+@using System.Globalization
 @using Sloader.Crawler.Config
 @model Sloader.Web.Models.HomeIndexViewModel
 
@@ -29,11 +30,12 @@
         {
             <p><b>Configure @ConfigKeys.MasterCrawlerConfigPath!</b></p>
         }
-        
-        @if (string.IsNullOrWhiteSpace(Model.ResultData) == false)
+
+        @if (Model.ResultData != null)
         {
             <p><b>ResultData from @Constants.SloaderAzureBlobContainer / @Constants.SloaderAzureBlobFileName:</b></p>
-            <pre>@Model.ResultData</pre>
+            <p>@Model.ResultData.RunOn.ToString(CultureInfo.InvariantCulture)</p>
+            <pre>@Model.ResultText</pre>
         }
     </div>
 </div>
