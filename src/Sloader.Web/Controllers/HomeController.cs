@@ -45,14 +45,20 @@ namespace Sloader.Web.Controllers
                 container.CreateIfNotExists();
 
                 var file = await container.GetBlobReferenceFromServerAsync(Constants.SloaderAzureBlobFileName);
-                using (var memoryStream = new MemoryStream())
-                {
-                    await file.DownloadToStreamAsync(memoryStream);
-                    viewModel.ResultText = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
 
-                    viewModel.ResultData = JsonConvert.DeserializeObject<CrawlerRun>(viewModel.ResultText,
-                        Constants.CrawlerJsonSerializerSettings);
+                using (var memory = new MemoryStream())
+                using (var reader = new StreamReader(memory))
+                {
+                    await file.DownloadToStreamAsync(memory);
+
+                    memory.Seek(0, SeekOrigin.Begin);
+
+                    viewModel.ResultText = reader.ReadToEnd();
                 }
+
+                viewModel.ResultData = JsonConvert.DeserializeObject<CrawlerRun>(viewModel.ResultText,
+Constants.CrawlerJsonSerializerSettings);
+
             }
 
             return View(viewModel);
