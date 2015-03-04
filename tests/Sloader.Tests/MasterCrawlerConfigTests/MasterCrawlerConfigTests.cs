@@ -11,7 +11,7 @@ namespace Sloader.Tests.MasterCrawlerConfigTests
         [Fact]
         public void Deserialize_Of_Testdata_To_MasterCrawlerConfig_Works()
         {
-            string yaml = TestHelperForCurrentProject.GetTestFileContent("MasterCrawlerConfigTests.Sample.yaml");
+            string yaml = File.ReadAllText("MasterCrawlerConfigTests/Sample.yaml");
 
             var deserializer = Constants.SloaderYamlDeserializer;
             var result = deserializer.Deserialize<MasterCrawlerConfig>(new StringReader(yaml));

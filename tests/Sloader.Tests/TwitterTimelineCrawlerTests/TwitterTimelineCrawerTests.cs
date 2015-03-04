@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 using Sloader.Crawler.Config.Twitter;
 using Sloader.Crawler.Twitter;
@@ -12,8 +13,7 @@ namespace Sloader.Tests.TwitterTimelineCrawlerTests
     {
         private static async Task<TwitterTimelineCrawlerResult> InvokeSut(string oAuthToken, string handle)
         {
-            string responseData =
-                TestHelperForCurrentProject.GetTestFileContent("TwitterTimelineCrawlerTests.Sample.user_timeline.json");
+            string responseData = File.ReadAllText("TwitterTimelineCrawlerTests/Sample/user_timeline.json");
 
             var messageResponse = FakeHttpMessageHandler.GetStringHttpResponseMessage(responseData);
 

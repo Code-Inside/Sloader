@@ -73,14 +73,17 @@
     <Compile Include="MasterCrawlerConfigTests\FeedCrawlerConfigTests.cs" />
     <Compile Include="MasterCrawlerConfigTests\MasterCrawlerConfigTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestHelperForCurrentProject.cs" />
     <Compile Include="TwitterTimelineCrawlerTests\TwitterTimelineCrawerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <EmbeddedResource Include="MasterCrawlerConfigTests\Sample.yaml" />
+    <None Include="MasterCrawlerConfigTests\Sample.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
-    <EmbeddedResource Include="TwitterTimelineCrawlerTests\Sample\user_timeline.json" />
+    <None Include="TwitterTimelineCrawlerTests\Sample\user_timeline.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="FeedCrawlerTests\Samples\SlashDotRss.xml">
