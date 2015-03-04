@@ -8,14 +8,6 @@ namespace Sloader.Tests
     {
         private const string ResourcePath = "Sloader.Tests.{0}";
 
-        public static Stream GetTestFileStream(string folderAndFileInProjectPath)
-        {
-            var asm = Assembly.GetExecutingAssembly();
-            var resource = string.Format(ResourcePath, folderAndFileInProjectPath);
-
-            return asm.GetManifestResourceStream(resource);
-        }
-
         public static string GetTestFileContent(string folderAndFileInProjectPath)
         {
             var asm = Assembly.GetExecutingAssembly();

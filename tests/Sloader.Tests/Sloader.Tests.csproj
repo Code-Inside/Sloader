@@ -83,7 +83,9 @@
     <EmbeddedResource Include="TwitterTimelineCrawlerTests\Sample\user_timeline.json" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FeedCrawlerTests\Samples\SlashDotRss.xml" />
+    <None Include="FeedCrawlerTests\Samples\SlashDotRss.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Sloader.Bootstrapper\Sloader.Bootstrapper.csproj">
@@ -104,7 +106,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FeedCrawlerTests\Samples\GitHubAtom.xml" />
+    <None Include="FeedCrawlerTests\Samples\GitHubAtom.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Threading.Tasks;
 using System.Xml;
@@ -12,13 +13,14 @@ namespace Sloader.Tests.FeedCrawlerTests
 {
     public class FeedCrawlerTests
     {
-        private const string slashdotRssSamplePath = "FeedCrawlerTests.Samples.SlashDotRss.xml";
-        private const string gitHubAtomSamplePath = "FeedCrawlerTests.Samples.GitHubAtom.xml";
+        private const string samplesDirectory = "FeedCrawlerTests/Samples";
+        private const string slashdotRssSample = "SlashDotRss.xml";
+        private const string gitHubAtomSample = "GitHubAtom.xml";
 
         public async Task<FeedCrawlerResult> InvokeGitHubSut(int twitterCounts = 0, int facebookShares = 0, string feed = "https://github.com/robertmuehsig.atom")
         {
             var feedLoaderMock = A.Fake<ISyndicationFeedAbstraction>();
-            var staticFeed = SyndicationFeed.Load(new XmlTextReader(TestHelperForCurrentProject.GetTestFileStream(gitHubAtomSamplePath)));
+            var staticFeed = SyndicationFeed.Load(new XmlTextReader(Path.Combine(samplesDirectory, gitHubAtomSample)));
             A.CallTo(() => feedLoaderMock.Get("https://github.com/robertmuehsig.atom")).Returns(staticFeed);
 
             var twitterLoaderMock = A.Fake<ITwitterTweetCountLoader>();
@@ -39,7 +41,7 @@ namespace Sloader.Tests.FeedCrawlerTests
         public async Task<FeedCrawlerResult> InvokeSlashdotSutWithSocialLinksEnabled(int twitterCounts = 0, int facebookShares = 0, string feed = "http://rss.slashdot.org/Slashdot/slashdot")
         {
             var feedLoaderMock = A.Fake<ISyndicationFeedAbstraction>();
-            var staticFeed = SyndicationFeed.Load(new XmlTextReader(TestHelperForCurrentProject.GetTestFileStream(slashdotRssSamplePath)));
+            var staticFeed = SyndicationFeed.Load(new XmlTextReader(Path.Combine(samplesDirectory, slashdotRssSample)));
             A.CallTo(() => feedLoaderMock.Get("http://rss.slashdot.org/Slashdot/slashdot")).Returns(staticFeed);
 
             var twitterLoaderMock = A.Fake<ITwitterTweetCountLoader>();
@@ -130,7 +132,7 @@ namespace Sloader.Tests.FeedCrawlerTests
         public async Task Crawler_Should_Not_Reach_Out_To_Twitter_Or_Facebook_If_Disabled()
         {
             var feedLoaderMock = A.Fake<ISyndicationFeedAbstraction>();
-            var staticFeed = SyndicationFeed.Load(new XmlTextReader(TestHelperForCurrentProject.GetTestFileStream(gitHubAtomSamplePath)));
+            var staticFeed = SyndicationFeed.Load(new XmlTextReader(Path.Combine(samplesDirectory, gitHubAtomSample)));
             A.CallTo(() => feedLoaderMock.Get("https://github.com/robertmuehsig.atom")).Returns(staticFeed);
 
             var twitterLoaderMock = A.Fake<ITwitterTweetCountLoader>();
