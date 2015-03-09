@@ -31,7 +31,7 @@ Target "BuildApp" (fun _ ->
 Target "BuildTests" (fun _ ->
     trace "Building Tests..."
     !! "tests/**/*.csproj"
-      |> MSBuildDebug artifactsTestsDir "Build"
+      |> (fun p -> MSBuildDebug (Path.Combine(artifactsTestsDir, Path.GetFileName.....) "Build")
       |> Log "TestBuild-Output: "
 )
 
