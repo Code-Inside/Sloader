@@ -1,6 +1,7 @@
 // include Fake lib
 #r "../packages/FAKE/tools/FakeLib.dll"
 open Fake
+open System.IO;
 
 RestorePackages()
 
@@ -31,13 +32,13 @@ Target "BuildApp" (fun _ ->
 Target "BuildTests" (fun _ ->
     trace "Building Tests..."
     !! "tests/**/*.csproj"
-      |> (fun p -> MSBuildDebug (Path.Combine(artifactsTestsDir, Path.GetFileName.....) "Build")
+      |> Seq.collect (fun p -> MSBuildDebug (artifactsTestsDir @@ (Path.GetFileName(p))) "Build" [p])
       |> Log "TestBuild-Output: "
 )
 
 Target "RunTests" (fun _ ->
     trace "Running Tests..."
-    !! (artifactsTestsDir + @"\*Tests.dll") 
+    !! (artifactsTestsDir + @"**\*Tests.dll") 
       |> xUnit (fun p -> {p with OutputDir = artifactsTestsDir })
 )
 
