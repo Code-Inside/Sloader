@@ -20,7 +20,7 @@ namespace Sloader.Tests.FeedCrawlerTests
         public async Task<FeedCrawlerResult> InvokeGitHubSut(int twitterCounts = 0, int facebookShares = 0, string feed = "https://github.com/robertmuehsig.atom")
         {
             var feedLoaderMock = A.Fake<ISyndicationFeedAbstraction>();
-            var staticFeed = SyndicationFeed.Load(new XmlTextReader(Path.Combine(samplesDirectory, gitHubAtomSample)));
+            var staticFeed = SyndicationFeed.Load(new XmlTextReader(TestHelperForCurrentProject.GetTestFilePath(samplesDirectory, gitHubAtomSample)));
             A.CallTo(() => feedLoaderMock.Get("https://github.com/robertmuehsig.atom")).Returns(staticFeed);
 
             var twitterLoaderMock = A.Fake<ITwitterTweetCountLoader>();
@@ -41,7 +41,7 @@ namespace Sloader.Tests.FeedCrawlerTests
         public async Task<FeedCrawlerResult> InvokeSlashdotSutWithSocialLinksEnabled(int twitterCounts = 0, int facebookShares = 0, string feed = "http://rss.slashdot.org/Slashdot/slashdot")
         {
             var feedLoaderMock = A.Fake<ISyndicationFeedAbstraction>();
-            var staticFeed = SyndicationFeed.Load(new XmlTextReader(Path.Combine(samplesDirectory, slashdotRssSample)));
+            var staticFeed = SyndicationFeed.Load(new XmlTextReader(TestHelperForCurrentProject.GetTestFilePath(samplesDirectory, slashdotRssSample)));
             A.CallTo(() => feedLoaderMock.Get("http://rss.slashdot.org/Slashdot/slashdot")).Returns(staticFeed);
 
             var twitterLoaderMock = A.Fake<ITwitterTweetCountLoader>();

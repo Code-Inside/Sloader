@@ -73,6 +73,7 @@
     <Compile Include="MasterCrawlerConfigTests\FeedCrawlerConfigTests.cs" />
     <Compile Include="MasterCrawlerConfigTests\MasterCrawlerConfigTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestHelperForCurrentProject.cs" />
     <Compile Include="TwitterTimelineCrawlerTests\TwitterTimelineCrawerTests.cs" />
   </ItemGroup>
   <ItemGroup>
