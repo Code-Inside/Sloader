@@ -1,14 +1,33 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Sloader.Tests
 {
+    /// <summary>
+    /// Wrapper around basic File IO Operations for the TestFiles.
+    /// I re-introduced this helper to have one centralized way to access 
+    /// sample data. Sample data could be embedded as Resource or just pure File 
+    /// Stuff. 
+    /// </summary>
     public static class TestHelperForCurrentProject
     {
         private const string ResourcePath = "Sloader.Tests.{0}";
 
-        public static Stream GetTestFileStream(string folderAndFileInProjectPath)
+        public static string GetTestFileContent(string path)
+        {
+            return File.ReadAllText(path);
+        }
+        public static string GetTestFilePath(params string[] strings)
+        {
+            return Path.Combine(strings);
+        }
+
+        public static Stream GetTestResourceFileStream(string folderAndFileInProjectPath)
         {
             var asm = Assembly.GetExecutingAssembly();
             var resource = string.Format(ResourcePath, folderAndFileInProjectPath);
@@ -16,7 +35,7 @@ namespace Sloader.Tests
             return asm.GetManifestResourceStream(resource);
         }
 
-        public static string GetTestFileContent(string folderAndFileInProjectPath)
+        public static string GetTestResourceFileContent(string folderAndFileInProjectPath)
         {
             var asm = Assembly.GetExecutingAssembly();
             var resource = string.Format(ResourcePath, folderAndFileInProjectPath);
