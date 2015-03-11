@@ -12,7 +12,6 @@ let artifactsTestsDir  = "./artifacts/tests/"
 
 let toolNugetExe = @".nuget\nuget.exe"
 
-let resultsNuGetPkg = @".\src\Sloader.Results\Sloader.Results.nuspec"
 let artifactsResultsNugetSrcDir  = @".\artifacts\nuget-results-src\"
 let artifactsPkgDir  = @".\artifacts\nuget-pkg\"
 
@@ -43,7 +42,7 @@ Target "RunTests" (fun _ ->
 )
 
 // Poor mans NuGet Pack Solution for FAKE...
-Target "CreateNuGetPackages" (fun _ ->
+Target "CreateNuGetCrawlerResultPackages" (fun _ ->
 
     trace "Create Assembly for NuGet Packages..."
     // The Path stuff is sooo wrong, but I have no idea how to do this elegant
@@ -51,12 +50,32 @@ Target "CreateNuGetPackages" (fun _ ->
      |> MSBuildRelease artifactsResultsNugetSrcDir "Build"
      |> Log "NuGet Assembly Build-Output: "
 
-    trace "Create NuGet Packages..."
+    trace "Create Crawler Result NuGet Packages..."
     CreateDir artifactsPkgDir
     let result =
         ExecProcess (fun info -> 
             info.FileName <- toolNugetExe
-            info.Arguments <- "pack " + resultsNuGetPkg + " -OutputDirectory " + artifactsPkgDir + " -BasePath " + artifactsResultsNugetSrcDir
+            info.Arguments <- "pack .\src\Sloader.Results\Sloader.Results.nuspec -OutputDirectory " + artifactsPkgDir + " -BasePath " + artifactsResultsNugetSrcDir
+        ) (System.TimeSpan.FromMinutes 1.)
+ 
+    if result <> 0 then failwith "Failed result from NuGet"
+)
+
+// Poor mans NuGet Pack Solution for FAKE... (COPY :-/ Sad Panda)
+Target "CreateNuGetCrawlerPackages" (fun _ ->
+
+    trace "Create Assembly for NuGet Packages..."
+    // The Path stuff is sooo wrong, but I have no idea how to do this elegant
+    !! "src/Sloader.Crawler/*.csproj"
+     |> MSBuildRelease artifactsResultsNugetSrcDir "Build"
+     |> Log "NuGet Assembly Build-Output: "
+
+    trace "Create Crawler NuGet Packages..."
+    CreateDir artifactsPkgDir
+    let result =
+        ExecProcess (fun info -> 
+            info.FileName <- toolNugetExe
+            info.Arguments <- "pack .\src\Sloader.Crawler\Sloader.Crawler.nuspec -OutputDirectory " + artifactsPkgDir + " -BasePath " + artifactsResultsNugetSrcDir
         ) (System.TimeSpan.FromMinutes 1.)
  
     if result <> 0 then failwith "Failed result from NuGet"
@@ -71,7 +90,8 @@ Target "Default" (fun _ ->
   ==> "BuildApp"
   ==> "BuildTests"
   ==> "RunTests"
-  ==> "CreateNuGetPackages"
+  ==> "CreateNuGetCrawlerResultPackages"
+  ==> "CreateNuGetCrawlerPackages"
   ==> "Default"
 
 // start build

@@ -1,7 +1,7 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Sloader.Results</id>
+    <id>Sloader.Crawler</id>
     <version>0.1</version>
     <title>Sloader.Results</title>
     <authors>Code Inside Team</authors>
@@ -9,17 +9,21 @@
     <licenseUrl>https://github.com/Code-Inside/Sloader/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/Code-Inside/Sloader</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Sloader Result Type Definitions</description>
+    <description>Sloader Crawler</description>
     <releaseNotes>Development.</releaseNotes>
     <copyright>Copyright 2015</copyright>
     <tags>Sloader</tags>
     <dependencies>
       <group>
         <dependency id="Newtonsoft.Json" version="6.0.8" />
+        <dependency id="WorldDomination.HttpClient.Helpers" version="2.0" />
+        <dependency id="Microsoft.Net.Http" version="2.2.28" />
+        <dependency id="YamlDotNet" version="3.5.1" />
       </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="Sloader.Results.dll" target="lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1" />
+    <file src="Sloader.Crawler.dll" target="lib\net45" />
+    <file src="Sloader.Crawler.Config.dll" target="lib\net45" />
   </files>
 </package>
