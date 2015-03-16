@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Sloader.Crawler.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sloader.Crawler.Config\Sloader.Crawler.Config.csproj">
