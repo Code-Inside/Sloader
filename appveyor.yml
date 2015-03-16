@@ -4,3 +4,10 @@ build_script:
 artifacts:
 - path: artifacts/nuget-pkg/*.nupkg
   name: Nuget Packages
+deploy:
+- provider: NuGet
+  server: https://www.myget.org/F/sloader/
+  api_key:
+    secure: k39YXvqBlxZgtKawpIBhhfgCNGW6DYRGDmHugAGrUm5nwyUZjM/wROXkUPphWjhS
+  skip_symbols: false
+  symbol_server: https://nuget.symbolsource.org/MyGet/sloader
