@@ -81,6 +81,26 @@ Target "CreateNuGetCrawlerPackages" (fun _ ->
     if result <> 0 then failwith "Failed result from NuGet"
 )
 
+// Poor mans NuGet Pack Solution for FAKE... (COPY :-/ Sad Panda)
+Target "CreateNuGetCrawlerConfigPackages" (fun _ ->
+
+    trace "Create Assembly for NuGet Packages..."
+    // The Path stuff is sooo wrong, but I have no idea how to do this elegant
+    !! "src/Sloader.Crawler.Config/*.csproj"
+     |> MSBuildRelease artifactsResultsNugetSrcDir "Build"
+     |> Log "NuGet Assembly Build-Output: "
+
+    trace "Create Crawler Config NuGet Packages..."
+    CreateDir artifactsPkgDir
+    let result =
+        ExecProcess (fun info -> 
+            info.FileName <- toolNugetExe
+            info.Arguments <- "pack .\src\Sloader.Crawler.Config\Sloader.Crawler.Config.nuspec -OutputDirectory " + artifactsPkgDir + " -BasePath " + artifactsResultsNugetSrcDir
+        ) (System.TimeSpan.FromMinutes 1.)
+ 
+    if result <> 0 then failwith "Failed result from NuGet"
+)
+
 Target "Default" (fun _ ->
     trace "Default Target invoked."
 )
@@ -91,6 +111,7 @@ Target "Default" (fun _ ->
   ==> "BuildTests"
   ==> "RunTests"
   ==> "CreateNuGetCrawlerResultPackages"
+  ==> "CreateNuGetCrawlerConfigPackages"
   ==> "CreateNuGetCrawlerPackages"
   ==> "Default"
 

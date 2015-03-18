@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Sloader.Crawler</id>
+    <id>Sloader.Crawler.Config</id>
     <version>0.1</version>
-    <title>Sloader.Results</title>
+    <title>Sloader.Crawler.Config</title>
     <authors>Code Inside Team</authors>
     <owners>Code Inside Team</owners>
     <licenseUrl>https://github.com/Code-Inside/Sloader/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/Code-Inside/Sloader</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Sloader Crawler</description>
+    <description>Sloader Crawler Config</description>
     <releaseNotes>Development.</releaseNotes>
     <copyright>Copyright 2015</copyright>
     <tags>Sloader</tags>
@@ -23,6 +23,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="Sloader.Crawler.dll" target="lib\net45" />
+    <file src="Sloader.Crawler.Config.dll" target="lib\net45" />
   </files>
 </package>
