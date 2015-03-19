@@ -3,7 +3,7 @@
   <metadata>
     <id>Sloader.Crawler</id>
     <version>0.1</version>
-    <title>Sloader.Results</title>
+    <title>Sloader.Crawler</title>
     <authors>Code Inside Team</authors>
     <owners>Code Inside Team</owners>
     <licenseUrl>https://github.com/Code-Inside/Sloader/blob/master/LICENSE</licenseUrl>
@@ -18,7 +18,9 @@
         <dependency id="Newtonsoft.Json" version="6.0.8" />
         <dependency id="WorldDomination.HttpClient.Helpers" version="2.0" />
         <dependency id="Microsoft.Net.Http" version="2.2.28" />
-        <dependency id="YamlDotNet" version="3.5.1" />
+
+        <dependency id="Sloader.Crawler.Config" version="0.1" />
+        <dependency id="Sloader.Results" version="0.1" />
       </group>
     </dependencies>
   </metadata>

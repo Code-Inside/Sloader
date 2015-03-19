@@ -35,6 +35,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Sloader.Crawler.Config, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Sloader.Crawler.Config.0.1\lib\net45\Sloader.Crawler.Config.dll</HintPath>
+    </Reference>
+    <Reference Include="Sloader.Results, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Sloader.Results.0.1\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Sloader.Results.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
@@ -75,16 +83,6 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Sloader.Crawler.nuspec" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Sloader.Crawler.Config\Sloader.Crawler.Config.csproj">
-      <Project>{a2b2bdf7-8fd9-4849-8fcf-89305fcc5fe7}</Project>
-      <Name>Sloader.Crawler.Config</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Sloader.Results\Sloader.Results.csproj">
-      <Project>{fed02dcf-63a5-42b1-b9b7-5cfced9851a0}</Project>
-      <Name>Sloader.Results</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
