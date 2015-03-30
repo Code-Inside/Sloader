@@ -1,3 +1,4 @@
+using System;
 using Newtonsoft.Json;
 using YamlDotNet.Serialization;
 
@@ -24,10 +25,12 @@ namespace Sloader.Crawler.Config
                 return new JsonSerializerSettings
                 {
                     TypeNameHandling = TypeNameHandling.Objects,
+                    
                     TypeNameAssemblyFormat = System.Runtime.Serialization.Formatters.FormatterAssemblyStyle.Simple
                 };    
             }
         }
         
     }
+
 }

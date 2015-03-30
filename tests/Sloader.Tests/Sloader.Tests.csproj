@@ -68,6 +68,7 @@
     <Compile Include="DemoTest.cs" />
     <Compile Include="FeedCrawlerTests\FacebookShareCounterTests.cs" />
     <Compile Include="FeedCrawlerTests\FeedCrawlerTests.cs" />
+    <Compile Include="FeedCrawlerTests\FeedCrawlerResultTests.cs" />
     <Compile Include="FeedCrawlerTests\TwitterTweetCounterTests.cs" />
     <Compile Include="MasterCrawlerConfigTests\TwitterTimelineConfigTests.cs" />
     <Compile Include="MasterCrawlerConfigTests\FeedCrawlerConfigTests.cs" />

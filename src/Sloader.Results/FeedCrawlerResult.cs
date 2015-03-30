@@ -17,5 +17,10 @@ namespace Sloader.Results
         }
 
         public List<FeedItem> FeedItems { get; set; }
+
+        public override KnownCrawlerResultType ResultType
+        {
+            get { return KnownCrawlerResultType.Feed; }
+        }
     }
 }

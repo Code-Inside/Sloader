@@ -5,6 +5,11 @@ namespace Sloader.Results
 {
     public class TwitterTimelineCrawlerResult : BaseCrawlerResult
     {
+        public override KnownCrawlerResultType ResultType
+        {
+            get { return KnownCrawlerResultType.TwitterTimeline; }
+        }
+
         public class Tweet
         {
             [JsonProperty("id_str")]

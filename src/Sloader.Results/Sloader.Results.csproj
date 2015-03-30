@@ -35,8 +35,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="BaseCrawlerResult.cs" />
+    <Compile Include="CrawlerResultConverter.cs" />
     <Compile Include="CrawlerRun.cs" />
     <Compile Include="FeedCrawlerResult.cs" />
+    <Compile Include="KnownCrawlerResultType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TwitterTimelineCrawlerResult.cs" />
   </ItemGroup>
