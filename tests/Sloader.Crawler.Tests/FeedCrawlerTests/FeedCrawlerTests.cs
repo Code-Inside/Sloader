@@ -9,7 +9,7 @@ using Sloader.Crawler.Feed;
 using Sloader.Results;
 using Xunit;
 
-namespace Sloader.Tests.FeedCrawlerTests
+namespace Sloader.Crawler.Tests.FeedCrawlerTests
 {
     public class FeedCrawlerTests
     {

@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Sloader.Results</id>
-    <version>0.2</version>
+    <version>1.0</version>
     <title>Sloader.Results</title>
     <authors>Code Inside Team</authors>
     <owners>Code Inside Team</owners>
@@ -11,7 +11,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Result Type Definitions</description>
     <releaseNotes>
-## Version 0.2 ##
+## Version 1.0 ##
 Start moving KnownResult Types to this NuGet Package and init JsonConverter
 
 ## Version 0.1 ##

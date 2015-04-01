@@ -4,9 +4,9 @@ using Sloader.Crawler.Feed;
 using WorldDomination.Net.Http;
 using Xunit;
 
-namespace Sloader.Tests.FeedCrawlerTests
+namespace Sloader.Crawler.Tests.FeedCrawlerTests
 {
-    public class TwitterTweetCounterTests
+    public class FacebookShareCounterTests
     {
 
         [Fact]
@@ -18,35 +18,35 @@ namespace Sloader.Tests.FeedCrawlerTests
 
             HttpClientFactory.MessageHandler = new FakeHttpMessageHandler("*", messageResponse);
 
-            var sut = new TwitterTweetCountLoader();
+            var sut = new FacebookShareCountLoader();
 
             Assert.Equal(0, await sut.GetAsync("http://blog.something.com"));
         }
 
         [Fact]
-        public async Task Loader_Should_Return_TwitterCount_If_Everything_Is_Ok()
+        public async Task Loader_Should_Return_ShareCount_If_Everything_Is_Ok()
         {
-            const string responseData = "{'count':1337,'url':'http://...url...'}";
+            const string responseData = "{'id':'http://...url...','shares':1337}";
 
             var messageResponse = FakeHttpMessageHandler.GetStringHttpResponseMessage(responseData);
 
             HttpClientFactory.MessageHandler = new FakeHttpMessageHandler("*", messageResponse);
 
-            var sut = new TwitterTweetCountLoader();
+            var sut = new FacebookShareCountLoader();
 
             Assert.Equal(1337, await sut.GetAsync("http://blog.something.com"));
         }
 
         [Fact]
-        public async Task Loader_Should_Return_0_Without_Any_Tweets()
+        public async Task Loader_Should_Return_0_Without_Any_Shares()
         {
-            const string responseData = "{'count':0,'url':'http://...url...'}";
+            const string responseData = "{'id':'http://...url...'}";
 
             var messageResponse = FakeHttpMessageHandler.GetStringHttpResponseMessage(responseData);
 
             HttpClientFactory.MessageHandler = new FakeHttpMessageHandler("*", messageResponse);
 
-            var sut = new TwitterTweetCountLoader();
+            var sut = new FacebookShareCountLoader();
 
             Assert.Equal(0, await sut.GetAsync("http://blog.something.com"));
         }

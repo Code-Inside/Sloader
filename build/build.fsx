@@ -2,6 +2,7 @@
 #r "../packages/FAKE/tools/FakeLib.dll"
 open Fake
 open System.IO;
+open Fake.XUnit2Helper
 
 RestorePackages()
 
@@ -38,7 +39,7 @@ Target "BuildTests" (fun _ ->
 Target "RunTests" (fun _ ->
     trace "Running Tests..."
     !! (artifactsTestsDir + @"**\*Tests.dll") 
-      |> xUnit (fun p -> {p with OutputDir = artifactsTestsDir })
+      |> xUnit2 (fun p -> {p with OutputDir = artifactsTestsDir })
 )
 
 // Poor mans NuGet Pack Solution for FAKE...

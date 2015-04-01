@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Sloader.Tests
+namespace Sloader.Crawler.Tests
 {
     /// <summary>
     /// Wrapper around basic File IO Operations for the TestFiles.
@@ -16,7 +12,7 @@ namespace Sloader.Tests
     /// </summary>
     public static class TestHelperForCurrentProject
     {
-        private const string ResourcePath = "Sloader.Tests.{0}";
+        private const string ResourcePath = "Sloader.Crawler.Tests.{0}";
 
         public static string GetTestFileContent(string path)
         {

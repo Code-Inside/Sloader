@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Sloader.Crawler.Config;
 using Xunit;
-using YamlDotNet.Core;
-using YamlDotNet.Serialization;
 
-namespace Sloader.Tests.MasterCrawlerConfigTests
+namespace Sloader.Crawler.Config.Tests.MasterCrawlerConfigTests
 {
     public class FeedCrawlerConfigTests
     {

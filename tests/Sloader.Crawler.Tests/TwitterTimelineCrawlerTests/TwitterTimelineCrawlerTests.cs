@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+using System;
 using System.Threading.Tasks;
 using Sloader.Crawler.Config.Twitter;
 using Sloader.Crawler.Twitter;
@@ -7,9 +6,9 @@ using Sloader.Results;
 using WorldDomination.Net.Http;
 using Xunit;
 
-namespace Sloader.Tests.TwitterTimelineCrawlerTests
+namespace Sloader.Crawler.Tests.TwitterTimelineCrawlerTests
 {
-    public class TwitterTimelineCrawerTests
+    public class TwitterTimelineCrawlerTests
     {
         private static async Task<TwitterTimelineCrawlerResult> InvokeSut(string oAuthToken, string handle)
         {
@@ -49,16 +48,6 @@ namespace Sloader.Tests.TwitterTimelineCrawlerTests
         {
             var result = await InvokeSut(Guid.NewGuid().ToString(), "test");
             Assert.Equal("test", result.ResultIdentifier);
-        }
-    }
-
-    public class TwitterTimelineCrawlerResultTests
-    {
-        [Fact]
-        public void Result_Has_Correct_Type()
-        {
-            var sut = new TwitterTimelineCrawlerResult();
-            Assert.True(sut.ResultType == KnownCrawlerResultType.TwitterTimeline);
         }
     }
 }
