@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -12,6 +13,17 @@ namespace Sloader.Crawler.Twitter
 {
     public class TwitterTimelineCrawler : ICrawler<TwitterTimelineCrawlerResult, TwitterTimelineCrawlerConfig>
     {
+        private readonly HttpMessageHandler _messageHandler;
+
+        public TwitterTimelineCrawler()
+        {
+               _messageHandler = new HttpClientHandler();
+        }
+
+        public TwitterTimelineCrawler(HttpMessageHandler messageHandler)
+        {
+            _messageHandler = messageHandler;
+        }
         public string OAuthToken { get; set; }
 
         public async Task<TwitterTimelineCrawlerResult> DoWorkAsync(TwitterTimelineCrawlerConfig config)
@@ -31,11 +43,11 @@ namespace Sloader.Crawler.Twitter
             return result;
         }
 
-        private static async Task<List<TwitterTimelineCrawlerResult.Tweet>> GetTwitterTimeline(string oauthToken, string screenname)
+        private async Task<List<TwitterTimelineCrawlerResult.Tweet>> GetTwitterTimeline(string oauthToken, string screenname)
         {
             Trace.TraceInformation("GetTwitterTimeline invoked with screenname:" + screenname);
 
-            using (var httpClient = HttpClientFactory.GetHttpClient())
+            using (var httpClient = HttpClientFactory.GetHttpClient(_messageHandler))
             {
                 var timelineFormat =
                     "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name={0}&include_rts=1&exclude_replies=1&count=5";

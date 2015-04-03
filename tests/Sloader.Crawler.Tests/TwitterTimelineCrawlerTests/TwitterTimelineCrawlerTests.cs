@@ -16,9 +16,9 @@ namespace Sloader.Crawler.Tests.TwitterTimelineCrawlerTests
 
             var messageResponse = FakeHttpMessageHandler.GetStringHttpResponseMessage(responseData);
 
-            HttpClientFactory.MessageHandler = new FakeHttpMessageHandler("*", messageResponse);
+            var fakeMessageHandler = new FakeHttpMessageHandler("*", messageResponse);
 
-            var sut = new TwitterTimelineCrawler();
+            var sut = new TwitterTimelineCrawler(fakeMessageHandler);
             sut.OAuthToken = oAuthToken;
 
             var config = new TwitterTimelineCrawlerConfig();

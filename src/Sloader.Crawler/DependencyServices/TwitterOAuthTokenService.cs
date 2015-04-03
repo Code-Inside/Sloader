@@ -11,11 +11,23 @@ namespace Sloader.Crawler.DependencyServices
 {
     public class TwitterOAuthTokenService : ITwitterOAuthTokenService
     {
+        private readonly HttpMessageHandler _messageHandler;
+
+        public TwitterOAuthTokenService()
+        {
+               _messageHandler = new HttpClientHandler();
+        }
+
+        public TwitterOAuthTokenService(HttpMessageHandler messageHandler)
+        {
+            _messageHandler = messageHandler;
+        }
+
         public async Task<string> GetAsync(string consumerKey, string consumerSecret)
         {
             string oauthToken;
 
-            using (var httpClient = HttpClientFactory.GetHttpClient())
+            using (var httpClient = HttpClientFactory.GetHttpClient(_messageHandler))
             {
                 var authHeaderParameter = Convert.ToBase64String(Encoding.UTF8.GetBytes(Uri.EscapeDataString(consumerKey) + ":" +
                                                                                         Uri.EscapeDataString((consumerSecret))));

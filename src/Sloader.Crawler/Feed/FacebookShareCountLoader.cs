@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using WorldDomination.Net.Http;
@@ -7,11 +8,23 @@ namespace Sloader.Crawler.Feed
 {
     public class FacebookShareCountLoader : IFacebookShareCountLoader
     {
+        private readonly HttpMessageHandler _messageHandler;
+
+        public FacebookShareCountLoader()
+        {
+               _messageHandler = new HttpClientHandler();
+        }
+
+        public FacebookShareCountLoader(HttpMessageHandler messageHandler)
+        {
+            _messageHandler = messageHandler;
+        }
+
         public async Task<int> GetAsync(string url)
         {
             string facebookUrl = "https://graph.facebook.com/?id=" + url;
             string facebookContent;
-            using (var httpClient = HttpClientFactory.GetHttpClient())
+            using (var httpClient = HttpClientFactory.GetHttpClient(_messageHandler))
             {
                 // facebookContent sample:
                 // {"id":"http://...url...","shares":1} or just

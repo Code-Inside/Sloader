@@ -16,9 +16,9 @@ namespace Sloader.Crawler.Tests.FeedCrawlerTests
 
             var messageResponse = FakeHttpMessageHandler.GetStringHttpResponseMessage(responseData, HttpStatusCode.BadRequest);
 
-            HttpClientFactory.MessageHandler = new FakeHttpMessageHandler("*", messageResponse);
+            var fakeMessageHandler = new FakeHttpMessageHandler("*", messageResponse);
 
-            var sut = new TwitterTweetCountLoader();
+            var sut = new TwitterTweetCountLoader(fakeMessageHandler);
 
             Assert.Equal(0, await sut.GetAsync("http://blog.something.com"));
         }
@@ -30,9 +30,9 @@ namespace Sloader.Crawler.Tests.FeedCrawlerTests
 
             var messageResponse = FakeHttpMessageHandler.GetStringHttpResponseMessage(responseData);
 
-            HttpClientFactory.MessageHandler = new FakeHttpMessageHandler("*", messageResponse);
+            var fakeMessageHandler = new FakeHttpMessageHandler("*", messageResponse);
 
-            var sut = new TwitterTweetCountLoader();
+            var sut = new TwitterTweetCountLoader(fakeMessageHandler);
 
             Assert.Equal(1337, await sut.GetAsync("http://blog.something.com"));
         }
@@ -44,9 +44,9 @@ namespace Sloader.Crawler.Tests.FeedCrawlerTests
 
             var messageResponse = FakeHttpMessageHandler.GetStringHttpResponseMessage(responseData);
 
-            HttpClientFactory.MessageHandler = new FakeHttpMessageHandler("*", messageResponse);
+            var fakeMessageHandler = new FakeHttpMessageHandler("*", messageResponse);
 
-            var sut = new TwitterTweetCountLoader();
+            var sut = new TwitterTweetCountLoader(fakeMessageHandler);
 
             Assert.Equal(0, await sut.GetAsync("http://blog.something.com"));
         }

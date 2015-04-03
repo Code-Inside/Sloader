@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using WorldDomination.Net.Http;
@@ -7,11 +8,23 @@ namespace Sloader.Crawler.Feed
 {
     public class TwitterTweetCountLoader : ITwitterTweetCountLoader
     {
+        private readonly HttpMessageHandler _messageHandler;
+
+        public TwitterTweetCountLoader()
+        {
+               _messageHandler = new HttpClientHandler();
+        }
+
+        public TwitterTweetCountLoader(HttpMessageHandler messageHandler)
+        {
+            _messageHandler = messageHandler;
+        }
+
         public async Task<int> GetAsync(string url)
         {
             string twitterUrl = "http://urls.api.twitter.com/1/urls/count.json?url=" + url;
             string twitterContent;
-            using (var httpClient = HttpClientFactory.GetHttpClient())
+            using (var httpClient = HttpClientFactory.GetHttpClient(_messageHandler))
             {
                 // twitterContent sample:
                 // {"count":0,"url":"http://...url..."}
