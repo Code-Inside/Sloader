@@ -88,11 +88,11 @@
     </Reference>
     <Reference Include="Sloader.Crawler.Config, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Sloader.Crawler.Config.0.2\lib\net45\Sloader.Crawler.Config.dll</HintPath>
+      <HintPath>..\..\packages\Sloader.Crawler.Config.1.0\lib\net45\Sloader.Crawler.Config.dll</HintPath>
     </Reference>
     <Reference Include="Sloader.Results, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Sloader.Results.0.1\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Sloader.Results.dll</HintPath>
+      <HintPath>..\..\packages\Sloader.Results.1.0\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Sloader.Results.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

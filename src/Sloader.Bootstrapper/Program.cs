@@ -22,7 +22,7 @@ namespace Sloader.Bootstrapper
             var crawlerResult = InvokeCrawler().Result;
             Trace.TraceInformation("Crawler succeeded - now convert and write to BlobStorage!");
 
-            var json = JsonConvert.SerializeObject(crawlerResult, Constants.CrawlerJsonSerializerSettings);
+            var json = JsonConvert.SerializeObject(crawlerResult);
 
             var host = new JobHost();
             host.Call(typeof(Program).GetMethod("SaveToAzure"), new { json });

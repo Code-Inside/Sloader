@@ -35,8 +35,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Sloader.Crawler.Config">
-      <HintPath>..\..\packages\Sloader.Crawler.Config.0.2\lib\net45\Sloader.Crawler.Config.dll</HintPath>
+    <Reference Include="Sloader.Crawler.Config, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Sloader.Crawler.Config.1.0\lib\net45\Sloader.Crawler.Config.dll</HintPath>
     </Reference>
     <Reference Include="Sloader.Results, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
