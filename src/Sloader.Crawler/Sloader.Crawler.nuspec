@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Sloader.Crawler</id>
-    <version>0.1</version>
+    <version>0.2</version>
     <title>Sloader.Crawler</title>
     <authors>Code Inside Team</authors>
     <owners>Code Inside Team</owners>
@@ -10,7 +10,16 @@
     <projectUrl>https://github.com/Code-Inside/Sloader</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Crawler</description>
-    <releaseNotes>Development.</releaseNotes>
+    <releaseNotes>
+## Version 0.2 ##
+New Dependencies
+
+## Version 0.1 ##
+Inital NuGet Package with Basic Features:
+
+* Loading RSS Feeds (with Facebook and Twitter Shares)
+* Loading Tweets
+    </releaseNotes>
     <copyright>Copyright 2015</copyright>
     <tags>Sloader</tags>
     <dependencies>
@@ -19,8 +28,8 @@
         <dependency id="WorldDomination.HttpClient.Helpers" version="2.0" />
         <dependency id="Microsoft.Net.Http" version="2.2.28" />
 
-        <dependency id="Sloader.Crawler.Config" version="0.2" />
-        <dependency id="Sloader.Results" version="0.1" />
+        <dependency id="Sloader.Crawler.Config" version="1.0" />
+        <dependency id="Sloader.Results" version="1.0" />
       </group>
     </dependencies>
   </metadata>
