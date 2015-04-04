@@ -35,7 +35,6 @@ namespace Sloader.Crawler.Feed
                 return new FeedCrawlerResult();
 
             var crawlerResult = new FeedCrawlerResult();
-            crawlerResult.ResultType = KnownCrawler.Feed;
             crawlerResult.ResultIdentifier = config.ResultIdentifier;
             crawlerResult.FeedItems = new List<FeedCrawlerResult.FeedItem>();
 

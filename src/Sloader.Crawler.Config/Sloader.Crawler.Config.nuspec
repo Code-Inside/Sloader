@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Sloader.Crawler.Config</id>
-    <version>0.2</version>
+    <version>1.0</version>
     <title>Sloader.Crawler.Config</title>
     <authors>Code Inside Team</authors>
     <owners>Code Inside Team</owners>
@@ -11,14 +11,17 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Crawler Config</description>
     <releaseNotes>
-      ## Version 0.2 ##
-      API Enhancement: MasterCrawlerConfig.Load(...)
-      
-      ## Version 0.1 ##
-      Inital NuGet Package with Basic Features:
+## Version 1.0 ##
+Remove JSONSetting Constant, because of a more elegant Converter living in the Result NuGet Package.
 
-      * Loading RSS Feeds (with Facebook and Twitter Shares)
-      * Loading Tweets
+## Version 0.2 ##
+API Enhancement: MasterCrawlerConfig.Load(...)
+
+## Version 0.1 ##
+Inital NuGet Package with Basic Features:
+
+* Loading RSS Feeds (with Facebook and Twitter Shares)
+* Loading Tweets
     </releaseNotes>
     <copyright>Copyright 2015</copyright>
     <tags>Sloader</tags>

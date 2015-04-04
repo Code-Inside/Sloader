@@ -16,12 +16,18 @@ namespace Sloader.Results
             JObject jo = JObject.Load(reader);
             var resultType = jo["ResultType"].Value<string>();
 
-            if (resultType == KnownCrawlerResultType.Feed.ToString())
-                return jo.ToObject<FeedCrawlerResult>(serializer);
+            KnownCrawlerResultType knownType;
+            if (Enum.TryParse(resultType, true, out knownType))
+            {
+                if (knownType == KnownCrawlerResultType.Feed)
+                    return jo.ToObject<FeedCrawlerResult>(serializer);
 
-            if (resultType == KnownCrawlerResultType.TwitterTimeline.ToString())
-                return jo.ToObject<TwitterTimelineCrawlerResult>(serializer);
+                if (knownType == KnownCrawlerResultType.TwitterTimeline)
+                    return jo.ToObject<TwitterTimelineCrawlerResult>(serializer);
 
+            }
+
+            
             return null;
         }
 

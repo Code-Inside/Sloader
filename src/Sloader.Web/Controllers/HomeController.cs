@@ -56,8 +56,8 @@ namespace Sloader.Web.Controllers
                     viewModel.ResultText = reader.ReadToEnd();
                 }
 
-                viewModel.ResultData = JsonConvert.DeserializeObject<CrawlerRun>(viewModel.ResultText,
-Constants.CrawlerJsonSerializerSettings);
+                JsonConverter[] converters = { new CrawlerResultConverter() };
+                viewModel.ResultData = JsonConvert.DeserializeObject<CrawlerRun>(viewModel.ResultText, converters);
 
             }
 

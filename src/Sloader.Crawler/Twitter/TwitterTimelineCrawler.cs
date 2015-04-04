@@ -34,7 +34,6 @@ namespace Sloader.Crawler.Twitter
             var result = new TwitterTimelineCrawlerResult();
 
             result.ResultIdentifier = config.ResultIdentifier;
-            result.ResultType = KnownCrawler.TwitterTimeline;
             result.Tweets = new List<TwitterTimelineCrawlerResult.Tweet>();
 
             var twitterResult = await GetTwitterTimeline(OAuthToken, config.Handle);

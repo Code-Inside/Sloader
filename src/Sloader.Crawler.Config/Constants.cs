@@ -17,19 +17,6 @@ namespace Sloader.Crawler.Config
                 return new Deserializer(ignoreUnmatched: true);
             }
         }
-
-        public static JsonSerializerSettings CrawlerJsonSerializerSettings
-        {
-            get
-            {
-                return new JsonSerializerSettings
-                {
-                    TypeNameHandling = TypeNameHandling.Objects,
-                    
-                    TypeNameAssemblyFormat = System.Runtime.Serialization.Formatters.FormatterAssemblyStyle.Simple
-                };    
-            }
-        }
         
     }
 
