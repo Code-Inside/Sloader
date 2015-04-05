@@ -84,7 +84,7 @@
     </Reference>
     <Reference Include="Sloader.Crawler, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Sloader.Crawler.0.2\lib\net45\Sloader.Crawler.dll</HintPath>
+      <HintPath>..\..\packages\Sloader.Crawler.0.2.1\lib\net45\Sloader.Crawler.dll</HintPath>
     </Reference>
     <Reference Include="Sloader.Crawler.Config, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
