@@ -24,7 +24,7 @@ namespace Sloader.Crawler.Feed
         {
             string twitterUrl = "http://urls.api.twitter.com/1/urls/count.json?url=" + url;
             string twitterContent;
-            using (var httpClient = HttpClientFactory.GetHttpClient(_messageHandler))
+            using (var httpClient = HttpClientFactory.GetHttpClient(_messageHandler, false))
             {
                 // twitterContent sample:
                 // {"count":0,"url":"http://...url..."}

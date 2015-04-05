@@ -46,7 +46,7 @@ namespace Sloader.Crawler.Twitter
         {
             Trace.TraceInformation("GetTwitterTimeline invoked with screenname:" + screenname);
 
-            using (var httpClient = HttpClientFactory.GetHttpClient(_messageHandler))
+            using (var httpClient = HttpClientFactory.GetHttpClient(_messageHandler, false))
             {
                 var timelineFormat =
                     "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name={0}&include_rts=1&exclude_replies=1&count=5";

@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Sloader.Crawler</id>
-    <version>0.2</version>
+    <version>0.2.1</version>
     <title>Sloader.Crawler</title>
     <authors>Code Inside Team</authors>
     <owners>Code Inside Team</owners>
@@ -11,6 +11,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Crawler</description>
     <releaseNotes>
+## Version 0.2.1 ##
+HttpHandlers are not disposed anymore
+
 ## Version 0.2 ##
 New Dependencies
 

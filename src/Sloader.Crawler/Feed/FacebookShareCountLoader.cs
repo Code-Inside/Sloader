@@ -24,7 +24,7 @@ namespace Sloader.Crawler.Feed
         {
             string facebookUrl = "https://graph.facebook.com/?id=" + url;
             string facebookContent;
-            using (var httpClient = HttpClientFactory.GetHttpClient(_messageHandler))
+            using (var httpClient = HttpClientFactory.GetHttpClient(_messageHandler, false))
             {
                 // facebookContent sample:
                 // {"id":"http://...url...","shares":1} or just

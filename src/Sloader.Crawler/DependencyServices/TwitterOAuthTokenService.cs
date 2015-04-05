@@ -27,7 +27,7 @@ namespace Sloader.Crawler.DependencyServices
         {
             string oauthToken;
 
-            using (var httpClient = HttpClientFactory.GetHttpClient(_messageHandler))
+            using (var httpClient = HttpClientFactory.GetHttpClient(_messageHandler, false))
             {
                 var authHeaderParameter = Convert.ToBase64String(Encoding.UTF8.GetBytes(Uri.EscapeDataString(consumerKey) + ":" +
                                                                                         Uri.EscapeDataString((consumerSecret))));
