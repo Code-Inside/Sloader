@@ -9,7 +9,7 @@ using WorldDomination.Net.Http;
 
 namespace Sloader.Crawler.DependencyServices
 {
-    public class TwitterOAuthTokenService : ITwitterOAuthTokenService
+    public class TwitterOAuthTokenService : ITwitterOAuthTokenService, IDisposable
     {
         private readonly HttpMessageHandler _messageHandler;
 
@@ -55,6 +55,11 @@ namespace Sloader.Crawler.DependencyServices
             }
 
             return oauthToken;
+        }
+
+        public void Dispose()
+        {
+            _messageHandler.Dispose();
         }
     }
 }

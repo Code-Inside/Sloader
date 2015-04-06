@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -6,7 +7,7 @@ using WorldDomination.Net.Http;
 
 namespace Sloader.Crawler.Feed
 {
-    public class TwitterTweetCountLoader : ITwitterTweetCountLoader
+    public class TwitterTweetCountLoader : ITwitterTweetCountLoader, IDisposable
     {
         private readonly HttpMessageHandler _messageHandler;
 
@@ -45,6 +46,11 @@ namespace Sloader.Crawler.Feed
                 return 0;
 
             return twitterCounter.Value<int>();
+        }
+
+        public void Dispose()
+        {
+            _messageHandler.Dispose();
         }
     }
 }

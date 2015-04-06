@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -11,7 +12,7 @@ using WorldDomination.Net.Http;
 
 namespace Sloader.Crawler.Twitter
 {
-    public class TwitterTimelineCrawler : ICrawler<TwitterTimelineCrawlerResult, TwitterTimelineCrawlerConfig>
+    public class TwitterTimelineCrawler : ICrawler<TwitterTimelineCrawlerResult, TwitterTimelineCrawlerConfig>, IDisposable
     {
         private readonly HttpMessageHandler _messageHandler;
 
@@ -64,6 +65,11 @@ namespace Sloader.Crawler.Twitter
 
                 return resultForThisHandle;
             }
+        }
+
+        public void Dispose()
+        {
+            _messageHandler.Dispose();
         }
     }
 }

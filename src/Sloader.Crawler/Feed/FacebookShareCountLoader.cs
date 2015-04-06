@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -6,7 +7,7 @@ using WorldDomination.Net.Http;
 
 namespace Sloader.Crawler.Feed
 {
-    public class FacebookShareCountLoader : IFacebookShareCountLoader
+    public class FacebookShareCountLoader : IFacebookShareCountLoader, IDisposable
     {
         private readonly HttpMessageHandler _messageHandler;
 
@@ -47,6 +48,11 @@ namespace Sloader.Crawler.Feed
                 return 0;
 
             return facebookCounter.Value<int>();
+        }
+
+        public void Dispose()
+        {
+            _messageHandler.Dispose();
         }
     }
 }
