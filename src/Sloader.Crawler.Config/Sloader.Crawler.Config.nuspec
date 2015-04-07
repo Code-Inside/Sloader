@@ -13,6 +13,7 @@
     <releaseNotes>
 ## Version 1.0 ##
 Remove JSONSetting Constant, because of a more elegant Converter living in the Result NuGet Package.
+Config renamed to SloaderConfig and can have additional properties.
 
 ## Version 0.2 ##
 API Enhancement: MasterCrawlerConfig.Load(...)

@@ -1,6 +1,6 @@
 ﻿namespace Sloader.Crawler.Config
 {
-    public class MasterCrawlerSecrets
+    public class SloaderSecrets
     {
         public string TwitterConsumerKey { get; set; }
         public string TwitterConsumerSecret { get; set; }

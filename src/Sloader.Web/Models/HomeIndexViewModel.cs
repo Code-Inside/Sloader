@@ -26,14 +26,14 @@ namespace Sloader.Web.Models
         {
             get
             {
-                if (MasterCrawlerConfig == null)
+                if (SloaderConfig == null)
                     return false;
 
                 return true;
             }
         }
 
-        public MasterCrawlerConfig MasterCrawlerConfig { get; set; }
+        public SloaderConfig SloaderConfig { get; set; }
         public bool MasterCrawlerConfigIsTwitterConsumerConfigured { get; set; }
         public CrawlerRun ResultData { get; set; }
         public string ResultText { get; set; }

@@ -22,14 +22,14 @@ namespace Sloader.Web.Controllers
         public async Task<ActionResult> Index()
         {
             var viewModel = new HomeIndexViewModel();
-            viewModel.MasterCrawlerConfigPath = ConfigurationManager.AppSettings[ConfigKeys.MasterCrawlerConfigPath];
+            viewModel.MasterCrawlerConfigPath = ConfigurationManager.AppSettings[ConfigKeys.SloaderConfigPath];
             if (viewModel.MasterCrawlerConfigPathIsConfigured)
             {
-                var config = await MasterCrawlerConfigLoader.GetAsync(ConfigurationManager.AppSettings[ConfigKeys.MasterCrawlerConfigPath]);
+                var config = await SloaderConfigLoader.GetAsync(ConfigurationManager.AppSettings[ConfigKeys.SloaderConfigPath]);
 
-                viewModel.MasterCrawlerConfig = config;
+                viewModel.SloaderConfig = config;
 
-                var secrets = new MasterCrawlerSecrets();
+                var secrets = new SloaderSecrets();
                 secrets.TwitterConsumerKey = ConfigurationManager.AppSettings[ConfigKeys.SecretTwitterConsumerKey];
                 secrets.TwitterConsumerSecret = ConfigurationManager.AppSettings[ConfigKeys.SecretTwitterConsumerSecret];
 
