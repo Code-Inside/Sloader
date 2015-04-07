@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Sloader.Crawler</id>
-    <version>0.2.2</version>
+    <version>1.0.0</version>
     <title>Sloader.Crawler</title>
     <authors>Code Inside Team</authors>
     <owners>Code Inside Team</owners>
@@ -11,9 +11,12 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Crawler</description>
     <releaseNotes>
+## Version 1.0.0 ##
+Runner instead of MasterCrawler.
+
 ## Version 0.2.2 ##
-HttpHandlers are disposed in a clean way per component      
-    
+HttpHandlers are disposed in a clean way per component
+
 ## Version 0.2.1 ##
 HttpHandlers are not disposed anymore
 

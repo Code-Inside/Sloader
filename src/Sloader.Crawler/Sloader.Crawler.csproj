@@ -76,7 +76,7 @@
     <Compile Include="DependencyServices\TwitterOAuthTokenService.cs" />
     <Compile Include="Twitter\TwitterTimelineCrawler.cs" />
     <Compile Include="ICrawler.cs" />
-    <Compile Include="MasterCrawler.cs" />
+    <Compile Include="SloaderRunner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
