@@ -43,7 +43,7 @@ namespace Sloader.Bootstrapper
 #else
             var config =
                 await
-                    MasterCrawlerConfig.Load(ConfigurationManager.AppSettings[ConfigKeys.MasterCrawlerConfigPath]);
+                    SloaderConfig.Load(ConfigurationManager.AppSettings[ConfigKeys.SloaderConfigPath]);
 #endif
 
             var secrets = new SloaderSecrets();
