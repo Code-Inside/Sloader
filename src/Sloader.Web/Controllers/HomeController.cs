@@ -22,8 +22,8 @@ namespace Sloader.Web.Controllers
         public async Task<ActionResult> Index()
         {
             var viewModel = new HomeIndexViewModel();
-            viewModel.MasterCrawlerConfigPath = ConfigurationManager.AppSettings[ConfigKeys.SloaderConfigPath];
-            if (viewModel.MasterCrawlerConfigPathIsConfigured)
+            viewModel.SloaderConfigPath = ConfigurationManager.AppSettings[ConfigKeys.SloaderConfigPath];
+            if (viewModel.SloaderConfigPathIsConfigured)
             {
                 var config = await SloaderConfigLoader.GetAsync(ConfigurationManager.AppSettings[ConfigKeys.SloaderConfigPath]);
 
@@ -33,7 +33,7 @@ namespace Sloader.Web.Controllers
                 secrets.TwitterConsumerKey = ConfigurationManager.AppSettings[ConfigKeys.SecretTwitterConsumerKey];
                 secrets.TwitterConsumerSecret = ConfigurationManager.AppSettings[ConfigKeys.SecretTwitterConsumerSecret];
 
-                viewModel.MasterCrawlerConfigIsTwitterConsumerConfigured = secrets.IsTwitterConsumerConfigured;
+                viewModel.SloaderConfigIsTwitterConsumerConfigured = secrets.IsTwitterConsumerConfigured;
             }
 
             var azureWebJobStorage = ConfigurationManager.AppSettings[ConfigKeys.AzureWebJobStorage];
