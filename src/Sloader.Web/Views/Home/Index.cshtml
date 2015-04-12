@@ -13,22 +13,22 @@
 <div class="row">
     <div class="col-md-12">
         <h2>MasterCrawlerConfig</h2>
-        @if (Model.MasterCrawlerConfigPathIsConfigured)
+        @if (Model.SloaderConfigPathIsConfigured)
         {
-            <p><b>Configured @ConfigKeys.MasterCrawlerConfigPath:</b></p>
-            <pre>@Model.MasterCrawlerConfigPath</pre>
+            <p><b>Configured @ConfigKeys.SloaderConfigPath:</b></p>
+            <pre>@Model.SloaderConfigPath</pre>
 
-            if (Model.MasterCrawlerConfigIsValid)
+            if (Model.SloaderConfigIsValid)
             {
                 <p><b>Config is a valid MasterCrawlerConfig!</b></p>
             }
 
             <p><b>Secrets (@ConfigKeys.SecretTwitterConsumerKey, @ConfigKeys.SecretTwitterConsumerSecret): </b></p>
-            <p>@Model.MasterCrawlerConfigIsTwitterConsumerConfigured</p>
+            <p>@Model.SloaderConfigIsTwitterConsumerConfigured</p>
         }
         else
         {
-            <p><b>Configure @ConfigKeys.MasterCrawlerConfigPath!</b></p>
+            <p><b>Configure @ConfigKeys.SloaderConfigPath!</b></p>
         }
         
         <h2>Crawler Run Result:</h2>

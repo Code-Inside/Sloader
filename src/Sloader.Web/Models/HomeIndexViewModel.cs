@@ -9,20 +9,20 @@ namespace Sloader.Web.Models
 {
     public class HomeIndexViewModel
     {
-        public string MasterCrawlerConfigPath { get; set; }
+        public string SloaderConfigPath { get; set; }
 
-        public bool MasterCrawlerConfigPathIsConfigured
+        public bool SloaderConfigPathIsConfigured
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(MasterCrawlerConfigPath))
+                if (string.IsNullOrWhiteSpace(SloaderConfigPath))
                     return false;
 
                 return true;
             }
         }
 
-        public bool MasterCrawlerConfigIsValid
+        public bool SloaderConfigIsValid
         {
             get
             {
@@ -34,7 +34,7 @@ namespace Sloader.Web.Models
         }
 
         public SloaderConfig SloaderConfig { get; set; }
-        public bool MasterCrawlerConfigIsTwitterConsumerConfigured { get; set; }
+        public bool SloaderConfigIsTwitterConsumerConfigured { get; set; }
         public CrawlerRun ResultData { get; set; }
         public string ResultText { get; set; }
     }
