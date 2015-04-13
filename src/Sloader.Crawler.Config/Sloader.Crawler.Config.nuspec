@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Sloader.Crawler.Config</id>
-    <version>1.1</version>
+    <version>1.1.1</version>
     <title>Sloader.Crawler.Config</title>
     <authors>Code Inside Team</authors>
     <owners>Code Inside Team</owners>
@@ -11,6 +11,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Crawler Config</description>
     <releaseNotes>
+      ## Version 1.1.1 ##
+      Old KnownResults removed (now living in an enum in the result NuGet Package)
+
       ## Version 1.1 ##
       Config renamed to SloaderConfig and can have additional properties.
 

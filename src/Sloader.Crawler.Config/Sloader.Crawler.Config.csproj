@@ -61,7 +61,6 @@
     <Compile Include="ConfigKeys.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Feed\FeedCrawlerConfig.cs" />
-    <Compile Include="KnownCrawler.cs" />
     <Compile Include="CrawlerConfig.cs" />
     <Compile Include="SloaderConfig.cs" />
     <Compile Include="SloaderConfigLoader.cs" />
