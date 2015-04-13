@@ -12,8 +12,9 @@
     <description>Sloader Crawler Config</description>
     <releaseNotes>
       ## Version 1.1.1 ##
-      Old KnownResults removed (now living in an enum in the result NuGet Package)
-
+      - Old KnownResults removed (now living in an enum in the result NuGet Package)
+      - Dependency Update (remove JSON.NET, Http Stuff)
+      
       ## Version 1.1 ##
       Config renamed to SloaderConfig and can have additional properties.
 
@@ -34,9 +35,6 @@
     <tags>Sloader</tags>
     <dependencies>
       <group>
-        <dependency id="Newtonsoft.Json" version="6.0.8" />
-        <dependency id="WorldDomination.HttpClient.Helpers" version="2.0" />
-        <dependency id="Microsoft.Net.Http" version="2.2.28" />
         <dependency id="YamlDotNet" version="3.5.1" />
       </group>
     </dependencies>

@@ -1,5 +1,3 @@
-using System;
-using Newtonsoft.Json;
 using YamlDotNet.Serialization;
 
 namespace Sloader.Crawler.Config
