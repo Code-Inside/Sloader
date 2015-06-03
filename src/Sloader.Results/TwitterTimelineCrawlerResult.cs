@@ -10,7 +10,7 @@ namespace Sloader.Results
             get { return KnownCrawlerResultType.TwitterTimeline; }
         }
 
-        public class Tweet
+        public class Tweet : IHaveRawContent
         {
             [JsonProperty("id_str")]
             public string Id { get; set; }
@@ -29,6 +29,8 @@ namespace Sloader.Results
 
             [JsonProperty("favorite_count")]
             public int FavoriteCount { get; set; }
+
+            public string RawContent { get; set; }
         }
 
         public List<Tweet> Tweets { get; set; }
