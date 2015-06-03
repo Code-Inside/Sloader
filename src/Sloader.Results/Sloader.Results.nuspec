@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Sloader.Results</id>
-    <version>1.0</version>
+    <version>1.1</version>
     <title>Sloader.Results</title>
     <authors>Code Inside Team</authors>
     <owners>Code Inside Team</owners>
@@ -11,14 +11,17 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Result Type Definitions</description>
     <releaseNotes>
-## Version 1.0 ##
-Start moving KnownResult Types to this NuGet Package and init JsonConverter
+      ## Version 1.1 ##
+      RawData added
+      
+      ## Version 1.0 ##
+      Start moving KnownResult Types to this NuGet Package and init JsonConverter
 
-## Version 0.1 ##
-Inital NuGet Package with Basic Features:
+      ## Version 0.1 ##
+      Inital NuGet Package with Basic Features:
 
-* Result for RSS Feeds (with Facebook and Twitter Shares)
-* Result Tweets
+      * Result for RSS Feeds (with Facebook and Twitter Shares)
+      * Result Tweets
     </releaseNotes>
     <copyright>Copyright 2015</copyright>
     <tags>Sloader</tags>
