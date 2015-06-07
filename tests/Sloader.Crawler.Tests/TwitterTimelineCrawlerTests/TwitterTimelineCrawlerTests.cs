@@ -44,20 +44,19 @@ namespace Sloader.Crawler.Tests.TwitterTimelineCrawlerTests
             Assert.Equal(5, result.Tweets.Count);
         }
 
-        // Test for rawdata...
-        //[Fact]
-        //public async Task Crawler_Should_Embed_The_RawContent_From_The_ActualTimeLineItem()
-        //{
-        //    var result = await InvokeSut(Guid.NewGuid().ToString(), "test");
+        [Fact]
+        public async Task Crawler_Should_Embed_The_RawContent_From_The_ActualTimeLineItem()
+        {
+            var result = await InvokeSut(Guid.NewGuid().ToString(), "test");
 
-        //    var firstResult = result.Tweets.First();
+            var firstResult = result.Tweets.First();
 
-        //    var testContent = Newtonsoft.Json.JsonConvert.DeserializeObject<JArray>(GetTestFileContent());
+            var testContent = Newtonsoft.Json.JsonConvert.DeserializeObject<JArray>(GetTestFileContent());
 
-        //    var firstTestContent = testContent.First.ToString();
+            var firstTestContent = testContent.First.ToString();
 
-        //    Assert.Equal(firstTestContent, firstResult.RawData);
-        //}
+            Assert.Equal(firstTestContent, firstResult.RawContent);
+        }
 
 
         [Fact]

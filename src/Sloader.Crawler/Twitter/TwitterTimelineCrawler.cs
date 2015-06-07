@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Sloader.Crawler.Config;
 using Sloader.Crawler.Config.Twitter;
 using Sloader.Results;
@@ -60,8 +61,16 @@ namespace Sloader.Crawler.Twitter
 
                 string timeline = await response.Content.ReadAsStringAsync();
 
-                var resultForThisHandle =
-                    JsonConvert.DeserializeObject<List<TwitterTimelineCrawlerResult.Tweet>>(timeline);
+                var tweets = JsonConvert.DeserializeObject<JArray>(timeline);
+                var resultForThisHandle = new List<TwitterTimelineCrawlerResult.Tweet>();
+
+                foreach (var tweet in tweets)
+                {
+                    var rawJson = tweet.ToString(); 
+                    var tweetResult = JsonConvert.DeserializeObject<TwitterTimelineCrawlerResult.Tweet>(rawJson);
+                    tweetResult.RawContent = rawJson;
+                    resultForThisHandle.Add(tweetResult);
+                }
 
                 return resultForThisHandle;
             }
