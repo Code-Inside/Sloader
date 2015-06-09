@@ -11,6 +11,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Crawler</description>
     <releaseNotes>
+      ## Version 1.1.1 ##
+      Dependency to Result updated
+      
       ## Version 1.1.0 ##
       RawContent in Twitter Crawler added
 
@@ -44,7 +47,7 @@
         <dependency id="Microsoft.Net.Http" version="2.2.29" />
 
         <dependency id="Sloader.Crawler.Config" version="1.1" />
-        <dependency id="Sloader.Results" version="1.0" />
+        <dependency id="Sloader.Results" version="1.1" />
       </group>
     </dependencies>
   </metadata>
