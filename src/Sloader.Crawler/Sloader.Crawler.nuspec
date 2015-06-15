@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Sloader.Crawler</id>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <title>Sloader.Crawler</title>
     <authors>Code Inside Team</authors>
     <owners>Code Inside Team</owners>
@@ -11,11 +11,14 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Crawler</description>
     <releaseNotes>
+      ## Version 1.2.0 ##
+      RawContent in FeedCrawler added
+      
       ## Version 1.1.1 ##
       Dependency to Result updated
       
       ## Version 1.1.0 ##
-      RawContent in Twitter Crawler added
+      RawContent in TwitterCrawler added
 
       ## Version 1.0.1 ##
       Dependency Update for Http Client

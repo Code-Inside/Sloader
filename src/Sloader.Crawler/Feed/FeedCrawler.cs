@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel.Syndication;
+using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Linq;
 using Sloader.Crawler.Config;
 using Sloader.Crawler.Config.Feed;
@@ -81,6 +83,13 @@ namespace Sloader.Crawler.Feed
                 }
 
                 crawlerResultItem.PublishedOn = feedItem.PublishDate.Date;
+
+                StringBuilder builder = new StringBuilder();
+                XmlWriter writer = XmlWriter.Create(builder);
+                feedItem.SaveAsRss20(writer);
+                writer.Close();
+
+                crawlerResultItem.RawContent = builder.ToString();
 
                 crawlerResult.FeedItems.Add(crawlerResultItem);
             }

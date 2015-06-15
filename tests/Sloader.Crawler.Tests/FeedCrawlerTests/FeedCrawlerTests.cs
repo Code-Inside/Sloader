@@ -1,9 +1,12 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using System.ServiceModel.Syndication;
+using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using FakeItEasy;
+using Newtonsoft.Json.Linq;
 using Sloader.Crawler.Config.Feed;
 using Sloader.Crawler.Feed;
 using Sloader.Results;
@@ -77,6 +80,26 @@ namespace Sloader.Crawler.Tests.FeedCrawlerTests
             var specificFeedItem = result.FeedItems.Single(x => x.Href == staticGuidFromSampleWithThreeComments);
 
             Assert.Equal(3, specificFeedItem.CommentsCount);
+        }
+
+        [Fact]
+        public async Task Crawler_Should_Embed_The_RawContent_From_The_ActualRssItem()
+        {
+            var result = await InvokeSlashdotSutWithSocialLinksEnabled();
+
+
+            var staticFeed = SyndicationFeed.Load(new XmlTextReader(TestHelperForCurrentProject.GetTestFilePath(samplesDirectory, slashdotRssSample)));
+            var expectedItem = staticFeed.Items.First();
+
+            var firstResult = result.FeedItems.Single(x => x.Title == expectedItem.Title.Text);
+
+            StringBuilder builder = new StringBuilder();
+            XmlWriter writer = XmlWriter.Create(builder);
+            expectedItem.SaveAsRss20(writer);
+            writer.Close();
+
+            var expected = builder.ToString();
+            Assert.Equal(expected, firstResult.RawContent);
         }
 
         [Fact]
