@@ -1,8 +1,11 @@
 // include Fake lib
 #r "../packages/FAKE/tools/FakeLib.dll"
+#r "System.Xml.Linq"
+
 open Fake
 open System.IO;
 open Fake.XUnit2Helper
+open System.Xml.Linq
 
 RestorePackages()
 
@@ -11,10 +14,8 @@ let artifactsDir = @".\artifacts\"
 let artifactsBuildDir = "./artifacts/build/"
 let artifactsTestsDir  = "./artifacts/tests/"
 
-let toolNugetExe = @".nuget\nuget.exe"
-
-let artifactsResultsNugetSrcDir  = @".\artifacts\nuget-results-src\"
-let artifactsPkgDir  = @".\artifacts\nuget-pkg\"
+let artifactsNuGetPkgWorkingDir  = @".\artifacts\nuget-pkg-workingdir\"
+let artifactsNuGetPkgDir  = @".\artifacts\nuget-pkg\"
 
 // Targets
 Target "Clean" (fun _ ->
@@ -42,64 +43,75 @@ Target "RunTests" (fun _ ->
       |> xUnit2 (fun p -> {p with OutputDir = artifactsTestsDir })
 )
 
-// Poor mans NuGet Pack Solution for FAKE...
-Target "CreateNuGetCrawlerResultPackages" (fun _ ->
+Target "CreateNuGetArtifactsDirs" (fun _ ->
+    CleanDir artifactsNuGetPkgDir
+    CreateDir artifactsNuGetPkgDir
+)
+
+Target "Package:Sloader.Results" (fun _ ->
+
+    CleanDir artifactsNuGetPkgWorkingDir
 
     trace "Create Assembly for NuGet Packages..."
-    // The Path stuff is sooo wrong, but I have no idea how to do this elegant
     !! "src/Sloader.Results/*.csproj"
-     |> MSBuildRelease artifactsResultsNugetSrcDir "Build"
+     |> MSBuildRelease artifactsNuGetPkgWorkingDir "Build"
      |> Log "NuGet Assembly Build-Output: "
+
+    let nuspec = "./src/Sloader.Results/Sloader.Results.nuspec"
+    let doc = System.Xml.Linq.XDocument.Load(nuspec)
+    let vers = doc.Descendants(XName.Get("version", doc.Root.Name.NamespaceName)) 
 
     trace "Create Crawler Result NuGet Packages..."
-    CreateDir artifactsPkgDir
-    let result =
-        ExecProcess (fun info -> 
-            info.FileName <- toolNugetExe
-            info.Arguments <- "pack .\src\Sloader.Results\Sloader.Results.nuspec -OutputDirectory " + artifactsPkgDir + " -BasePath " + artifactsResultsNugetSrcDir
-        ) (System.TimeSpan.FromMinutes 1.)
- 
-    if result <> 0 then failwith "Failed result from NuGet"
+    NuGet (fun p -> 
+    {p with
+        Version = (Seq.head vers).Value
+        OutputPath = artifactsNuGetPkgDir
+        WorkingDir = artifactsNuGetPkgWorkingDir
+        })  nuspec
 )
 
-// Poor mans NuGet Pack Solution for FAKE... (COPY :-/ Sad Panda)
-Target "CreateNuGetCrawlerPackages" (fun _ ->
+Target "Package:Sloader.Crawler" (fun _ ->
+
+    CleanDir artifactsNuGetPkgWorkingDir
 
     trace "Create Assembly for NuGet Packages..."
-    // The Path stuff is sooo wrong, but I have no idea how to do this elegant
     !! "src/Sloader.Crawler/*.csproj"
-     |> MSBuildRelease artifactsResultsNugetSrcDir "Build"
+     |> MSBuildRelease artifactsNuGetPkgWorkingDir "Build"
      |> Log "NuGet Assembly Build-Output: "
+
+    let nuspec = "./src/Sloader.Crawler/Sloader.Crawler.nuspec"
+    let doc = System.Xml.Linq.XDocument.Load(nuspec)
+    let vers = doc.Descendants(XName.Get("version", doc.Root.Name.NamespaceName)) 
 
     trace "Create Crawler NuGet Packages..."
-    CreateDir artifactsPkgDir
-    let result =
-        ExecProcess (fun info -> 
-            info.FileName <- toolNugetExe
-            info.Arguments <- "pack .\src\Sloader.Crawler\Sloader.Crawler.nuspec -OutputDirectory " + artifactsPkgDir + " -BasePath " + artifactsResultsNugetSrcDir
-        ) (System.TimeSpan.FromMinutes 1.)
- 
-    if result <> 0 then failwith "Failed result from NuGet"
+    NuGet (fun p -> 
+    {p with
+        Version = (Seq.head vers).Value
+        OutputPath = artifactsNuGetPkgDir
+        WorkingDir = artifactsNuGetPkgWorkingDir
+        })  nuspec
 )
 
-// Poor mans NuGet Pack Solution for FAKE... (COPY :-/ Sad Panda)
-Target "CreateNuGetCrawlerConfigPackages" (fun _ ->
+Target "Package:Sloader.Crawler.Config" (fun _ ->
+
+    CleanDir artifactsNuGetPkgWorkingDir
 
     trace "Create Assembly for NuGet Packages..."
-    // The Path stuff is sooo wrong, but I have no idea how to do this elegant
     !! "src/Sloader.Crawler.Config/*.csproj"
-     |> MSBuildRelease artifactsResultsNugetSrcDir "Build"
+     |> MSBuildRelease artifactsNuGetPkgWorkingDir "Build"
      |> Log "NuGet Assembly Build-Output: "
 
+    let nuspec = "./src/Sloader.Crawler.Config/Sloader.Crawler.Config.nuspec"
+    let doc = System.Xml.Linq.XDocument.Load(nuspec)
+    let vers = doc.Descendants(XName.Get("version", doc.Root.Name.NamespaceName)) 
+
     trace "Create Crawler Config NuGet Packages..."
-    CreateDir artifactsPkgDir
-    let result =
-        ExecProcess (fun info -> 
-            info.FileName <- toolNugetExe
-            info.Arguments <- "pack .\src\Sloader.Crawler.Config\Sloader.Crawler.Config.nuspec -OutputDirectory " + artifactsPkgDir + " -BasePath " + artifactsResultsNugetSrcDir
-        ) (System.TimeSpan.FromMinutes 1.)
- 
-    if result <> 0 then failwith "Failed result from NuGet"
+    NuGet (fun p -> 
+    {p with
+        Version = (Seq.head vers).Value
+        OutputPath = artifactsNuGetPkgDir
+        WorkingDir = artifactsNuGetPkgWorkingDir
+        })  nuspec
 )
 
 Target "Default" (fun _ ->
@@ -111,10 +123,11 @@ Target "Default" (fun _ ->
   ==> "BuildApp"
   ==> "BuildTests"
   ==> "RunTests"
-  ==> "CreateNuGetCrawlerResultPackages"
-  ==> "CreateNuGetCrawlerConfigPackages"
-  ==> "CreateNuGetCrawlerPackages"
-  ==> "Default"
+  ==> "CreateNuGetArtifactsDirs"
+    ==> "Package:Sloader.Results"
+    ==> "Package:Sloader.Crawler.Config"
+    ==> "Package:Sloader.Crawler"
+      ==> "Default"
 
 // start build
 RunTargetOrDefault "Default"
