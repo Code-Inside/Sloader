@@ -1,8 +1,11 @@
 // include Fake lib
 #r "../packages/FAKE/tools/FakeLib.dll"
+#r "System.Xml.Linq"
+
 open Fake
 open System.IO;
 open Fake.XUnit2Helper
+open System.Xml.Linq
 
 RestorePackages()
 
@@ -54,12 +57,17 @@ Target "Package:Sloader.Results" (fun _ ->
      |> MSBuildRelease artifactsNuGetPkgWorkingDir "Build"
      |> Log "NuGet Assembly Build-Output: "
 
+    let nuspec = "./src/Sloader.Results/Sloader.Results.nuspec"
+    let doc = System.Xml.Linq.XDocument.Load(nuspec)
+    let vers = doc.Descendants(XName.Get("version", doc.Root.Name.NamespaceName)) 
+
     trace "Create Crawler Result NuGet Packages..."
     NuGet (fun p -> 
     {p with
+        Version = (Seq.head vers).Value
         OutputPath = artifactsNuGetPkgDir
         WorkingDir = artifactsNuGetPkgWorkingDir
-        })  "./src/Sloader.Results/Sloader.Results.nuspec"
+        })  nuspec
 )
 
 Target "Package:Sloader.Crawler" (fun _ ->
@@ -71,12 +79,17 @@ Target "Package:Sloader.Crawler" (fun _ ->
      |> MSBuildRelease artifactsNuGetPkgWorkingDir "Build"
      |> Log "NuGet Assembly Build-Output: "
 
+    let nuspec = "./src/Sloader.Crawler/Sloader.Crawler.nuspec"
+    let doc = System.Xml.Linq.XDocument.Load(nuspec)
+    let vers = doc.Descendants(XName.Get("version", doc.Root.Name.NamespaceName)) 
+
     trace "Create Crawler NuGet Packages..."
     NuGet (fun p -> 
     {p with
+        Version = (Seq.head vers).Value
         OutputPath = artifactsNuGetPkgDir
         WorkingDir = artifactsNuGetPkgWorkingDir
-        })  "./src/Sloader.Crawler/Sloader.Crawler.nuspec"
+        })  nuspec
 )
 
 Target "Package:Sloader.Crawler.Config" (fun _ ->
@@ -88,12 +101,17 @@ Target "Package:Sloader.Crawler.Config" (fun _ ->
      |> MSBuildRelease artifactsNuGetPkgWorkingDir "Build"
      |> Log "NuGet Assembly Build-Output: "
 
+    let nuspec = "./src/Sloader.Crawler.Config/Sloader.Crawler.Config.nuspec"
+    let doc = System.Xml.Linq.XDocument.Load(nuspec)
+    let vers = doc.Descendants(XName.Get("version", doc.Root.Name.NamespaceName)) 
+
     trace "Create Crawler Config NuGet Packages..."
     NuGet (fun p -> 
     {p with
+        Version = (Seq.head vers).Value
         OutputPath = artifactsNuGetPkgDir
         WorkingDir = artifactsNuGetPkgWorkingDir
-        })  "./src/Sloader.Crawler.Config/Sloader.Crawler.Config.nuspec"
+        })  nuspec
 )
 
 Target "Default" (fun _ ->
