@@ -1,16 +1,14 @@
 ﻿using System.Configuration;
 using System.Diagnostics;
 using System.IO;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using Newtonsoft.Json;
 using Sloader.Crawler;
 using Sloader.Crawler.Config;
 using Sloader.Results;
-using Constants = Sloader.Crawler.Config.Constants;
 
-namespace Sloader.Bootstrapper
+namespace Sloader.Sample.WebJobHost
 {
     public class Program
     {
@@ -53,6 +51,6 @@ namespace Sloader.Bootstrapper
 
             return await crawler.RunAllCrawlers();
         }
-    
+
     }
 }

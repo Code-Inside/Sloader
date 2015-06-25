@@ -1,9 +1,0 @@
-﻿{
-  "$schema": "http://schemastore.org/schemas/json/webjob-publish-settings.json",
-  "webJobName": "sloader-Bootstrapper",
-  "startTime": "2014-12-21T03:00:00+01:00",
-  "endTime": null,
-  "jobRecurrenceFrequency": "Hour",
-  "interval": 4,
-  "runMode": "Scheduled"
-}
