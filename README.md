@@ -28,3 +28,4 @@ Currently shipped:
 
 * FeedCrawler (incl. Comments-Count & Facebook & Twitter Shares)
 * TwitterTimelineCrawler
+* TwitterUserCrawler
