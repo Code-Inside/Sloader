@@ -57,6 +57,7 @@
     <Compile Include="SloaderConfigTests\SloaderConfigTests.cs" />
     <Compile Include="SloaderConfigTests\TwitterTimelineConfigTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SloaderConfigTests\TwitterUserConfigTests.cs" />
     <Compile Include="TestHelperForCurrentProject.cs" />
   </ItemGroup>
   <ItemGroup>

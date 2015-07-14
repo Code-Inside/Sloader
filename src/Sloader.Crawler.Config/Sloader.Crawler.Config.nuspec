@@ -11,6 +11,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Crawler Config</description>
     <releaseNotes>
+      ## Version 1.2.0 ##
+      Twitter User Crawler added
+      
       ## Version 1.1.1 ##
       - Old KnownResults removed (now living in an enum in the result NuGet Package)
       - Dependency Update (remove JSON.NET, Http Stuff)

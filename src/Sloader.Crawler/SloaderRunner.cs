@@ -43,19 +43,35 @@ namespace Sloader.Crawler
             }
 
             // Tweets
-            if (_config.Crawler.TwitterTimelinesToCrawl.Any() && _secrets.IsTwitterConsumerConfigured)
+            if (_secrets.IsTwitterConsumerConfigured)
             {
                 ITwitterOAuthTokenService oAuthTokenLoader = new TwitterOAuthTokenService();
                 var oauth = await oAuthTokenLoader.GetAsync(_secrets.TwitterConsumerKey, _secrets.TwitterConsumerSecret);
+                
                 if (string.IsNullOrWhiteSpace(oauth) == false)
                 {
-                    foreach (var handle in _config.Crawler.TwitterTimelinesToCrawl)
+                    if (_config.Crawler.TwitterTimelinesToCrawl.Any())
                     {
-                        var twitterCrawler = new TwitterTimelineCrawler();
-                        twitterCrawler.OAuthToken = oauth;
+                        foreach (var handle in _config.Crawler.TwitterTimelinesToCrawl)
+                        {
+                            var twitterTimelineCrawler = new TwitterTimelineCrawler();
+                            twitterTimelineCrawler.OAuthToken = oauth;
 
-                        var twitterResult = await twitterCrawler.DoWorkAsync(handle);
-                        crawlerRunResult.Results.Add(twitterResult);
+                            var twitterTimelineResult = await twitterTimelineCrawler.DoWorkAsync(handle);
+                            crawlerRunResult.Results.Add(twitterTimelineResult);
+                        }
+                    }
+
+                    if (_config.Crawler.TwitterUsersToCrawl.Any())
+                    {
+                        foreach (var handle in _config.Crawler.TwitterUsersToCrawl)
+                        {
+                            var twitterUserCrawler = new TwitterUserCrawler();
+                            twitterUserCrawler.OAuthToken = oauth;
+
+                            var twitterUserResult = await twitterUserCrawler.DoWorkAsync(handle);
+                            crawlerRunResult.Results.Add(twitterUserResult);
+                        }
                     }
                 }
                 

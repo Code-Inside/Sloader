@@ -11,12 +11,15 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Crawler</description>
     <releaseNotes>
+      ## Version 1.3.0 ##
+      Twitter User Crawler added
+      
       ## Version 1.2.0 ##
       RawContent in FeedCrawler added
-      
+
       ## Version 1.1.1 ##
       Dependency to Result updated
-      
+
       ## Version 1.1.0 ##
       RawContent in TwitterCrawler added
 

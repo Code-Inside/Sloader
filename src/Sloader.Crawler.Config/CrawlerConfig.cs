@@ -7,6 +7,8 @@ namespace Sloader.Crawler.Config
     public class CrawlerConfig
     {
         public IList<FeedCrawlerConfig> FeedsToCrawl { get; set; } 
-        public IList<TwitterTimelineCrawlerConfig> TwitterTimelinesToCrawl { get; set; } 
+        public IList<TwitterTimelineCrawlerConfig> TwitterTimelinesToCrawl { get; set; }
+        public IList<TwitterUserCrawlerConfig> TwitterUsersToCrawl { get; set; } 
+
     }
 }

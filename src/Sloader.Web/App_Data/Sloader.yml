@@ -11,3 +11,8 @@
   - Handle: codeinsideblog
   - Handle: robert0muehsig
   - Handle: oliverguhr
+
+  TwitterUsersToCrawl:
+  - Handle: codeinsideblog
+  - Handle: robert0muehsig
+  - Handle: oliverguhr

@@ -53,6 +53,7 @@
     <Compile Include="FeedCrawlerResultTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TwitterTimelineCrawlerResultTests.cs" />
+    <Compile Include="TwitterUserCrawlerResultTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

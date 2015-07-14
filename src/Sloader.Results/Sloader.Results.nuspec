@@ -11,9 +11,12 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Result Type Definitions</description>
     <releaseNotes>
+      ## Version 1.2.0 ##
+      Twitter User Crawler added
+
       ## Version 1.1 ##
       RawData added
-      
+
       ## Version 1.0 ##
       Start moving KnownResult Types to this NuGet Package and init JsonConverter
 

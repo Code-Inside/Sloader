@@ -55,6 +55,7 @@
     <Compile Include="SloaderSecrets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Twitter\TwitterTimelineCrawlerConfig.cs" />
+    <Compile Include="Twitter\TwitterUserCrawlerConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

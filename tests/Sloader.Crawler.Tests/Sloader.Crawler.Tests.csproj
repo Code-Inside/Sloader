@@ -39,14 +39,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Sloader.Crawler.Config, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Sloader.Crawler.Config.1.1.1\lib\net45\Sloader.Crawler.Config.dll</HintPath>
-    </Reference>
-    <Reference Include="Sloader.Results, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Sloader.Results.1.1\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Sloader.Results.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
@@ -90,6 +82,7 @@
     <Compile Include="FeedCrawlerTests\TwitterTweetCounterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestHelperForCurrentProject.cs" />
+    <Compile Include="TwitterUserCrawlerTests\TwitterTimelineCrawlerTests.cs" />
     <Compile Include="TwitterTimelineCrawlerTests\TwitterTimelineCrawlerTests.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -100,6 +93,9 @@
     <None Include="TwitterTimelineCrawlerTests\Sample\user_timeline.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="TwitterUserCrawlerTests\Sample\lookup.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="FeedCrawlerTests\Samples\SlashDotRss.xml">
@@ -107,9 +103,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\src\Sloader.Crawler.Config\Sloader.Crawler.Config.csproj">
+      <Project>{a2b2bdf7-8fd9-4849-8fcf-89305fcc5fe7}</Project>
+      <Name>Sloader.Crawler.Config</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\src\Sloader.Crawler\Sloader.Crawler.csproj">
       <Project>{093e48d7-9567-48ef-aa73-915355480200}</Project>
       <Name>Sloader.Crawler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Sloader.Results\Sloader.Results.csproj">
+      <Project>{fed02dcf-63a5-42b1-b9b7-5cfced9851a0}</Project>
+      <Name>Sloader.Results</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
