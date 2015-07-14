@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Sloader.Crawler</id>
-    <version>1.2.0</version>
+    <version>1.3.0</version>
     <title>Sloader.Crawler</title>
     <authors>Code Inside Team</authors>
     <owners>Code Inside Team</owners>
@@ -52,8 +52,8 @@
         <dependency id="WorldDomination.HttpClient.Helpers" version="3.0.1" />
         <dependency id="Microsoft.Net.Http" version="2.2.29" />
 
-        <dependency id="Sloader.Crawler.Config" version="1.1" />
-        <dependency id="Sloader.Results" version="1.1" />
+        <dependency id="Sloader.Crawler.Config" version="1.2.0" />
+        <dependency id="Sloader.Results" version="1.2.0" />
       </group>
     </dependencies>
   </metadata>
