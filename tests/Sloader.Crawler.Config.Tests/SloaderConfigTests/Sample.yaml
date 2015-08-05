@@ -1,4 +1,7 @@
-﻿
+﻿Secrets:
+   TwitterConsumerKey: HelloWorldKey
+   TwitterConsumerSecret: HelloWorldSecret
+
 Crawler:
    FeedsToCrawl:
    - Url: http://blogin.codeinside.eu/feed

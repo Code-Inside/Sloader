@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Sloader.Crawler.Config</id>
-    <version>1.2.0</version>
+    <version>2.0.0</version>
     <title>Sloader.Crawler.Config</title>
     <authors>Code Inside Team</authors>
     <owners>Code Inside Team</owners>
@@ -11,13 +11,16 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Crawler Config</description>
     <releaseNotes>
+      ## Version 2.0.0 ##
+      Secrets embedded in Sloader Config
+      
       ## Version 1.2.0 ##
       Twitter User Crawler added
-      
+
       ## Version 1.1.1 ##
       - Old KnownResults removed (now living in an enum in the result NuGet Package)
       - Dependency Update (remove JSON.NET, Http Stuff)
-      
+
       ## Version 1.1 ##
       Config renamed to SloaderConfig and can have additional properties.
 

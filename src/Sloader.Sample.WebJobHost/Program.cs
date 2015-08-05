@@ -47,7 +47,7 @@ namespace Sloader.Sample.WebJobHost
             var secrets = new SloaderSecrets();
             secrets.TwitterConsumerKey = ConfigurationManager.AppSettings[ConfigKeys.SecretTwitterConsumerKey];
             secrets.TwitterConsumerSecret = ConfigurationManager.AppSettings[ConfigKeys.SecretTwitterConsumerSecret];
-            var crawler = new SloaderRunner(config, secrets);
+            var crawler = new SloaderRunner(config);
 
             return await crawler.RunAllCrawlers();
         }

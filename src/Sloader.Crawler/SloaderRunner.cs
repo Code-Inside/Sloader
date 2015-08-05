@@ -12,12 +12,10 @@ namespace Sloader.Crawler
     public class SloaderRunner
     {
         private readonly SloaderConfig _config;
-        private readonly SloaderSecrets _secrets;
 
-        public SloaderRunner(SloaderConfig config, SloaderSecrets secrets)
+        public SloaderRunner(SloaderConfig config)
         {
             _config = config;
-            _secrets = secrets;
         }
 
         public async Task<CrawlerRun> RunAllCrawlers()
@@ -43,10 +41,10 @@ namespace Sloader.Crawler
             }
 
             // Tweets
-            if (_secrets.IsTwitterConsumerConfigured)
+            if (_config.Secrets.IsTwitterConsumerConfigured)
             {
                 ITwitterOAuthTokenService oAuthTokenLoader = new TwitterOAuthTokenService();
-                var oauth = await oAuthTokenLoader.GetAsync(_secrets.TwitterConsumerKey, _secrets.TwitterConsumerSecret);
+                var oauth = await oAuthTokenLoader.GetAsync(_config.Secrets.TwitterConsumerKey, _config.Secrets.TwitterConsumerSecret);
                 
                 if (string.IsNullOrWhiteSpace(oauth) == false)
                 {
