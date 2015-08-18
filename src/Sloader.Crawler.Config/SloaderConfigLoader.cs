@@ -1,4 +1,4 @@
-using System.IO;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -6,13 +6,12 @@ namespace Sloader.Crawler.Config
 {
     public static class SloaderConfigLoader
     {
-        public async static Task<SloaderConfig> GetAsync(string yamlLocation)
+        public async static Task<SloaderConfig> GetAsync(string yamlLocation, Dictionary<string, string> secrets)
         {
             var client = new HttpClient();
             var configString = await client.GetStringAsync(yamlLocation);
 
-            var deserializer = Constants.SloaderYamlDeserializer;
-            var config = deserializer.Deserialize<SloaderConfig>(new StringReader(configString));
+            var config = SloaderConfigDeserializer.GetConfigWithEmbeddedSecrets(configString, secrets);
 
             return config;
         }

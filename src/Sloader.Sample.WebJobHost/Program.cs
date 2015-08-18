@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
@@ -36,12 +37,15 @@ namespace Sloader.Sample.WebJobHost
         public static async Task<CrawlerRun> InvokeCrawler()
         {
 #if DEBUG
-            var config = await SloaderConfig.Load(
-                    "https://raw.githubusercontent.com/Code-Inside/Sloader/master/src/Sloader.Web/App_Data/Sloader.yml");
+            string debugYamlLocation =
+                "https://raw.githubusercontent.com/Code-Inside/Sloader/master/src/Sloader.Web/App_Data/Sloader.yml";
+
+
+        var config = await SloaderConfig.Load(debugYamlLocation, new Dictionary<string, string>());
 #else
             var config =
                 await
-                    SloaderConfig.Load(ConfigurationManager.AppSettings[ConfigKeys.SloaderConfigPath]);
+                    SloaderConfig.Load(ConfigurationManager.AppSettings[ConfigKeys.SloaderConfigPath], , new Dictionary<string, string>());
 #endif
 
             var secrets = new SloaderSecrets();

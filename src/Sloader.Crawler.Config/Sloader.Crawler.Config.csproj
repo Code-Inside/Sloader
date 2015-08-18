@@ -51,6 +51,7 @@
     <Compile Include="Feed\FeedCrawlerConfig.cs" />
     <Compile Include="CrawlerConfig.cs" />
     <Compile Include="SloaderConfig.cs" />
+    <Compile Include="SloaderConfigDeserializer.cs" />
     <Compile Include="SloaderConfigLoader.cs" />
     <Compile Include="SloaderSecrets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Sloader.Crawler.Config
@@ -9,9 +10,9 @@ namespace Sloader.Crawler.Config
             Secrets = new SloaderSecrets();
         }
 
-        public async static Task<SloaderConfig> Load(string yamlLocation)
+        public async static Task<SloaderConfig> Load(string yamlLocation, Dictionary<string, string> secrets)
         {
-            return await SloaderConfigLoader.GetAsync(yamlLocation);
+            return await SloaderConfigLoader.GetAsync(yamlLocation, secrets);
         }
 
         public SloaderSecrets Secrets { get; set; }

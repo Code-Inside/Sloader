@@ -13,7 +13,6 @@ using Newtonsoft.Json;
 using Sloader.Crawler.Config;
 using Sloader.Results;
 using Sloader.Web.Models;
-using YamlDotNet.Serialization;
 
 namespace Sloader.Web.Controllers
 {
@@ -25,7 +24,7 @@ namespace Sloader.Web.Controllers
             viewModel.SloaderConfigPath = ConfigurationManager.AppSettings[ConfigKeys.SloaderConfigPath];
             if (viewModel.SloaderConfigPathIsConfigured)
             {
-                var config = await SloaderConfigLoader.GetAsync(ConfigurationManager.AppSettings[ConfigKeys.SloaderConfigPath]);
+                var config = await SloaderConfigLoader.GetAsync(ConfigurationManager.AppSettings[ConfigKeys.SloaderConfigPath], new Dictionary<string, string>());
 
                 viewModel.SloaderConfig = config;
 
@@ -58,18 +57,11 @@ namespace Sloader.Web.Controllers
 
                 JsonConverter[] converters = { new CrawlerResultConverter() };
                 viewModel.ResultData = JsonConvert.DeserializeObject<CrawlerRun>(viewModel.ResultText, converters);
-
             }
 
             return View(viewModel);
         }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
+        
 
     }
 }
