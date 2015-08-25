@@ -40,8 +40,7 @@ namespace Sloader.Sample.WebJobHost
             string debugYamlLocation =
                 "https://raw.githubusercontent.com/Code-Inside/Sloader/master/src/Sloader.Web/App_Data/Sloader.yml";
 
-
-        var config = await SloaderConfig.Load(debugYamlLocation, new Dictionary<string, string>());
+            var config = await SloaderConfig.Load(debugYamlLocation, new Dictionary<string, string>());
 #else
             var config =
                 await
