@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2F59083B-FB24-434B-9875-659794F1959F}"
 EndProject
@@ -39,6 +39,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sloader.Crawler.Tests", "tests\Sloader.Crawler.Tests\Sloader.Crawler.Tests.csproj", "{A6B812A6-746B-4E89-9F50-A12D390055AF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sloader.Sample.WebJobHost", "src\Sloader.Sample.WebJobHost\Sloader.Sample.WebJobHost.csproj", "{C6285B57-6827-430E-A348-7D7AD0DFAF00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sloader.Sample.WinHost", "src\Sloader.Sample.WinHost\Sloader.Sample.WinHost.csproj", "{3C4193B4-B487-463E-8FC1-C6A1D395945F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -78,6 +80,10 @@ Global
 		{C6285B57-6827-430E-A348-7D7AD0DFAF00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6285B57-6827-430E-A348-7D7AD0DFAF00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6285B57-6827-430E-A348-7D7AD0DFAF00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C4193B4-B487-463E-8FC1-C6A1D395945F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C4193B4-B487-463E-8FC1-C6A1D395945F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C4193B4-B487-463E-8FC1-C6A1D395945F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C4193B4-B487-463E-8FC1-C6A1D395945F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,5 +97,6 @@ Global
 		{7A15214D-6F3A-4353-906D-AF59313896D7} = {DE234D16-59BA-41D6-B01C-4D307AEF2374}
 		{A6B812A6-746B-4E89-9F50-A12D390055AF} = {DE234D16-59BA-41D6-B01C-4D307AEF2374}
 		{C6285B57-6827-430E-A348-7D7AD0DFAF00} = {2F59083B-FB24-434B-9875-659794F1959F}
+		{3C4193B4-B487-463E-8FC1-C6A1D395945F} = {2F59083B-FB24-434B-9875-659794F1959F}
 	EndGlobalSection
 EndGlobal
