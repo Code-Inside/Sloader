@@ -44,7 +44,7 @@ namespace Sloader.Sample.WebJobHost
 #else
             var config =
                 await
-                    SloaderConfig.Load(ConfigurationManager.AppSettings[ConfigKeys.SloaderConfigPath], , new Dictionary<string, string>());
+                    SloaderConfig.Load(ConfigurationManager.AppSettings[ConfigKeys.SloaderConfigPath], new Dictionary<string, string>());
 #endif
 
             var secrets = new SloaderSecrets();
