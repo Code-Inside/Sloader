@@ -5,22 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sloader.Sample.WinHost"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="725">
+        Title="Sloader Runner for Windows Desktop" Height="450" Width="725">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition Width="2*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="0"></TextBlock>
-        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
-            <Button>Press Me</Button>
-            <TextBlock></TextBlock>
-            
-        </StackPanel>
+        <TextBox Grid.Row="0" Grid.Column="0"></TextBox>
+        <TextBox Grid.Row="0" Grid.Column="1"></TextBox>
+
+        <Button Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Height="30">Start Sloader Run</Button>
+        
     </Grid>
 
 </Window>
