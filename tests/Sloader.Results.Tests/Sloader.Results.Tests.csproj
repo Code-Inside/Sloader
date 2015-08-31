@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrawlerRunTests.cs" />
     <Compile Include="FeedCrawlerResultTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TwitterTimelineCrawlerResultTests.cs" />

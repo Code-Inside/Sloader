@@ -23,6 +23,7 @@ namespace Sloader.Sample.WinHost
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainWindowViewModel();
         }
     }
 }

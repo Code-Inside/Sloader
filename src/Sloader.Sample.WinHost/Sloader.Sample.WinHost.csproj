@@ -63,12 +63,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -94,6 +96,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sloader.Crawler.Config\Sloader.Crawler.Config.csproj">
+      <Project>{a2b2bdf7-8fd9-4849-8fcf-89305fcc5fe7}</Project>
+      <Name>Sloader.Crawler.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sloader.Crawler\Sloader.Crawler.csproj">
+      <Project>{093e48d7-9567-48ef-aa73-915355480200}</Project>
+      <Name>Sloader.Crawler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sloader.Results\Sloader.Results.csproj">
+      <Project>{fed02dcf-63a5-42b1-b9b7-5cfced9851a0}</Project>
+      <Name>Sloader.Results</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

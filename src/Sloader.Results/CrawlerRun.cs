@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Sloader.Results
 {
@@ -12,5 +13,10 @@ namespace Sloader.Results
         public DateTime RunOn { get; set; }
         public List<BaseCrawlerResult> Results { get; set; }
         public long RunDurationInMilliseconds { get; set; }
+
+        public string ToJson()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
     }
 }

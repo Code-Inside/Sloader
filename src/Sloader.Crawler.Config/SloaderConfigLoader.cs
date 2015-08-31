@@ -11,7 +11,14 @@ namespace Sloader.Crawler.Config
             var client = new HttpClient();
             var configString = await client.GetStringAsync(yamlLocation);
 
-            var config = SloaderConfigDeserializer.GetConfigWithEmbeddedSecrets(configString, secrets);
+            var config = SloaderConfigLoader.Parse(configString, secrets);
+
+            return config;
+        }
+
+        public static SloaderConfig Parse(string yamlConfig, Dictionary<string, string> secrets)
+        {
+            var config = SloaderConfigDeserializer.GetConfigWithEmbeddedSecrets(yamlConfig, secrets);
 
             return config;
         }

@@ -49,6 +49,28 @@ namespace Sloader.Crawler.Config.Tests.SloaderConfigTests
         }
 
         [Fact]
+        public void Parser_Can_Embed_Secrets()
+        {
+            StringBuilder fakeYaml = new StringBuilder();
+            fakeYaml.AppendLine("Secrets:");
+            fakeYaml.AppendLine("  TwitterConsumerKey: $$SecretPlaceholder1$$");
+            fakeYaml.AppendLine("  TwitterConsumerSecret: $$SecretPlaceholder2$$");
+            fakeYaml.AppendLine("");
+            fakeYaml.AppendLine("Crawler:");
+            fakeYaml.AppendLine("  TwitterTimelinesToCrawl:");
+            fakeYaml.AppendLine("  - Handle: codeinsideblog");
+
+            Dictionary<string, string> secrets = new Dictionary<string, string>();
+            secrets.Add("SecretPlaceholder1", "This is the secret key");
+            secrets.Add("SecretPlaceholder2", "This is the secret secret");
+
+            var result = SloaderConfigLoader.Parse(fakeYaml.ToString(), secrets);
+
+            Assert.Equal("This is the secret key", result.Secrets.TwitterConsumerKey);
+            Assert.Equal("This is the secret secret", result.Secrets.TwitterConsumerSecret);
+        }
+
+        [Fact]
         public void Deserializer_Can_Embed_Secrets()
         {
             StringBuilder fakeYaml = new StringBuilder();

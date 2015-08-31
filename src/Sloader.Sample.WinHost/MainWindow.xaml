@@ -16,10 +16,10 @@
             <ColumnDefinition Width="2*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <TextBox Grid.Row="0" Grid.Column="0"></TextBox>
-        <TextBox Grid.Row="0" Grid.Column="1"></TextBox>
+        <TextBox AcceptsReturn="True" Text="{Binding Input}"  Grid.Row="0" Grid.Column="0"></TextBox>
+        <TextBox AcceptsReturn="True" Text="{Binding Output}" Grid.Row="0" Grid.Column="1"></TextBox>
 
-        <Button Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Height="30">Start Sloader Run</Button>
+        <Button Command="{Binding StartSloaderCommand}" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Height="30">Start Sloader Run</Button>
         
     </Grid>
 
