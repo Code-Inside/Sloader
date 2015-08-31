@@ -4,6 +4,7 @@ build_script:
 artifacts:
 - path: artifacts/nuget-pkg/*.nupkg
   name: Nuget Packages
+os: Visual Studio 2015
 deploy:
 - provider: NuGet
   server: https://www.myget.org/F/sloader/
