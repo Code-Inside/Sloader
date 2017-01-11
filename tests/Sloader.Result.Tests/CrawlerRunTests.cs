@@ -15,9 +15,11 @@ namespace Sloader.Result.Tests
             twitterResult.Tweets.Add(new TwitterTimelineResult.Tweet() { Id = "1"});
             twitterResult.Tweets.Add(new TwitterTimelineResult.Tweet() { Id = "2" });
 
-            run.Data.Add("test", twitterResult);
+            run.AddResultDataPair("test", twitterResult);
 
             Assert.NotNull(run.ToJson());
+
+            Assert.True(run.ToJson().Contains("test"));
         }
     }
 }

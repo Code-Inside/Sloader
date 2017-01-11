@@ -56,7 +56,6 @@
     <Compile Include="SloaderConfigDeserializer.cs" />
     <Compile Include="SloaderConfigLoader.cs" />
     <Compile Include="SloaderSecrets.cs" />
-    <Compile Include="TransformerConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

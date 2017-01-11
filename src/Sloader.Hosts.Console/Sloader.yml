@@ -1,4 +1,8 @@
-﻿Crawler:
+﻿Secrets:
+  TwitterConsumerKey: $$Sloader.SecretTwitterConsumerKey$$
+  TwitterConsumerSecret: $$Sloader.SecretTwitterConsumerSecret$$
+
+Crawler:
   FeedsToCrawl:
   - Key: Blog
     Url: http://blogin.codeinside.eu/feed
@@ -10,11 +14,4 @@
   TwitterTimelinesToCrawl:
   - Handle: codeinsideblog;robert0muehsig;oliverguhr
     IncludeRetweets: false
-    Key: Twitter 
-
-Drop:
-	Files:
-	 - File: Sloader.yml
-	GitHub:
-	 
-
+    Key: Twitter

@@ -36,7 +36,7 @@ namespace Sloader.Engine
                 {
                     var feedCrawler = new FeedCrawler();
                     var feedResult = await feedCrawler.DoWorkAsync(feedConfig);
-                    crawlerRunResult.Data.Add(feedConfig.Key, feedResult);
+                    crawlerRunResult.AddResultDataPair(feedConfig.Key, feedResult);
                 }
 
             }
@@ -57,7 +57,7 @@ namespace Sloader.Engine
                             twitterTimelineCrawler.OAuthToken = oauth;
 
                             var twitterTimelineResult = await twitterTimelineCrawler.DoWorkAsync(twitterConfig);
-                            crawlerRunResult.Data.Add(twitterConfig.Key, twitterTimelineResult);
+                            crawlerRunResult.AddResultDataPair(twitterConfig.Key, twitterTimelineResult);
                         }
                     }
 
@@ -69,7 +69,7 @@ namespace Sloader.Engine
                             twitterUserCrawler.OAuthToken = oauth;
 
                             var twitterUserResult = await twitterUserCrawler.DoWorkAsync(twitterConfig);
-                            crawlerRunResult.Data.Add(twitterConfig.Key, twitterUserResult);
+                            crawlerRunResult.AddResultDataPair(twitterConfig.Key, twitterUserResult);
                         }
                     }
                 }

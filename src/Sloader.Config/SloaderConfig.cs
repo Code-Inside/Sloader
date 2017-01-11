@@ -18,7 +18,5 @@ namespace Sloader.Config
         public SloaderSecrets Secrets { get; set; }
 
         public CrawlerConfig Crawler { get; set; }
-
-        public IList<TransformerConfig> Transformer { get; set; }
     }
 }
