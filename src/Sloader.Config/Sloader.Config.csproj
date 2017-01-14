@@ -49,6 +49,8 @@
     <Compile Include="CrawlerConfig.cs" />
     <Compile Include="Crawler\BaseCrawlerConfig.cs" />
     <Compile Include="Crawler\Feed\FeedCrawlerConfig.cs" />
+    <Compile Include="DropConfig.cs" />
+    <Compile Include="Drop\File\FileDropConfig.cs" />
     <Compile Include="Crawler\Twitter\TwitterTimelineCrawlerConfig.cs" />
     <Compile Include="Crawler\Twitter\TwitterUserCrawlerConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

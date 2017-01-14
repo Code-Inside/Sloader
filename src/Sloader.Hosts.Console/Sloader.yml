@@ -15,3 +15,8 @@ Crawler:
   - Handle: codeinsideblog;robert0muehsig;oliverguhr
     IncludeRetweets: false
     Key: Twitter
+
+Drop:
+  FileDrops:
+  - FilePath: "test.json"
+  - FilePath: "test2.json"

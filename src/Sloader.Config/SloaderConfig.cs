@@ -18,5 +18,8 @@ namespace Sloader.Config
         public SloaderSecrets Secrets { get; set; }
 
         public CrawlerConfig Crawler { get; set; }
+
+        public DropConfig Drop { get; set; }
+
     }
 }
