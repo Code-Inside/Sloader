@@ -1,17 +1,29 @@
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Threading.Tasks;
 using Sloader.Config;
 using System.Linq;
+using System.Runtime.InteropServices;
 using Sloader.Engine.Crawler.DependencyServices;
 using Sloader.Engine.Crawler.Feed;
 using Sloader.Engine.Crawler.Twitter;
+using Sloader.Engine.Drop.File;
 using Sloader.Result;
 
 namespace Sloader.Engine
 {
     public class SloaderRunner
     {
+        public static async Task AutoRun()
+        {
+            var config = await SloaderConfig.Load(ConfigurationManager.AppSettings[FixedConfigKeys.SloaderConfigPath], ConfigurationManager.AppSettings.AllKeys.ToDictionary(k => k, v => ConfigurationManager.AppSettings[v]));
+
+            var runner = new SloaderRunner(config);
+            var crawlerRun = await runner.RunAllCrawlers();
+            await runner.RunThroughDrop(crawlerRun);
+        }
+
         private readonly SloaderConfig _config;
 
         public SloaderRunner(SloaderConfig config)
@@ -81,6 +93,19 @@ namespace Sloader.Engine
             crawlerRunResult.RunOn = DateTime.UtcNow;
 
             return crawlerRunResult;
+        }
+
+        public async Task RunThroughDrop(CrawlerRun crawlerRun)
+        {
+            if (_config.Drop != null)
+            {
+                foreach (var fileDropConfig in _config.Drop.FileDrops)
+                {
+                    var fileDrop = new FileDrop();
+                    await fileDrop.DoWorkAsync(fileDropConfig, crawlerRun);
+                }
+            }
+
         }
     }
 }
