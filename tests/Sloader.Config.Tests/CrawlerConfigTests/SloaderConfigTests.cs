@@ -10,7 +10,7 @@ namespace Sloader.Config.Tests.CrawlerConfigTests
         [Fact]
         public void Deserialize_Of_Testdata_To_Config_Works()
         {
-            string yaml = TestHelperForCurrentProject.GetTestFileContent("ConfigTests/Sample.yaml");
+            string yaml = TestHelperForCurrentProject.GetTestFileContent("CrawlerConfigTests/Sample.yaml");
 
             var deserializer = Constants.SloaderYamlDeserializer;
             var result = deserializer.Deserialize<SloaderConfig>(new StringReader(yaml));
