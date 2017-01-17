@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 using Xunit;
 
-namespace Sloader.Config.Tests.ConfigTests
+namespace Sloader.Config.Tests.CrawlerConfigTests
 {
     public class TwitterUserConfigTests
     {

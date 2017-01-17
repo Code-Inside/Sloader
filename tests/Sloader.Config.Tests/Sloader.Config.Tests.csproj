@@ -60,15 +60,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DropConfigTests\FeedCrawlerConfigTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ConfigTests\FeedCrawlerConfigTests.cs" />
-    <Compile Include="ConfigTests\SloaderConfigTests.cs" />
-    <Compile Include="ConfigTests\TwitterTimelineConfigTests.cs" />
-    <Compile Include="ConfigTests\TwitterUserConfigTests.cs" />
+    <Compile Include="CrawlerConfigTests\FeedCrawlerConfigTests.cs" />
+    <Compile Include="CrawlerConfigTests\SloaderConfigTests.cs" />
+    <Compile Include="CrawlerConfigTests\TwitterTimelineConfigTests.cs" />
+    <Compile Include="CrawlerConfigTests\TwitterUserConfigTests.cs" />
     <Compile Include="TestHelperForCurrentProject.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ConfigTests\Sample.yaml">
+    <None Include="CrawlerConfigTests\Sample.yaml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />

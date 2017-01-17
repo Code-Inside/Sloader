@@ -3,7 +3,7 @@ using System.IO;
 using System.Text;
 using Xunit;
 
-namespace Sloader.Config.Tests.ConfigTests
+namespace Sloader.Config.Tests.CrawlerConfigTests
 {
     public class SloaderConfigTests
     {
@@ -23,7 +23,7 @@ namespace Sloader.Config.Tests.ConfigTests
         [Fact]
         public void Deserialize_Of_Secrets_In_Testdata_To_Config_Works()
         {
-            string yaml = TestHelperForCurrentProject.GetTestFileContent("ConfigTests/Sample.yaml");
+            string yaml = TestHelperForCurrentProject.GetTestFileContent("CrawlerConfigTests/Sample.yaml");
 
             var deserializer = Constants.SloaderYamlDeserializer;
             var result = deserializer.Deserialize<SloaderConfig>(new StringReader(yaml));
