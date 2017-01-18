@@ -9,13 +9,15 @@ using Sloader.Engine.Crawler.DependencyServices;
 using Sloader.Engine.Crawler.Feed;
 using Sloader.Engine.Crawler.Twitter;
 using Sloader.Engine.Drop.File;
+using Sloader.Engine.Drop.GitHub;
 using Sloader.Result;
 
 namespace Sloader.Engine
 {
+
     public class SloaderRunner
     {
-        public static async Task AutoRun()
+        public async static Task AutoRun()
         {
             var config = await SloaderConfig.Load(ConfigurationManager.AppSettings[FixedConfigKeys.SloaderConfigPath], ConfigurationManager.AppSettings.AllKeys.ToDictionary(k => k, v => ConfigurationManager.AppSettings[v]));
 
@@ -42,7 +44,7 @@ namespace Sloader.Engine
                 return crawlerRunResult;
 
             // Feeds
-            if (_config.Crawler.FeedsToCrawl != null && _config.Crawler.FeedsToCrawl.Any())
+            if (_config.Crawler.FeedsToCrawl.Any())
             {
                 foreach (var feedConfig in _config.Crawler.FeedsToCrawl)
                 {
@@ -61,7 +63,7 @@ namespace Sloader.Engine
 
                 if (string.IsNullOrWhiteSpace(oauth) == false)
                 {
-                    if (_config.Crawler.TwitterTimelinesToCrawl != null && _config.Crawler.TwitterTimelinesToCrawl.Any())
+                    if (_config.Crawler.TwitterTimelinesToCrawl.Any())
                     {
                         foreach (var twitterConfig in _config.Crawler.TwitterTimelinesToCrawl)
                         {
@@ -73,7 +75,7 @@ namespace Sloader.Engine
                         }
                     }
 
-                    if (_config.Crawler.TwitterUsersToCrawl != null &&_config.Crawler.TwitterUsersToCrawl.Any())
+                    if (_config.Crawler.TwitterUsersToCrawl.Any())
                     {
                         foreach (var twitterConfig in _config.Crawler.TwitterUsersToCrawl)
                         {
@@ -103,6 +105,16 @@ namespace Sloader.Engine
                 {
                     var fileDrop = new FileDrop();
                     await fileDrop.DoWorkAsync(fileDropConfig, crawlerRun);
+                }
+
+                foreach (var gitHubDropConfig in _config.Drop.GitHubDrops)
+                {
+                    if (!string.IsNullOrWhiteSpace(_config.Secrets.GitHubAccessToken))
+                    {
+                        var gitHubDrop = new GitHubDrop();
+                        gitHubDrop.AccessToken = _config.Secrets.GitHubAccessToken;
+                        await gitHubDrop.DoWorkAsync(gitHubDropConfig, crawlerRun);
+                    }
                 }
             }
 

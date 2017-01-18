@@ -60,7 +60,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrawlerConfigTests\CrawlerConfigContainerTests.cs" />
+    <Compile Include="DropConfigTests\DropConfigContainerTests.cs" />
     <Compile Include="DropConfigTests\FileDropConfigTests.cs" />
+    <Compile Include="DropConfigTests\GitHubDropConfigTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CrawlerConfigTests\FeedCrawlerConfigTests.cs" />
     <Compile Include="CrawlerConfigTests\SloaderConfigTests.cs" />

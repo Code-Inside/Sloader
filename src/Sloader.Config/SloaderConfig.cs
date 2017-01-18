@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Sloader.Config.Crawler;
+using Sloader.Config.Drop;
 
 namespace Sloader.Config
 {
@@ -17,11 +19,6 @@ namespace Sloader.Config
         }
 
         public SloaderSecrets Secrets { get; set; }
-
-        public static Task Load(object p1, object p2)
-        {
-            throw new NotImplementedException();
-        }
 
         public CrawlerConfig Crawler { get; set; }
 

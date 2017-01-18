@@ -18,5 +18,6 @@
             }
         }
 
+        public string GitHubAccessToken { get; set; }
     }
 }
