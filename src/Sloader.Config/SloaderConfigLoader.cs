@@ -5,6 +5,10 @@ using System.Threading.Tasks;
 
 namespace Sloader.Config
 {
+    /// <summary>
+    /// Can load the actual yaml file from a local filepath 
+    /// or via the HttpClient and embeds the given secrets.
+    /// </summary>
     public static class SloaderConfigLoader
     {
         public async static Task<SloaderConfig> GetAsync(string yamlLocation, Dictionary<string, string> secrets)
@@ -22,14 +26,7 @@ namespace Sloader.Config
                 configString = File.ReadAllText(yamlLocation);
             }
 
-            var config = SloaderConfigLoader.Parse(configString, secrets);
-
-            return config;
-        }
-
-        public static SloaderConfig Parse(string yamlConfig, Dictionary<string, string> secrets)
-        {
-            var config = SloaderConfigDeserializer.GetConfigWithEmbeddedSecrets(yamlConfig, secrets);
+            var config = SloaderConfigDeserializer.GetConfigWithEmbeddedSecrets(configString, secrets);
 
             return config;
         }

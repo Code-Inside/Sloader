@@ -6,6 +6,9 @@ using Sloader.Config.Drop;
 
 namespace Sloader.Config
 {
+    /// <summary>
+    /// Root config entry, holds secrets, drops, crawler, etc.
+    /// </summary>
     public class SloaderConfig
     {
         public SloaderConfig()

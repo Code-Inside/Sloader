@@ -44,7 +44,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigKeys.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Crawler\CrawlerConfig.cs" />
     <Compile Include="Crawler\BaseCrawlerConfig.cs" />

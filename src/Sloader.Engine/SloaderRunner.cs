@@ -14,7 +14,6 @@ using Sloader.Result;
 
 namespace Sloader.Engine
 {
-
     public class SloaderRunner
     {
         public async static Task AutoRun()

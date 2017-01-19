@@ -74,6 +74,7 @@
     <Compile Include="Drop\File\FileDrop.cs" />
     <Compile Include="Drop\GitHub\GitHubDrop.cs" />
     <Compile Include="Drop\IDrop.cs" />
+    <Compile Include="FixedConfigKeys.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SloaderRunner.cs" />
     <Compile Include="Crawler\Twitter\TwitterTimelineCrawler.cs" />
