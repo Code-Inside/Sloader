@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Sloader.Config</id>
+    <version>0.1.0</version>
+    <title>Sloader.Config</title>
+    <authors>Code Inside Team</authors>
+    <owners>Code Inside Team</owners>
+    <licenseUrl>https://github.com/Code-Inside/Sloader/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/Code-Inside/Sloader</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Sloader Config</description>
+    <releaseNotes>
+      ## Version 0.1 ##
+      Init
+    </releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>Sloader</tags>
+    <dependencies />
+  </metadata>
+</package>

@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Sloader.Engine.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sloader.Config\Sloader.Config.csproj">
