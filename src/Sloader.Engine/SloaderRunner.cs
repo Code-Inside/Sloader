@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Sloader.Config;
 using System.Linq;
@@ -16,9 +17,29 @@ namespace Sloader.Engine
 {
     public class SloaderRunner
     {
-        public async static Task AutoRun()
+        public static async Task AutoRun()
         {
-            var config = await SloaderConfig.Load(ConfigurationManager.AppSettings[FixedConfigKeys.SloaderConfigPath], ConfigurationManager.AppSettings.AllKeys.ToDictionary(k => k, v => ConfigurationManager.AppSettings[v]));
+            if (ConfigurationManager.AppSettings[FixedConfigKeys.SloaderConfigPath] != null)
+            {
+                await AutoRunInternal(ConfigurationManager.AppSettings[FixedConfigKeys.SloaderConfigPath], ConfigurationManager.AppSettings.AllKeys.ToDictionary(k => k,
+                                v => ConfigurationManager.AppSettings[v]));
+            }
+            else
+            {
+                Trace.TraceError($"AppSetting Key with path to Sloader.yml missing: '{FixedConfigKeys.SloaderConfigPath}'");
+            }
+        }
+
+        public static async Task AutoRun(string sloaderConfigPath, Dictionary<string, string> secrets)
+        {
+            await AutoRunInternal(sloaderConfigPath, secrets);
+        }
+
+        private static async Task AutoRunInternal(string sloaderConfigPath, Dictionary<string, string> secrets)
+        {
+            var config =
+                 await
+                     SloaderConfig.Load(sloaderConfigPath, secrets);
 
             var runner = new SloaderRunner(config);
             var crawlerRun = await runner.RunAllCrawlers();
@@ -34,7 +55,7 @@ namespace Sloader.Engine
 
         public async Task<CrawlerRun> RunAllCrawlers()
         {
-            var watch = new System.Diagnostics.Stopwatch();
+            var watch = new Stopwatch();
             watch.Start();
 
             var crawlerRunResult = new CrawlerRun();
