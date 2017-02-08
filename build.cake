@@ -31,12 +31,24 @@ Task("Restore-NuGet-Packages")
     NuGetRestore("./Sloader.sln");
 });
 
-Task("Build")
+Task("BuildPackages")
     .IsDependentOn("Restore-NuGet-Packages")
+	.IsDependentOn("RunTests")
     .Does(() =>
 {
+    var nuGetPackSettings = new NuGetPackSettings
+	{
+		OutputDirectory = rootAbsoluteDir + @"\artifacts\",
+		IncludeReferencedProjects = true,
+		Properties = new Dictionary<string, string>
+		{
+			{ "Configuration", "Release" }
+		}
+	};
 
-     
+     NuGetPack("./src/Sloader.Config/Sloader.Config.csproj", nuGetPackSettings);
+     NuGetPack("./src/Sloader.Result/Sloader.Result.csproj", nuGetPackSettings);
+	 NuGetPack("./src/Sloader.Engine/Sloader.Engine.csproj", nuGetPackSettings);
 });
 
 Task("BuildTests")
