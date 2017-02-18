@@ -19,8 +19,11 @@ namespace Sloader.Engine
     {
         public static async Task AutoRun()
         {
+            Trace.TraceInformation($"AutoRun invoked.");
             if (ConfigurationManager.AppSettings[FixedConfigKeys.SloaderConfigPath] != null)
             {
+                Trace.TraceError($"AppSetting Key with path to Sloader.yml found: '{ConfigurationManager.AppSettings[FixedConfigKeys.SloaderConfigPath]}'.");
+
                 await AutoRunInternal(ConfigurationManager.AppSettings[FixedConfigKeys.SloaderConfigPath], ConfigurationManager.AppSettings.AllKeys.ToDictionary(k => k,
                                 v => ConfigurationManager.AppSettings[v]));
             }
@@ -41,6 +44,8 @@ namespace Sloader.Engine
                  await
                      SloaderConfig.Load(sloaderConfigPath, secrets);
 
+            Trace.TraceInformation($"SloaderConfig loaded - init {nameof(SloaderRunner)}");
+
             var runner = new SloaderRunner(config);
             var crawlerRun = await runner.RunAllCrawlers();
             await runner.RunThroughDrop(crawlerRun);
@@ -55,6 +60,7 @@ namespace Sloader.Engine
 
         public async Task<CrawlerRun> RunAllCrawlers()
         {
+            Trace.TraceInformation($"{nameof(RunAllCrawlers)} invoked.");
             var watch = new Stopwatch();
             watch.Start();
 
@@ -114,11 +120,15 @@ namespace Sloader.Engine
             crawlerRunResult.RunDurationInMilliseconds = watch.ElapsedMilliseconds;
             crawlerRunResult.RunOn = DateTime.UtcNow;
 
+            Trace.TraceInformation($"{nameof(RunAllCrawlers)} done.");
+
             return crawlerRunResult;
         }
 
         public async Task RunThroughDrop(CrawlerRun crawlerRun)
         {
+            Trace.TraceInformation($"{nameof(RunThroughDrop)} invoked.");
+
             if (_config.Drop != null)
             {
                 foreach (var fileDropConfig in _config.Drop.FileDrops)
@@ -138,6 +148,7 @@ namespace Sloader.Engine
                 }
             }
 
+            Trace.TraceInformation($"{nameof(RunThroughDrop)} done.");
         }
     }
 }

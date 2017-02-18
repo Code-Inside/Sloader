@@ -32,6 +32,8 @@ namespace Sloader.Engine.Crawler.Twitter
             if (string.IsNullOrWhiteSpace(config.Handle))
                 return new TwitterUserResult();
 
+            Trace.TraceInformation($"{nameof(TwitterUserCrawlerConfig)} loading stuff for '{config.Handle}'");
+
             var result = new TwitterUserResult();
 
             result.Users = new List<TwitterUserResult.User>();

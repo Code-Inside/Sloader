@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Newtonsoft.Json;
 
 namespace Sloader.Result
@@ -17,6 +18,7 @@ namespace Sloader.Result
 
         public void AddResultDataPair(string key, BaseResult data)
         {
+            Trace.TraceInformation($"{nameof(AddResultDataPair)} : '{key}'");
             if (Data.ContainsKey(key) == false)
             {
                 this.Data.Add(key, data);

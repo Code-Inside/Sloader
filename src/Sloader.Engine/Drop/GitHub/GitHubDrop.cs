@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 using Octokit;
 using Sloader.Config.Drop.GitHub;
@@ -12,6 +13,8 @@ namespace Sloader.Engine.Drop.GitHub
 
         public async Task DoWorkAsync(GitHubDropConfig config, CrawlerRun crawlerRun)
         {
+            Trace.TraceInformation($"{nameof(GitHubDrop)} dropping stuff for owner '{config.Owner}' on '{config.Repo}':'{config.Branch}' for '{config.FilePath}' ");
+
             var ghClient = new GitHubClient(new ProductHeaderValue("Sloader"));
             ghClient.Credentials = new Credentials(AccessToken);
 

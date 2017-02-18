@@ -36,6 +36,8 @@ namespace Sloader.Engine.Crawler.Twitter
             if (string.IsNullOrWhiteSpace(config.Handle))
                 return new TwitterTimelineResult();
 
+            Trace.TraceInformation($"{nameof(TwitterTimelineCrawler)} loading stuff for '{config.Handle}'");
+
             var result = new TwitterTimelineResult();
 
             result.Tweets = new List<TwitterTimelineResult.Tweet>();
