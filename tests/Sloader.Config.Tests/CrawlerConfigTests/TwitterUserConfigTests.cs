@@ -24,4 +24,6 @@ namespace Sloader.Config.Tests.CrawlerConfigTests
             Assert.Equal("CIB", configValue.Key);
         }
     }
+
+
 }

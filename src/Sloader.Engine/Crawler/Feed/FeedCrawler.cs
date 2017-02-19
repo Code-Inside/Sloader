@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Text;
@@ -33,6 +34,8 @@ namespace Sloader.Engine.Crawler.Feed
         {
             if (string.IsNullOrWhiteSpace(config.Url))
                 return new FeedResult();
+
+            Trace.TraceInformation($"{nameof(FeedCrawler)} loading stuff for '{config.Url}'");
 
             var crawlerResult = new FeedResult();
             crawlerResult.FeedItems = new List<FeedResult.FeedItem>();

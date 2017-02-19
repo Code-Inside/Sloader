@@ -4,6 +4,7 @@
     {
         Feed,
         TwitterTimeline,
-        TwitterUser 
+        TwitterUser,
+        GitHubEvent
     }
 }

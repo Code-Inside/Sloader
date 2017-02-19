@@ -10,6 +10,7 @@ namespace Sloader.Result.Types
             get { return KnownResultType.TwitterUser; }
         }
 
+        // ToDo!
         public class User : IHaveRawContent
         {
             [JsonProperty("id_str")]

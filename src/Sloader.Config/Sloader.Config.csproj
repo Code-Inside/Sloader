@@ -48,6 +48,7 @@
     <Compile Include="Crawler\CrawlerConfig.cs" />
     <Compile Include="Crawler\BaseCrawlerConfig.cs" />
     <Compile Include="Crawler\Feed\FeedCrawlerConfig.cs" />
+    <Compile Include="Crawler\GitHub\GitHubEventCrawlerConfig.cs" />
     <Compile Include="Drop\DropConfig.cs" />
     <Compile Include="Drop\File\FileDropConfig.cs" />
     <Compile Include="Crawler\Twitter\TwitterTimelineCrawlerConfig.cs" />

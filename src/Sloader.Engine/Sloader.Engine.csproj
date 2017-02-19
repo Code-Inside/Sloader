@@ -70,6 +70,7 @@
     <Compile Include="Crawler\Feed\IFacebookShareCountLoader.cs" />
     <Compile Include="Crawler\Feed\ISyndicationFeedAbstraction.cs" />
     <Compile Include="Crawler\Feed\SyndicationFeedAbstraction.cs" />
+    <Compile Include="Crawler\GitHub\GitHubEventCrawler.cs" />
     <Compile Include="Crawler\ICrawler.cs" />
     <Compile Include="Drop\File\FileDrop.cs" />
     <Compile Include="Drop\GitHub\GitHubDrop.cs" />

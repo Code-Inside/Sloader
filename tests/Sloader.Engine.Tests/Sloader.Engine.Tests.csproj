@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="FeedCrawlerTests\FacebookShareCounterTests.cs" />
     <Compile Include="FeedCrawlerTests\FeedCrawlerTests.cs" />
+    <Compile Include="GitHubEventCrawlerTests\GitHubEventCrawlerOrgTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestHelperForCurrentProject.cs" />
     <Compile Include="TwitterTimelineCrawlerTests\TwitterTimelineCrawlerTests.cs" />
@@ -94,6 +95,15 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <None Include="GitHubEventCrawlerTests\Sample\repo.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="GitHubEventCrawlerTests\Sample\user.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="GitHubEventCrawlerTests\Sample\org.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="TwitterTimelineCrawlerTests\Sample\user_timeline.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

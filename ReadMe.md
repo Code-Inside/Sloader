@@ -17,7 +17,15 @@ Crawler:
   - Handle: codeinsideblog;robert0muehsig;oliverguhr
     IncludeRetweets: false
     Key: Twitter
-
+  TwitterUsersToCrawl:
+  - Handle: robert0muehsig
+    Key: TwitterMe
+  GitHubEventsToCrawl:
+  - Key: GitHubEvent
+    Repo: code-inside/sloader;foobar/test
+	User: robertmuehsig;oliverguhr
+	Orgs: code-inside
+    
 Drop:
   FileDrops:
   - FilePath: "test.json"

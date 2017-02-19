@@ -51,6 +51,7 @@
     <Compile Include="IHaveRawContent.cs" />
     <Compile Include="KnownResultType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\GitHubEventResult.cs" />
     <Compile Include="Types\TwitterTimelineResult.cs" />
     <Compile Include="Types\TwitterUserResult.cs" />
   </ItemGroup>
