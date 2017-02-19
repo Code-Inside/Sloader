@@ -45,6 +45,14 @@ namespace Sloader.Engine.Tests.TwitterUserCrawlerTests
             Assert.Equal(1, result.Users.Count);
         }
 
+
+        [Fact]
+        public async Task Crawler_Should_Return_One_User_With_Correct_Followercount()
+        {
+            var result = await InvokeSut(Guid.NewGuid().ToString(), "Twitter");
+            Assert.Equal(12788713, result.Users.First().FollowersCount);
+        }
+
         [Fact]
         public async Task Crawler_Should_Embed_The_RawContent_From_The_ActualUserItem()
         {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
@@ -10,25 +11,18 @@ namespace Sloader.Result.Types
             get { return KnownResultType.TwitterUser; }
         }
 
-        // ToDo!
         public class User : IHaveRawContent
         {
-            [JsonProperty("id_str")]
             public string Id { get; set; }
 
-            [JsonProperty("created_at")]
-            public string CreatedAt { get; set; }
+            public DateTime CreatedAt { get; set; }
 
-            [JsonProperty("name")]
             public string Name { get; set; }
 
-            [JsonProperty("url")]
             public string Url { get; set; }
 
-            [JsonProperty("followers_count")]
             public int FollowersCount { get; set; }
 
-            [JsonProperty("description")]
             public string Description { get; set; }
 
             public string RawContent { get; set; }

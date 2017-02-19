@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -66,9 +68,24 @@ namespace Sloader.Engine.Crawler.Twitter
             foreach (var user in users)
             {
                 var rawJson = user.ToString();
-                var tweetResult = JsonConvert.DeserializeObject<TwitterUserResult.User>(rawJson);
-                tweetResult.RawContent = rawJson;
-                resultForThisHandle.Add(tweetResult);
+
+                TwitterUserResult.User userObject = new TwitterUserResult.User();
+                userObject.Id = user["id_str"].ToObject<string>();
+                userObject.Name = user["name"].ToObject<string>();
+                userObject.Url = user["url"].ToObject<string>();
+                userObject.FollowersCount = user["followers_count"].ToObject<int>();
+                userObject.Description = user["description"].ToObject<string>();
+
+                var userDate = user["created_at"].ToObject<string>();
+
+                DateTime userDateAsDate;
+                if (DateTime.TryParseExact(userDate, "ddd MMM dd HH:mm:ss zzz yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out userDateAsDate))
+                {
+                    userObject.CreatedAt = userDateAsDate;
+                }
+
+                userObject.RawContent = rawJson;
+                resultForThisHandle.Add(userObject);
             }
 
             return resultForThisHandle;
