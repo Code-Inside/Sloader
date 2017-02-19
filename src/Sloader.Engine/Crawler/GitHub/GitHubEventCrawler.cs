@@ -124,6 +124,12 @@ namespace Sloader.Engine.Crawler.GitHub
                     eventObject.RelatedDescription = gitHubEvent["payload"]?["release"]?["tag_name"]?.ToObject<string>();
                 }
 
+                if (eventObject.Type == "ForkEvent")
+                {
+                    eventObject.RelatedUrl = gitHubEvent["payload"]?["forkee"]?["html_url"]?.ToObject<string>();
+                    eventObject.RelatedDescription = gitHubEvent["payload"]?["forkee"]?["name"]?.ToObject<string>();
+                }
+
                 var eventDate = gitHubEvent["created_at"].ToObject<string>();
 
                 DateTime eventDateAsDate;

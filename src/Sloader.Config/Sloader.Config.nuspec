@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Sloader.Config</id>
-    <version>0.1.1</version>
+    <version>0.2.0</version>
     <title>Sloader.Config</title>
     <authors>Code Inside Team</authors>
     <owners>Code Inside Team</owners>
@@ -11,6 +11,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Config</description>
     <releaseNotes>
+      ## Version 0.2.0 ##
+      GitHubEvent Crawler added
       ## Version 0.1.1 ##
       Trace Information added
       ## Version 0.1.0 ##
