@@ -79,18 +79,15 @@ namespace Sloader.Engine.Crawler.Twitter
                 {
                     var rawJson = tweet.ToString();
 
-
-                    JObject tweetJson = JObject.Parse(rawJson);
-
                     TwitterTimelineResult.Tweet tweetObject = new TwitterTimelineResult.Tweet();
-                    tweetObject.Id = tweetJson["id_str"].ToObject<string>();
-                    tweetObject.Text = tweetJson["text"].ToObject<string>();
-                    tweetObject.Source = tweetJson["source"].ToObject<string>();
-                    tweetObject.RetweetCount = tweetJson["favorite_count"].ToObject<int>();
-                    tweetObject.FavoriteCount = tweetJson["retweet_count"].ToObject<int>();
-                    tweetObject.UserScreenname = tweetJson["user"]["screen_name"].ToObject<string>();
+                    tweetObject.Id = tweet["id_str"].ToObject<string>();
+                    tweetObject.Text = tweet["text"].ToObject<string>();
+                    tweetObject.Source = tweet["source"].ToObject<string>();
+                    tweetObject.RetweetCount = tweet["favorite_count"].ToObject<int>();
+                    tweetObject.FavoriteCount = tweet["retweet_count"].ToObject<int>();
+                    tweetObject.UserScreenname = tweet["user"]["screen_name"].ToObject<string>();
 
-                    var tweetDate = tweetJson["created_at"].ToObject<string>();
+                    var tweetDate = tweet["created_at"].ToObject<string>();
 
                     DateTime tweetDateAsDate;
                     if (DateTime.TryParseExact(tweetDate, "ddd MMM dd HH:mm:ss zzz yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out tweetDateAsDate))
