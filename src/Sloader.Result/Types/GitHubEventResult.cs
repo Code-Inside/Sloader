@@ -14,6 +14,9 @@ namespace Sloader.Result.Types
             public string Repository { get; set; }
             public string Organization { get; set; }
             public string RawContent { get; set; }
+            public string RelatedAction { get; set; }
+            public string RelatedUrl { get; set; }
+            public string RelatedDescription { get; set; }
         }
 
         public List<Event> Events { get; set; }

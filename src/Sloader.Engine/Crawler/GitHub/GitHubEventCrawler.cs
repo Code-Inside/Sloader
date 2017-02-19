@@ -81,6 +81,9 @@ namespace Sloader.Engine.Crawler.GitHub
 
         private async Task FetchData(string apiCall, GitHubEventResult crawlerResult)
         {
+            // needed, otherwise GitHub API will return 
+            // The server committed a protocol violation. Section=ResponseStatusLine ERROR
+            _httpClient.DefaultRequestHeaders.Add("User-Agent", "Anything");
             var response = await _httpClient.GetAsync(apiCall);
 
             response.EnsureSuccessStatusCode();
@@ -97,9 +100,29 @@ namespace Sloader.Engine.Crawler.GitHub
                 GitHubEventResult.Event eventObject = new GitHubEventResult.Event();
                 eventObject.Id = gitHubEvent["id"].ToObject<string>();
                 eventObject.Type = gitHubEvent["type"].ToObject<string>();
-                eventObject.Actor = gitHubEvent["actor"]["login"].ToObject<string>();
-                eventObject.Repository = gitHubEvent["repo"]["name"].ToObject<string>();
-                eventObject.Organization = gitHubEvent["org"]["login"].ToObject<string>();
+                eventObject.Actor = gitHubEvent["actor"]?["login"].ToObject<string>();
+                eventObject.Repository = gitHubEvent["repo"]?["name"].ToObject<string>();
+                eventObject.Organization = gitHubEvent["org"]?["login"].ToObject<string>();
+                eventObject.RelatedAction = gitHubEvent["payload"]?["action"]?.ToObject<string>();
+
+
+                if (eventObject.Type == "IssuesEvent" || eventObject.Type == "IssueCommentEvent")
+                {
+                    eventObject.RelatedUrl = gitHubEvent["payload"]?["issue"]?["html_url"]?.ToObject<string>();
+                    eventObject.RelatedDescription = gitHubEvent["payload"]?["issue"]?["title"]?.ToObject<string>();
+                }
+
+                if (eventObject.Type == "PullRequestEvent")
+                {
+                    eventObject.RelatedUrl = gitHubEvent["payload"]?["pull_request"]?["html_url"]?.ToObject<string>();
+                    eventObject.RelatedDescription = gitHubEvent["payload"]?["pull_request"]?["title"]?.ToObject<string>();
+                }
+
+                if (eventObject.Type == "ReleaseEvent")
+                {
+                    eventObject.RelatedUrl = gitHubEvent["payload"]?["release"]?["html_url"]?.ToObject<string>();
+                    eventObject.RelatedDescription = gitHubEvent["payload"]?["release"]?["tag_name"]?.ToObject<string>();
+                }
 
                 var eventDate = gitHubEvent["created_at"].ToObject<string>();
 

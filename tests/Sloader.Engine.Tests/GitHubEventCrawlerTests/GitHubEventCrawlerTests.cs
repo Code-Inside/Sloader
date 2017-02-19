@@ -37,7 +37,7 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
 
         private static async Task<GitHubEventResult> InvokeSutForUsers(string user)
         {
-            string responseData = GetTestFileContentFor("org");
+            string responseData = GetTestFileContentFor("user");
 
             var messageResponse = FakeHttpMessageHandler.GetStringHttpResponseMessage(responseData);
 

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using Sloader.Engine.Crawler.DependencyServices;
 using Sloader.Engine.Crawler.Feed;
+using Sloader.Engine.Crawler.GitHub;
 using Sloader.Engine.Crawler.Twitter;
 using Sloader.Engine.Drop.File;
 using Sloader.Engine.Drop.GitHub;
@@ -77,6 +78,18 @@ namespace Sloader.Engine
                     var feedCrawler = new FeedCrawler();
                     var feedResult = await feedCrawler.DoWorkAsync(feedConfig);
                     crawlerRunResult.AddResultDataPair(feedConfig.Key, feedResult);
+                }
+
+            }
+
+            // GitHubEvents
+            if (_config.Crawler.GitHubEventsToCrawl.Any())
+            {
+                foreach (var githubEventConfig in _config.Crawler.GitHubEventsToCrawl)
+                {
+                    var eventCrawler = new GitHubEventCrawler();
+                    var eventResult = await eventCrawler.DoWorkAsync(githubEventConfig);
+                    crawlerRunResult.AddResultDataPair(githubEventConfig.Key, eventResult);
                 }
 
             }
