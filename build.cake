@@ -46,8 +46,11 @@ Task("BuildPackages")
 		}
 	};
 
+	 MSBuild("./src/Sloader.Config/Sloader.Config.csproj", new MSBuildSettings().SetConfiguration("Release"));
      NuGetPack("./src/Sloader.Config/Sloader.Config.csproj", nuGetPackSettings);
+	 MSBuild("./src/Sloader.Result/Sloader.Result.csproj", new MSBuildSettings().SetConfiguration("Release"));
      NuGetPack("./src/Sloader.Result/Sloader.Result.csproj", nuGetPackSettings);
+	 MSBuild("./src/Sloader.Engine/Sloader.Engine.csproj", new MSBuildSettings().SetConfiguration("Release"));
 	 NuGetPack("./src/Sloader.Engine/Sloader.Engine.csproj", nuGetPackSettings);
 });
 

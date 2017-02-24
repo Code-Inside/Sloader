@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Sloader.Result</id>
-    <version>0.2.0</version>
+    <version>0.2.1</version>
     <title>Sloader.Result</title>
     <authors>Code Inside Team</authors>
     <owners>Code Inside Team</owners>
@@ -11,6 +11,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Result</description>
     <releaseNotes>
+      ## Version 0.2.1 ##
+      Fixed NuGet Package
       ## Version 0.2.0 ##
       GitHubEvent Crawler added
       ## Version 0.1 ##
