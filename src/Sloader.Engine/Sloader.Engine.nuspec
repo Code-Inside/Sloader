@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Sloader.Engine</id>
-    <version>0.3.0</version>
+    <version>$version$</version>
     <title>Sloader.Engine</title>
     <authors>Code Inside Team</authors>
     <owners>Code Inside Team</owners>
@@ -11,6 +11,10 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Engine</description>
     <releaseNotes>
+      ## Version 0.3.2 ##
+      Fixed NuGet Package (dll...)
+      ## Version 0.3.1 ##
+      Fixed NuGet Package
       ## Version 0.3.0 ##
       GitHubCrawler with PushEvent now points to GitHub Compare-View
       ## Version 0.2.1 ##
