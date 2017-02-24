@@ -112,6 +112,16 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
         }
 
         [Fact]
+        public async Task Crawler_Should_Return_CorrectRelatedData_For_PushEvents()
+        {
+            var result = await InvokeSutForUsers("robertmuehsig");
+            var firstPush = result.Events.Single(x => x.Id == "5351207656");
+            Assert.Equal("https://github.com/Code-Inside/Sloader/compare/a75f750a9911a6d9945ea187b63abcf2fb232568...6738c8d3a313c5a1f6f36637ac01fd7a85886196", firstPush.RelatedUrl);
+            Assert.Equal("Pushed to refs/heads/new-start at Code-Inside/Sloader", firstPush.RelatedDescription);
+        }
+
+
+        [Fact]
         public async Task Crawler_For_Repos_Should_Return_Correct_Number_Of_Events()
         {
             var result = await InvokeSutForRepos("aspnet/mvc");

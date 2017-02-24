@@ -105,7 +105,6 @@ namespace Sloader.Engine.Crawler.GitHub
                 eventObject.Organization = gitHubEvent["org"]?["login"].ToObject<string>();
                 eventObject.RelatedAction = gitHubEvent["payload"]?["action"]?.ToObject<string>();
 
-
                 if (eventObject.Type == "IssuesEvent" || eventObject.Type == "IssueCommentEvent")
                 {
                     eventObject.RelatedUrl = gitHubEvent["payload"]?["issue"]?["html_url"]?.ToObject<string>();
@@ -128,6 +127,12 @@ namespace Sloader.Engine.Crawler.GitHub
                 {
                     eventObject.RelatedUrl = gitHubEvent["payload"]?["forkee"]?["html_url"]?.ToObject<string>();
                     eventObject.RelatedDescription = gitHubEvent["payload"]?["forkee"]?["name"]?.ToObject<string>();
+                }
+
+                if (eventObject.Type == "PushEvent")
+                {
+                    eventObject.RelatedUrl = "https://github.com/" + gitHubEvent["repo"]?["name"]?.ToObject<string>() + "/compare/" + gitHubEvent["payload"]?["before"]?.ToObject<string>() + "..." + gitHubEvent["payload"]?["head"]?.ToObject<string>();
+                    eventObject.RelatedDescription = "Pushed to " + gitHubEvent["payload"]?["ref"]?.ToObject<string>() + " at " + gitHubEvent["repo"]?["name"]?.ToObject<string>();
                 }
 
                 var eventDate = gitHubEvent["created_at"].ToObject<string>();
