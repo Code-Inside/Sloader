@@ -190,3 +190,7 @@ UpgradeLog*.htm
 FakesAssemblies/
 .nuget/nuget.exe.old
 *.DotSettings
+
+# Sloader Customized
+[Tt]ools/
+[Aa]artifacts/

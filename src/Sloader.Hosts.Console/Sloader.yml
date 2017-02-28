@@ -1,0 +1,15 @@
+﻿Secrets:
+  TwitterConsumerKey: $$Sloader.SecretTwitterConsumerKey$$
+  TwitterConsumerSecret: $$Sloader.SecretTwitterConsumerSecret$$
+  GitHubAccessToken: $$Sloader.SecretGitHubAccessToken$$
+
+Crawler:
+  GitHubEventsToCrawl:
+  - Key: Test
+    Repository: code-inside/sloader
+    User: robertmuehsig
+    Organization: code-inside
+
+Drop:
+  FileDrops:
+  - FilePath: "test.json"

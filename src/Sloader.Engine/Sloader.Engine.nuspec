@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Sloader.Engine</id>
+    <version>$version$</version>
+    <title>Sloader.Engine</title>
+    <authors>Code Inside Team</authors>
+    <owners>Code Inside Team</owners>
+    <licenseUrl>https://github.com/Code-Inside/Sloader/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/Code-Inside/Sloader</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Sloader Engine</description>
+    <releaseNotes>
+      ## Version 0.4.0 ##
+      GitHub Crawler RelatedDescription and Body enhanced
+      ## Version 0.3.2 ##
+      Fixed NuGet Package (dll...)
+      ## Version 0.3.1 ##
+      Fixed NuGet Package
+      ## Version 0.3.0 ##
+      GitHubCrawler with PushEvent now points to GitHub Compare-View
+      ## Version 0.2.1 ##
+      Fixed NuGet Package
+      ## Version 0.2.0 ##
+      GitHubEvent Crawler added
+      ## Version 0.1.1 ##
+      Trace Information added
+      ## Version 0.1.0 ##
+      Init
+    </releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>Sloader</tags>
+    <dependencies />
+  </metadata>
+</package>
