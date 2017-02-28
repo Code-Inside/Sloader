@@ -1,5 +1,6 @@
 ## Full Sample Sloader.yml
 
+```yml
 Secrets:
   TwitterConsumerKey: $$Sloader.SecretTwitterConsumerKey$$
   TwitterConsumerSecret: $$Sloader.SecretTwitterConsumerSecret$$
@@ -35,3 +36,4 @@ Drop:
     Repo: "Hub"
     Branch: "gh-pages"
     FilePath: "_data/test.json"
+```
