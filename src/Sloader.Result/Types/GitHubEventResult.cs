@@ -17,6 +17,8 @@ namespace Sloader.Result.Types
             public string RelatedAction { get; set; }
             public string RelatedUrl { get; set; }
             public string RelatedDescription { get; set; }
+            public string RelatedBody { get; set; }
+
         }
 
         public List<Event> Events { get; set; }

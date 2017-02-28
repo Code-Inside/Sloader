@@ -11,6 +11,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Engine</description>
     <releaseNotes>
+      ## Version 0.4.0 ##
+      GitHub Crawler RelatedDescription and Body enhanced
       ## Version 0.3.2 ##
       Fixed NuGet Package (dll...)
       ## Version 0.3.1 ##

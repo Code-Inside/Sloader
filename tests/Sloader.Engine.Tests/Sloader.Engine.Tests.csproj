@@ -98,10 +98,22 @@
     <None Include="GitHubEventCrawlerTests\Sample\repo.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="GitHubEventCrawlerTests\Sample\user.json">
+    <None Include="GitHubEventCrawlerTests\Sample\user_1.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="GitHubEventCrawlerTests\Sample\org.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="GitHubEventCrawlerTests\Sample\user_2.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="GitHubEventCrawlerTests\Sample\user_3.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="GitHubEventCrawlerTests\Sample\user_4.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="GitHubEventCrawlerTests\Sample\user_5.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />

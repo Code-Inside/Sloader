@@ -11,6 +11,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Result</description>
     <releaseNotes>
+      ## Version 0.3.0 ##
+      GitHub Results enhanced (with RelatedBody)
       ## Version 0.2.2 ##
       Fixed NuGet Package (dll...)
       ## Version 0.2.1 ##
