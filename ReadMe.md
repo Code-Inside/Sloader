@@ -1,3 +1,6 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/fn1yw7rei6gkj478?svg=true)](https://ci.appveyor.com/project/robertmuehsig/sloader)
+
+
 ## Full Sample Sloader.yml
 
 ```yml
