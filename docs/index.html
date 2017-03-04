@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Idea &amp; Goal | Welcome to Sloader </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Idea &amp; Goal | Welcome to Sloader ">
+    <meta name="generator" content="docfx 2.12.1.0">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    <meta property="docfx:rel" content="">
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                <img id="logo" class="svg" src="logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-12">
+            <article class="content wrap" id="_content" data-uid="">
+              <h2 id="idea--goal">Idea &amp; Goal</h2>
+              
+<p>The goal of this library is to load data from &quot;various&quot; endpoints and store them in various &quot;drops&quot; in a structured way. </p>
+<p>The endpoint &amp; drop configuration should very simple and developer focused.</p>
+<p>To load data from those endpoints we have &quot;Crawlers&quot; and to store them we have &quot;Drops&quot;.</p>
+<h2 id="scenarios">Scenarios</h2>
+<ul>
+<li>Make &quot;static pages&quot; more dynamic - e.g. load your Twitter/GitHub/Feed data and store them in your GitHub Page</li>
+</ul>
+<h2 id="components">Components</h2>
+<p>Sloader has these components:</p>
+<ul>
+<li>A config, which is defined by <strong>Sloader.Config</strong> and is typically a .yml file</li>
+<li>The <strong>Sloader.Engine</strong>, which uses the config and implements the crawler &amp; drops. Each crawler has it&#39;s own config &amp; result &quot;schema&quot;. When all endpoints have been crawled the result will be &quot;dropped&quot; to a configured destination.</li>
+<li>The output of the engine is a Key/Value json structure with the results of each crawler, this is defined under <strong>Sloader.Result</strong>.</li>
+</ul>
+<h2 id="sample-code-to-invoke-sloader">Sample Code to invoke Sloader</h2>
+<p>This code runs currently in an Azure Function:</p>
+<pre><code>public static void Run(TimerInfo everyDay, TraceWriter log)
+{
+    log.Info($&quot;Sloader run.csx invoked at: {DateTime.Now}&quot;);    
+
+    var listener = new SystemTraceListener(log);
+
+    log.Info($&quot;SloaderRunner Version: {typeof(Sloader.Engine.SloaderRunner).Assembly.GetName().Version}&quot;);       
+
+    Sloader.Engine.SloaderRunner.AutoRun().GetAwaiter().GetResult();
+
+    log.Info($&quot;Sloader run.csx done at: {DateTime.Now}&quot;);    
+
+}
+</code></pre><p>You need this AppSettings Key, which will point to your Sloader.yml file:</p>
+<pre><code>Sloader.SloaderConfigFilePath
+</code></pre><p>The Sloader.SloaderConfigFilePath can be a local file path or a URL.</p>
+<h2 id="working-with-secrets">Working with Secrets</h2>
+<p>Some Crawlers or Drops need secrets - e.g. the Twitter API key. The complete config is defined in your Sloader.yml file. 
+When the Sloader.Config loading kicks in, Sloader looks for placeholders and will replace them with values from the AppSettings.</p>
+<p>If you have configured something like this:</p>
+<pre><code>TwitterConsumerKey: $$Sloader.SecretTwitterConsumerKey$$
+</code></pre><p>And a &quot;Sloader.SecretTwitterConsumerKey&quot; AppSettings Key is found, the value is injected.</p>
+<h2 id="full-sample-sloaderyml">Full Sample Sloader.yml</h2>
+<pre><code class="lang-yml">Secrets:
+  TwitterConsumerKey: $$Sloader.SecretTwitterConsumerKey$$
+  TwitterConsumerSecret: $$Sloader.SecretTwitterConsumerSecret$$
+  GitHubAccessToken: $$Sloader.SecretGitHubAccessToken$$
+
+Crawler:
+  FeedsToCrawl:
+  - Key: Blog
+    Url: http://blogin.codeinside.eu/feed
+    LoadSocialLinkCounters: false
+  - Key: GitHub
+    Url: https://github.com/robertmuehsig.atom; https://github.com/oliverguhr.atom
+    LoadSocialLinkCounters: false
+  TwitterTimelinesToCrawl:
+  - Handle: codeinsideblog;robert0muehsig;oliverguhr
+    IncludeRetweets: false
+    Key: Twitter
+  TwitterUsersToCrawl:
+  - Handle: robert0muehsig
+    Key: TwitterMe
+  GitHubEventsToCrawl:
+  - Key: GitHubEvent
+    Repo: code-inside/sloader;foobar/test
+    User: robertmuehsig;oliverguhr
+    Orgs: code-inside
+
+Drop:
+  FileDrops:
+  - FilePath: &quot;test.json&quot;
+  GitHubDrops:
+  - Owner: &quot;Code-Inside&quot;
+    Repo: &quot;Hub&quot;
+    Branch: &quot;gh-pages&quot;
+    FilePath: &quot;_data/test.json&quot;
+</code></pre>
+            </article>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Sloader - MIT License
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>
