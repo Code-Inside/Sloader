@@ -65,8 +65,11 @@
       "_appTitle": "Welcome to Sloader",
       "_appFooter": "Sloader - MIT License",
       "_enableSearch": "true",
-      "_disableContribution": "true",
-      "_disableAffix":  "true"
+	  "_gitContribute": {
+        "repo": "https://github.com/Code-Inside/Sloader.git",
+        "branch": "master",
+        "path": ""
+      }
     },
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
