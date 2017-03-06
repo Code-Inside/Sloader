@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace Sloader.Config.Crawler.Feed
 {
     public class FeedCrawlerConfig : BaseCrawlerConfig

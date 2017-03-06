@@ -13,9 +13,20 @@
     /// </example>
     public class SloaderSecrets
     {
+        /// <summary>
+        /// Twitter API Consumer Key
+        /// </summary>
         public string TwitterConsumerKey { get; set; }
+
+        /// <summary>
+        /// Twitter API Consumer Secret
+        /// </summary>
         public string TwitterConsumerSecret { get; set; }
 
+        /// <summary>
+        /// Checks if Twitter API has needed credentials, check here for more details:
+        /// https://apps.twitter.com/
+        /// </summary>
         public bool IsTwitterConsumerConfigured
         {
             get
@@ -29,6 +40,10 @@
             }
         }
 
+        /// <summary>
+        /// Personal Access Token for GitHub, can be created here:
+        /// https://github.com/settings/tokens
+        /// </summary>
         public string GitHubAccessToken { get; set; }
     }
 }

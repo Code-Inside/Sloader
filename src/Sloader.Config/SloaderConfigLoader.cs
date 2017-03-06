@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 namespace Sloader.Config
 {
     /// <summary>
-    /// Can load the actual yaml file from a local filepath 
-    /// or via the HttpClient and embeds the given secrets.
+    /// Can load the actual yml file from a local filepath 
+    /// or via the HttpClient and invokes the deserializer to embeds the given secrets
     /// </summary>
     public static class SloaderConfigLoader
     {
-        public async static Task<SloaderConfig> GetAsync(string yamlLocation, Dictionary<string, string> secrets)
+        public static async Task<SloaderConfig> GetAsync(string ymlLocation, Dictionary<string, string> secrets)
         {
-            string configString = string.Empty;
+            string configString;
 
-            if (yamlLocation.ToLowerInvariant().StartsWith("https://") ||
-                yamlLocation.ToLowerInvariant().StartsWith("http://"))
+            if (ymlLocation.ToLowerInvariant().StartsWith("https://") ||
+                ymlLocation.ToLowerInvariant().StartsWith("http://"))
             {
                 var client = new HttpClient();
-                configString = await client.GetStringAsync(yamlLocation);
+                configString = await client.GetStringAsync(ymlLocation);
             }
             else
             {
-                configString = File.ReadAllText(yamlLocation);
+                configString = File.ReadAllText(ymlLocation);
             }
 
             var config = SloaderConfigDeserializer.GetConfigWithEmbeddedSecrets(configString, secrets);

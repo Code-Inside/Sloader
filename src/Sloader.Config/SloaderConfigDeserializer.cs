@@ -5,9 +5,13 @@ using System.Text.RegularExpressions;
 
 namespace Sloader.Config
 {
+    /// <summary>
+    /// Searches in the given ymlString for $$PLACEHOLDER$$ and replace it with a given PLACEHOLDER secret value.
+    /// The "full" ymlString is then deserialized to the actual SloaderConfig.
+    /// </summary>
     public static class SloaderConfigDeserializer
     {
-        public static SloaderConfig GetConfigWithEmbeddedSecrets(string yamlString, Dictionary<string, string> secrets)
+        public static SloaderConfig GetConfigWithEmbeddedSecrets(string ymlString, Dictionary<string, string> secrets)
         {
             Dictionary<string, string> compareDictionary = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
             foreach (var secret in secrets)
@@ -16,7 +20,7 @@ namespace Sloader.Config
             }
 
             Regex searchForSecrets = new Regex(@"\$\$(.*?)\$\$", RegexOptions.IgnoreCase | RegexOptions.Multiline);
-            var regexResult = searchForSecrets.Matches(yamlString);
+            var regexResult = searchForSecrets.Matches(ymlString);
 
             foreach (Match singleRegExResult in regexResult)
             {
@@ -24,12 +28,12 @@ namespace Sloader.Config
 
                 if (compareDictionary.ContainsKey(foundPossibleSecret))
                 {
-                    yamlString = yamlString.Replace(singleRegExResult.Value, compareDictionary[foundPossibleSecret]);
+                    ymlString = ymlString.Replace(singleRegExResult.Value, compareDictionary[foundPossibleSecret]);
                 }
             }
 
             var deserializer = Constants.SloaderYamlDeserializer;
-            var config = deserializer.Deserialize<SloaderConfig>(new StringReader(yamlString));
+            var config = deserializer.Deserialize<SloaderConfig>(new StringReader(ymlString));
 
             return config;
 

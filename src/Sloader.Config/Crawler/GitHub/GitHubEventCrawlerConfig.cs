@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace Sloader.Config.Crawler.GitHub
 {
     public class GitHubEventCrawlerConfig : BaseCrawlerConfig

@@ -16,16 +16,31 @@ namespace Sloader.Config
             Secrets = new SloaderSecrets();
         }
 
-        public async static Task<SloaderConfig> Load(string yamlLocation, Dictionary<string, string> secrets)
+        /// <summary>
+        /// Loads and instantiate the config from a given Yml-file.
+        /// </summary>
+        /// <param name="ymlLocation">yml-file location as FilePath or URL</param>
+        /// <param name="secrets">List of secret replacements</param>
+        /// <returns></returns>
+        public static async Task<SloaderConfig> Load(string ymlLocation, Dictionary<string, string> secrets)
         {
-            Trace.TraceInformation($"{nameof(SloaderConfig)} loading invoked for '{yamlLocation}'.");
-            return await SloaderConfigLoader.GetAsync(yamlLocation, secrets);
+            Trace.TraceInformation($"{nameof(SloaderConfig)} loading invoked for '{ymlLocation}'.");
+            return await SloaderConfigLoader.GetAsync(ymlLocation, secrets);
         }
 
+        /// <summary>
+        /// Common list of secrets used for multiple drops or crawlers.
+        /// </summary>
         public SloaderSecrets Secrets { get; set; }
 
+        /// <summary>
+        /// List of all crawlers that are configured.
+        /// </summary>
         public CrawlerConfig Crawler { get; set; }
 
+        /// <summary>
+        /// List of all drops that are configured.
+        /// </summary>
         public DropConfig Drop { get; set; }
 
     }
