@@ -79,7 +79,10 @@
               
               <h1 id="Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig" data-uid="Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig">Class GitHubEventCrawlerConfig
               </h1>
-              <div class="markdown level0 summary"></div>
+              <div class="markdown level0 summary"><p>Crawler config to read GitHubEvents
+Define a repo, user or organization and sloader will load the desired event data.
+If you want, you can configure a repository, a user and a org under one key and it will be merged into one list.</p>
+</div>
               <div class="markdown level0 conceptual"></div>
               <div class="inheritance">
                 <h5>Inheritance</h5>
@@ -120,6 +123,17 @@
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public class GitHubEventCrawlerConfig : BaseCrawlerConfig</code></pre>
               </div>
+              <h5 id="Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_examples"><strong>Examples</strong></h5>
+              
+Demo yml config:
+<pre><code>GitHubEventsToCrawl:
+- Repository: code-inside/sloader
+  Key: GitHubEventsRepo
+- Organization: code-inside
+  Key: GitHubEventsOrg
+- User: robertmuehsig;oliverguhr
+  Key: GitHubEventsUser</code></pre>
+
               <h3 id="properties">Properties
               </h3>
               <span class="small pull-right mobile-hide">
@@ -127,11 +141,14 @@
                 <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_Organization.md&amp;value=---%0Auid%3A%20Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Organization%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/Code-Inside/Sloader/blob/docfx/src/Sloader.Config/Crawler/GitHub/GitHubEventCrawlerConfig.cs/#L8">View Source</a>
+                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/GitHub/GitHubEventCrawlerConfig.cs/#L36">View Source</a>
               </span>
               <a id="Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_Organization_" data-uid="Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Organization*"></a>
               <h4 id="Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_Organization" data-uid="Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Organization">Organization</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Loads events based on a given org.
+It is allowed to use a ; to load multiple organization events under one key.
+Uses a endpoint like this <a href="https://api.github.com/orgs/code-inside/events">https://api.github.com/orgs/code-inside/events</a></p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -152,16 +169,21 @@
                   </tr>
                 </tbody>
               </table>
+              <h5 id="Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_Organization_examples">Examples</h5>
+              code-inside
               <span class="small pull-right mobile-hide">
                 <span class="divider">|</span>
                 <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_Repository.md&amp;value=---%0Auid%3A%20Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Repository%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/Code-Inside/Sloader/blob/docfx/src/Sloader.Config/Crawler/GitHub/GitHubEventCrawlerConfig.cs/#L7">View Source</a>
+                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/GitHub/GitHubEventCrawlerConfig.cs/#L28">View Source</a>
               </span>
               <a id="Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_Repository_" data-uid="Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Repository*"></a>
               <h4 id="Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_Repository" data-uid="Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Repository">Repository</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Loads events based on a given repository in the form of USER/REPO or ORG/REPO.
+It is allowed to use a ; to load multiple repository events under one key.
+Uses a endpoint like this <a href="https://api.github.com/repos/code-inside/sloader/events">https://api.github.com/repos/code-inside/sloader/events</a></p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -182,16 +204,21 @@
                   </tr>
                 </tbody>
               </table>
+              <h5 id="Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_Repository_examples">Examples</h5>
+              code-inside/sloader;robertmuehsig/EinKofferVollerReisen
               <span class="small pull-right mobile-hide">
                 <span class="divider">|</span>
                 <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_User.md&amp;value=---%0Auid%3A%20Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.User%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/Code-Inside/Sloader/blob/docfx/src/Sloader.Config/Crawler/GitHub/GitHubEventCrawlerConfig.cs/#L9">View Source</a>
+                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/GitHub/GitHubEventCrawlerConfig.cs/#L44">View Source</a>
               </span>
               <a id="Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_User_" data-uid="Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.User*"></a>
               <h4 id="Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_User" data-uid="Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.User">User</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Loads events based on a given user.
+It is allowed to use a ; to load multiple user events under one key.
+Uses a endpoint like this <a href="https://api.github.com/users/robertmuehsig/events">https://api.github.com/users/robertmuehsig/events</a></p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -212,6 +239,8 @@
                   </tr>
                 </tbody>
               </table>
+              <h5 id="Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_User_examples">Examples</h5>
+              robertmuehsig
                         </article>
           </div>
           
@@ -223,7 +252,7 @@
                     <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig.md&amp;value=---%0Auid%3A%20Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/Code-Inside/Sloader/blob/docfx/src/Sloader.Config/Crawler/GitHub/GitHubEventCrawlerConfig.cs/#L5" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/GitHub/GitHubEventCrawlerConfig.cs/#L20" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

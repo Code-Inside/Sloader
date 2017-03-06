@@ -6,10 +6,12 @@
     /// </summary>
     /// <example>
     /// As YAML might look light:
+    /// <code>
     /// Secrets:
     ///   TwitterConsumerKey: $$Sloader.SecretTwitterConsumerKey$$
     ///   TwitterConsumerSecret: $$Sloader.SecretTwitterConsumerSecret$$
     ///   GitHubAccessToken: $$Sloader.SecretGitHubAccessToken$$
+    /// </code>
     /// </example>
     public class SloaderSecrets
     {

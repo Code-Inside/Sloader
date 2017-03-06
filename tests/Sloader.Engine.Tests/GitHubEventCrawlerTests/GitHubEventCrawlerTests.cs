@@ -203,11 +203,20 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
         }
 
         [Fact]
-        public async Task Crawler_Should_Return_CorrectRelatedData_For_CreateEvent()
+        public async Task Crawler_Should_Return_CorrectRelatedData_For_CreateEvent_Tag()
         {
             var result = await InvokeSutForUsers("ryuyu");
             var targetEvent = result.Events.Single(x => x.Id == "5389029733");
             Assert.Equal("Created tag \"v2017.02.24\" at NuGet/NuGet.Services.Metadata", targetEvent.RelatedDescription);
+        }
+
+        [Fact]
+        public async Task Crawler_Should_Return_CorrectRelatedData_For_CreateEvent_Branch()
+        {
+            var result = await InvokeSutForUsers("adamralph");
+            var targetEvent = result.Events.Single(x => x.Id == "5403617254");
+            Assert.Equal("Created branch \"csharp-targets\" at adamralph/FakeItEasy", targetEvent.RelatedDescription);
+            Assert.Equal("https://github.com/adamralph/FakeItEasy/tree/csharp-targets", targetEvent.RelatedUrl);
         }
 
         [Fact]

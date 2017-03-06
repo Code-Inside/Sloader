@@ -81,10 +81,10 @@ Crawler:
   - Handle: robert0muehsig
     Key: TwitterMe
   GitHubEventsToCrawl:
-  - Key: GitHubEvent
-    Repo: code-inside/sloader;foobar/test
-	User: robertmuehsig;oliverguhr
-	Orgs: code-inside
+  - Key: Test
+    Repository: code-inside/sloader
+    User: robertmuehsig
+    Organization: code-inside
     
 Drop:
   FileDrops:

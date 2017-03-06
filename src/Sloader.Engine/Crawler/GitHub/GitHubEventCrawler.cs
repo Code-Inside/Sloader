@@ -163,6 +163,10 @@ namespace Sloader.Engine.Crawler.GitHub
                 else if (eventObject.Type == "CreateEvent")
                 {
                     eventObject.RelatedDescription = "Created " + gitHubEvent["payload"]?["ref_type"]?.ToObject<string>() + " \"" + gitHubEvent["payload"]?["ref"]?.ToObject<string>() + "\" at " + gitHubEvent["repo"]?["name"]?.ToObject<string>();
+                    if (gitHubEvent["payload"]?["ref_type"]?.ToObject<string>().ToLowerInvariant() == "branch")
+                    {
+                        eventObject.RelatedUrl = "https://github.com/" + gitHubEvent["repo"]?["name"]?.ToObject<string>() + "/tree/" + gitHubEvent["payload"]?["ref"]?.ToObject<string>();
+                    }
                 }
                 else if (eventObject.Type == "ReleaseEvent")
                 {
