@@ -6,8 +6,28 @@ using Sloader.Config.Crawler.Twitter;
 namespace Sloader.Config.Crawler
 {
     /// <summary>
-    /// Container for all Crawler configs
+    /// Container for all Crawler configs. Each crawler can occure multiple times, but each must have it's unique key.
     /// </summary>
+    /// <example>
+    /// Demo yml config (only structure for Crawlers):
+    /// <code>
+    /// Crawler:
+    ///   FeedsToCrawl:
+    ///   - Key: Blog
+    ///     Url: http://blog.codeinside.eu/feed
+    ///     LoadSocialLinkCounters: false
+    ///   FeedsToCrawl:
+    ///   - Key: BlogTwo
+    ///     Url: http://blog.codeinside.eu/feed2
+    ///     LoadSocialLinkCounters: false
+    ///   FeedsToCrawl:
+    ///   - Key: BlogThreeCombined
+    ///     Url: http://blog.codeinside.eu/feed3;http://blog.codeinside.eu/feed4
+    ///     LoadSocialLinkCounters: false
+    ///   ...
+    /// </code>
+    /// </example>
+
     public class CrawlerConfig
     {
         public CrawlerConfig()

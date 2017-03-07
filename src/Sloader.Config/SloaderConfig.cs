@@ -9,6 +9,19 @@ namespace Sloader.Config
     /// <summary>
     /// Root config entry, holds secrets, drops, crawler, etc.
     /// </summary>
+    /// <example>
+    /// Demo yml config (only top level elements):
+    /// <code>
+    /// Secrets:
+    ///   ...
+    /// 
+    /// Crawler:
+    ///   ...
+    /// 
+    /// Drop:
+    ///   ...
+    /// </code>
+    /// </example>
     public class SloaderConfig
     {
         public SloaderConfig()
