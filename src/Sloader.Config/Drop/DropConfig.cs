@@ -7,6 +7,25 @@ namespace Sloader.Config.Drop
     /// <summary>
     /// Container for all Drop configs
     /// </summary>
+    /// <example>
+    /// Demo yml config (only structure for Crawlers):
+    /// <code>
+    /// Drop:
+    ///   FileDrops:
+    ///   - Key: Blog
+    ///     Url: http://blog.codeinside.eu/feed
+    ///     LoadSocialLinkCounters: false
+    ///   FeedsToCrawl:
+    ///   - Key: BlogTwo
+    ///     Url: http://blog.codeinside.eu/feed2
+    ///     LoadSocialLinkCounters: false
+    ///   FeedsToCrawl:
+    ///   - Key: BlogThreeCombined
+    ///     Url: http://blog.codeinside.eu/feed3;http://blog.codeinside.eu/feed4
+    ///     LoadSocialLinkCounters: false
+    ///   ...
+    /// </code>
+    /// </example>
     public class DropConfig
     {
         public DropConfig()

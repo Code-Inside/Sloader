@@ -13,7 +13,7 @@ namespace Sloader.Config.Tests.DropConfigTests
             fakeYaml.AppendLine("Drop:");
             fakeYaml.AppendLine("  FileDrops:");
             fakeYaml.AppendLine("  - FilePath: test1.json");
-            fakeYaml.AppendLine("  - FilePath: test1.json");
+            fakeYaml.AppendLine("  - FilePath: test2.json");
 
             var deserializer = Constants.SloaderYamlDeserializer;
             var result = deserializer.Deserialize<SloaderConfig>(new StringReader(fakeYaml.ToString()));

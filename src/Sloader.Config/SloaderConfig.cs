@@ -47,7 +47,7 @@ namespace Sloader.Config
         public SloaderSecrets Secrets { get; set; }
 
         /// <summary>
-        /// List of all crawlers that are configured.
+        /// List of all crawlers that are configured. 
         /// </summary>
         public CrawlerConfig Crawler { get; set; }
 
