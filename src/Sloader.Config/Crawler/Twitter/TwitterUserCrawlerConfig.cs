@@ -4,6 +4,8 @@ namespace Sloader.Config.Crawler.Twitter
     /// Loads twitter user info from one twitter handle.
     /// Uses this API https://dev.twitter.com/rest/reference/get/users/lookup
     /// </summary>
+    /// <seealso cref="SloaderSecrets"/>
+    /// <remarks>SloaderSecrets needed: The TwitterConsumerKey and TwitterConsumerSecret must be configured.</remarks>
     /// <example>
     /// Demo yml config:
     /// <code>

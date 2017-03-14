@@ -5,6 +5,8 @@ namespace Sloader.Config.Crawler.Twitter
     /// It is allowed to use a ; to load multiple twitter timelines under one key.
     /// Uses this API https://dev.twitter.com/rest/reference/get/statuses/user_timeline
     /// </summary>
+    /// <seealso cref="SloaderSecrets"/>
+    /// <remarks>SloaderSecrets needed: The TwitterConsumerKey and TwitterConsumerSecret must be configured.</remarks>
     /// <example>
     /// Demo yml config:
     /// <code>
