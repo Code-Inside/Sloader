@@ -12,17 +12,9 @@ namespace Sloader.Config.Drop
     /// <code>
     /// Drop:
     ///   FileDrops:
-    ///   - Key: Blog
-    ///     Url: http://blog.codeinside.eu/feed
-    ///     LoadSocialLinkCounters: false
-    ///   FeedsToCrawl:
-    ///   - Key: BlogTwo
-    ///     Url: http://blog.codeinside.eu/feed2
-    ///     LoadSocialLinkCounters: false
-    ///   FeedsToCrawl:
-    ///   - Key: BlogThreeCombined
-    ///     Url: http://blog.codeinside.eu/feed3;http://blog.codeinside.eu/feed4
-    ///     LoadSocialLinkCounters: false
+    ///   - FilePath: "test1.json"
+    ///   - FilePath: "test2.json"
+    ///   - FilePath: "test3.json"
     ///   ...
     /// </code>
     /// </example>

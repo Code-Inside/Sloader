@@ -7,7 +7,9 @@ namespace Sloader.Config.Drop.File
     /// Demo yml config:
     /// <code>
     /// FileDrops:
-    /// - FilePath: "test.json"
+    /// - FilePath: "test1.json"
+    /// - FilePath: "test2.json"
+    /// - FilePath: "test3.json"
     /// </code>
     /// </example>
     public class FileDropConfig 
