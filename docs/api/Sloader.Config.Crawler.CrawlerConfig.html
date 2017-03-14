@@ -79,7 +79,7 @@
               
               <h1 id="Sloader_Config_Crawler_CrawlerConfig" data-uid="Sloader.Config.Crawler.CrawlerConfig">Class CrawlerConfig
               </h1>
-              <div class="markdown level0 summary"><p>Container for all Crawler configs</p>
+              <div class="markdown level0 summary"><p>Container for all Crawler configs. Each crawlerßtype can occure only time, but the target for the crawler is a list, but each list must have it&#39;s own unique key.</p>
 </div>
               <div class="markdown level0 conceptual"></div>
               <div class="inheritance">
@@ -117,6 +117,22 @@
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public class CrawlerConfig</code></pre>
               </div>
+              <h5 id="Sloader_Config_Crawler_CrawlerConfig_examples"><strong>Examples</strong></h5>
+              
+Demo yml config (only structure for Crawlers):
+<pre><code>Crawler:
+  FeedsToCrawl:
+  - Key: Blog
+    Url: http://blog.codeinside.eu/feed
+    LoadSocialLinkCounters: false
+  - Key: BlogTwo
+    Url: http://blog.codeinside.eu/feed2
+    LoadSocialLinkCounters: false
+  - Key: BlogThreeCombined
+    Url: http://blog.codeinside.eu/feed3;http://blog.codeinside.eu/feed4
+    LoadSocialLinkCounters: false
+  OtherCrawler...</code></pre>
+
               <h3 id="constructors">Constructors
               </h3>
               <span class="small pull-right mobile-hide">
@@ -124,7 +140,7 @@
                 <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Config_Crawler_CrawlerConfig__ctor.md&amp;value=---%0Auid%3A%20Sloader.Config.Crawler.CrawlerConfig.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/CrawlerConfig.cs/#L13">View Source</a>
+                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/CrawlerConfig.cs/#L30">View Source</a>
               </span>
               <a id="Sloader_Config_Crawler_CrawlerConfig__ctor_" data-uid="Sloader.Config.Crawler.CrawlerConfig.#ctor*"></a>
               <h4 id="Sloader_Config_Crawler_CrawlerConfig__ctor" data-uid="Sloader.Config.Crawler.CrawlerConfig.#ctor">CrawlerConfig()</h4>
@@ -134,6 +150,22 @@
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public CrawlerConfig()</code></pre>
               </div>
+              <h5 id="Sloader_Config_Crawler_CrawlerConfig__ctor_examples">Examples</h5>
+              
+Demo yml config (only structure for Crawlers):
+<pre><code>Crawler:
+  FeedsToCrawl:
+  - Key: Blog
+    Url: http://blog.codeinside.eu/feed
+    LoadSocialLinkCounters: false
+  - Key: BlogTwo
+    Url: http://blog.codeinside.eu/feed2
+    LoadSocialLinkCounters: false
+  - Key: BlogThreeCombined
+    Url: http://blog.codeinside.eu/feed3;http://blog.codeinside.eu/feed4
+    LoadSocialLinkCounters: false
+  OtherCrawler...</code></pre>
+
               <h3 id="properties">Properties
               </h3>
               <span class="small pull-right mobile-hide">
@@ -141,7 +173,7 @@
                 <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Config_Crawler_CrawlerConfig_FeedsToCrawl.md&amp;value=---%0Auid%3A%20Sloader.Config.Crawler.CrawlerConfig.FeedsToCrawl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/CrawlerConfig.cs/#L24">View Source</a>
+                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/CrawlerConfig.cs/#L41">View Source</a>
               </span>
               <a id="Sloader_Config_Crawler_CrawlerConfig_FeedsToCrawl_" data-uid="Sloader.Config.Crawler.CrawlerConfig.FeedsToCrawl*"></a>
               <h4 id="Sloader_Config_Crawler_CrawlerConfig_FeedsToCrawl" data-uid="Sloader.Config.Crawler.CrawlerConfig.FeedsToCrawl">FeedsToCrawl</h4>
@@ -172,7 +204,7 @@
                 <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Config_Crawler_CrawlerConfig_GitHubEventsToCrawl.md&amp;value=---%0Auid%3A%20Sloader.Config.Crawler.CrawlerConfig.GitHubEventsToCrawl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/CrawlerConfig.cs/#L39">View Source</a>
+                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/CrawlerConfig.cs/#L56">View Source</a>
               </span>
               <a id="Sloader_Config_Crawler_CrawlerConfig_GitHubEventsToCrawl_" data-uid="Sloader.Config.Crawler.CrawlerConfig.GitHubEventsToCrawl*"></a>
               <h4 id="Sloader_Config_Crawler_CrawlerConfig_GitHubEventsToCrawl" data-uid="Sloader.Config.Crawler.CrawlerConfig.GitHubEventsToCrawl">GitHubEventsToCrawl</h4>
@@ -203,7 +235,7 @@
                 <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Config_Crawler_CrawlerConfig_TwitterTimelinesToCrawl.md&amp;value=---%0Auid%3A%20Sloader.Config.Crawler.CrawlerConfig.TwitterTimelinesToCrawl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/CrawlerConfig.cs/#L29">View Source</a>
+                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/CrawlerConfig.cs/#L46">View Source</a>
               </span>
               <a id="Sloader_Config_Crawler_CrawlerConfig_TwitterTimelinesToCrawl_" data-uid="Sloader.Config.Crawler.CrawlerConfig.TwitterTimelinesToCrawl*"></a>
               <h4 id="Sloader_Config_Crawler_CrawlerConfig_TwitterTimelinesToCrawl" data-uid="Sloader.Config.Crawler.CrawlerConfig.TwitterTimelinesToCrawl">TwitterTimelinesToCrawl</h4>
@@ -234,7 +266,7 @@
                 <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Config_Crawler_CrawlerConfig_TwitterUsersToCrawl.md&amp;value=---%0Auid%3A%20Sloader.Config.Crawler.CrawlerConfig.TwitterUsersToCrawl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/CrawlerConfig.cs/#L34">View Source</a>
+                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/CrawlerConfig.cs/#L51">View Source</a>
               </span>
               <a id="Sloader_Config_Crawler_CrawlerConfig_TwitterUsersToCrawl_" data-uid="Sloader.Config.Crawler.CrawlerConfig.TwitterUsersToCrawl*"></a>
               <h4 id="Sloader_Config_Crawler_CrawlerConfig_TwitterUsersToCrawl" data-uid="Sloader.Config.Crawler.CrawlerConfig.TwitterUsersToCrawl">TwitterUsersToCrawl</h4>
@@ -271,7 +303,7 @@
                     <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Config_Crawler_CrawlerConfig.md&amp;value=---%0Auid%3A%20Sloader.Config.Crawler.CrawlerConfig%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/CrawlerConfig.cs/#L11" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/CrawlerConfig.cs/#L28" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
