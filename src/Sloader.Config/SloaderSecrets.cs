@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// Common Secrets that are used for various Crawler/Drops.
-    /// Be aware that you can use the $$KEY$$ annotation to replace those values from app.config entries.
+    /// <para>Be aware that you can use the $$KEY$$ annotation to replace those values from app.config entries.</para>
     /// </summary>
     /// <example>
     /// As YAML might look light:
@@ -26,8 +26,8 @@
         public string TwitterConsumerSecret { get; set; }
 
         /// <summary>
-        /// Checks if Twitter API has needed credentials, check here for more details:
-        /// https://apps.twitter.com/
+        /// Checks if Twitter API has needed credentials.
+        /// <para>check here for more details: https://apps.twitter.com/ </para>
         /// </summary>
         public bool IsTwitterConsumerConfigured
         {
@@ -43,8 +43,8 @@
         }
 
         /// <summary>
-        /// Personal Access Token for GitHub, can be created here:
-        /// https://github.com/settings/tokens
+        /// Personal Access Token for GitHub.
+        /// <para>Can be created here: https://github.com/settings/tokens </para>
         /// </summary>
         public string GitHubAccessToken { get; set; }
     }

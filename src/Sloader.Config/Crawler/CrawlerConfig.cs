@@ -6,7 +6,9 @@ using Sloader.Config.Crawler.Twitter;
 namespace Sloader.Config.Crawler
 {
     /// <summary>
-    /// Container for all Crawler configs. Each crawlerﬂtype can occure only time, but the target for the crawler is a list, but each list must have it's own unique key.
+    /// Container for all Crawler configs. 
+    /// <para>Each crawler type can occure only time, but the target for the crawler is a list.</para>
+    /// <para>Each list must have it's own unique key.</para> 
     /// </summary>
     /// <example>
     /// Demo yml config (only structure for Crawlers):

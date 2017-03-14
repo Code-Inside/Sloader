@@ -7,7 +7,7 @@ namespace Sloader.Config
 {
     /// <summary>
     /// Searches in the given ymlString for $$PLACEHOLDER$$ and replace it with a given PLACEHOLDER secret value.
-    /// The "full" ymlString is then deserialized to the actual SloaderConfig.
+    /// <para>The "full" ymlString is then deserialized to the actual SloaderConfig.</para>
     /// </summary>
     public static class SloaderConfigDeserializer
     {

@@ -2,8 +2,8 @@ namespace Sloader.Config.Crawler.GitHub
 {
     /// <summary>
     /// Crawler config to read GitHubEvents
-    /// Define a repo, user or organization and sloader will load the desired event data.
-    /// If you want, you can configure a repository, a user and a org under one key and it will be merged into one list.
+    /// <para>Define a repo, user or organization and sloader will load the desired event data.</para>
+    /// <para>If you want, you can configure a repository, a user and a org under one key and it will be merged into one list.</para>
     /// </summary>
     /// <example>
     /// Demo yml config:
@@ -21,24 +21,24 @@ namespace Sloader.Config.Crawler.GitHub
     {
         /// <summary>
         /// Loads events based on a given repository in the form of USER/REPO or ORG/REPO.
-        /// It is allowed to use a ; to load multiple repository events under one key.
-        /// Uses a endpoint like this https://api.github.com/repos/code-inside/sloader/events
+        /// <para>It is allowed to use a ; to load multiple repository events under one key.</para>
+        /// <para>Uses a endpoint like this https://api.github.com/repos/code-inside/sloader/events </para>
         /// </summary>
         /// <example>code-inside/sloader;robertmuehsig/EinKofferVollerReisen</example>
         public string Repository { get; set; }
 
         /// <summary>
         /// Loads events based on a given org.
-        /// It is allowed to use a ; to load multiple organization events under one key.
-        /// Uses a endpoint like this https://api.github.com/orgs/code-inside/events
+        /// <para>It is allowed to use a ; to load multiple organization events under one key.</para>
+        /// <para>Uses a endpoint like this https://api.github.com/orgs/code-inside/events </para>
         /// </summary>
         /// <example>code-inside</example>
         public string Organization { get; set; }
 
         /// <summary>
         /// Loads events based on a given user.
-        /// It is allowed to use a ; to load multiple user events under one key.
-        /// Uses a endpoint like this https://api.github.com/users/robertmuehsig/events
+        /// <para>It is allowed to use a ; to load multiple user events under one key.</para>
+        /// <para>Uses a endpoint like this https://api.github.com/users/robertmuehsig/events </para>
         /// </summary>
         /// <example>robertmuehsig</example>
         public string User { get; set; }

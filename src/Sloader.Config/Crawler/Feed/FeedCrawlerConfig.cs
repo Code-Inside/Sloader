@@ -24,14 +24,14 @@ namespace Sloader.Config.Crawler.Feed
 
         /// <summary>
         /// Absolute links to ATOM/RSS-feed.
-        /// It is allowed to use a ; to load multiple feeds under one key.
+        /// <para>It is allowed to use a ; to load multiple feeds under one key.</para>
         /// </summary>
         /// <example>https://blog.codeinside.eu/feed/;https://github.com/robertmuehsig.atom</example>
         public string Url { get; set; }
 
         /// <summary>
         /// Try to load SocialLinkCounters, e.g. Facebook Likes.
-        /// Default is false.
+        /// <para>Default is false.</para>
         /// </summary>
         public bool LoadSocialLinkCounters { get; set; }
     }
