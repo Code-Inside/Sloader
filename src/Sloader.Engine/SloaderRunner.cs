@@ -15,8 +15,18 @@ using Sloader.Result;
 
 namespace Sloader.Engine
 {
+    /// <summary>
+    /// The main actor in Sloader:
+    /// <para>Loads the Sloader.Config.</para>
+    /// <para>Run through all crawlers and drops.</para>
+    /// </summary>
     public class SloaderRunner
     {
+        /// <summary>
+        /// AutoRun does most of the stuff and will load the config from the defined SloaderConfigPath.
+        /// <para>The AutoRun will also scan all AppSettings and try to fill up all missing Secrets.</para>
+        /// </summary>
+        /// <see cref="FixedConfigKeys.SloaderConfigPath"/>
         public static async Task AutoRun()
         {
             Trace.TraceInformation($"AutoRun invoked.");
@@ -33,11 +43,19 @@ namespace Sloader.Engine
             }
         }
 
+        /// <summary>
+        /// Inject the needed SloaderConfigPath and the Secrets yourself.
+        /// </summary>
+        /// <param name="sloaderConfigPath">Relative or absolute file path or URL to a valid Sloader config.</param>
+        /// <param name="secrets">Secrets, which may be used as placeholders inside the Sloader config.</param>
         public static async Task AutoRun(string sloaderConfigPath, Dictionary<string, string> secrets)
         {
             await AutoRunInternal(sloaderConfigPath, secrets);
         }
 
+        /// <summary>
+        /// Internal logic for the AutoRun-methods.
+        /// </summary>
         private static async Task AutoRunInternal(string sloaderConfigPath, Dictionary<string, string> secrets)
         {
             var config =
@@ -58,6 +76,9 @@ namespace Sloader.Engine
             _config = config;
         }
 
+        /// <summary>
+        /// Will run through all applied crawlers.
+        /// </summary>
         public async Task<CrawlerRun> RunAllCrawlers()
         {
             Trace.TraceInformation($"{nameof(RunAllCrawlers)} invoked.");
@@ -137,6 +158,10 @@ namespace Sloader.Engine
             return crawlerRunResult;
         }
 
+        /// <summary>
+        /// Will run through all applied drops.
+        /// </summary>
+        /// <param name="crawlerRun">Will drop the CrawlerRun at the configured drops.</param>
         public async Task RunThroughDrop(CrawlerRun crawlerRun)
         {
             Trace.TraceInformation($"{nameof(RunThroughDrop)} invoked.");
