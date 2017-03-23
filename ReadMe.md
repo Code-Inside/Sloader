@@ -70,7 +70,7 @@ Note:
 
 # Sample Code
 
-## Plain Console App:
+## Plain Console App
 
 ```csharp
 class Program
@@ -86,7 +86,7 @@ class Program
 
 This code runs currently in an Azure Function:
 
-```
+```csharp
 public static void Run(TimerInfo everyDay, TraceWriter log)
 {
     log.Info($"Sloader run.csx invoked at: {DateTime.Now}");    
