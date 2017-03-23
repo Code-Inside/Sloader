@@ -1,4 +1,4 @@
-## Idea & Goal
+# Idea & Goal
 
 The goal of this library is to load data from "various" endpoints and store them in various "drops" in a structured way. 
 
@@ -18,7 +18,69 @@ Sloader has these components:
 * The __Sloader.Engine__, which uses the config and implements the crawler & drops. Each crawler has it's own config & result "schema". When all endpoints have been crawled the result will be "dropped" to a configured destination.
 * The output of the engine is a Key/Value json structure with the results of each crawler, this is defined under __Sloader.Result__.
 
-## Sample Code to invoke Sloader 
+# QuickStart
+
+1. Create this Sloader.yml file:
+
+```yml
+Crawler:
+  FeedsToCrawl:
+  - Key: Blog
+    Url: http://blog.codeinside.eu/feed
+    LoadSocialLinkCounters: false
+  GitHubEventsToCrawl:
+  - Key: GitHubEvent
+    Repository: code-inside/sloader
+    
+Drop:
+  FileDrops:
+  - FilePath: "result.json"
+```
+
+2. Save this file on your local drive or use [GitHubs Gist](https://gist.github.com/) or something else.
+
+3. New Project -> C# Console App.
+
+4. Install-Package Sloader.Engine
+
+5. Code:
+
+```csharp
+class Program
+    {
+        static void Main(string[] args)
+        {
+            Sloader.Engine.SloaderRunner.AutoRun("https://gist.githubusercontent.com/.../gistfile1.txt", new Dictionary<string, string>()).GetAwaiter().GetResult();
+        }
+    }
+```
+
+6. Run.
+
+7. Open bin/debug/result.json.
+
+__Done.__
+
+Note:
+
+* There are several Drops & Crawlers available.
+* You can also AppSettings to locate the Sloader.Config
+
+# Sample Code
+
+## Plain Console App:
+
+```csharp
+class Program
+    {
+        static void Main(string[] args)
+        {
+            Sloader.Engine.SloaderRunner.AutoRun("https://gist.githubusercontent.com/.../gistfile1.txt", new Dictionary<string, string>()).GetAwaiter().GetResult();
+        }
+    }
+```
+
+## Azure Function
 
 This code runs currently in an Azure Function:
 
@@ -44,7 +106,7 @@ You need this AppSettings Key, which will point to your Sloader.yml file:
 
 The Sloader.SloaderConfigFilePath can be a local file path or a URL.
 
-## Working with Secrets
+# Working with Secrets
 
 Some Crawlers or Drops need secrets - e.g. the Twitter API key. The complete config is defined in your Sloader.yml file. 
 When the Sloader.Config loading kicks in, Sloader looks for placeholders and will replace them with values from the AppSettings.
@@ -55,7 +117,7 @@ If you have configured something like this:
 
 And a "Sloader.SecretTwitterConsumerKey" AppSettings Key is found, the value is injected.
 
-## Full Sample Sloader.yml
+# Full Sample Sloader.yml
 
 ```yml
 Secrets:
@@ -66,7 +128,7 @@ Secrets:
 Crawler:
   FeedsToCrawl:
   - Key: Blog
-    Url: http://blogin.codeinside.eu/feed
+    Url: http://blog.codeinside.eu/feed
     LoadSocialLinkCounters: false
   - Key: GitHub
     Url: https://github.com/robertmuehsig.atom; https://github.com/oliverguhr.atom
@@ -80,9 +142,7 @@ Crawler:
     Key: TwitterMe
   GitHubEventsToCrawl:
   - Key: GitHubEvent
-    Repo: code-inside/sloader;foobar/test
-	User: robertmuehsig;oliverguhr
-	Orgs: code-inside
+    Repository: code-inside/sloader
     
 Drop:
   FileDrops:
