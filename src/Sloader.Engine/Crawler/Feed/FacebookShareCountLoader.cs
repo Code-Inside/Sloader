@@ -6,20 +6,35 @@ using WorldDomination.Net.Http;
 
 namespace Sloader.Engine.Crawler.Feed
 {
+    /// <summary>
+    /// Should return for a given url the like count on facebook
+    /// </summary>
     public class FacebookShareCountLoader : IFacebookShareCountLoader
     {
         private readonly HttpClient _httpClient;
 
+        /// <summary>
+        /// Ctor, creates a HttpClient
+        /// </summary>
         public FacebookShareCountLoader()
         {
             _httpClient = new HttpClient();
         }
 
+        /// <summary>
+        /// Ctor for testing
+        /// </summary>
+        /// <param name="messageHandler">A testing/fake message handler might be inserted here.</param>
         public FacebookShareCountLoader(FakeHttpMessageHandler messageHandler)
         {
             _httpClient = new HttpClient(messageHandler);
         }
 
+        /// <summary>
+        /// Uses the https://graph.facebook.com/?id=" + url; from facebook to fetch the like count for a given url.
+        /// </summary>
+        /// <param name="url">Given url, e.g. a blogpost url etc.</param>
+        /// <returns>Like-count as task</returns>
         public async Task<int> GetAsync(string url)
         {
             string facebookUrl = "https://graph.facebook.com/?id=" + url;

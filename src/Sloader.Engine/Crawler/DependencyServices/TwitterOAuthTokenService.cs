@@ -9,20 +9,36 @@ using WorldDomination.Net.Http;
 
 namespace Sloader.Engine.Crawler.DependencyServices
 {
+    /// <summary>
+    /// Implementation for the OAuthTokenService
+    /// </summary>
     public class TwitterOAuthTokenService : ITwitterOAuthTokenService
     {
         private readonly HttpClient _httpClient;
 
+        /// <summary>
+        /// Ctor, will create a HttpClient
+        /// </summary>
         public TwitterOAuthTokenService()
         {
             _httpClient = new HttpClient();
         }
 
+        /// <summary>
+        /// Ctor for testing
+        /// </summary>
+        /// <param name="messageHandler">A testing/fake message handler might be inserted here.</param>
         public TwitterOAuthTokenService(FakeHttpMessageHandler messageHandler)
         {
             _httpClient = new HttpClient(messageHandler);
         }
 
+        /// <summary>
+        /// Uses the key/secret to get the OAuthToken via the HttpClient.
+        /// </summary>
+        /// <param name="consumerKey">Twitter API Consumer Key</param>
+        /// <param name="consumerSecret">Twitter API Consumer Secret</param>
+        /// <returns>Returns the OAuth token as task</returns>
         public async Task<string> GetAsync(string consumerKey, string consumerSecret)
         {
             string oauthToken;
