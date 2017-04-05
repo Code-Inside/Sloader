@@ -12,24 +12,39 @@ using Sloader.Result.Types;
 
 namespace Sloader.Engine.Crawler.Feed
 {
+    /// <summary>
+    /// Atom/Rss-Feed Crawler implementation
+    /// </summary>
     public class FeedCrawler : ICrawler<FeedResult, FeedCrawlerConfig>
     {
         private readonly ISyndicationFeedAbstraction _feedAbstraction;
         private readonly IFacebookShareCountLoader _facebookLoader;
 
+        /// <summary>
+        /// Ctor, with default dependencies injected.
+        /// </summary>
         public FeedCrawler()
             : this(new SyndicationFeedAbstraction(), new FacebookShareCountLoader())
         {
 
         }
 
+        /// <summary>
+        /// Ctor for test
+        /// </summary>
+        /// <param name="syndicationFeedAbstraction"></param>
+        /// <param name="facebookLoader"></param>
         public FeedCrawler(ISyndicationFeedAbstraction syndicationFeedAbstraction, IFacebookShareCountLoader facebookLoader)
         {
             _feedAbstraction = syndicationFeedAbstraction;
             _facebookLoader = facebookLoader;
         }
 
-
+        /// <summary>
+        /// Actual work method to load the feed data.
+        /// </summary>
+        /// <param name="config">Crawler Config</param>
+        /// <returns>FeedResult for the given config data</returns>
         public async Task<FeedResult> DoWorkAsync(FeedCrawlerConfig config)
         {
             if (string.IsNullOrWhiteSpace(config.Url))
