@@ -17,19 +17,36 @@ using WorldDomination.Net.Http;
 
 namespace Sloader.Engine.Crawler.GitHub
 {
+    /// <summary>
+    /// GitHub Event Crawler will use this HTTP-API endpoint:
+    /// <para>https://developer.github.com/v3/activity/events/</para>
+    /// </summary>
     public class GitHubEventCrawler : ICrawler<GitHubEventResult, GitHubEventCrawlerConfig>
     {
         private readonly HttpClient _httpClient;
 
+        /// <summary>
+        /// Ctor with default dependencies
+        /// </summary>
         public GitHubEventCrawler(){
             _httpClient = new HttpClient();
         }
 
+        /// <summary>
+        /// Ctor for testing
+        /// </summary>
+        /// <param name="messageHandler"></param>
         public GitHubEventCrawler(FakeHttpMessageHandler messageHandler)
         {
             _httpClient = new HttpClient(messageHandler);
         }
 
+        /// <summary>
+        /// Actual work method to load event data.
+        /// <para>Depending on the different EventTypes, this method will try to get the most helpful description and url from the huge API response.</para>
+        /// </summary>
+        /// <param name="config">Crawler Config</param>
+        /// <returns>result for the given config data</returns>
         public async Task<GitHubEventResult> DoWorkAsync(GitHubEventCrawlerConfig config)
         {
             if (string.IsNullOrWhiteSpace(config.Organization) && string.IsNullOrWhiteSpace(config.Repository) && string.IsNullOrWhiteSpace(config.User))
