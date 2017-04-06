@@ -32,8 +32,8 @@ namespace Sloader.Engine.Crawler.Feed
         /// <summary>
         /// Ctor for test
         /// </summary>
-        /// <param name="syndicationFeedAbstraction"></param>
-        /// <param name="facebookLoader"></param>
+        /// <param name="syndicationFeedAbstraction">Testing abstraction for actual RSS/ATOM feed loading</param>
+        /// <param name="facebookLoader">Loader for Facebook Likes</param>
         public FeedCrawler(ISyndicationFeedAbstraction syndicationFeedAbstraction, IFacebookShareCountLoader facebookLoader)
         {
             _feedAbstraction = syndicationFeedAbstraction;

@@ -24,7 +24,7 @@ namespace Sloader.Engine.Crawler.Feed
         /// <summary>
         /// Ctor for testing
         /// </summary>
-        /// <param name="messageHandler">A testing/fake message handler might be inserted here.</param>
+        /// <param name="messageHandler">HttpMessageHandler to simulate any HTTP response</param>
         public FacebookShareCountLoader(FakeHttpMessageHandler messageHandler)
         {
             _httpClient = new HttpClient(messageHandler);

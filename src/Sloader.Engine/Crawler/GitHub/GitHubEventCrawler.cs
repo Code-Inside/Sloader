@@ -35,7 +35,7 @@ namespace Sloader.Engine.Crawler.GitHub
         /// <summary>
         /// Ctor for testing
         /// </summary>
-        /// <param name="messageHandler"></param>
+        /// <param name="messageHandler">HttpMessageHandler to simulate any HTTP response</param>
         public GitHubEventCrawler(FakeHttpMessageHandler messageHandler)
         {
             _httpClient = new HttpClient(messageHandler);

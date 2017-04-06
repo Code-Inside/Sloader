@@ -9,28 +9,49 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Sloader.Config.Crawler.Twitter;
+using Sloader.Engine.Crawler.DependencyServices;
 using Sloader.Result;
 using Sloader.Result.Types;
 using WorldDomination.Net.Http;
 
 namespace Sloader.Engine.Crawler.Twitter
 {
+    /// <summary>
+    /// Crawler for the Twitter Timeline API:
+    /// <para>https://dev.twitter.com/rest/reference/get/statuses/user_timeline</para>
+    /// </summary>
     public class TwitterTimelineCrawler : ICrawler<TwitterTimelineResult, TwitterTimelineCrawlerConfig>
     {
         private readonly HttpClient _httpClient;
 
+        /// <summary>
+        /// Ctor with default dependencies
+        /// </summary>
         public TwitterTimelineCrawler()
         {
             _httpClient = new HttpClient();
         }
 
+        /// <summary>
+        /// Ctor for testing
+        /// </summary>
+        /// <param name="messageHandler">HttpMessageHandler to simulate any HTTP response</param>
         public TwitterTimelineCrawler(FakeHttpMessageHandler messageHandler)
         {
             _httpClient = new HttpClient(messageHandler);
         }
 
+        /// <summary>
+        /// Needed Token to consume the API
+        /// </summary>
+        /// <see cref="TwitterOAuthTokenService"/>
         public string OAuthToken { get; set; }
 
+        /// <summary>
+        /// Actual worker method which will load the timelines for the given users.
+        /// </summary>
+        /// <param name="config">Twitter Users etc.</param>
+        /// <returns>result for given config data</returns>
         public async Task<TwitterTimelineResult> DoWorkAsync(TwitterTimelineCrawlerConfig config)
         {
             if (string.IsNullOrWhiteSpace(config.Handle))
