@@ -2,15 +2,29 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Octokit;
+using Sloader.Config;
 using Sloader.Config.Drop.GitHub;
 using Sloader.Result;
 
 namespace Sloader.Engine.Drop.GitHub
 {
+    /// <summary>
+    /// Will drop the results on GitHub as one file.
+    /// </summary>
     public class GitHubDrop : IDrop<GitHubDropConfig>
     {
+        /// <summary>
+        /// Needed token to access the GitHub Api
+        /// </summary>
+        /// <see cref="SloaderSecrets.GitHubAccessToken"/>
         public string AccessToken { get; set; }
 
+        /// <summary>
+        /// Actual work method - will write everything to GitHub via Octokit.net.
+        /// </summary>
+        /// <param name="config">Desired repo/org/file path etc.</param>
+        /// <param name="crawlerRun">Drop content.</param>
+        /// <returns></returns>
         public async Task DoWorkAsync(GitHubDropConfig config, CrawlerRun crawlerRun)
         {
             Trace.TraceInformation($"{nameof(GitHubDrop)} dropping stuff for owner '{config.Owner}' on '{config.Repo}':'{config.Branch}' for '{config.FilePath}' ");
