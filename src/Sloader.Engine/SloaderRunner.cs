@@ -44,12 +44,28 @@ namespace Sloader.Engine
         }
 
         /// <summary>
-        /// Inject the needed SloaderConfigPath and the Secrets yourself.
+        /// Same aus the parameterless "AutoRun", but you need to inject the needed SloaderConfigPath.
+        /// <para>Like the parameterless AutoRun this method will also scan all AppSettings and try to fill up all missing Secrets.</para>
+        /// </summary>
+        /// <param name="sloaderConfigPath">Relative or absolute file path or URL to a valid Sloader config.</param>
+        public static async Task AutoRun(string sloaderConfigPath)
+        {
+            Trace.TraceInformation($"AutoRun invoked with {nameof(sloaderConfigPath)}: '{sloaderConfigPath}'.");
+
+            await AutoRunInternal(sloaderConfigPath, ConfigurationManager.AppSettings.AllKeys.ToDictionary(k => k,
+                                v => ConfigurationManager.AppSettings[v]));
+
+        }
+
+        /// <summary>
+        /// Same aus the parameterless "AutoRun", but you need to inject the needed SloaderConfigPath and the Secrets yourself.
         /// </summary>
         /// <param name="sloaderConfigPath">Relative or absolute file path or URL to a valid Sloader config.</param>
         /// <param name="secrets">Secrets, which may be used as placeholders inside the Sloader config.</param>
         public static async Task AutoRun(string sloaderConfigPath, Dictionary<string, string> secrets)
         {
+            Trace.TraceInformation($"AutoRun invoked with {nameof(sloaderConfigPath)}: '{sloaderConfigPath}' & '{secrets.Count}' {nameof(secrets)}.");
+
             await AutoRunInternal(sloaderConfigPath, secrets);
         }
 
