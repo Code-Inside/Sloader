@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseResult.cs" />
-    <Compile Include="CrawlerResultConverter.cs" />
+    <Compile Include="ResultConverter.cs" />
     <Compile Include="CrawlerRun.cs" />
     <Compile Include="Types\FeedResult.cs" />
     <Compile Include="IHaveRawContent.cs" />
