@@ -79,13 +79,14 @@
               
               <h1 id="Sloader_Engine_Crawler_ICrawler_2" data-uid="Sloader.Engine.Crawler.ICrawler`2">Interface ICrawler&lt;TResult, TConfig&gt;
               </h1>
-              <div class="markdown level0 summary"></div>
+              <div class="markdown level0 summary"><p>Common interface for all crawlers.</p>
+</div>
               <div class="markdown level0 conceptual"></div>
               <h6><strong>Namespace</strong>:Sloader.Engine.Crawler</h6>
               <h6><strong>Assembly</strong>:Sloader.Engine.dll</h6>
               <h5 id="Sloader_Engine_Crawler_ICrawler_2_syntax">Syntax</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public interface ICrawler&lt;TResult, TConfig&gt;</code></pre>
+                <pre><code class="lang-csharp hljs">public interface ICrawler&lt;TResult, in TConfig&gt;</code></pre>
               </div>
               <h5 class="typeParameters">Type Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -98,11 +99,13 @@
                 <tbody>
                   <tr>
                     <td><span class="parametername">TResult</span></td>
-                    <td></td>
+                    <td><p>The return type of the crawler.</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="parametername">TConfig</span></td>
-                    <td></td>
+                    <td><p>The configuration type of the crawler.</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -113,11 +116,12 @@
                 <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Engine_Crawler_ICrawler_2_DoWorkAsync__1_.md&amp;value=---%0Auid%3A%20Sloader.Engine.Crawler.ICrawler%602.DoWorkAsync(%601)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/Crawler/ICrawler.cs/#L7">View Source</a>
+                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/Crawler/ICrawler.cs/#L17">View Source</a>
               </span>
               <a id="Sloader_Engine_Crawler_ICrawler_2_DoWorkAsync_" data-uid="Sloader.Engine.Crawler.ICrawler`2.DoWorkAsync*"></a>
               <h4 id="Sloader_Engine_Crawler_ICrawler_2_DoWorkAsync__1_" data-uid="Sloader.Engine.Crawler.ICrawler`2.DoWorkAsync(`1)">DoWorkAsync(TConfig)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Worker method for each crawler.</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -136,7 +140,8 @@
                   <tr>
                     <td><span class="xref">TConfig</span></td>
                     <td><span class="parametername">config</span></td>
-                    <td></td>
+                    <td><p>Uses the specified config...</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -151,7 +156,8 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">System.Threading.Tasks.Task</span>&lt;TResult&gt;</td>
-                    <td></td>
+                    <td><p>... and will return the defined result.</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -166,7 +172,7 @@
                     <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Engine_Crawler_ICrawler_2.md&amp;value=---%0Auid%3A%20Sloader.Engine.Crawler.ICrawler%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/Crawler/ICrawler.cs/#L5" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/Crawler/ICrawler.cs/#L10" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

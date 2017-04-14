@@ -1074,6 +1074,12 @@ references:
   commentId: M:Sloader.Engine.SloaderRunner.AutoRun
   fullName: Sloader.Engine.SloaderRunner.AutoRun()
   nameWithType: SloaderRunner.AutoRun()
+- uid: Sloader.Engine.SloaderRunner.AutoRun(System.String)
+  name: AutoRun(String)
+  href: api/Sloader.Engine.SloaderRunner.html#Sloader_Engine_SloaderRunner_AutoRun_System_String_
+  commentId: M:Sloader.Engine.SloaderRunner.AutoRun(System.String)
+  fullName: Sloader.Engine.SloaderRunner.AutoRun(System.String)
+  nameWithType: SloaderRunner.AutoRun(String)
 - uid: Sloader.Engine.SloaderRunner.AutoRun(System.String,System.Collections.Generic.Dictionary{System.String,System.String})
   name: AutoRun(String, Dictionary<String, String>)
   href: api/Sloader.Engine.SloaderRunner.html#Sloader_Engine_SloaderRunner_AutoRun_System_String_System_Collections_Generic_Dictionary_System_String_System_String__

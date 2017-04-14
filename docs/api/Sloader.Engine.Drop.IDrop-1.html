@@ -79,13 +79,14 @@
               
               <h1 id="Sloader_Engine_Drop_IDrop_1" data-uid="Sloader.Engine.Drop.IDrop`1">Interface IDrop&lt;TConfig&gt;
               </h1>
-              <div class="markdown level0 summary"></div>
+              <div class="markdown level0 summary"><p>Common interface for all drops.</p>
+</div>
               <div class="markdown level0 conceptual"></div>
               <h6><strong>Namespace</strong>:Sloader.Engine.Drop</h6>
               <h6><strong>Assembly</strong>:Sloader.Engine.dll</h6>
               <h5 id="Sloader_Engine_Drop_IDrop_1_syntax">Syntax</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public interface IDrop&lt;TConfig&gt;</code></pre>
+                <pre><code class="lang-csharp hljs">public interface IDrop&lt;in TConfig&gt;</code></pre>
               </div>
               <h5 class="typeParameters">Type Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -98,7 +99,8 @@
                 <tbody>
                   <tr>
                     <td><span class="parametername">TConfig</span></td>
-                    <td></td>
+                    <td><p>The configuration type of the drop.</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -109,11 +111,12 @@
                 <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Engine_Drop_IDrop_1_DoWorkAsync__0_Sloader_Result_CrawlerRun_.md&amp;value=---%0Auid%3A%20Sloader.Engine.Drop.IDrop%601.DoWorkAsync(%600%2CSloader.Result.CrawlerRun)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/Drop/IDrop.cs/#L8">View Source</a>
+                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/Drop/IDrop.cs/#L17">View Source</a>
               </span>
               <a id="Sloader_Engine_Drop_IDrop_1_DoWorkAsync_" data-uid="Sloader.Engine.Drop.IDrop`1.DoWorkAsync*"></a>
               <h4 id="Sloader_Engine_Drop_IDrop_1_DoWorkAsync__0_Sloader_Result_CrawlerRun_" data-uid="Sloader.Engine.Drop.IDrop`1.DoWorkAsync(`0,Sloader.Result.CrawlerRun)">DoWorkAsync(TConfig, CrawlerRun)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Worker method for each drop.</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -132,12 +135,14 @@
                   <tr>
                     <td><span class="xref">TConfig</span></td>
                     <td><span class="parametername">config</span></td>
-                    <td></td>
+                    <td><p>Uses the config to ...</p>
+</td>
                   </tr>
                   <tr>
                     <td><a class="xref" href="Sloader.Result.CrawlerRun.html">CrawlerRun</a></td>
                     <td><span class="parametername">crawlerRun</span></td>
-                    <td></td>
+                    <td><p>... drop the actual crawler run result</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -167,7 +172,7 @@
                     <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Engine_Drop_IDrop_1.md&amp;value=---%0Auid%3A%20Sloader.Engine.Drop.IDrop%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/Drop/IDrop.cs/#L6" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/Drop/IDrop.cs/#L10" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

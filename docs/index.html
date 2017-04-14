@@ -66,7 +66,7 @@
         <div class="article row grid">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-              <h2 id="idea--goal">Idea &amp; Goal</h2>
+              <h1 id="idea--goal">Idea &amp; Goal</h1>
               
 <p>The goal of this library is to load data from &quot;various&quot; endpoints and store them in various &quot;drops&quot; in a structured way. </p>
 <p>The endpoint &amp; drop configuration should very simple and developer focused.</p>
@@ -82,7 +82,61 @@
 <li>The <strong>Sloader.Engine</strong>, which uses the config and implements the crawler &amp; drops. Each crawler has it&#39;s own config &amp; result &quot;schema&quot;. When all endpoints have been crawled the result will be &quot;dropped&quot; to a configured destination.</li>
 <li>The output of the engine is a Key/Value json structure with the results of each crawler, this is defined under <strong>Sloader.Result</strong>.</li>
 </ul>
-<h2 id="sample-code-to-invoke-sloader">Sample Code to invoke Sloader</h2>
+<h1 id="quickstart">QuickStart</h1>
+<ol>
+<li>Create this Sloader.yml file:</li>
+</ol>
+<pre><code class="lang-yml">Crawler:
+  FeedsToCrawl:
+  - Key: Blog
+    Url: http://blog.codeinside.eu/feed
+    LoadSocialLinkCounters: false
+  GitHubEventsToCrawl:
+  - Key: GitHubEvent
+    Repository: code-inside/sloader
+
+Drop:
+  FileDrops:
+  - FilePath: &quot;result.json&quot;
+</code></pre><ol>
+<li><p>Save this file on your local drive or use <a href="https://gist.github.com/">GitHubs Gist</a> or something else.</p>
+</li>
+<li><p>New Project -&gt; C# Console App.</p>
+</li>
+<li><p>Install-Package Sloader.Engine</p>
+</li>
+<li><p>Code:</p>
+</li>
+</ol>
+<pre><code class="lang-csharp">class Program
+    {
+        static void Main(string[] args)
+        {
+            Sloader.Engine.SloaderRunner.AutoRun(&quot;https://gist.githubusercontent.com/.../gistfile1.txt&quot;, new Dictionary&lt;string, string&gt;()).GetAwaiter().GetResult();
+        }
+    }
+</code></pre><ol>
+<li><p>Run.</p>
+</li>
+<li><p>Open bin/debug/result.json.</p>
+</li>
+</ol>
+<p><strong>Done.</strong></p>
+<p>Note:</p>
+<ul>
+<li>There are several Drops &amp; Crawlers available.</li>
+<li>You can also AppSettings to locate the Sloader.Config</li>
+</ul>
+<h1 id="sample-code">Sample Code</h1>
+<h2 id="plain-console-app">Plain Console App:</h2>
+<pre><code class="lang-csharp">class Program
+    {
+        static void Main(string[] args)
+        {
+            Sloader.Engine.SloaderRunner.AutoRun(&quot;https://gist.githubusercontent.com/.../gistfile1.txt&quot;, new Dictionary&lt;string, string&gt;()).GetAwaiter().GetResult();
+        }
+    }
+</code></pre><h2 id="azure-function">Azure Function</h2>
 <p>This code runs currently in an Azure Function:</p>
 <pre><code>public static void Run(TimerInfo everyDay, TraceWriter log)
 {
@@ -100,13 +154,13 @@
 </code></pre><p>You need this AppSettings Key, which will point to your Sloader.yml file:</p>
 <pre><code>Sloader.SloaderConfigFilePath
 </code></pre><p>The Sloader.SloaderConfigFilePath can be a local file path or a URL.</p>
-<h2 id="working-with-secrets">Working with Secrets</h2>
+<h1 id="working-with-secrets">Working with Secrets</h1>
 <p>Some Crawlers or Drops need secrets - e.g. the Twitter API key. The complete config is defined in your Sloader.yml file. 
 When the Sloader.Config loading kicks in, Sloader looks for placeholders and will replace them with values from the AppSettings.</p>
 <p>If you have configured something like this:</p>
 <pre><code>TwitterConsumerKey: $$Sloader.SecretTwitterConsumerKey$$
 </code></pre><p>And a &quot;Sloader.SecretTwitterConsumerKey&quot; AppSettings Key is found, the value is injected.</p>
-<h2 id="full-sample-sloaderyml">Full Sample Sloader.yml</h2>
+<h1 id="full-sample-sloaderyml">Full Sample Sloader.yml</h1>
 <pre><code class="lang-yml">Secrets:
   TwitterConsumerKey: $$Sloader.SecretTwitterConsumerKey$$
   TwitterConsumerSecret: $$Sloader.SecretTwitterConsumerSecret$$
@@ -115,7 +169,7 @@ When the Sloader.Config loading kicks in, Sloader looks for placeholders and wil
 Crawler:
   FeedsToCrawl:
   - Key: Blog
-    Url: http://blogin.codeinside.eu/feed
+    Url: http://blog.codeinside.eu/feed
     LoadSocialLinkCounters: false
   - Key: GitHub
     Url: https://github.com/robertmuehsig.atom; https://github.com/oliverguhr.atom
@@ -129,9 +183,7 @@ Crawler:
     Key: TwitterMe
   GitHubEventsToCrawl:
   - Key: GitHubEvent
-    Repo: code-inside/sloader;foobar/test
-    User: robertmuehsig;oliverguhr
-    Orgs: code-inside
+    Repository: code-inside/sloader
 
 Drop:
   FileDrops:
