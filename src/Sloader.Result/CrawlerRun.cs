@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 namespace Sloader.Result
 {
     /// <summary>
-    /// Container class which stores some common "run" data & the actual result collection.
+    /// Container class which stores some common "run" data and the actual result collection.
     /// </summary>
     public class CrawlerRun
     {
@@ -50,7 +50,7 @@ namespace Sloader.Result
         /// <summary>
         /// Serializes the object via JSON.NET
         /// </summary>
-        /// <returns>Large JSON with "run" data & actual result data.</returns>
+        /// <returns>Large JSON with "run" data and actual result data.</returns>
         public string ToJson()
         {
             return JsonConvert.SerializeObject(this);
