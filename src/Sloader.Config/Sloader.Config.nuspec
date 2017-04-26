@@ -11,6 +11,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Config</description>
     <releaseNotes>
+      ## Version 0.2.3 ##
+      Documentation
       ## Version 0.2.2 ##
       Fixed NuGet Package (dll...)
       ## Version 0.2.1 ##

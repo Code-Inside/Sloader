@@ -11,6 +11,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Engine</description>
     <releaseNotes>
+      ## Version 0.4.2 ##
+      Documentation
       ## Version 0.4.1 ##
       GitHub Crawler CreateEvent for Branch mit related url
       ## Version 0.4.0 ##
