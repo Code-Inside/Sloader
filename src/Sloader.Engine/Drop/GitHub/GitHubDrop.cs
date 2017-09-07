@@ -53,6 +53,7 @@ namespace Sloader.Engine.Drop.GitHub
             }
             catch (Octokit.NotFoundException)
             {
+                // if file is not found, create it
                 try
                 {
                     await ghClient.Repository.Content.CreateFile(owner, repo, targetFile, new CreateFileRequest($"Sloader create for {targetFile}", content, branch));
@@ -62,7 +63,6 @@ namespace Sloader.Engine.Drop.GitHub
                     Trace.TraceError($"{nameof(GitHubDrop)} failed with '{exc.Message}' on '{config.Repo}':'{config.Branch}' for '{config.FilePath}' ");
                     throw;
                 }
-                // if file is not found, create it
             }
         }
     }
