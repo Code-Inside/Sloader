@@ -5,6 +5,7 @@ using Octokit;
 using Sloader.Config;
 using Sloader.Config.Drop.GitHub;
 using Sloader.Result;
+using System;
 
 namespace Sloader.Engine.Drop.GitHub
 {
@@ -48,12 +49,20 @@ namespace Sloader.Engine.Drop.GitHub
 
                 // update the file
                 await ghClient.Repository.Content.UpdateFile(owner, repo, targetFile,
-                   new UpdateFileRequest("Sloader update", content, existingFile.First().Sha, branch));
+                   new UpdateFileRequest($"Sloader update on {targetFile}", content, existingFile.First().Sha, branch));
             }
             catch (Octokit.NotFoundException)
             {
+                try
+                {
+                    await ghClient.Repository.Content.CreateFile(owner, repo, targetFile, new CreateFileRequest($"Sloader create for {targetFile}", content, branch));
+                }
+                catch (Exception exc)
+                {
+                    Trace.TraceError($"{nameof(GitHubDrop)} failed with '{exc.Message}' on '{config.Repo}':'{config.Branch}' for '{config.FilePath}' ");
+                    throw;
+                }
                 // if file is not found, create it
-                await ghClient.Repository.Content.CreateFile(owner, repo, targetFile, new CreateFileRequest("Sloader create", content, branch));
             }
         }
     }
