@@ -11,6 +11,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Config</description>
     <releaseNotes>
+      ## Version 0.3.0 ##
+      IncludeRawContent introduced - raw content saving is now optional
       ## Version 0.2.3 ##
       Documentation
       ## Version 0.2.2 ##

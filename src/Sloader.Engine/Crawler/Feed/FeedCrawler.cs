@@ -107,7 +107,10 @@ namespace Sloader.Engine.Crawler.Feed
                     feedItem.SaveAsRss20(writer);
                     writer.Close();
 
-                    crawlerResultItem.RawContent = builder.ToString();
+                    if(config.IncludeRawContent)
+                    {
+                        crawlerResultItem.RawContent = builder.ToString();
+                    }
 
                     crawlerResult.FeedItems.Add(crawlerResultItem);
                 }

@@ -62,13 +62,13 @@ namespace Sloader.Engine.Crawler.Twitter
             result.Users = new List<TwitterUserResult.User>();
 
 
-            var twitterResult = await GetTwitterUser(OAuthToken, config.Handle);
+            var twitterResult = await GetTwitterUser(OAuthToken, config.Handle, config.IncludeRawContent);
             result.Users.AddRange(new List<TwitterUserResult.User>(twitterResult));
 
             return result;
         }
 
-        private async Task<List<TwitterUserResult.User>> GetTwitterUser(string oauthToken, string screenname)
+        private async Task<List<TwitterUserResult.User>> GetTwitterUser(string oauthToken, string screenname, bool includeRawContent)
         {
             Trace.TraceInformation("GetTwitterUser invoked with screenname:" + screenname);
 
@@ -105,7 +105,11 @@ namespace Sloader.Engine.Crawler.Twitter
                     userObject.CreatedAt = userDateAsDate;
                 }
 
-                userObject.RawContent = rawJson;
+                if(includeRawContent)
+                {
+                    userObject.RawContent = rawJson;
+                }
+
                 resultForThisHandle.Add(userObject);
             }
 

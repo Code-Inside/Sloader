@@ -37,6 +37,18 @@ references:
   commentId: T:Sloader.Config.Crawler.BaseCrawlerConfig
   fullName: Sloader.Config.Crawler.BaseCrawlerConfig
   nameWithType: BaseCrawlerConfig
+- uid: Sloader.Config.Crawler.BaseCrawlerConfig.IncludeRawContent
+  name: IncludeRawContent
+  href: api/Sloader.Config.Crawler.BaseCrawlerConfig.html#Sloader_Config_Crawler_BaseCrawlerConfig_IncludeRawContent
+  commentId: P:Sloader.Config.Crawler.BaseCrawlerConfig.IncludeRawContent
+  fullName: Sloader.Config.Crawler.BaseCrawlerConfig.IncludeRawContent
+  nameWithType: BaseCrawlerConfig.IncludeRawContent
+- uid: Sloader.Config.Crawler.BaseCrawlerConfig.IncludeRawContent*
+  name: IncludeRawContent
+  href: api/Sloader.Config.Crawler.BaseCrawlerConfig.html#Sloader_Config_Crawler_BaseCrawlerConfig_IncludeRawContent_
+  commentId: Overload:Sloader.Config.Crawler.BaseCrawlerConfig.IncludeRawContent
+  fullName: Sloader.Config.Crawler.BaseCrawlerConfig.IncludeRawContent
+  nameWithType: BaseCrawlerConfig.IncludeRawContent
 - uid: Sloader.Config.Crawler.BaseCrawlerConfig.Key
   name: Key
   href: api/Sloader.Config.Crawler.BaseCrawlerConfig.html#Sloader_Config_Crawler_BaseCrawlerConfig_Key

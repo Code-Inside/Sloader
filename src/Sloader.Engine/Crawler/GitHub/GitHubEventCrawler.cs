@@ -63,7 +63,7 @@ namespace Sloader.Engine.Crawler.GitHub
                 {
                     var apiCall = $"https://api.github.com/orgs/{maybeSplittedOrg}/events";
 
-                    await FetchData(apiCall, crawlerResult);
+                    await FetchData(apiCall, crawlerResult, config.IncludeRawContent);
                 }
             }
 
@@ -75,7 +75,7 @@ namespace Sloader.Engine.Crawler.GitHub
                 {
                     var apiCall = $"https://api.github.com/users/{maybeSplittedUser}/events";
 
-                    await FetchData(apiCall, crawlerResult);
+                    await FetchData(apiCall, crawlerResult, config.IncludeRawContent);
                 }
             }
 
@@ -87,7 +87,7 @@ namespace Sloader.Engine.Crawler.GitHub
                 {
                     var apiCall = $"https://api.github.com/repos/{maybeSplittedRepo}/events";
 
-                    await FetchData(apiCall, crawlerResult);
+                    await FetchData(apiCall, crawlerResult, config.IncludeRawContent);
                 }
             }
 
@@ -96,7 +96,7 @@ namespace Sloader.Engine.Crawler.GitHub
             return crawlerResult;
         }
 
-        private async Task FetchData(string apiCall, GitHubEventResult crawlerResult)
+        private async Task FetchData(string apiCall, GitHubEventResult crawlerResult, bool includeRawContent)
         {
             // needed, otherwise GitHub API will return 
             // The server committed a protocol violation. Section=ResponseStatusLine ERROR
@@ -216,7 +216,11 @@ namespace Sloader.Engine.Crawler.GitHub
                     eventObject.CreatedAt = eventDateAsDate;
                 }
 
-                eventObject.RawContent = rawJson;
+                if(includeRawContent)
+                {
+                    eventObject.RawContent = rawJson;
+                }
+
                 crawlerResult.Events.Add(eventObject);
             }
         }

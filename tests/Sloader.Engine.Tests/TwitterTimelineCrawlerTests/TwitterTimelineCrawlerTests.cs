@@ -20,7 +20,7 @@ namespace Sloader.Engine.Tests.TwitterTimelineCrawlerTests
             return responseData;
         }
 
-        private static async Task<TwitterTimelineResult> InvokeSut(string oAuthToken, string handle)
+        private static async Task<TwitterTimelineResult> InvokeSut(string oAuthToken, string handle, bool includeRaw = false)
         {
             string responseData = GetTestFileContent();
 
@@ -33,6 +33,7 @@ namespace Sloader.Engine.Tests.TwitterTimelineCrawlerTests
 
             var config = new TwitterTimelineCrawlerConfig();
             config.Handle = handle;
+            config.IncludeRawContent = includeRaw;
 
             var result = await sut.DoWorkAsync(config);
             return result;
@@ -46,7 +47,21 @@ namespace Sloader.Engine.Tests.TwitterTimelineCrawlerTests
         }
 
         [Fact]
-        public async Task Crawler_Should_Embed_The_RawContent_From_The_ActualTimeLineItem()
+        public async Task Crawler_Should_Embed_The_RawContent_From_The_ActualTimeLineItem_WhenConfigured()
+        {
+            var result = await InvokeSut(Guid.NewGuid().ToString(), "test", true);
+
+            var firstResult = result.Tweets.First();
+
+            var testContent = Newtonsoft.Json.JsonConvert.DeserializeObject<JArray>(GetTestFileContent());
+
+            var firstTestContent = testContent.First.ToString();
+
+            Assert.Equal(firstTestContent, firstResult.RawContent);
+        }
+
+        [Fact]
+        public async Task Crawler_Shouldnt_Embed_The_RawContent_From_The_ActualTimeLineItem()
         {
             var result = await InvokeSut(Guid.NewGuid().ToString(), "test");
 
@@ -56,7 +71,7 @@ namespace Sloader.Engine.Tests.TwitterTimelineCrawlerTests
 
             var firstTestContent = testContent.First.ToString();
 
-            Assert.Equal(firstTestContent, firstResult.RawContent);
+            Assert.Equal(null, firstResult.RawContent);
         }
 
 

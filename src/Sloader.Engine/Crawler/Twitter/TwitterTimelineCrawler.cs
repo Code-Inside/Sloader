@@ -67,7 +67,7 @@ namespace Sloader.Engine.Crawler.Twitter
 
             foreach (var handleArrayForMultipleHandle in handleArrayForMultipleHandles)
             {
-                var twitterResult = await GetTwitterTimeline(OAuthToken, handleArrayForMultipleHandle.Trim(), config.IncludeRetweets);
+                var twitterResult = await GetTwitterTimeline(OAuthToken, handleArrayForMultipleHandle.Trim(), config.IncludeRetweets, config.IncludeRawContent);
                 result.Tweets.AddRange(new List<TwitterTimelineResult.Tweet>(twitterResult));
             }
 
@@ -76,11 +76,9 @@ namespace Sloader.Engine.Crawler.Twitter
             return result;
         }
 
-        private async Task<List<TwitterTimelineResult.Tweet>> GetTwitterTimeline(string oauthToken, string screenname, bool includeRetweets)
+        private async Task<List<TwitterTimelineResult.Tweet>> GetTwitterTimeline(string oauthToken, string screenname, bool includeRetweets, bool includeRawContent)
         {
             Trace.TraceInformation("GetTwitterTimeline invoked with screenname:" + screenname);
-
-
 
             var timelineFormat =
                 "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name={0}&include_rts={1}&exclude_replies=1";
@@ -116,7 +114,11 @@ namespace Sloader.Engine.Crawler.Twitter
                         tweetObject.CreatedAt = tweetDateAsDate;
                     }
 
-                    tweetObject.RawContent = rawJson;
+                    if(includeRawContent)
+                    {
+                        tweetObject.RawContent = rawJson;
+                    }
+
                     resultForThisHandle.Add(tweetObject);
                 }
 

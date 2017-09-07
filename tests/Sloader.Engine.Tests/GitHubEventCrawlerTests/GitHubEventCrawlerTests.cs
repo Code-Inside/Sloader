@@ -18,7 +18,7 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
             return responseData;
         }
 
-        private static async Task<GitHubEventResult> InvokeSutForOrgs(string org)
+        private static async Task<GitHubEventResult> InvokeSutForOrgs(string org, bool includeRaw = false)
         {
             string responseData = GetTestFileContentFor("org");
 
@@ -30,6 +30,7 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
 
             var config = new GitHubEventCrawlerConfig();
             config.Organization = org;
+            config.IncludeRawContent = includeRaw;
 
             var result = await sut.DoWorkAsync(config);
             return result;
@@ -73,7 +74,7 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
             return result;
         }
 
-        private static async Task<GitHubEventResult> InvokeSutForRepos(string repo)
+        private static async Task<GitHubEventResult> InvokeSutForRepos(string repo, bool includeRaw = false)
         {
             string responseData = GetTestFileContentFor("repo");
 
@@ -85,6 +86,7 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
 
             var config = new GitHubEventCrawlerConfig();
             config.Repository = repo;
+            config.IncludeRawContent = includeRaw;
 
             var result = await sut.DoWorkAsync(config);
             return result;
@@ -98,9 +100,9 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
         }
 
         [Fact]
-        public async Task Crawler_For_Orgs_Should_Embed_The_RawContent_From_The_Event()
+        public async Task Crawler_For_Orgs_Should_Embed_The_RawContent_From_The_Event_WhenConfigured()
         {
-            var result = await InvokeSutForOrgs("code-inside");
+            var result = await InvokeSutForOrgs("code-inside", true);
 
             var firstResult = result.Events.First();
 
@@ -112,6 +114,20 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
         }
 
         [Fact]
+        public async Task Crawler_For_Orgs_Shouldnt_Embed_The_RawContent_From_The_Event()
+        {
+            var result = await InvokeSutForOrgs("code-inside");
+
+            var firstResult = result.Events.First();
+
+            var testContent = Newtonsoft.Json.JsonConvert.DeserializeObject<JArray>(GetTestFileContentFor("org"));
+
+            var firstTestContent = testContent.First.ToString();
+
+            Assert.Equal(null, firstResult.RawContent);
+        }
+
+        [Fact]
         public async Task Crawler_For_Users_Should_Return_Correct_Number_Of_Events()
         {
             var result = await InvokeSutForUsers("robertmuehsig");
@@ -119,7 +135,7 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
         }
 
         [Fact]
-        public async Task Crawler_For_Users_Should_Embed_The_RawContent_From_The_Event()
+        public async Task Crawler_For_Users_Shouldnt_Embed_The_RawContent_From_The_Event()
         {
             var result = await InvokeSutForUsers("robertmuehsig");
 
@@ -129,7 +145,7 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
 
             var firstTestContent = testContent.First.ToString();
 
-            Assert.Equal(firstTestContent, firstResult.RawContent);
+            Assert.Equal(null, firstResult.RawContent);
         }
 
         [Fact]
@@ -284,7 +300,21 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
         }
 
         [Fact]
-        public async Task Crawler_For_Repos_Should_Embed_The_RawContent_From_The_Event()
+        public async Task Crawler_For_Repos_Should_Embed_The_RawContent_From_The_Event_When_Configured()
+        {
+            var result = await InvokeSutForRepos("aspnet/mvc", true);
+
+            var firstResult = result.Events.First();
+
+            var testContent = Newtonsoft.Json.JsonConvert.DeserializeObject<JArray>(GetTestFileContentFor("repo"));
+
+            var firstTestContent = testContent.First.ToString();
+
+            Assert.Equal(firstTestContent, firstResult.RawContent);
+        }
+
+        [Fact]
+        public async Task Crawler_For_Repos_Shouldnt_Embed_The_RawContent_From_The_Event()
         {
             var result = await InvokeSutForRepos("aspnet/mvc");
 
@@ -294,7 +324,7 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
 
             var firstTestContent = testContent.First.ToString();
 
-            Assert.Equal(firstTestContent, firstResult.RawContent);
+            Assert.Equal(null, firstResult.RawContent);
         }
 
 

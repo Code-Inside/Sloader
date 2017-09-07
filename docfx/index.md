@@ -106,6 +106,17 @@ You need this AppSettings Key, which will point to your Sloader.yml file:
 
 The Sloader.SloaderConfigFilePath can be a local file path or a URL.
 
+As an alternative you can also specify the URL in the AutoRun like that:
+
+```
+public static void Run(TimerInfo everyDay, TraceWriter log)
+{
+    ...
+    Sloader.Engine.SloaderRunner.AutoRun("https://...sloader.yml").GetAwaiter().GetResult();
+	...    
+}
+```
+
 # Working with Secrets
 
 Some Crawlers or Drops need secrets - e.g. the Twitter API key. The complete config is defined in your Sloader.yml file. 

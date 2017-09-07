@@ -154,7 +154,14 @@ Drop:
 </code></pre><p>You need this AppSettings Key, which will point to your Sloader.yml file:</p>
 <pre><code>Sloader.SloaderConfigFilePath
 </code></pre><p>The Sloader.SloaderConfigFilePath can be a local file path or a URL.</p>
-<h1 id="working-with-secrets">Working with Secrets</h1>
+<p>As an alternative you can also specify the URL in the AutoRun like that:</p>
+<pre><code>public static void Run(TimerInfo everyDay, TraceWriter log)
+{
+    ...
+    Sloader.Engine.SloaderRunner.AutoRun(&quot;https://...sloader.yml&quot;).GetAwaiter().GetResult();
+    ...    
+}
+</code></pre><h1 id="working-with-secrets">Working with Secrets</h1>
 <p>Some Crawlers or Drops need secrets - e.g. the Twitter API key. The complete config is defined in your Sloader.yml file. 
 When the Sloader.Config loading kicks in, Sloader looks for placeholders and will replace them with values from the AppSettings.</p>
 <p>If you have configured something like this:</p>

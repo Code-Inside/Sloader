@@ -11,6 +11,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Engine</description>
     <releaseNotes>
+      ## Version 0.5.0 ##
+      IncludeRawContent introduced - raw content saving is now optional
       ## Version 0.4.2 ##
       Documentation
       ## Version 0.4.1 ##

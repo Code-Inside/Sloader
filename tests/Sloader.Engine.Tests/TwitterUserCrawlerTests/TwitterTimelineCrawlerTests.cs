@@ -20,7 +20,7 @@ namespace Sloader.Engine.Tests.TwitterUserCrawlerTests
             return responseData;
         }
 
-        private static async Task<TwitterUserResult> InvokeSut(string oAuthToken, string handle)
+        private static async Task<TwitterUserResult> InvokeSut(string oAuthToken, string handle, bool includeRaw = false)
         {
             string responseData = GetTestFileContent();
 
@@ -33,6 +33,7 @@ namespace Sloader.Engine.Tests.TwitterUserCrawlerTests
 
             var config = new TwitterUserCrawlerConfig();
             config.Handle = handle;
+            config.IncludeRawContent = includeRaw;
 
             var result = await sut.DoWorkAsync(config);
             return result;
@@ -54,9 +55,9 @@ namespace Sloader.Engine.Tests.TwitterUserCrawlerTests
         }
 
         [Fact]
-        public async Task Crawler_Should_Embed_The_RawContent_From_The_ActualUserItem()
+        public async Task Crawler_Should_Embed_The_RawContent_From_The_ActualUserItem_When_Configured()
         {
-            var result = await InvokeSut(Guid.NewGuid().ToString(), "Twitter");
+            var result = await InvokeSut(Guid.NewGuid().ToString(), "Twitter", true);
 
             var firstResult = result.Users.First();
 
