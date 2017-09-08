@@ -60,7 +60,7 @@ namespace Sloader.Engine.Drop.GitHub
                 }
                 catch (Exception exc)
                 {
-                    Trace.TraceError($"{nameof(GitHubDrop)} failed with '{exc.Message}' on '{config.Repo}':'{config.Branch}' for '{config.FilePath}' ");
+                    Trace.TraceError($"{nameof(GitHubDrop)} failed with '{exc.Message}' on '{config.Repo}':'{config.Branch}' for '{config.FilePath}'. Make sure your account has write access!");
                     throw;
                 }
             }
