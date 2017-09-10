@@ -11,6 +11,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Engine</description>
     <releaseNotes>
+      ## Version 0.6.1 ##
+      GitHub CommitCommentEvent now included
       ## Version 0.6.0 ##
       GitHub merged PRs are now handled as 'merged' in related action (instead of closed)
       ## Version 0.5.0 ##

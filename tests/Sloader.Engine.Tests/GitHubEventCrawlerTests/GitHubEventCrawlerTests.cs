@@ -76,7 +76,15 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
 
         private static async Task<GitHubEventResult> InvokeSutForRepos(string repo, bool includeRaw = false)
         {
-            string responseData = GetTestFileContentFor("repo");
+            string responseData = string.Empty;
+            if (repo == "aspnet/mvc")
+            {
+                responseData = GetTestFileContentFor("repo");
+            }
+            else if (repo == "aspnet/signalr")
+            {
+                responseData = GetTestFileContentFor("repo_1");
+            }
 
             var messageResponse = FakeHttpMessageHandler.GetStringHttpResponseMessage(responseData);
 
@@ -170,7 +178,7 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
         [Fact]
         public async Task Crawler_Should_Return_CorrectRelatedData_For_IssueEvents_For_Reopened()
         {
-            var result = await InvokeSutForRepos("aspnet/Mvc");
+            var result = await InvokeSutForRepos("aspnet/mvc");
             var targetEvent = result.Events.Single(x => x.Id == "5348037405");
             Assert.Equal("https://github.com/aspnet/Mvc/issues/5811", targetEvent.RelatedUrl);
             Assert.Equal("Reopened issue \"Version numbers in rel/1.1.1 were not updated to 1.1.1\" (#5811) at aspnet/Mvc", targetEvent.RelatedDescription);
@@ -290,6 +298,17 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
             var result = await InvokeSutForRepos("aspnet/mvc");
             var targetEvent = result.Events.Single(x => x.Id == "5349932726");
             Assert.Equal("Starred aspnet/Mvc", targetEvent.RelatedDescription);
+        }
+
+        [Fact]
+        public async Task Crawler_Should_Return_CorrectRelatedData_For_CommitCommentEvent_For_Started()
+        {
+            var result = await InvokeSutForRepos("aspnet/signalr");
+            var targetEvent = result.Events.Single(x => x.Id == "6570972685");
+            Assert.Equal("Commented on commit \"325c909dffcd3cd5e7b174869a29c78d00474564\" at aspnet/SignalR", targetEvent.RelatedDescription);
+            Assert.Equal("https://github.com/aspnet/SignalR/commit/325c909dffcd3cd5e7b174869a29c78d00474564#commitcomment-24200204", targetEvent.RelatedUrl);
+            Assert.Equal("\r\nThanks for the reply. I wrote some code that tries to connect and return a promise with the connection on success and an empty promise on fail and tries all different protocols until it has a connection. I think I wrote it ok, but an example would be great because I think lots of people want a fallback protocol. \r\n\r\nThere are still some issues I experience, I will look into them and maybe the are because its just because its just production ready but maybe you can address these issues immediately.\r\n\r\n- Internet explorer 11 works fine on websockets. On long polling it connects fine, but as soon as it get the first data from the hub, it keeps sending infinit connecting requests.\r\n-  On azure, while I turned on websockets it keeps connecting using long polling. \r\n", targetEvent.RelatedBody);
+
         }
 
 

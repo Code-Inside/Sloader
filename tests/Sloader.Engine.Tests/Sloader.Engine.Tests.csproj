@@ -101,6 +101,9 @@
     <None Include="GitHubEventCrawlerTests\Sample\repo.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="GitHubEventCrawlerTests\Sample\repo_1.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="GitHubEventCrawlerTests\Sample\user_1.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

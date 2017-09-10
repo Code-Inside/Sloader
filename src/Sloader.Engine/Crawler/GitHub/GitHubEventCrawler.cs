@@ -151,6 +151,12 @@ namespace Sloader.Engine.Crawler.GitHub
                         eventObject.RelatedDescription = "Commented on issue \"" + gitHubEvent["payload"]?["issue"]?["title"]?.ToObject<string>() + "\" (#" + gitHubEvent["payload"]?["issue"]?["number"]?.ToObject<string>() + ") at " + gitHubEvent["repo"]?["name"]?.ToObject<string>();
                     }
                 }
+                else if (eventObject.Type == "CommitCommentEvent")
+                {
+                    eventObject.RelatedUrl = gitHubEvent["payload"]?["comment"]?["html_url"]?.ToObject<string>();
+                    eventObject.RelatedBody = gitHubEvent["payload"]?["comment"]?["body"]?.ToObject<string>();
+                    eventObject.RelatedDescription = "Commented on commit \"" + gitHubEvent["payload"]?["comment"]?["commit_id"]?.ToObject<string>() + "\" at " + gitHubEvent["repo"]?["name"]?.ToObject<string>();
+                }
                 else if (eventObject.Type == "WatchEvent")
                 {
                     eventObject.RelatedDescription = "Starred " + gitHubEvent["repo"]?["name"]?.ToObject<string>();
