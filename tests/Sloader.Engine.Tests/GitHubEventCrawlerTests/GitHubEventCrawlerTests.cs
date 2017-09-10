@@ -203,6 +203,7 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
             var result = await InvokeSutForUsers("adamralph");
             var targetEvent = result.Events.Single(x => x.Id == "5405598530");
             Assert.Equal("https://github.com/Particular/NServiceBus.RabbitMQ/pull/346", targetEvent.RelatedUrl);
+            Assert.Equal("merged", targetEvent.RelatedAction);
             Assert.Equal("Merged pull request \"Remove confirmation id header\" (#346) at Particular/NServiceBus.RabbitMQ", targetEvent.RelatedDescription);
             Assert.Equal("Fixes #345\r\n\r\nThe branch is currently based against the #329 branch, will rebase to develop once it has been merged.", targetEvent.RelatedBody);
         }

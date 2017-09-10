@@ -53,6 +53,7 @@ namespace Sloader.Result.Types
             /// <summary>
             /// Based on the <see cref="Type"/> a more descriptive and related action.
             /// <para>e.g. IssueEvent occured and you need to know if the issue is opened, closed etc.</para>
+            /// <para>On PullRequests: The closed and IsMerged=true property is handled as merged</para>
             /// </summary>
             public string RelatedAction { get; set; }
 

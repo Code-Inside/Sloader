@@ -162,6 +162,7 @@ namespace Sloader.Engine.Crawler.GitHub
 
                     if (eventObject.RelatedAction == "closed" && gitHubEvent["payload"]?["pull_request"]?["merged"]?.ToObject<string>().ToLowerInvariant() == "true")
                     {
+                        eventObject.RelatedAction = "merged";
                         eventObject.RelatedDescription = "Merged pull request \"" + gitHubEvent["payload"]?["pull_request"]?["title"]?.ToObject<string>() + "\" (#" + gitHubEvent["payload"]?["pull_request"]?["number"]?.ToObject<string>() + ") at " + gitHubEvent["repo"]?["name"]?.ToObject<string>(); 
                     }
                     else if (eventObject.RelatedAction == "closed" && gitHubEvent["payload"]?["pull_request"]?["merged"]?.ToObject<string>().ToLowerInvariant() == "false")
