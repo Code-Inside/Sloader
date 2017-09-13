@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -13,6 +14,8 @@ namespace Sloader.Config
     {
         public static async Task<SloaderConfig> GetAsync(string ymlLocation, Dictionary<string, string> secrets)
         {
+            Trace.TraceInformation($"{nameof(SloaderConfigLoader)} invoked for '{ymlLocation}'.");
+
             string configString;
 
             if (ymlLocation.ToLowerInvariant().StartsWith("https://") ||
@@ -30,5 +33,7 @@ namespace Sloader.Config
 
             return config;
         }
+
+        
     }
 }

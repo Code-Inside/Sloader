@@ -532,6 +532,42 @@ references:
   commentId: Overload:Sloader.Config.SloaderConfigLoader.GetAsync
   fullName: Sloader.Config.SloaderConfigLoader.GetAsync
   nameWithType: SloaderConfigLoader.GetAsync
+- uid: Sloader.Config.SloaderConfigLocator
+  name: SloaderConfigLocator
+  href: api/Sloader.Config.SloaderConfigLocator.html
+  commentId: T:Sloader.Config.SloaderConfigLocator
+  fullName: Sloader.Config.SloaderConfigLocator
+  nameWithType: SloaderConfigLocator
+- uid: Sloader.Config.SloaderConfigLocator.#ctor
+  name: SloaderConfigLocator()
+  href: api/Sloader.Config.SloaderConfigLocator.html#Sloader_Config_SloaderConfigLocator__ctor
+  commentId: M:Sloader.Config.SloaderConfigLocator.#ctor
+  fullName: Sloader.Config.SloaderConfigLocator.SloaderConfigLocator()
+  nameWithType: SloaderConfigLocator.SloaderConfigLocator()
+- uid: Sloader.Config.SloaderConfigLocator.#ctor(WorldDomination.Net.Http.FakeHttpMessageHandler)
+  name: SloaderConfigLocator(FakeHttpMessageHandler)
+  href: api/Sloader.Config.SloaderConfigLocator.html#Sloader_Config_SloaderConfigLocator__ctor_WorldDomination_Net_Http_FakeHttpMessageHandler_
+  commentId: M:Sloader.Config.SloaderConfigLocator.#ctor(WorldDomination.Net.Http.FakeHttpMessageHandler)
+  fullName: Sloader.Config.SloaderConfigLocator.SloaderConfigLocator(WorldDomination.Net.Http.FakeHttpMessageHandler)
+  nameWithType: SloaderConfigLocator.SloaderConfigLocator(FakeHttpMessageHandler)
+- uid: Sloader.Config.SloaderConfigLocator.#ctor*
+  name: SloaderConfigLocator
+  href: api/Sloader.Config.SloaderConfigLocator.html#Sloader_Config_SloaderConfigLocator__ctor_
+  commentId: Overload:Sloader.Config.SloaderConfigLocator.#ctor
+  fullName: Sloader.Config.SloaderConfigLocator.SloaderConfigLocator
+  nameWithType: SloaderConfigLocator.SloaderConfigLocator
+- uid: Sloader.Config.SloaderConfigLocator.FromGitHub(System.String,System.String,System.String,System.String)
+  name: FromGitHub(String, String, String, String)
+  href: api/Sloader.Config.SloaderConfigLocator.html#Sloader_Config_SloaderConfigLocator_FromGitHub_System_String_System_String_System_String_System_String_
+  commentId: M:Sloader.Config.SloaderConfigLocator.FromGitHub(System.String,System.String,System.String,System.String)
+  fullName: Sloader.Config.SloaderConfigLocator.FromGitHub(System.String, System.String, System.String, System.String)
+  nameWithType: SloaderConfigLocator.FromGitHub(String, String, String, String)
+- uid: Sloader.Config.SloaderConfigLocator.FromGitHub*
+  name: FromGitHub
+  href: api/Sloader.Config.SloaderConfigLocator.html#Sloader_Config_SloaderConfigLocator_FromGitHub_
+  commentId: Overload:Sloader.Config.SloaderConfigLocator.FromGitHub
+  fullName: Sloader.Config.SloaderConfigLocator.FromGitHub
+  nameWithType: SloaderConfigLocator.FromGitHub
 - uid: Sloader.Config.SloaderSecrets
   name: SloaderSecrets
   href: api/Sloader.Config.SloaderSecrets.html

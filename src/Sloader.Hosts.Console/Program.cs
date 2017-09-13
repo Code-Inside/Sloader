@@ -23,6 +23,14 @@ namespace Sloader.Hosts.Console
 
         public static async Task MainAsync(string[] args)
         {
+            //SloaderConfigLocator locator = new SloaderConfigLocator();
+            //var x = await locator.FromGitHub("Code-Inside", "KnowYourStack", "_data", "*.Sloader.yml");
+
+            //foreach(var y in x)
+            //{
+
+            //}
+
             await SloaderRunner.AutoRun();
         }
       

@@ -1,0 +1,66 @@
+﻿[
+  {
+    "name": "AspNetCore.Sloader.yml",
+    "path": "_data/AspNetCore.Sloader.yml",
+    "sha": "7c37ff9bb696fb9623f5dd549d49f989adf8049a",
+    "size": 906,
+    "url": "https://api.github.com/repos/Code-Inside/KnowYourStack/contents/_data/AspNetCore.Sloader.yml?ref=master",
+    "html_url": "https://github.com/Code-Inside/KnowYourStack/blob/master/_data/AspNetCore.Sloader.yml",
+    "git_url": "https://api.github.com/repos/Code-Inside/KnowYourStack/git/blobs/7c37ff9bb696fb9623f5dd549d49f989adf8049a",
+    "download_url": "https://raw.githubusercontent.com/Code-Inside/KnowYourStack/master/_data/AspNetCore.Sloader.yml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/Code-Inside/KnowYourStack/contents/_data/AspNetCore.Sloader.yml?ref=master",
+      "git": "https://api.github.com/repos/Code-Inside/KnowYourStack/git/blobs/7c37ff9bb696fb9623f5dd549d49f989adf8049a",
+      "html": "https://github.com/Code-Inside/KnowYourStack/blob/master/_data/AspNetCore.Sloader.yml"
+    }
+  },
+  {
+    "name": "AspNetCore.json",
+    "path": "_data/AspNetCore.json",
+    "sha": "adf4133fa7e86bfcf051988b99f32bf94c4e82fe",
+    "size": 171988,
+    "url": "https://api.github.com/repos/Code-Inside/KnowYourStack/contents/_data/AspNetCore.json?ref=master",
+    "html_url": "https://github.com/Code-Inside/KnowYourStack/blob/master/_data/AspNetCore.json",
+    "git_url": "https://api.github.com/repos/Code-Inside/KnowYourStack/git/blobs/adf4133fa7e86bfcf051988b99f32bf94c4e82fe",
+    "download_url": "https://raw.githubusercontent.com/Code-Inside/KnowYourStack/master/_data/AspNetCore.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/Code-Inside/KnowYourStack/contents/_data/AspNetCore.json?ref=master",
+      "git": "https://api.github.com/repos/Code-Inside/KnowYourStack/git/blobs/adf4133fa7e86bfcf051988b99f32bf94c4e82fe",
+      "html": "https://github.com/Code-Inside/KnowYourStack/blob/master/_data/AspNetCore.json"
+    }
+  },
+  {
+    "name": "NuGet.Sloader.yml",
+    "path": "_data/NuGet.Sloader.yml",
+    "sha": "72c780b7808f3918e58dc8c1e1632d53cc0cdc29",
+    "size": 702,
+    "url": "https://api.github.com/repos/Code-Inside/KnowYourStack/contents/_data/NuGet.Sloader.yml?ref=master",
+    "html_url": "https://github.com/Code-Inside/KnowYourStack/blob/master/_data/NuGet.Sloader.yml",
+    "git_url": "https://api.github.com/repos/Code-Inside/KnowYourStack/git/blobs/72c780b7808f3918e58dc8c1e1632d53cc0cdc29",
+    "download_url": "https://raw.githubusercontent.com/Code-Inside/KnowYourStack/master/_data/NuGet.Sloader.yml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/Code-Inside/KnowYourStack/contents/_data/NuGet.Sloader.yml?ref=master",
+      "git": "https://api.github.com/repos/Code-Inside/KnowYourStack/git/blobs/72c780b7808f3918e58dc8c1e1632d53cc0cdc29",
+      "html": "https://github.com/Code-Inside/KnowYourStack/blob/master/_data/NuGet.Sloader.yml"
+    }
+  },
+  {
+    "name": "NuGet.json",
+    "path": "_data/NuGet.json",
+    "sha": "8dd33d9a68f709beb88590f4376d7387c6a4697e",
+    "size": 86145,
+    "url": "https://api.github.com/repos/Code-Inside/KnowYourStack/contents/_data/NuGet.json?ref=master",
+    "html_url": "https://github.com/Code-Inside/KnowYourStack/blob/master/_data/NuGet.json",
+    "git_url": "https://api.github.com/repos/Code-Inside/KnowYourStack/git/blobs/8dd33d9a68f709beb88590f4376d7387c6a4697e",
+    "download_url": "https://raw.githubusercontent.com/Code-Inside/KnowYourStack/master/_data/NuGet.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/Code-Inside/KnowYourStack/contents/_data/NuGet.json?ref=master",
+      "git": "https://api.github.com/repos/Code-Inside/KnowYourStack/git/blobs/8dd33d9a68f709beb88590f4376d7387c6a4697e",
+      "html": "https://github.com/Code-Inside/KnowYourStack/blob/master/_data/NuGet.json"
+    }
+  }
+]
