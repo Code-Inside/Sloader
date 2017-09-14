@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Sloader.Config.Crawler.GitHub
 {
     /// <summary>
@@ -19,6 +21,17 @@ namespace Sloader.Config.Crawler.GitHub
     /// </example>
     public class GitHubEventCrawlerConfig : BaseCrawlerConfig
     {
+        /// <summary>
+        /// Default ctor will set the default event types:
+        /// <para>PullRequestEvent and IssuesEvent will be added automatically if Events is not set in the YAML</para>
+        /// </summary>
+        public GitHubEventCrawlerConfig()
+        {
+            Events = new List<string>();
+            Events.Add("PullRequestEvent");
+            Events.Add("IssuesEvent");
+        }
+
         /// <summary>
         /// Loads events based on a given repository in the form of USER/REPO or ORG/REPO.
         /// <para>It is allowed to use a ; to load multiple repository events under one key.</para>
@@ -42,6 +55,13 @@ namespace Sloader.Config.Crawler.GitHub
         /// </summary>
         /// <example>robertmuehsig</example>
         public string User { get; set; }
+
+        /// <summary>
+        /// List of all events that will be included.
+        /// <para>See https://developer.github.com/v3/activity/events/types// for all GitHubEvent Types</para>
+        /// <para>If empty, PullRequestEvent and IssuesEvent will be added automatically</para>
+        /// </summary>
+        public List<string> Events { get; set; }
 
     }
 }
