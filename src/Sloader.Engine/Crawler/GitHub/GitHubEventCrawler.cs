@@ -1,17 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Net.Http;
-using System.ServiceModel.Syndication;
-using System.Text;
 using System.Threading.Tasks;
-using System.Xml;
-using System.Xml.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Sloader.Config.Crawler.GitHub;
-using Sloader.Result;
 using Sloader.Result.Types;
 using WorldDomination.Net.Http;
 
@@ -63,7 +57,7 @@ namespace Sloader.Engine.Crawler.GitHub
                 {
                     var apiCall = $"https://api.github.com/orgs/{maybeSplittedOrg}/events";
 
-                    await FetchData(apiCall, crawlerResult, config.IncludeRawContent);
+                    await FetchData(apiCall, crawlerResult, config.Events, config.IncludeRawContent);
                 }
             }
 
@@ -75,7 +69,7 @@ namespace Sloader.Engine.Crawler.GitHub
                 {
                     var apiCall = $"https://api.github.com/users/{maybeSplittedUser}/events";
 
-                    await FetchData(apiCall, crawlerResult, config.IncludeRawContent);
+                    await FetchData(apiCall, crawlerResult, config.Events, config.IncludeRawContent);
                 }
             }
 
@@ -87,7 +81,7 @@ namespace Sloader.Engine.Crawler.GitHub
                 {
                     var apiCall = $"https://api.github.com/repos/{maybeSplittedRepo}/events";
 
-                    await FetchData(apiCall, crawlerResult, config.IncludeRawContent);
+                    await FetchData(apiCall, crawlerResult, config.Events, config.IncludeRawContent);
                 }
             }
 
@@ -96,7 +90,7 @@ namespace Sloader.Engine.Crawler.GitHub
             return crawlerResult;
         }
 
-        private async Task FetchData(string apiCall, GitHubEventResult crawlerResult, bool includeRawContent)
+        private async Task FetchData(string apiCall, GitHubEventResult crawlerResult, List<string> includedEvents, bool includeRawContent)
         {
             // needed, otherwise GitHub API will return 
             // The server committed a protocol violation. Section=ResponseStatusLine ERROR
@@ -115,8 +109,12 @@ namespace Sloader.Engine.Crawler.GitHub
 
 
                 GitHubEventResult.Event eventObject = new GitHubEventResult.Event();
-                eventObject.Id = gitHubEvent["id"].ToObject<string>();
                 eventObject.Type = gitHubEvent["type"].ToObject<string>();
+
+                if (includedEvents.Contains("*") == false && includedEvents.Contains(eventObject.Type) == false)
+                    continue;
+
+                eventObject.Id = gitHubEvent["id"].ToObject<string>();
                 eventObject.Actor = gitHubEvent["actor"]?["login"].ToObject<string>();
                 eventObject.Repository = gitHubEvent["repo"]?["name"].ToObject<string>();
                 eventObject.Organization = gitHubEvent["org"]?["login"].ToObject<string>();

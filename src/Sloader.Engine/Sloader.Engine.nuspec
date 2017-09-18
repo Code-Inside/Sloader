@@ -11,6 +11,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Engine</description>
     <releaseNotes>
+      ## Version 0.7.0 ##
+      GitHub Event filtering
       ## Version 0.6.2 ##
       Dependencies updated
       ## Version 0.6.1 ##

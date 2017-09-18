@@ -137,14 +137,67 @@ Demo yml config:
 - User: robertmuehsig;oliverguhr
   Key: GitHubEventsUser</code></pre>
 
+              <h3 id="constructors">Constructors
+              </h3>
+              <span class="small pull-right mobile-hide">
+                <span class="divider">|</span>
+                <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig__ctor.md&amp;value=---%0Auid%3A%20Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+              </span>
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/GitHub/GitHubEventCrawlerConfig.cs/#L28">View Source</a>
+              </span>
+              <a id="Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig__ctor_" data-uid="Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.#ctor*"></a>
+              <h4 id="Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig__ctor" data-uid="Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.#ctor">GitHubEventCrawlerConfig()</h4>
+              <div class="markdown level1 summary"><p>Default ctor will set the default event types:</p>
+<p>PullRequestEvent and IssuesEvent will be added automatically if Events is not set in the YAML</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public GitHubEventCrawlerConfig()</code></pre>
+              </div>
               <h3 id="properties">Properties
               </h3>
+              <span class="small pull-right mobile-hide">
+                <span class="divider">|</span>
+                <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_Events.md&amp;value=---%0Auid%3A%20Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Events%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+              </span>
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/GitHub/GitHubEventCrawlerConfig.cs/#L65">View Source</a>
+              </span>
+              <a id="Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_Events_" data-uid="Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Events*"></a>
+              <h4 id="Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_Events" data-uid="Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Events">Events</h4>
+              <div class="markdown level1 summary"><p>List of all events that will be included.</p>
+<p>See <a href="https://developer.github.com/v3/activity/events/types//">https://developer.github.com/v3/activity/events/types//</a> for all GitHubEvent Types</p>
+<p>If empty, PullRequestEvent and IssuesEvent will be added automatically</p>
+<p>If you want to load all events use * as wildcard</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public List&lt;string&gt; Events { get; set; }</code></pre>
+              </div>
+              <h5 class="propertyValue">Property Value</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
               <span class="small pull-right mobile-hide">
                 <span class="divider">|</span>
                 <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_Organization.md&amp;value=---%0Auid%3A%20Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Organization%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/GitHub/GitHubEventCrawlerConfig.cs/#L36">View Source</a>
+                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/GitHub/GitHubEventCrawlerConfig.cs/#L49">View Source</a>
               </span>
               <a id="Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_Organization_" data-uid="Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Organization*"></a>
               <h4 id="Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_Organization" data-uid="Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Organization">Organization</h4>
@@ -179,7 +232,7 @@ Demo yml config:
                 <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_Repository.md&amp;value=---%0Auid%3A%20Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Repository%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/GitHub/GitHubEventCrawlerConfig.cs/#L28">View Source</a>
+                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/GitHub/GitHubEventCrawlerConfig.cs/#L41">View Source</a>
               </span>
               <a id="Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_Repository_" data-uid="Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Repository*"></a>
               <h4 id="Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_Repository" data-uid="Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Repository">Repository</h4>
@@ -214,7 +267,7 @@ Demo yml config:
                 <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_User.md&amp;value=---%0Auid%3A%20Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.User%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/GitHub/GitHubEventCrawlerConfig.cs/#L44">View Source</a>
+                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/GitHub/GitHubEventCrawlerConfig.cs/#L57">View Source</a>
               </span>
               <a id="Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_User_" data-uid="Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.User*"></a>
               <h4 id="Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_User" data-uid="Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.User">User</h4>
@@ -255,7 +308,7 @@ Demo yml config:
                     <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig.md&amp;value=---%0Auid%3A%20Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/GitHub/GitHubEventCrawlerConfig.cs/#L20" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/GitHub/GitHubEventCrawlerConfig.cs/#L22" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

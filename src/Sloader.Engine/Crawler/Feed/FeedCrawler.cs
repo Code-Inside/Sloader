@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.ServiceModel.Syndication;
@@ -59,6 +60,8 @@ namespace Sloader.Engine.Crawler.Feed
 
             foreach (var maybeSplittedUrl in maybeSplittedUrls)
             {
+                
+
                 var syndicationFeed = _feedAbstraction.Get(maybeSplittedUrl.Trim());
 
                 foreach (var feedItem in syndicationFeed.Items)

@@ -60,6 +60,7 @@ namespace Sloader.Config.Crawler.GitHub
         /// List of all events that will be included.
         /// <para>See https://developer.github.com/v3/activity/events/types// for all GitHubEvent Types</para>
         /// <para>If empty, PullRequestEvent and IssuesEvent will be added automatically</para>
+        /// <para>If you want to load all events use * as wildcard</para>
         /// </summary>
         public List<string> Events { get; set; }
 

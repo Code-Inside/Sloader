@@ -187,6 +187,30 @@ references:
   commentId: T:Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig
   fullName: Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig
   nameWithType: GitHubEventCrawlerConfig
+- uid: Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.#ctor
+  name: GitHubEventCrawlerConfig()
+  href: api/Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.html#Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig__ctor
+  commentId: M:Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.#ctor
+  fullName: Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.GitHubEventCrawlerConfig()
+  nameWithType: GitHubEventCrawlerConfig.GitHubEventCrawlerConfig()
+- uid: Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.#ctor*
+  name: GitHubEventCrawlerConfig
+  href: api/Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.html#Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig__ctor_
+  commentId: Overload:Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.#ctor
+  fullName: Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.GitHubEventCrawlerConfig
+  nameWithType: GitHubEventCrawlerConfig.GitHubEventCrawlerConfig
+- uid: Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Events
+  name: Events
+  href: api/Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.html#Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_Events
+  commentId: P:Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Events
+  fullName: Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Events
+  nameWithType: GitHubEventCrawlerConfig.Events
+- uid: Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Events*
+  name: Events
+  href: api/Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.html#Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_Events_
+  commentId: Overload:Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Events
+  fullName: Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Events
+  nameWithType: GitHubEventCrawlerConfig.Events
 - uid: Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Organization
   name: Organization
   href: api/Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.html#Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_Organization

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
@@ -31,7 +32,8 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
             var config = new GitHubEventCrawlerConfig();
             config.Organization = org;
             config.IncludeRawContent = includeRaw;
-
+            config.Events.Clear();
+            config.Events.Add("*");
             var result = await sut.DoWorkAsync(config);
             return result;
         }
@@ -69,12 +71,13 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
 
             var config = new GitHubEventCrawlerConfig();
             config.User = user;
-
+            config.Events.Clear();
+            config.Events.Add("*");
             var result = await sut.DoWorkAsync(config);
             return result;
         }
 
-        private static async Task<GitHubEventResult> InvokeSutForRepos(string repo, bool includeRaw = false)
+        private static async Task<GitHubEventResult> InvokeSutForRepos(string repo, bool includeRaw = false, List<string> eventFilter = null)
         {
             string responseData = string.Empty;
             if (repo == "aspnet/mvc")
@@ -95,7 +98,15 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
             var config = new GitHubEventCrawlerConfig();
             config.Repository = repo;
             config.IncludeRawContent = includeRaw;
-
+            if (eventFilter == null)
+            {
+                config.Events.Clear();
+                config.Events.Add("*");
+            }
+            else
+            {
+                config.Events = eventFilter;
+            }
             var result = await sut.DoWorkAsync(config);
             return result;
         }
@@ -120,6 +131,8 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
 
             Assert.Equal(firstTestContent, firstResult.RawContent);
         }
+
+
 
         [Fact]
         public async Task Crawler_For_Orgs_Shouldnt_Embed_The_RawContent_From_The_Event()
@@ -311,6 +324,12 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
 
         }
 
+        [Fact]
+        public async Task Crawler_For_Repos_With_Event_Filter_Should_Return_Correct_Number_Of_Events()
+        {
+            var result = await InvokeSutForRepos("aspnet/mvc", false, new List<string>() { "PullRequestEvent" });
+            Assert.Equal(4, result.Events.Count);
+        }
 
         [Fact]
         public async Task Crawler_For_Repos_Should_Return_Correct_Number_Of_Events()
