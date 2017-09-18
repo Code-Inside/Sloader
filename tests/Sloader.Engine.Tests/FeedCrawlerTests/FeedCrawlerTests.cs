@@ -63,7 +63,13 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
             Assert.Equal(20, result.FeedItems.Count);
         }
 
+        //[Fact]
+        //public async Task Crawler_Detects_Correct_PubDate()
+        //{
+        //    var result = await InvokeRssWithSocialLinksEnabled();
 
+        //    Assert.Equal(DateTime.Parse("Thu, 25 Dec 2014 22:22:12 GMT"), result.FeedItems.First().PublishedOn);
+        //}
 
         [Fact]
         public async Task Crawler_Detects_Correct_Count_Of_Comments()
