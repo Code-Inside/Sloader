@@ -8,8 +8,10 @@ using System.Xml;
 using FakeItEasy;
 using Sloader.Config.Crawler.Feed;
 using Sloader.Engine.Crawler.Feed;
+using Sloader.Engine.Crawler.GitHub;
 using Sloader.Result;
 using Sloader.Result.Types;
+using WorldDomination.Net.Http;
 using Xunit;
 
 namespace Sloader.Engine.Tests.FeedCrawlerTests
@@ -22,14 +24,16 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
 
         public async Task<FeedResult> InvokeAtomSut(int twitterCounts = 0, int facebookShares = 0, string feed = "https://github.com/robertmuehsig.atom")
         {
-            var feedLoaderMock = A.Fake<ISyndicationFeedAbstraction>();
-            var staticFeed = SyndicationFeed.Load(new XmlTextReader(TestHelperForCurrentProject.GetTestFilePath(samplesDirectory, gitHubAtomSample)));
-            A.CallTo(() => feedLoaderMock.Get("https://github.com/robertmuehsig.atom")).Returns(staticFeed);
+            string responseData = TestHelperForCurrentProject.GetTestFileContent(TestHelperForCurrentProject.GetTestFilePath(samplesDirectory, gitHubAtomSample));
+
+            var messageResponse = FakeHttpMessageHandler.GetStringHttpResponseMessage(responseData);
+
+            var fakeMessageHandler = new FakeHttpMessageHandler(new HttpMessageOptions() { HttpResponseMessage = messageResponse, RequestUri = feed });
 
             var facebokLoaderMock = A.Fake<IFacebookShareCountLoader>();
             A.CallTo(() => facebokLoaderMock.GetAsync(string.Empty)).WithAnyArguments().Returns(facebookShares);
 
-            var sut = new FeedCrawler(feedLoaderMock, facebokLoaderMock);
+            var sut = new FeedCrawler(fakeMessageHandler, facebokLoaderMock);
 
             var config = new FeedCrawlerConfig();
             config.Url = feed;
@@ -39,14 +43,16 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
 
         public async Task<FeedResult> InvokeRssWithSocialLinksEnabled(int twitterCounts = 0, int facebookShares = 0, string feed = "http://rss.slashdot.org/Slashdot/slashdot")
         {
-            var feedLoaderMock = A.Fake<ISyndicationFeedAbstraction>();
-            var staticFeed = SyndicationFeed.Load(new XmlTextReader(TestHelperForCurrentProject.GetTestFilePath(samplesDirectory, slashdotRssSample)));
-            A.CallTo(() => feedLoaderMock.Get("http://rss.slashdot.org/Slashdot/slashdot")).Returns(staticFeed);
+            string responseData = TestHelperForCurrentProject.GetTestFileContent(TestHelperForCurrentProject.GetTestFilePath(samplesDirectory, slashdotRssSample));
+
+            var messageResponse = FakeHttpMessageHandler.GetStringHttpResponseMessage(responseData);
+
+            var fakeMessageHandler = new FakeHttpMessageHandler(new HttpMessageOptions() { HttpResponseMessage = messageResponse, RequestUri = feed });
 
             var facebokLoaderMock = A.Fake<IFacebookShareCountLoader>();
             A.CallTo(() => facebokLoaderMock.GetAsync(string.Empty)).WithAnyArguments().Returns(facebookShares);
 
-            var sut = new FeedCrawler(feedLoaderMock, facebokLoaderMock);
+            var sut = new FeedCrawler(fakeMessageHandler, facebokLoaderMock);
 
             var config = new FeedCrawlerConfig();
             config.Url = feed;
@@ -138,13 +144,15 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
         [Fact]
         public async Task Crawler_Should_Not_Reach_Out_To_Facebook_If_Disabled()
         {
-            var feedLoaderMock = A.Fake<ISyndicationFeedAbstraction>();
-            var staticFeed = SyndicationFeed.Load(new XmlTextReader(Path.Combine(samplesDirectory, gitHubAtomSample)));
-            A.CallTo(() => feedLoaderMock.Get("https://github.com/robertmuehsig.atom")).Returns(staticFeed);
+            string responseData = TestHelperForCurrentProject.GetTestFilePath(samplesDirectory, gitHubAtomSample);
+
+            var messageResponse = FakeHttpMessageHandler.GetStringHttpResponseMessage(responseData);
+
+            var fakeMessageHandler = new FakeHttpMessageHandler(new HttpMessageOptions() { HttpResponseMessage = messageResponse, RequestUri = "https://github.com/robertmuehsig.atom" });
 
             var facebokLoaderMock = A.Fake<IFacebookShareCountLoader>();
 
-            var sut = new FeedCrawler(feedLoaderMock, facebokLoaderMock);
+            var sut = new FeedCrawler(fakeMessageHandler, facebokLoaderMock);
 
             var config = new FeedCrawlerConfig();
             config.Url = "https://github.com/robertmuehsig.atom";

@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.ServiceModel.Syndication;
-using System.Text;
+using System.Net.Http;
 using System.Threading.Tasks;
-using System.Xml;
 using System.Xml.Linq;
 using Sloader.Config.Crawler.Feed;
-using Sloader.Result;
 using Sloader.Result.Types;
+using WorldDomination.Net.Http;
 
 namespace Sloader.Engine.Crawler.Feed
 {
@@ -18,26 +16,26 @@ namespace Sloader.Engine.Crawler.Feed
     /// </summary>
     public class FeedCrawler : ICrawler<FeedResult, FeedCrawlerConfig>
     {
-        private readonly ISyndicationFeedAbstraction _feedAbstraction;
+        private readonly HttpClient _httpClient;
         private readonly IFacebookShareCountLoader _facebookLoader;
 
         /// <summary>
         /// Ctor, with default dependencies injected.
         /// </summary>
         public FeedCrawler()
-            : this(new SyndicationFeedAbstraction(), new FacebookShareCountLoader())
         {
-
+            _httpClient = new HttpClient();
+            _facebookLoader = new FacebookShareCountLoader();
         }
 
         /// <summary>
         /// Ctor for test
         /// </summary>
-        /// <param name="syndicationFeedAbstraction">Testing abstraction for actual RSS/ATOM feed loading</param>
+        /// <param name="messageHandler">HttpMessageHandler to simulate any HTTP response</param>
         /// <param name="facebookLoader">Loader for Facebook Likes</param>
-        public FeedCrawler(ISyndicationFeedAbstraction syndicationFeedAbstraction, IFacebookShareCountLoader facebookLoader)
+        public FeedCrawler(FakeHttpMessageHandler messageHandler, IFacebookShareCountLoader facebookLoader)
         {
-            _feedAbstraction = syndicationFeedAbstraction;
+            _httpClient = new HttpClient(messageHandler);
             _facebookLoader = facebookLoader;
         }
 
@@ -60,63 +58,112 @@ namespace Sloader.Engine.Crawler.Feed
 
             foreach (var maybeSplittedUrl in maybeSplittedUrls)
             {
-                
 
-                var syndicationFeed = _feedAbstraction.Get(maybeSplittedUrl.Trim());
+                var response = await _httpClient.GetAsync(maybeSplittedUrl.Trim());
 
-                foreach (var feedItem in syndicationFeed.Items)
+                response.EnsureSuccessStatusCode();
+
+                string rssOrAtomResult = await response.Content.ReadAsStringAsync();
+
+                XDocument doc = XDocument.Parse(rssOrAtomResult);
+                // RSS/Channel/item
+                var rssItems = doc.Root.Descendants().First(i => i.Name.LocalName == "channel").Elements()
+                    .Where(i => i.Name.LocalName == "item");
+                foreach (var rssItem in rssItems)
                 {
-                    int commentCount = 0;
-
-                    foreach (SyndicationElementExtension extension in feedItem.ElementExtensions)
+                    var crawlerResultItem = new FeedResult.FeedItem();
+                    crawlerResultItem.Title = rssItem.Elements().FirstOrDefault(i => i.Name.LocalName == "title")?.Value;
+                    crawlerResultItem.Href = rssItem.Elements().FirstOrDefault(i => i.Name.LocalName == "link")?.Value;
+                    crawlerResultItem.Summary = rssItem.Elements().FirstOrDefault(i => i.Name.LocalName == "description")?.Value;
+                    var pubDateValue = rssItem.Elements().FirstOrDefault(i => i.Name.LocalName == "pubDate")?.Value;
+                    if (DateTime.TryParse(pubDateValue, out DateTime pubDateDateTime))
                     {
-                        var extensionElement = extension.GetObject<XElement>();
-
-                        if (extensionElement.Name.LocalName == "comments" &&
-                            extensionElement.Name.NamespaceName == "http://purl.org/rss/1.0/modules/slash/")
-                        {
-                            commentCount = int.Parse(extensionElement.Value);
-                        }
+                        crawlerResultItem.PublishedOn = pubDateDateTime;
                     }
 
-                    var crawlerResultItem = new FeedResult.FeedItem();
-                    crawlerResultItem.Title = feedItem.Title.Text;
+                    if (config.IncludeRawContent)
+                    {
+                        crawlerResultItem.RawContent = rssItem.ToString();
+                    }
+
+                    var commentValue = rssItem.Elements().FirstOrDefault(i => i.Name.LocalName == "comments" && i.Name.NamespaceName == "http://purl.org/rss/1.0/modules/slash/")?.Value;
+                    if (int.TryParse(commentValue, out int commentInt))
+                    {
+                        crawlerResultItem.CommentsCount = commentInt;
+                    }
 
                     if (config.LoadSocialLinkCounters)
                     {
-                        crawlerResultItem.FacebookCount = await _facebookLoader.GetAsync(feedItem.Id);
-                    }
-
-                    crawlerResultItem.CommentsCount = commentCount;
-
-                    if (feedItem.Summary != null)
-                    {
-                        crawlerResultItem.Summary = feedItem.Summary.Text;
-                    }
-
-                    if (feedItem.Links.Any())
-                    {
-                        crawlerResultItem.Href = feedItem.Links.First().Uri.ToString();
-                    }
-                    else
-                    {
-                        crawlerResultItem.Href = feedItem.Id;
-                    }
-
-                    crawlerResultItem.PublishedOn = feedItem.PublishDate.Date;
-
-                    StringBuilder builder = new StringBuilder();
-                    XmlWriter writer = XmlWriter.Create(builder);
-                    feedItem.SaveAsRss20(writer);
-                    writer.Close();
-
-                    if(config.IncludeRawContent)
-                    {
-                        crawlerResultItem.RawContent = builder.ToString();
+                        crawlerResultItem.FacebookCount = await _facebookLoader.GetAsync(crawlerResultItem.Href);
                     }
 
                     crawlerResult.FeedItems.Add(crawlerResultItem);
                 }
+
+                //var entries = from item in doc.Root.Descendants().First(i => i.Name.LocalName == "channel").Elements().Where(i => i.Name.LocalName == "item")
+                //              select new FeedResult.FeedItem()
+                //              {
+                //                  Title = item.Elements().First(i => i.Name.LocalName == "title").Value,
+                //                  Href = item.Elements().First(i => i.Name.LocalName == "link").Value,
+                //                  Summary = item.Elements().First(i => i.Name.LocalName == "description").Value,
+                //                  PublishDate = ParseDate(item.Elements().First(i => i.Name.LocalName == "pubDate").Value)
+                //              };
+
+                //var syndicationFeed = _feedAbstraction.Get();
+
+                //foreach (var feedItem in syndicationFeed.Items)
+                //{
+                //    int commentCount = 0;
+
+                //    foreach (SyndicationElementExtension extension in feedItem.ElementExtensions)
+                //    {
+                //        var extensionElement = extension.GetObject<XElement>();
+
+                //        if (extensionElement.Name.LocalName == "comments" &&
+                //            extensionElement.Name.NamespaceName == "http://purl.org/rss/1.0/modules/slash/")
+                //        {
+                //            commentCount = int.Parse(extensionElement.Value);
+                //        }
+                //    }
+
+                //    var crawlerResultItem = new FeedResult.FeedItem();
+                //    crawlerResultItem.Title = feedItem.Title.Text;
+
+                //    if (config.LoadSocialLinkCounters)
+                //    {
+                //        crawlerResultItem.FacebookCount = await _facebookLoader.GetAsync(feedItem.Id);
+                //    }
+
+                //    crawlerResultItem.CommentsCount = commentCount;
+
+                //    if (feedItem.Summary != null)
+                //    {
+                //        crawlerResultItem.Summary = feedItem.Summary.Text;
+                //    }
+
+                //    if (feedItem.Links.Any())
+                //    {
+                //        crawlerResultItem.Href = feedItem.Links.First().Uri.ToString();
+                //    }
+                //    else
+                //    {
+                //        crawlerResultItem.Href = feedItem.Id;
+                //    }
+
+                //    crawlerResultItem.PublishedOn = feedItem.PublishDate.Date;
+
+                //    StringBuilder builder = new StringBuilder();
+                //    XmlWriter writer = XmlWriter.Create(builder);
+                //    feedItem.SaveAsRss20(writer);
+                //    writer.Close();
+
+                //    if(config.IncludeRawContent)
+                //    {
+                //        crawlerResultItem.RawContent = builder.ToString();
+                //    }
+
+                //    crawlerResult.FeedItems.Add(crawlerResultItem);
+                //}
             }
 
             crawlerResult.FeedItems = crawlerResult.FeedItems.OrderByDescending(x => x.PublishedOn).ToList();
