@@ -65,9 +65,25 @@ namespace Sloader.Engine.Crawler.Feed
 
                 string rssOrAtomResult = await response.Content.ReadAsStringAsync();
 
-                XDocument doc = XDocument.Parse(rssOrAtomResult);
-                // RSS/Channel/item
-                await ParseRssFeed(config, doc, crawlerResult);
+                if (!string.IsNullOrWhiteSpace(rssOrAtomResult))
+                {
+                    XDocument doc = XDocument.Parse(rssOrAtomResult);
+
+                    if (doc.Root != null && doc.Root.Name.LocalName.ToLowerInvariant() == "rss")
+                    {
+                        // RSS/Channel/item
+                        await ParseRssFeed(config, doc, crawlerResult);
+                    }
+
+                    if (doc.Root != null && doc.Root.Name.LocalName.ToLowerInvariant() == "feed")
+                    {
+                        // Feed/entry
+                        await ParseAtomFeed(config, doc, crawlerResult);
+                    }
+                }
+
+              
+                
             }
 
             crawlerResult.FeedItems = crawlerResult.FeedItems.OrderByDescending(x => x.PublishedOn).ToList();
@@ -75,6 +91,35 @@ namespace Sloader.Engine.Crawler.Feed
             return crawlerResult;
         }
 
+        private async Task ParseAtomFeed(FeedCrawlerConfig config, XDocument doc, FeedResult crawlerResult)
+        {
+            var atomItems = doc.Root.Elements()
+                .Where(i => i.Name.LocalName == "entry");
+            foreach (var atomItem in atomItems)
+            {
+                var crawlerResultItem = new FeedResult.FeedItem();
+                crawlerResultItem.Title = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "title")?.Value;
+                crawlerResultItem.Href = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "link")?.Attribute("href")?.Value;
+                crawlerResultItem.Summary = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "content")?.Value;
+                var pubDateValue = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "published")?.Value;
+                if (DateTime.TryParse(pubDateValue, out DateTime pubDateDateTime))
+                {
+                    crawlerResultItem.PublishedOn = pubDateDateTime;
+                }
+
+                if (config.IncludeRawContent)
+                {
+                    crawlerResultItem.RawContent = atomItem.ToString();
+                }
+
+                if (config.LoadSocialLinkCounters)
+                {
+                    crawlerResultItem.FacebookCount = await _facebookLoader.GetAsync(crawlerResultItem.Href);
+                }
+
+                crawlerResult.FeedItems.Add(crawlerResultItem);
+            }
+        }
         private async Task ParseRssFeed(FeedCrawlerConfig config, XDocument doc, FeedResult crawlerResult)
         {
             var rssItems = doc.Root.Descendants().First(i => i.Name.LocalName == "channel").Elements()

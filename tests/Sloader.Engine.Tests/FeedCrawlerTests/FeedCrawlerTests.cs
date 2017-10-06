@@ -134,6 +134,8 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
         {
             var result = await InvokeAtomSut(0, 0);
 
+            Assert.True(result.FeedItems.Count == 30);
+
             foreach (var feedItem in result.FeedItems)
             {
                 Assert.True(feedItem.Href.StartsWith("https://github.com/"));
@@ -144,7 +146,7 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
         [Fact]
         public async Task Crawler_Should_Not_Reach_Out_To_Facebook_If_Disabled()
         {
-            string responseData = TestHelperForCurrentProject.GetTestFilePath(samplesDirectory, gitHubAtomSample);
+            string responseData = TestHelperForCurrentProject.GetTestFileContent(TestHelperForCurrentProject.GetTestFilePath(samplesDirectory, gitHubAtomSample));
 
             var messageResponse = FakeHttpMessageHandler.GetStringHttpResponseMessage(responseData);
 
