@@ -21,10 +21,18 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
         private const string samplesDirectory = "FeedCrawlerTests/Samples";
         private const string slashdotRssSample = "SlashDotRss.xml";
         private const string gitHubAtomSample = "GitHubAtom.xml";
+        private const string nugetBlogAtomSample = "NuGetBlogAtom.xml";
 
         public async Task<FeedResult> InvokeAtomSut(int twitterCounts = 0, int facebookShares = 0, string feed = "https://github.com/robertmuehsig.atom")
         {
-            string responseData = TestHelperForCurrentProject.GetTestFileContent(TestHelperForCurrentProject.GetTestFilePath(samplesDirectory, gitHubAtomSample));
+            var atomXmlFile = gitHubAtomSample;
+
+            if (feed == "https://blog.nuget.org/feeds/atom.xml")
+            {
+                atomXmlFile = nugetBlogAtomSample;
+            }
+
+            string responseData = TestHelperForCurrentProject.GetTestFileContent(TestHelperForCurrentProject.GetTestFilePath(samplesDirectory, atomXmlFile));
 
             var messageResponse = FakeHttpMessageHandler.GetStringHttpResponseMessage(responseData);
 
@@ -141,6 +149,19 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
                 Assert.True(feedItem.Href.StartsWith("https://github.com/"));
             }
         }
+
+        [Fact]
+        public async Task Crawler_Returns_Correct_Date_From_Atom_With_Only_Updated_Entry()
+        {
+            var result = await InvokeAtomSut(0, 0, "https://blog.nuget.org/feeds/atom.xml");
+
+
+            foreach (var feedItem in result.FeedItems)
+            {
+                Assert.True(feedItem.PublishedOn != DateTime.MinValue);
+            }
+        }
+
 
 
         [Fact]

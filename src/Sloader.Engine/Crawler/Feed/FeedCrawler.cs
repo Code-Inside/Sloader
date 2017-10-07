@@ -101,11 +101,22 @@ namespace Sloader.Engine.Crawler.Feed
                 crawlerResultItem.Title = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "title")?.Value;
                 crawlerResultItem.Href = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "link")?.Attribute("href")?.Value;
                 crawlerResultItem.Summary = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "content")?.Value;
-                var pubDateValue = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "published")?.Value;
-                if (DateTime.TryParse(pubDateValue, out DateTime pubDateDateTime))
+
+                var updateDateValue = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "updated")?.Value;
+                if (DateTime.TryParse(updateDateValue, out DateTime updateDateDateTime))
                 {
-                    crawlerResultItem.PublishedOn = pubDateDateTime;
+                    crawlerResultItem.PublishedOn = updateDateDateTime;
                 }
+                else
+                {
+                    var pubDateValue = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "published")?.Value;
+                    if (DateTime.TryParse(pubDateValue, out DateTime pubDateDateTime))
+                    {
+                        crawlerResultItem.PublishedOn = pubDateDateTime;
+                    }
+                }
+
+               
 
                 if (config.IncludeRawContent)
                 {
