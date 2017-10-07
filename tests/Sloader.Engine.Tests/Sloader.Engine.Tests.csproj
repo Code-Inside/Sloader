@@ -93,6 +93,9 @@
     <Content Include="FeedCrawlerTests\Samples\GitHubAtom.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="FeedCrawlerTests\Samples\NuGetBlogAtom.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="FeedCrawlerTests\Samples\SlashDotRss.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
