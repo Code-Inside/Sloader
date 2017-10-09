@@ -46,11 +46,15 @@ Task("BuildPackages")
 		}
 	};
 
-	 MSBuild("./src/Sloader.Config/Sloader.Config.csproj", new MSBuildSettings().SetConfiguration("Release"));
+	 var commonMsBuildSettings = new MSBuildSettings {
+		ToolVersion = MSBuildToolVersion.VS2017
+	 };
+	
+	 MSBuild("./src/Sloader.Config/Sloader.Config.csproj", commonMsBuildSettings.SetConfiguration("Release"));
      NuGetPack("./src/Sloader.Config/Sloader.Config.csproj", nuGetPackSettings);
-	 MSBuild("./src/Sloader.Result/Sloader.Result.csproj", new MSBuildSettings().SetConfiguration("Release"));
+	 MSBuild("./src/Sloader.Result/Sloader.Result.csproj", commonMsBuildSettings.SetConfiguration("Release"));
      NuGetPack("./src/Sloader.Result/Sloader.Result.csproj", nuGetPackSettings);
-	 MSBuild("./src/Sloader.Engine/Sloader.Engine.csproj", new MSBuildSettings().SetConfiguration("Release"));
+	 MSBuild("./src/Sloader.Engine/Sloader.Engine.csproj", commonMsBuildSettings.SetConfiguration("Release"));
 	 NuGetPack("./src/Sloader.Engine/Sloader.Engine.csproj", nuGetPackSettings);
 });
 
@@ -67,12 +71,16 @@ Task("BuildTests")
 		{
         Information("Start Building Test: " + project.Name);
 
-        MSBuild(project.Path, new MSBuildSettings()
+		var settings = new MSBuildSettings()
                 .SetConfiguration("Debug")
                 .SetMSBuildPlatform(MSBuildPlatform.Automatic)
                 .SetVerbosity(Verbosity.Minimal)
                 .WithProperty("SolutionDir", @".\")
-                .WithProperty("OutDir", rootAbsoluteDir + @"\artifacts\_tests\" + project.Name + @"\"));
+                .WithProperty("OutDir", rootAbsoluteDir + @"\artifacts\_tests\" + project.Name + @"\");
+
+		settings.ToolVersion = MSBuildToolVersion.VS2017;
+
+        MSBuild(project.Path, settings);
 		}
 	
 	}    

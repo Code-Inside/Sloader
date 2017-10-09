@@ -93,6 +93,9 @@ namespace Sloader.Engine.Crawler.Feed
 
         private async Task ParseAtomFeed(FeedCrawlerConfig config, XDocument doc, FeedResult crawlerResult)
         {
+            if(doc.Root == null)
+                return;
+
             var atomItems = doc.Root.Elements()
                 .Where(i => i.Name.LocalName == "entry");
             foreach (var atomItem in atomItems)
@@ -133,6 +136,9 @@ namespace Sloader.Engine.Crawler.Feed
         }
         private async Task ParseRssFeed(FeedCrawlerConfig config, XDocument doc, FeedResult crawlerResult)
         {
+            if (doc.Root == null)
+                return;
+
             var rssItems = doc.Root.Descendants().First(i => i.Name.LocalName == "channel").Elements()
                 .Where(i => i.Name.LocalName == "item");
             foreach (var rssItem in rssItems)

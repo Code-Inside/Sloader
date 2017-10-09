@@ -9,7 +9,10 @@ Crawler:
     Repository: code-inside/sloader
     User: robertmuehsig
     Organization: code-inside
-
+  FeedsToCrawl:
+  - Key: Blog
+    Url: https://blog.nuget.org/feeds/atom.xml
+    LoadSocialLinkCounters: false
 Drop:
   FileDrops:
   - FilePath: "test.json"
