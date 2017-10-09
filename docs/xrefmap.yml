@@ -772,12 +772,12 @@ references:
   commentId: M:Sloader.Engine.Crawler.Feed.FeedCrawler.#ctor
   fullName: Sloader.Engine.Crawler.Feed.FeedCrawler.FeedCrawler()
   nameWithType: FeedCrawler.FeedCrawler()
-- uid: Sloader.Engine.Crawler.Feed.FeedCrawler.#ctor(Sloader.Engine.Crawler.Feed.ISyndicationFeedAbstraction,Sloader.Engine.Crawler.Feed.IFacebookShareCountLoader)
-  name: FeedCrawler(ISyndicationFeedAbstraction, IFacebookShareCountLoader)
-  href: api/Sloader.Engine.Crawler.Feed.FeedCrawler.html#Sloader_Engine_Crawler_Feed_FeedCrawler__ctor_Sloader_Engine_Crawler_Feed_ISyndicationFeedAbstraction_Sloader_Engine_Crawler_Feed_IFacebookShareCountLoader_
-  commentId: M:Sloader.Engine.Crawler.Feed.FeedCrawler.#ctor(Sloader.Engine.Crawler.Feed.ISyndicationFeedAbstraction,Sloader.Engine.Crawler.Feed.IFacebookShareCountLoader)
-  fullName: Sloader.Engine.Crawler.Feed.FeedCrawler.FeedCrawler(Sloader.Engine.Crawler.Feed.ISyndicationFeedAbstraction, Sloader.Engine.Crawler.Feed.IFacebookShareCountLoader)
-  nameWithType: FeedCrawler.FeedCrawler(ISyndicationFeedAbstraction, IFacebookShareCountLoader)
+- uid: Sloader.Engine.Crawler.Feed.FeedCrawler.#ctor(WorldDomination.Net.Http.FakeHttpMessageHandler,Sloader.Engine.Crawler.Feed.IFacebookShareCountLoader)
+  name: FeedCrawler(FakeHttpMessageHandler, IFacebookShareCountLoader)
+  href: api/Sloader.Engine.Crawler.Feed.FeedCrawler.html#Sloader_Engine_Crawler_Feed_FeedCrawler__ctor_WorldDomination_Net_Http_FakeHttpMessageHandler_Sloader_Engine_Crawler_Feed_IFacebookShareCountLoader_
+  commentId: M:Sloader.Engine.Crawler.Feed.FeedCrawler.#ctor(WorldDomination.Net.Http.FakeHttpMessageHandler,Sloader.Engine.Crawler.Feed.IFacebookShareCountLoader)
+  fullName: Sloader.Engine.Crawler.Feed.FeedCrawler.FeedCrawler(WorldDomination.Net.Http.FakeHttpMessageHandler, Sloader.Engine.Crawler.Feed.IFacebookShareCountLoader)
+  nameWithType: FeedCrawler.FeedCrawler(FakeHttpMessageHandler, IFacebookShareCountLoader)
 - uid: Sloader.Engine.Crawler.Feed.FeedCrawler.#ctor*
   name: FeedCrawler
   href: api/Sloader.Engine.Crawler.Feed.FeedCrawler.html#Sloader_Engine_Crawler_Feed_FeedCrawler__ctor_
