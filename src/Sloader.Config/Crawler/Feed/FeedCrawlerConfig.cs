@@ -30,6 +30,13 @@ namespace Sloader.Config.Crawler.Feed
         public string Url { get; set; }
 
         /// <summary>
+        /// Defines the max chars that at which the summary will be truncated to "...".
+        /// <para>0 means the summary will contain everything as is from the feed.</para>
+        /// <para>Please note: If truncated, HTML-formatting will be removed.</para>
+        /// </summary>
+        public int SummaryTruncateAt { get; set; }
+
+        /// <summary>
         /// Try to load SocialLinkCounters, e.g. Facebook Likes.
         /// <para>Default is false.</para>
         /// </summary>

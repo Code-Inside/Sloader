@@ -23,7 +23,7 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
         private const string gitHubAtomSample = "GitHubAtom.xml";
         private const string nugetBlogAtomSample = "NuGetBlogAtom.xml";
 
-        public async Task<FeedResult> InvokeAtomSut(int twitterCounts = 0, int facebookShares = 0, string feed = "https://github.com/robertmuehsig.atom")
+        public async Task<FeedResult> InvokeAtomSut(int twitterCounts = 0, int facebookShares = 0, string feed = "https://github.com/robertmuehsig.atom", int truncateAt = 0)
         {
             var atomXmlFile = gitHubAtomSample;
 
@@ -45,7 +45,7 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
 
             var config = new FeedCrawlerConfig();
             config.Url = feed;
-
+            config.SummaryTruncateAt = truncateAt;
             return await sut.DoWorkAsync(config);
         }
 
@@ -159,6 +159,18 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
             foreach (var feedItem in result.FeedItems)
             {
                 Assert.True(feedItem.PublishedOn != DateTime.MinValue);
+            }
+        }
+
+        [Fact]
+        public async Task Crawler_With_Truncation_Should_Return_Only_Desired_CharCount()
+        {
+            var result = await InvokeAtomSut(0, 0, "https://blog.nuget.org/feeds/atom.xml", 100);
+
+
+            foreach (var feedItem in result.FeedItems)
+            {
+                Assert.False(feedItem.Summary.Contains("<"));
             }
         }
 
