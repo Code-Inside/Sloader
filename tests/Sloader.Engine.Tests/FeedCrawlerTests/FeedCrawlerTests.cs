@@ -49,7 +49,7 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
             return await sut.DoWorkAsync(config);
         }
 
-        public async Task<FeedResult> InvokeRssWithSocialLinksEnabled(int twitterCounts = 0, int facebookShares = 0, string feed = "http://rss.slashdot.org/Slashdot/slashdot")
+        public async Task<FeedResult> InvokeRssWithSocialLinksEnabled(int twitterCounts = 0, int facebookShares = 0, string feed = "http://rss.slashdot.org/Slashdot/slashdot", int truncateAt = 0)
         {
             var sut = new FeedCrawler();
             if (feed != string.Empty)
@@ -70,6 +70,7 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
             config.Url = feed;
             config.LoadSocialLinkCounters = true;
             config.IncludeRawContent = true;
+            config.SummaryTruncateAt = truncateAt;
             return await sut.DoWorkAsync(config);
         }
 
@@ -163,17 +164,32 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
         }
 
         [Fact]
-        public async Task Crawler_With_Truncation_Should_Return_Only_Desired_CharCount()
+        public async Task Crawler_With_Truncation_Should_Return_Only_Desired_CharCount_For_Atom()
         {
             var result = await InvokeAtomSut(0, 0, "https://blog.nuget.org/feeds/atom.xml", 100);
 
 
             foreach (var feedItem in result.FeedItems)
             {
+                // including 3 ...
+                Assert.True(feedItem.Summary.Length <= 103);
                 Assert.False(feedItem.Summary.Contains("<"));
             }
         }
 
+        [Fact]
+        public async Task Crawler_With_Truncation_Should_Return_Only_Desired_CharCount_For_RSS()
+        {
+            var result = await InvokeRssWithSocialLinksEnabled(0, 0, "http://rss.slashdot.org/Slashdot/slashdot", 20);
+
+
+            foreach (var feedItem in result.FeedItems)
+            {
+                // including 3 ...
+                Assert.True(feedItem.Summary.Length <= 23);
+                Assert.False(feedItem.Summary.Contains("<"));
+            }
+        }
 
 
         [Fact]
