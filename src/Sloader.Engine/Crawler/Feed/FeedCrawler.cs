@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using HtmlAgilityPack;
 using Sloader.Config.Crawler.Feed;
 using Sloader.Result.Types;
 using WorldDomination.Net.Http;
@@ -91,6 +92,15 @@ namespace Sloader.Engine.Crawler.Feed
             return crawlerResult;
         }
 
+        private static string TruncateAtWord(string input, int length)
+        {
+            if (input == null || input.Length < length)
+                return input;
+
+            int iNextSpace = input.LastIndexOf(" ", length, StringComparison.Ordinal);
+            return $"{input.Substring(0, (iNextSpace > 0) ? iNextSpace : length).Trim()}...";
+        }
+
         private async Task ParseAtomFeed(FeedCrawlerConfig config, XDocument doc, FeedResult crawlerResult)
         {
             if(doc.Root == null)
@@ -103,7 +113,19 @@ namespace Sloader.Engine.Crawler.Feed
                 var crawlerResultItem = new FeedResult.FeedItem();
                 crawlerResultItem.Title = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "title")?.Value;
                 crawlerResultItem.Href = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "link")?.Attribute("href")?.Value;
-                crawlerResultItem.Summary = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "content")?.Value;
+
+                var summary = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "content")?.Value;
+                if (config.SummaryTruncateAt == 0)
+                {
+                    crawlerResultItem.Summary = summary;
+                }
+                else
+                {
+                    var contentDoc = new HtmlDocument();
+                    contentDoc.LoadHtml(summary);
+                    var textContent = contentDoc.DocumentNode.InnerText.Trim();
+                    crawlerResultItem.Summary = TruncateAtWord(textContent, config.SummaryTruncateAt);
+                }
 
                 var updateDateValue = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "updated")?.Value;
                 if (DateTime.TryParse(updateDateValue, out DateTime updateDateDateTime))
@@ -146,7 +168,19 @@ namespace Sloader.Engine.Crawler.Feed
                 var crawlerResultItem = new FeedResult.FeedItem();
                 crawlerResultItem.Title = rssItem.Elements().FirstOrDefault(i => i.Name.LocalName == "title")?.Value;
                 crawlerResultItem.Href = rssItem.Elements().FirstOrDefault(i => i.Name.LocalName == "link")?.Value;
-                crawlerResultItem.Summary = rssItem.Elements().FirstOrDefault(i => i.Name.LocalName == "description")?.Value;
+                var summary = rssItem.Elements().FirstOrDefault(i => i.Name.LocalName == "description")?.Value;
+                if (config.SummaryTruncateAt == 0)
+                {
+                    crawlerResultItem.Summary = summary;
+                }
+                else
+                {
+                    var contentDoc = new HtmlDocument();
+                    contentDoc.LoadHtml(summary);
+                    var textContent = contentDoc.DocumentNode.InnerText.Trim();
+                    crawlerResultItem.Summary = TruncateAtWord(textContent, config.SummaryTruncateAt);
+                }
+
                 var pubDateValue = rssItem.Elements().FirstOrDefault(i => i.Name.LocalName == "pubDate")?.Value;
                 if (DateTime.TryParse(pubDateValue, out DateTime pubDateDateTime))
                 {
