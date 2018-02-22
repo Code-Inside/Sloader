@@ -73,6 +73,7 @@
     <Compile Include="Crawler\Feed\FacebookShareCountLoader.cs" />
     <Compile Include="Crawler\Feed\FeedCrawler.cs" />
     <Compile Include="Crawler\Feed\IFacebookShareCountLoader.cs" />
+    <Compile Include="Crawler\GitHub\GitHubIssueCrawler.cs" />
     <Compile Include="Crawler\GitHub\GitHubEventCrawler.cs" />
     <Compile Include="Crawler\ICrawler.cs" />
     <Compile Include="Drop\File\FileDrop.cs" />
