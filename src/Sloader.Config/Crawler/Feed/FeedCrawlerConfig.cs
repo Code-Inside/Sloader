@@ -1,5 +1,6 @@
 namespace Sloader.Config.Crawler.Feed
 {
+    /// <inheritdoc />
     /// <summary>
     /// Crawler config to read ATOM/RSS-feeds
     /// </summary>

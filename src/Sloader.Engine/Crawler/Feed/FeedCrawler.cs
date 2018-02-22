@@ -12,6 +12,7 @@ using WorldDomination.Net.Http;
 
 namespace Sloader.Engine.Crawler.Feed
 {
+    /// <inheritdoc />
     /// <summary>
     /// Atom/Rss-Feed Crawler implementation
     /// </summary>
@@ -40,6 +41,7 @@ namespace Sloader.Engine.Crawler.Feed
             _facebookLoader = facebookLoader;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Actual work method to load the feed data.
         /// </summary>
@@ -52,8 +54,7 @@ namespace Sloader.Engine.Crawler.Feed
 
             Trace.TraceInformation($"{nameof(FeedCrawler)} loading stuff for '{config.Url}'");
 
-            var crawlerResult = new FeedResult();
-            crawlerResult.FeedItems = new List<FeedResult.FeedItem>();
+            var crawlerResult = new FeedResult {FeedItems = new List<FeedResult.FeedItem>()};
 
             var maybeSplittedUrls = config.Url.Split(';');
 
@@ -64,7 +65,7 @@ namespace Sloader.Engine.Crawler.Feed
 
                 response.EnsureSuccessStatusCode();
 
-                string rssOrAtomResult = await response.Content.ReadAsStringAsync();
+                var rssOrAtomResult = await response.Content.ReadAsStringAsync();
 
                 if (!string.IsNullOrWhiteSpace(rssOrAtomResult))
                 {
@@ -110,9 +111,11 @@ namespace Sloader.Engine.Crawler.Feed
                 .Where(i => i.Name.LocalName == "entry");
             foreach (var atomItem in atomItems)
             {
-                var crawlerResultItem = new FeedResult.FeedItem();
-                crawlerResultItem.Title = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "title")?.Value;
-                crawlerResultItem.Href = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "link")?.Attribute("href")?.Value;
+                var crawlerResultItem = new FeedResult.FeedItem
+                {
+                    Title = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "title")?.Value,
+                    Href = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "link")?.Attribute("href")?.Value
+                };
 
                 var summary = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "content")?.Value;
                 if (config.SummaryTruncateAt == 0)
@@ -165,9 +168,12 @@ namespace Sloader.Engine.Crawler.Feed
                 .Where(i => i.Name.LocalName == "item");
             foreach (var rssItem in rssItems)
             {
-                var crawlerResultItem = new FeedResult.FeedItem();
-                crawlerResultItem.Title = rssItem.Elements().FirstOrDefault(i => i.Name.LocalName == "title")?.Value;
-                crawlerResultItem.Href = rssItem.Elements().FirstOrDefault(i => i.Name.LocalName == "link")?.Value;
+                var crawlerResultItem = new FeedResult.FeedItem
+                {
+                    Title = rssItem.Elements().FirstOrDefault(i => i.Name.LocalName == "title")?.Value,
+                    Href = rssItem.Elements().FirstOrDefault(i => i.Name.LocalName == "link")?.Value
+                };
+
                 var summary = rssItem.Elements().FirstOrDefault(i => i.Name.LocalName == "description")?.Value;
                 if (config.SummaryTruncateAt == 0)
                 {

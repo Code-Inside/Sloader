@@ -9,6 +9,7 @@ using System;
 
 namespace Sloader.Engine.Drop.GitHub
 {
+    /// <inheritdoc />
     /// <summary>
     /// Will drop the results on GitHub as one file.
     /// </summary>

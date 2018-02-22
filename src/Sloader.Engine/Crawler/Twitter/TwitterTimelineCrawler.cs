@@ -16,6 +16,7 @@ using WorldDomination.Net.Http;
 
 namespace Sloader.Engine.Crawler.Twitter
 {
+    /// <inheritdoc />
     /// <summary>
     /// Crawler for the Twitter Timeline API:
     /// <para>https://dev.twitter.com/rest/reference/get/statuses/user_timeline</para>

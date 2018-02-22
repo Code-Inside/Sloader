@@ -5,16 +5,16 @@ namespace Sloader.Result.Types
 {
     /// <inheritdoc />
     /// <summary>
-    /// Result for the v3 GitHub Event API
-    /// <para>https://developer.github.com/v3/activity/events/</para>
+    /// Result for the v3 GitHub Issue API
+    /// <para>https://developer.github.com/v3/issues/#list-issues-for-a-repository</para>
     /// </summary>
-    public class GitHubEventResult : BaseResult
+    public class GitHubIssueResult : BaseResult
     {
         /// <inheritdoc />
         /// <summary>
-        /// Actual GitHub Event type
+        /// Actual GitHub Issue type
         /// </summary>
-        public class Event : IHaveRawContent
+        public class Issue : IHaveRawContent
         {
             /// <summary>
             /// Each GitHubEvent has its own unique ID
@@ -47,7 +47,6 @@ namespace Sloader.Result.Types
             /// </summary>
             public string Organization { get; set; }
 
-            /// <inheritdoc />
             /// <summary>
             /// JSON serialized complete event data
             /// </summary>
@@ -80,9 +79,9 @@ namespace Sloader.Result.Types
         }
 
         /// <summary>
-        /// Collection for all events
+        /// Collection for all issues
         /// </summary>
-        public List<Event> Events { get; set; }
+        public List<Issue> Issues { get; set; }
 
         /// <inheritdoc />
         /// <summary>
@@ -90,7 +89,7 @@ namespace Sloader.Result.Types
         /// </summary>
         public override KnownResultType ResultType
         {
-            get { return KnownResultType.GitHubEvent; }
+            get { return KnownResultType.GitHubIssue; }
         }
     }
 }

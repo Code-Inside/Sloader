@@ -14,6 +14,7 @@ using WorldDomination.Net.Http;
 
 namespace Sloader.Engine.Crawler.Twitter
 {
+    /// <inheritdoc />
     /// <summary>
     /// Crawler for the Twitter User Lookup API:
     /// <para>https://dev.twitter.com/rest/reference/get/users/lookup</para>
@@ -45,6 +46,7 @@ namespace Sloader.Engine.Crawler.Twitter
         /// <see cref="TwitterOAuthTokenService"/>
         public string OAuthToken { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Actual worker method which will load the user information for the given users.
         /// </summary>

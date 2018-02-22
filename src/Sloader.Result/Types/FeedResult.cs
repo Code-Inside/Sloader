@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Sloader.Result.Types
 {
+    /// <inheritdoc />
     /// <summary>
     /// Feed Result for RSS/ATOM Feeds
     /// </summary>

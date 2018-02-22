@@ -11,6 +11,7 @@ using WorldDomination.Net.Http;
 
 namespace Sloader.Engine.Crawler.GitHub
 {
+    /// <inheritdoc />
     /// <summary>
     /// GitHub Event Crawler will use this HTTP-API endpoint:
     /// <para>https://developer.github.com/v3/activity/events/</para>
@@ -35,6 +36,7 @@ namespace Sloader.Engine.Crawler.GitHub
             _httpClient = new HttpClient(messageHandler);
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Actual work method to load event data.
         /// <para>Depending on the different EventTypes, this method will try to get the most helpful description and url from the huge API response.</para>
