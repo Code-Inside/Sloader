@@ -79,8 +79,133 @@ namespace Sloader.Engine.Crawler.GitHub
 
             string githubResult = await response.Content.ReadAsStringAsync();
 
-            var events = JsonConvert.DeserializeObject<JArray>(githubResult);
+            var issues = JsonConvert.DeserializeObject<JArray>(githubResult);
 
+            foreach (var gitHubIssue in issues)
+            {
+                var rawJson = gitHubIssue.ToString();
+
+
+                GitHubIssueResult.Issue issueObject = new GitHubIssueResult.Issue();
+
+                issueObject.Id = gitHubIssue["id"].ToObject<string>();
+                issueObject.Number = gitHubIssue["number"].ToObject<string>();
+                issueObject.State = gitHubIssue["state"].ToObject<string>();
+                issueObject.Title = gitHubIssue["title"].ToObject<string>();
+                issueObject.Body = gitHubIssue["body"].ToObject<string>();
+
+                issueObject.Actor = gitHubIssue["user"]?["login"].ToObject<string>();
+
+                if (gitHubIssue["pull_request"] != null)
+                {
+                    issueObject.IsPullRequest = true;
+                    issueObject.Url = gitHubIssue["pull_request"]["html_url"].ToObject<string>();
+                    eventObject.RelatedUrl = gitHubEvent["payload"]?["issue"]?["html_url"]?.ToObject<string>();
+                    eventObject.RelatedBody = gitHubEvent["payload"]?["issue"]?["body"]?.ToObject<string>();
+
+                    if (eventObject.RelatedAction == "closed")
+                    {
+                        eventObject.RelatedDescription = "Closed issue \"" + gitHubEvent["payload"]?["issue"]?["title"]?.ToObject<string>() + "\" (#" + gitHubEvent["payload"]?["issue"]?["number"]?.ToObject<string>() + ") at " + gitHubEvent["repo"]?["name"]?.ToObject<string>();
+                    }
+                    else if (eventObject.RelatedAction == "reopened")
+                    {
+                        eventObject.RelatedDescription = "Reopened issue \"" + gitHubEvent["payload"]?["issue"]?["title"]?.ToObject<string>() + "\" (#" + gitHubEvent["payload"]?["issue"]?["number"]?.ToObject<string>() + ") at " + gitHubEvent["repo"]?["name"]?.ToObject<string>();
+                    }
+                    else if (eventObject.RelatedAction == "opened")
+                    {
+                        eventObject.RelatedDescription = "Opened issue \"" + gitHubEvent["payload"]?["issue"]?["title"]?.ToObject<string>() + "\" (#" + gitHubEvent["payload"]?["issue"]?["number"]?.ToObject<string>() + ") at " + gitHubEvent["repo"]?["name"]?.ToObject<string>();
+                    }
+
+                }
+                else if (eventObject.Type == "IssueCommentEvent")
+                {
+                    eventObject.RelatedUrl = gitHubEvent["payload"]?["comment"]?["html_url"]?.ToObject<string>();
+                    eventObject.RelatedBody = gitHubEvent["payload"]?["comment"]?["body"]?.ToObject<string>();
+
+                    if (eventObject.RelatedAction == "created")
+                    {
+                        eventObject.RelatedDescription = "Commented on issue \"" + gitHubEvent["payload"]?["issue"]?["title"]?.ToObject<string>() + "\" (#" + gitHubEvent["payload"]?["issue"]?["number"]?.ToObject<string>() + ") at " + gitHubEvent["repo"]?["name"]?.ToObject<string>();
+                    }
+                }
+                else if (eventObject.Type == "CommitCommentEvent")
+                {
+                    eventObject.RelatedUrl = gitHubEvent["payload"]?["comment"]?["html_url"]?.ToObject<string>();
+                    eventObject.RelatedBody = gitHubEvent["payload"]?["comment"]?["body"]?.ToObject<string>();
+                    eventObject.RelatedDescription = "Commented on commit \"" + gitHubEvent["payload"]?["comment"]?["commit_id"]?.ToObject<string>() + "\" at " + gitHubEvent["repo"]?["name"]?.ToObject<string>();
+                }
+                else if (eventObject.Type == "WatchEvent")
+                {
+                    eventObject.RelatedDescription = "Starred " + gitHubEvent["repo"]?["name"]?.ToObject<string>();
+                }
+                else if (eventObject.Type == "PullRequestEvent")
+                {
+                    eventObject.RelatedUrl = gitHubEvent["payload"]?["pull_request"]?["html_url"]?.ToObject<string>();
+                    eventObject.RelatedBody = gitHubEvent["payload"]?["pull_request"]?["body"]?.ToObject<string>();
+
+                    if (eventObject.RelatedAction == "closed" && gitHubEvent["payload"]?["pull_request"]?["merged"]?.ToObject<string>().ToLowerInvariant() == "true")
+                    {
+                        eventObject.RelatedAction = "merged";
+                        eventObject.RelatedDescription = "Merged pull request \"" + gitHubEvent["payload"]?["pull_request"]?["title"]?.ToObject<string>() + "\" (#" + gitHubEvent["payload"]?["pull_request"]?["number"]?.ToObject<string>() + ") at " + gitHubEvent["repo"]?["name"]?.ToObject<string>();
+                    }
+                    else if (eventObject.RelatedAction == "closed" && gitHubEvent["payload"]?["pull_request"]?["merged"]?.ToObject<string>().ToLowerInvariant() == "false")
+                    {
+                        eventObject.RelatedDescription = "Closed pull request \"" + gitHubEvent["payload"]?["pull_request"]?["title"]?.ToObject<string>() + "\" (#" + gitHubEvent["payload"]?["pull_request"]?["number"]?.ToObject<string>() + ") at " + gitHubEvent["repo"]?["name"]?.ToObject<string>();
+                    }
+                    else if (eventObject.RelatedAction == "opened")
+                    {
+                        eventObject.RelatedDescription = "Opened pull request \"" + gitHubEvent["payload"]?["pull_request"]?["title"]?.ToObject<string>() + "\" (#" + gitHubEvent["payload"]?["pull_request"]?["number"]?.ToObject<string>() + ") at " + gitHubEvent["repo"]?["name"]?.ToObject<string>();
+                    }
+                }
+                else if (eventObject.Type == "DeleteEvent")
+                {
+                    eventObject.RelatedDescription = "Deleted " + gitHubEvent["payload"]?["ref_type"]?.ToObject<string>() + " \"" + gitHubEvent["payload"]?["ref"]?.ToObject<string>() + "\" at " + gitHubEvent["repo"]?["name"]?.ToObject<string>();
+                }
+                else if (eventObject.Type == "CreateEvent")
+                {
+                    eventObject.RelatedDescription = "Created " + gitHubEvent["payload"]?["ref_type"]?.ToObject<string>() + " \"" + gitHubEvent["payload"]?["ref"]?.ToObject<string>() + "\" at " + gitHubEvent["repo"]?["name"]?.ToObject<string>();
+                    if (gitHubEvent["payload"]?["ref_type"]?.ToObject<string>().ToLowerInvariant() == "branch")
+                    {
+                        eventObject.RelatedUrl = "https://github.com/" + gitHubEvent["repo"]?["name"]?.ToObject<string>() + "/tree/" + gitHubEvent["payload"]?["ref"]?.ToObject<string>();
+                    }
+                }
+                else if (eventObject.Type == "ReleaseEvent")
+                {
+                    eventObject.RelatedUrl = gitHubEvent["payload"]?["release"]?["html_url"]?.ToObject<string>();
+                    eventObject.RelatedBody = gitHubEvent["payload"]?["release"]?["body"]?.ToObject<string>();
+                    eventObject.RelatedDescription = "Released \"" + gitHubEvent["payload"]?["release"]?["tag_name"]?.ToObject<string>() + "\" at " + gitHubEvent["repo"]?["name"]?.ToObject<string>();
+                }
+                else if (eventObject.Type == "ForkEvent")
+                {
+                    eventObject.RelatedUrl = gitHubEvent["payload"]?["forkee"]?["html_url"]?.ToObject<string>();
+                    eventObject.RelatedDescription = "Forked " + gitHubEvent["repo"]?["name"]?.ToObject<string>() + " to " + gitHubEvent["payload"]?["forkee"]?["full_name"]?.ToObject<string>();
+                }
+                else if (eventObject.Type == "PushEvent")
+                {
+                    eventObject.RelatedUrl = "https://github.com/" + gitHubEvent["repo"]?["name"]?.ToObject<string>() + "/compare/" + gitHubEvent["payload"]?["before"]?.ToObject<string>() + "..." + gitHubEvent["payload"]?["head"]?.ToObject<string>();
+                    eventObject.RelatedDescription = "Pushed to " + gitHubEvent["payload"]?["ref"]?.ToObject<string>() + " at " + gitHubEvent["repo"]?["name"]?.ToObject<string>();
+                }
+                else if (eventObject.Type == "PullRequestReviewCommentEvent")
+                {
+                    eventObject.RelatedUrl = gitHubEvent["payload"]?["comment"]?["html_url"]?.ToObject<string>();
+                    eventObject.RelatedBody = gitHubEvent["payload"]?["comment"]?["body"]?.ToObject<string>();
+                    eventObject.RelatedDescription = "Commented on pull request \"" + gitHubEvent["payload"]?["pull_request"]?["title"]?.ToObject<string>() + "\" (#" + gitHubEvent["payload"]?["pull_request"]?["number"]?.ToObject<string>() + ") at " + gitHubEvent["repo"]?["name"]?.ToObject<string>();
+                }
+
+                var eventDate = gitHubEvent["created_at"].ToObject<string>();
+
+                DateTime eventDateAsDate;
+                if (DateTime.TryParse(eventDate, out eventDateAsDate))
+                {
+                    eventObject.CreatedAt = eventDateAsDate;
+                }
+
+                if (includeRawContent)
+                {
+                    eventObject.RawContent = rawJson;
+                }
+
+                crawlerResult.Events.Add(eventObject);
+            }
         }
     }
 }

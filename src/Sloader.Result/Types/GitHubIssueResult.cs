@@ -22,10 +22,9 @@ namespace Sloader.Result.Types
             public string Id { get; set; }
 
             /// <summary>
-            /// GitHub Event Type, e.g. CommitEvent or CreateEvent
-            /// <para>Full reference: https://developer.github.com/v3/activity/events/types/</para>
+            /// True if Issue is related to a Pull Request
             /// </summary>
-            public string Type { get; set; }
+            public bool IsPullRequest { get; set; }
 
             /// <summary>
             /// DateTime when the event happend
@@ -33,14 +32,14 @@ namespace Sloader.Result.Types
             public DateTime CreatedAt { get; set; }
 
             /// <summary>
-            /// Who issued the event
+            /// Who issued the issue
             /// </summary>
             public string Actor { get; set; }
 
             /// <summary>
-            /// Defines the repo on GitHub
+            /// Defines the Issue Number on GitHub
             /// </summary>
-            public string Repository { get; set; }
+            public string Number { get; set; }
 
             /// <summary>
             /// Defines the org on GitHub
@@ -53,29 +52,24 @@ namespace Sloader.Result.Types
             public string RawContent { get; set; }
 
             /// <summary>
-            /// Based on the <see cref="Type"/> a more descriptive and related action.
-            /// <para>e.g. IssueEvent occured and you need to know if the issue is opened, closed etc.</para>
-            /// <para>On PullRequests: The closed and IsMerged=true property is handled as merged</para>
+            /// Readable title of the issue or PullRequest
             /// </summary>
-            public string RelatedAction { get; set; }
+            public string Title { get; set; }
 
             /// <summary>
-            /// Based on the <see cref="Type"/> the target url.
+            /// State of the PullRequest or Issue, e.g. open or closed
             /// </summary>
-            public string RelatedUrl { get; set; }
+            public string State { get; set; }
 
             /// <summary>
-            /// Based on the <see cref="Type"/> some more information.
-            /// <para>e.g. Issue Title etc.</para>
+            /// Initial body text of the PullRequest or Issue
             /// </summary>
-            public string RelatedDescription { get; set; }
+            public string Body { get; set; }
 
             /// <summary>
-            /// Based on the <see cref="Type"/> some more information.
-            /// <para>e.g. Issue Descritpion etc.</para>
+            /// Target URL of the Issue or PullRequest
             /// </summary>
-            public string RelatedBody { get; set; }
-
+            public string Url { get; set; }
         }
 
         /// <summary>

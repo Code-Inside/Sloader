@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CrawlerConfigTests\CrawlerConfigContainerTests.cs" />
+    <Compile Include="CrawlerConfigTests\GitHubIssueConfigTests.cs" />
     <Compile Include="CrawlerConfigTests\GitHubEventConfigTests.cs" />
     <Compile Include="DropConfigTests\DropConfigContainerTests.cs" />
     <Compile Include="DropConfigTests\FileDropConfigTests.cs" />

@@ -35,6 +35,7 @@ namespace Sloader.Config.Crawler
             TwitterTimelinesToCrawl = new List<TwitterTimelineCrawlerConfig>();
             TwitterUsersToCrawl = new List<TwitterUserCrawlerConfig>();
             GitHubEventsToCrawl = new List<GitHubEventCrawlerConfig>();
+            GitHubIssuesToCrawl = new List<GitHubIssueCrawlerConfig>();
         }
 
         /// <summary>
@@ -56,6 +57,11 @@ namespace Sloader.Config.Crawler
         /// Represents all GitHubEventCrawlers
         /// </summary>
         public IList<GitHubEventCrawlerConfig> GitHubEventsToCrawl { get; set; }
+
+        /// <summary>
+        /// Represents all GitHubIssuesToCrawl
+        /// </summary>
+        public IList<GitHubIssueCrawlerConfig> GitHubIssuesToCrawl { get; set; }
 
     }
 }
