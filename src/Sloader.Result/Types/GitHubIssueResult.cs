@@ -71,6 +71,9 @@ namespace Sloader.Result.Types
             /// </summary>
             public string Url { get; set; }
 
+            /// <summary>
+            /// Some human readable information
+            /// </summary>
             public string RelatedDescription { get; set; }
         }
 
