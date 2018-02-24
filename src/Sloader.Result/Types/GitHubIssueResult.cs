@@ -70,6 +70,8 @@ namespace Sloader.Result.Types
             /// Target URL of the Issue or PullRequest
             /// </summary>
             public string Url { get; set; }
+
+            public string RelatedDescription { get; set; }
         }
 
         /// <summary>

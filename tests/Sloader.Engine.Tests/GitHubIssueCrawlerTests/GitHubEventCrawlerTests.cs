@@ -40,7 +40,7 @@ namespace Sloader.Engine.Tests.GitHubIssueCrawlerTests
         public async Task Crawler_Should_Return_Correct_Number_Of_Issues()
         {
             var result = await InvokeSut("electronnet/electron.net");
-            Assert.Equal(30, result.Issues.Count);
+            Assert.Equal(29, result.Issues.Count);
         }
 
         //[Fact]
