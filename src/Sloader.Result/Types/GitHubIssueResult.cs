@@ -41,11 +41,7 @@ namespace Sloader.Result.Types
             /// </summary>
             public string Number { get; set; }
 
-            /// <summary>
-            /// Defines the org on GitHub
-            /// </summary>
-            public string Organization { get; set; }
-
+            /// <inheritdoc />
             /// <summary>
             /// JSON serialized complete event data
             /// </summary>

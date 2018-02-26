@@ -27,5 +27,12 @@ namespace Sloader.Config.Crawler.GitHub
         /// </summary>
         /// <example>code-inside/sloader;robertmuehsig/EinKofferVollerReisen</example>
         public string Repository { get; set; }
+
+        /// <summary>
+        /// Filter issues/PRs by state, default is "open". 
+        /// <para>Possible filters: open, closed, all</para>
+        /// <para>Reference https://developer.github.com/v3/issues/#list-issues</para>
+        /// </summary>
+        public string FilterByState { get; set; }
     }
 }

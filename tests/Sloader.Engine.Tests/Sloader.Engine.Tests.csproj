@@ -102,7 +102,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="GitHubIssueCrawlerTests\Sample\repo.json">
+    <None Include="GitHubIssueCrawlerTests\Sample\repo_electronnet.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="GitHubEventCrawlerTests\Sample\repo.json">
@@ -127,6 +127,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="GitHubEventCrawlerTests\Sample\user_5.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="GitHubIssueCrawlerTests\Sample\repo_mvc.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />

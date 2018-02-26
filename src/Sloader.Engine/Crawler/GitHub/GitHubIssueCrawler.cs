@@ -58,7 +58,10 @@ namespace Sloader.Engine.Crawler.GitHub
                 foreach (var maybeSplittedRepo in maybeSplittedRepos)
                 {
                     var apiCall = $"https://api.github.com/repos/{maybeSplittedRepo}/issues";
-
+                    if (config.FilterByState != string.Empty)
+                    {
+                        apiCall = apiCall + "?state=" + config.FilterByState;
+                    }
                     await FetchData(apiCall, crawlerResult, config.IncludeRawContent);
                 }
             }
