@@ -11,6 +11,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Config</description>
     <releaseNotes>
+      ## Version 0.7.0 ##
+      GitHub Issue Crawler
       ## Version 0.6.0 ##
       Feed - TruncateSummary feature
       ## Version 0.5.0 ##
@@ -32,7 +34,6 @@
       ## Version 0.1.0 ##
       Init
     </releaseNotes>
-    <copyright>Copyright 2017</copyright>
     <tags>Sloader</tags>
     <dependencies />
   </metadata>
