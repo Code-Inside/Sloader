@@ -4,6 +4,7 @@ using System.Collections.Generic;
 namespace Sloader.Result.Types
 {
 
+    /// <inheritdoc />
     /// <summary>
     /// Twitter Timeline Result for given Twitter Account
     /// <para>Twitter API https://dev.twitter.com/rest/reference/get/statuses/user_timeline</para>
@@ -11,6 +12,7 @@ namespace Sloader.Result.Types
     public class TwitterTimelineResult : BaseResult
     {
 
+        /// <inheritdoc />
         /// <summary>
         /// Defined ResultType
         /// </summary>

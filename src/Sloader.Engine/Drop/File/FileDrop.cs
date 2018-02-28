@@ -5,6 +5,7 @@ using Sloader.Result;
 
 namespace Sloader.Engine.Drop.File
 {
+    /// <inheritdoc />
     /// <summary>
     /// Will drop the results as a normal text file on disk.
     /// </summary>

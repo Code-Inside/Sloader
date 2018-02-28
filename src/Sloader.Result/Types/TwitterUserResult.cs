@@ -3,12 +3,14 @@ using System.Collections.Generic;
 
 namespace Sloader.Result.Types
 {
+    /// <inheritdoc />
     /// <summary>
     /// Twitter User Lookup Result for given Twitter Account
     /// <para>Twitter API https://dev.twitter.com/rest/reference/get/users/lookup</para>
     /// </summary>
     public class TwitterUserResult : BaseResult
     {
+        /// <inheritdoc />
         /// <summary>
         /// Defined ResultType
         /// </summary>

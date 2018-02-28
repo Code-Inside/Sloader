@@ -9,6 +9,7 @@ using WorldDomination.Net.Http;
 
 namespace Sloader.Engine.Crawler.DependencyServices
 {
+    /// <inheritdoc />
     /// <summary>
     /// Implementation for the OAuthTokenService
     /// </summary>

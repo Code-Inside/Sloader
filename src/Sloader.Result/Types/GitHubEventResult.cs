@@ -3,12 +3,14 @@ using System.Collections.Generic;
 
 namespace Sloader.Result.Types
 {
+    /// <inheritdoc />
     /// <summary>
     /// Result for the v3 GitHub Event API
     /// <para>https://developer.github.com/v3/activity/events/</para>
     /// </summary>
     public class GitHubEventResult : BaseResult
     {
+        /// <inheritdoc />
         /// <summary>
         /// Actual GitHub Event type
         /// </summary>
@@ -45,6 +47,7 @@ namespace Sloader.Result.Types
             /// </summary>
             public string Organization { get; set; }
 
+            /// <inheritdoc />
             /// <summary>
             /// JSON serialized complete event data
             /// </summary>
@@ -81,6 +84,7 @@ namespace Sloader.Result.Types
         /// </summary>
         public List<Event> Events { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Defined ResultType
         /// </summary>

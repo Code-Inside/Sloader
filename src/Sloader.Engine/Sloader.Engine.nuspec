@@ -11,6 +11,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Engine</description>
     <releaseNotes>
+      ## Version 0.9.0 ##
+      GitHub Issue Crawler
       ## Version 0.8.0 ##
       Feedcrawler with TruncateAt Feature for Summary
       ## Version 0.7.1 ##
@@ -46,7 +48,6 @@
       ## Version 0.1.0 ##
       Init
     </releaseNotes>
-    <copyright>Copyright 2017</copyright>
     <tags>Sloader</tags>
     <dependencies />
   </metadata>

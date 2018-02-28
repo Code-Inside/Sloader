@@ -8,6 +8,7 @@
         Feed,
         TwitterTimeline,
         TwitterUser,
-        GitHubEvent
+        GitHubEvent,
+        GitHubIssue
     }
 }

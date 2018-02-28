@@ -2,6 +2,7 @@ using System.Collections.Generic;
 
 namespace Sloader.Config.Crawler.GitHub
 {
+    /// <inheritdoc />
     /// <summary>
     /// Crawler config to read GitHubEvents
     /// <para>Define a repo, user or organization and sloader will load the desired event data.</para>

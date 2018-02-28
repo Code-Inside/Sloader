@@ -4,6 +4,10 @@
   GitHubAccessToken: $$Sloader.SecretGitHubAccessToken$$
 
 Crawler:
+  GitHubIssuesToCrawl:
+  - Key: Issues
+    Repository: aspnet/mvc
+    FilterByState: all
   GitHubEventsToCrawl:
   - Key: Test
     Repository: code-inside/sloader

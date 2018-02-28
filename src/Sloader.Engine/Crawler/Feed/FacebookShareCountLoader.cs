@@ -6,6 +6,7 @@ using WorldDomination.Net.Http;
 
 namespace Sloader.Engine.Crawler.Feed
 {
+    /// <inheritdoc />
     /// <summary>
     /// Should return for a given url the like count on facebook
     /// </summary>
