@@ -127,7 +127,17 @@ namespace Sloader.Engine
                     var eventResult = await eventCrawler.DoWorkAsync(githubEventConfig);
                     crawlerRunResult.AddResultDataPair(githubEventConfig.Key, eventResult);
                 }
+            }
 
+            // GitHubIssues
+            if (_config.Crawler.GitHubIssuesToCrawl.Any())
+            {
+                foreach (var githubIssueConfig in _config.Crawler.GitHubIssuesToCrawl)
+                {
+                    var issueCrawler = new GitHubIssueCrawler();
+                    var issueResult = await issueCrawler.DoWorkAsync(githubIssueConfig);
+                    crawlerRunResult.AddResultDataPair(githubIssueConfig.Key, issueResult);
+                }
             }
 
             // Tweets
