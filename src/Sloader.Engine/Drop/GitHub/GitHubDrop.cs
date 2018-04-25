@@ -31,8 +31,8 @@ namespace Sloader.Engine.Drop.GitHub
         {
             Trace.TraceInformation($"{nameof(GitHubDrop)} dropping stuff for owner '{config.Owner}' on '{config.Repo}':'{config.Branch}' for '{config.FilePath}' ");
 
-            var ghClient = new GitHubClient(new ProductHeaderValue("Sloader"));
-            ghClient.Credentials = new Credentials(AccessToken);
+            var ghClient =
+                new GitHubClient(new ProductHeaderValue("Sloader")) {Credentials = new Credentials(AccessToken)};
 
             // github variables
             var owner = config.Owner;

@@ -23,7 +23,7 @@ namespace Sloader.Config.Crawler.GitHub
         /// <summary>
         /// Loads Issues based on a given repository in the form of USER/REPO or ORG/REPO.
         /// <para>It is allowed to use a ; to load multiple repository events under one key.</para>
-        /// <para>Uses a endpoint like this https://api.github.com/repos/code-inside/sloader/events </para>
+        /// <para>Uses a endpoint like this https://api.github.com/repos/code-inside/sloader/issues </para>
         /// </summary>
         /// <example>code-inside/sloader;robertmuehsig/EinKofferVollerReisen</example>
         public string Repository { get; set; }

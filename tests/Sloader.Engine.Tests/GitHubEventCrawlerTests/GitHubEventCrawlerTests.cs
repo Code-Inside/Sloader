@@ -29,9 +29,12 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
 
             var sut = new GitHubEventCrawler(fakeMessageHandler);
 
-            var config = new GitHubEventCrawlerConfig();
-            config.Organization = org;
-            config.IncludeRawContent = includeRaw;
+            var config = new GitHubEventCrawlerConfig
+            {
+                Organization = org,
+                IncludeRawContent = includeRaw
+            };
+
             config.Events.Clear();
             config.Events.Add("*");
             var result = await sut.DoWorkAsync(config);
@@ -69,8 +72,8 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
 
             var sut = new GitHubEventCrawler(fakeMessageHandler);
 
-            var config = new GitHubEventCrawlerConfig();
-            config.User = user;
+            var config = new GitHubEventCrawlerConfig {User = user};
+
             config.Events.Clear();
             config.Events.Add("*");
             var result = await sut.DoWorkAsync(config);
@@ -95,9 +98,12 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
 
             var sut = new GitHubEventCrawler(fakeMessageHandler);
 
-            var config = new GitHubEventCrawlerConfig();
-            config.Repository = repo;
-            config.IncludeRawContent = includeRaw;
+            var config = new GitHubEventCrawlerConfig
+            {
+                Repository = repo,
+                IncludeRawContent = includeRaw
+            };
+
             if (eventFilter == null)
             {
                 config.Events.Clear();

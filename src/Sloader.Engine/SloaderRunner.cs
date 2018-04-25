@@ -152,8 +152,7 @@ namespace Sloader.Engine
                     {
                         foreach (var twitterConfig in _config.Crawler.TwitterTimelinesToCrawl)
                         {
-                            var twitterTimelineCrawler = new TwitterTimelineCrawler();
-                            twitterTimelineCrawler.OAuthToken = oauth;
+                            var twitterTimelineCrawler = new TwitterTimelineCrawler {OAuthToken = oauth};
 
                             var twitterTimelineResult = await twitterTimelineCrawler.DoWorkAsync(twitterConfig);
                             crawlerRunResult.AddResultDataPair(twitterConfig.Key, twitterTimelineResult);
@@ -164,8 +163,7 @@ namespace Sloader.Engine
                     {
                         foreach (var twitterConfig in _config.Crawler.TwitterUsersToCrawl)
                         {
-                            var twitterUserCrawler = new TwitterUserCrawler();
-                            twitterUserCrawler.OAuthToken = oauth;
+                            var twitterUserCrawler = new TwitterUserCrawler {OAuthToken = oauth};
 
                             var twitterUserResult = await twitterUserCrawler.DoWorkAsync(twitterConfig);
                             crawlerRunResult.AddResultDataPair(twitterConfig.Key, twitterUserResult);
@@ -204,8 +202,11 @@ namespace Sloader.Engine
                 {
                     if (!string.IsNullOrWhiteSpace(_config.Secrets.GitHubAccessToken))
                     {
-                        var gitHubDrop = new GitHubDrop();
-                        gitHubDrop.AccessToken = _config.Secrets.GitHubAccessToken;
+                        var gitHubDrop = new GitHubDrop
+                        {
+                            AccessToken = _config.Secrets.GitHubAccessToken
+                        };
+
                         await gitHubDrop.DoWorkAsync(gitHubDropConfig, crawlerRun);
                     }
                 }

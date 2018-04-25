@@ -45,10 +45,12 @@ namespace Sloader.Engine.Tests.GitHubIssueCrawlerTests
 
             var sut = new GitHubIssueCrawler(fakeMessageHandler);
 
-            var config = new GitHubIssueCrawlerConfig();
-            config.Repository = repo;
-            config.FilterByState = stateFilter;
-            config.IncludeRawContent = includeRaw;
+            var config = new GitHubIssueCrawlerConfig
+            {
+                Repository = repo,
+                FilterByState = stateFilter,
+                IncludeRawContent = includeRaw
+            };
             var result = await sut.DoWorkAsync(config);
             return result;
         }

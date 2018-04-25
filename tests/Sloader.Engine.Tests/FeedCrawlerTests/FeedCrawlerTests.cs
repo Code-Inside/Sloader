@@ -43,9 +43,11 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
 
             var sut = new FeedCrawler(fakeMessageHandler, facebokLoaderMock);
 
-            var config = new FeedCrawlerConfig();
-            config.Url = feed;
-            config.SummaryTruncateAt = truncateAt;
+            var config = new FeedCrawlerConfig
+            {
+                Url = feed,
+                SummaryTruncateAt = truncateAt
+            };
             return await sut.DoWorkAsync(config);
         }
 
@@ -66,11 +68,14 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
             }
 
 
-            var config = new FeedCrawlerConfig();
-            config.Url = feed;
-            config.LoadSocialLinkCounters = true;
-            config.IncludeRawContent = true;
-            config.SummaryTruncateAt = truncateAt;
+            var config = new FeedCrawlerConfig
+            {
+                Url = feed,
+                LoadSocialLinkCounters = true,
+                IncludeRawContent = true,
+                SummaryTruncateAt = truncateAt
+            };
+
             return await sut.DoWorkAsync(config);
         }
 
@@ -205,9 +210,11 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
 
             var sut = new FeedCrawler(fakeMessageHandler, facebokLoaderMock);
 
-            var config = new FeedCrawlerConfig();
-            config.Url = "https://github.com/robertmuehsig.atom";
-            config.LoadSocialLinkCounters = false;
+            var config = new FeedCrawlerConfig
+            {
+                Url = "https://github.com/robertmuehsig.atom",
+                LoadSocialLinkCounters = false
+            };
 
             var result = await sut.DoWorkAsync(config);
             A.CallTo(() => facebokLoaderMock.GetAsync(string.Empty)).WithAnyArguments().MustNotHaveHappened();

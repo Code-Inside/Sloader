@@ -28,9 +28,11 @@ namespace Sloader.Config.Crawler.GitHub
         /// </summary>
         public GitHubEventCrawlerConfig()
         {
-            Events = new List<string>();
-            Events.Add("PullRequestEvent");
-            Events.Add("IssuesEvent");
+            Events = new List<string>
+            {
+                "PullRequestEvent",
+                "IssuesEvent"
+            };
         }
 
         /// <summary>

@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Sloader.Config.Crawler.Twitter;
-using Sloader.Engine.Crawler.DependencyServices;
-using Sloader.Result;
 using Sloader.Result.Types;
 using WorldDomination.Net.Http;
 
@@ -60,9 +58,8 @@ namespace Sloader.Engine.Crawler.Twitter
 
             Trace.TraceInformation($"{nameof(TwitterTimelineCrawler)} loading stuff for '{config.Handle}'");
 
-            var result = new TwitterTimelineResult();
+            var result = new TwitterTimelineResult {Tweets = new List<TwitterTimelineResult.Tweet>()};
 
-            result.Tweets = new List<TwitterTimelineResult.Tweet>();
 
             var handleArrayForMultipleHandles = config.Handle.Split(';');
 
@@ -99,18 +96,20 @@ namespace Sloader.Engine.Crawler.Twitter
                 {
                     var rawJson = tweet.ToString();
 
-                    TwitterTimelineResult.Tweet tweetObject = new TwitterTimelineResult.Tweet();
-                    tweetObject.Id = tweet["id_str"].ToObject<string>();
-                    tweetObject.Text = tweet["text"].ToObject<string>();
-                    tweetObject.Source = tweet["source"].ToObject<string>();
-                    tweetObject.RetweetCount = tweet["favorite_count"].ToObject<int>();
-                    tweetObject.FavoriteCount = tweet["retweet_count"].ToObject<int>();
-                    tweetObject.UserScreenname = tweet["user"]["screen_name"].ToObject<string>();
+                    TwitterTimelineResult.Tweet tweetObject =
+                        new TwitterTimelineResult.Tweet
+                        {
+                            Id = tweet["id_str"].ToObject<string>(),
+                            Text = tweet["text"].ToObject<string>(),
+                            Source = tweet["source"].ToObject<string>(),
+                            RetweetCount = tweet["favorite_count"].ToObject<int>(),
+                            FavoriteCount = tweet["retweet_count"].ToObject<int>(),
+                            UserScreenname = tweet["user"]["screen_name"].ToObject<string>()
+                        };
 
                     var tweetDate = tweet["created_at"].ToObject<string>();
 
-                    DateTime tweetDateAsDate;
-                    if (DateTime.TryParseExact(tweetDate, "ddd MMM dd HH:mm:ss zzz yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out tweetDateAsDate))
+                    if (DateTime.TryParseExact(tweetDate, "ddd MMM dd HH:mm:ss zzz yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out var tweetDateAsDate))
                     {
                         tweetObject.CreatedAt = tweetDateAsDate;
                     }

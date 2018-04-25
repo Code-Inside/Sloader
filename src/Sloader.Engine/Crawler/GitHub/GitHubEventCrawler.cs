@@ -48,9 +48,8 @@ namespace Sloader.Engine.Crawler.GitHub
             if (string.IsNullOrWhiteSpace(config.Organization) && string.IsNullOrWhiteSpace(config.Repository) && string.IsNullOrWhiteSpace(config.User))
                 return new GitHubEventResult();
 
-            var crawlerResult = new GitHubEventResult();
-            crawlerResult.Events = new List<GitHubEventResult.Event>();
-            
+            var crawlerResult = new GitHubEventResult { Events = new List<GitHubEventResult.Event>() };
+
             if (string.IsNullOrWhiteSpace(config.Organization) == false)
             {
                 var maybeSplittedOrgs = config.Organization.Split(';');
@@ -110,8 +109,8 @@ namespace Sloader.Engine.Crawler.GitHub
                 var rawJson = gitHubEvent.ToString();
 
 
-                GitHubEventResult.Event eventObject = new GitHubEventResult.Event();
-                eventObject.Type = gitHubEvent["type"].ToObject<string>();
+                GitHubEventResult.Event eventObject =
+                    new GitHubEventResult.Event {Type = gitHubEvent["type"].ToObject<string>()};
 
                 if (includedEvents.Contains("*") == false && includedEvents.Contains(eventObject.Type) == false)
                     continue;
@@ -217,8 +216,7 @@ namespace Sloader.Engine.Crawler.GitHub
 
                 var eventDate = gitHubEvent["created_at"].ToObject<string>();
 
-                DateTime eventDateAsDate;
-                if (DateTime.TryParse(eventDate, out eventDateAsDate))
+                if (DateTime.TryParse(eventDate, out var eventDateAsDate))
                 {
                     eventObject.CreatedAt = eventDateAsDate;
                 }

@@ -48,8 +48,7 @@ namespace Sloader.Engine.Crawler.GitHub
             if (string.IsNullOrWhiteSpace(config.Repository))
                 return new GitHubIssueResult();
 
-            var crawlerResult = new GitHubIssueResult();
-            crawlerResult.Issues = new List<GitHubIssueResult.Issue>();
+            var crawlerResult = new GitHubIssueResult {Issues = new List<GitHubIssueResult.Issue>()};
 
             if (string.IsNullOrWhiteSpace(config.Repository) == false)
             {
@@ -89,15 +88,18 @@ namespace Sloader.Engine.Crawler.GitHub
                 var rawJson = gitHubIssue.ToString();
 
 
-                GitHubIssueResult.Issue issueObject = new GitHubIssueResult.Issue();
+                GitHubIssueResult.Issue issueObject =
+                    new GitHubIssueResult.Issue
+                    {
+                        Id = gitHubIssue["id"].ToObject<string>(),
+                        Number = gitHubIssue["number"].ToObject<string>(),
+                        State = gitHubIssue["state"].ToObject<string>(),
+                        Title = gitHubIssue["title"].ToObject<string>(),
+                        Body = gitHubIssue["body"].ToObject<string>(),
+                        Actor = gitHubIssue["user"]?["login"].ToObject<string>()
+                    };
 
-                issueObject.Id = gitHubIssue["id"].ToObject<string>();
-                issueObject.Number = gitHubIssue["number"].ToObject<string>();
-                issueObject.State = gitHubIssue["state"].ToObject<string>();
-                issueObject.Title = gitHubIssue["title"].ToObject<string>();
-                issueObject.Body = gitHubIssue["body"].ToObject<string>();
 
-                issueObject.Actor = gitHubIssue["user"]?["login"].ToObject<string>();
 
                 if (gitHubIssue["pull_request"] != null)
                 {
@@ -147,8 +149,7 @@ namespace Sloader.Engine.Crawler.GitHub
                 }
 
 
-                DateTime eventDateAsDate;
-                if (DateTime.TryParse(eventDate, out eventDateAsDate))
+                if (DateTime.TryParse(eventDate, out var eventDateAsDate))
                 {
                     issueObject.CreatedAt = eventDateAsDate;
                 }

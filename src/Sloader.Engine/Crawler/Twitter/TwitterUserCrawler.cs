@@ -59,9 +59,8 @@ namespace Sloader.Engine.Crawler.Twitter
 
             Trace.TraceInformation($"{nameof(TwitterUserCrawlerConfig)} loading stuff for '{config.Handle}'");
 
-            var result = new TwitterUserResult();
+            var result = new TwitterUserResult {Users = new List<TwitterUserResult.User>()};
 
-            result.Users = new List<TwitterUserResult.User>();
 
 
             var twitterResult = await GetTwitterUser(OAuthToken, config.Handle, config.IncludeRawContent);
@@ -92,17 +91,18 @@ namespace Sloader.Engine.Crawler.Twitter
             {
                 var rawJson = user.ToString();
 
-                TwitterUserResult.User userObject = new TwitterUserResult.User();
-                userObject.Id = user["id_str"].ToObject<string>();
-                userObject.Name = user["name"].ToObject<string>();
-                userObject.Url = user["url"].ToObject<string>();
-                userObject.FollowersCount = user["followers_count"].ToObject<int>();
-                userObject.Description = user["description"].ToObject<string>();
+                TwitterUserResult.User userObject = new TwitterUserResult.User
+                {
+                    Id = user["id_str"].ToObject<string>(),
+                    Name = user["name"].ToObject<string>(),
+                    Url = user["url"].ToObject<string>(),
+                    FollowersCount = user["followers_count"].ToObject<int>(),
+                    Description = user["description"].ToObject<string>()
+                };
 
                 var userDate = user["created_at"].ToObject<string>();
 
-                DateTime userDateAsDate;
-                if (DateTime.TryParseExact(userDate, "ddd MMM dd HH:mm:ss zzz yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out userDateAsDate))
+                if (DateTime.TryParseExact(userDate, "ddd MMM dd HH:mm:ss zzz yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out var userDateAsDate))
                 {
                     userObject.CreatedAt = userDateAsDate;
                 }
