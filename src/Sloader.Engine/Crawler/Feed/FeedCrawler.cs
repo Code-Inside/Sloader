@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using HtmlAgilityPack;
 using Sloader.Config.Crawler.Feed;
+using Sloader.Engine.Util;
 using Sloader.Result.Types;
 using WorldDomination.Net.Http;
 
@@ -170,11 +171,11 @@ namespace Sloader.Engine.Crawler.Feed
             {
                 var crawlerResultItem = new FeedResult.FeedItem
                 {
-                    Title = rssItem.Elements().FirstOrDefault(i => i.Name.LocalName == "title")?.Value,
-                    Href = rssItem.Elements().FirstOrDefault(i => i.Name.LocalName == "link")?.Value
+                    Title = rssItem.Elements().FirstOrDefault(i => i.Name.LocalName == "title")?.Value.ToCleanString(),
+                    Href = rssItem.Elements().FirstOrDefault(i => i.Name.LocalName == "link")?.Value.ToCleanString()
                 };
 
-                var summary = rssItem.Elements().FirstOrDefault(i => i.Name.LocalName == "description")?.Value;
+                var summary = rssItem.Elements().FirstOrDefault(i => i.Name.LocalName == "description")?.Value.ToCleanString();
                 if (config.SummaryTruncateAt == 0)
                 {
                     crawlerResultItem.Summary = summary;

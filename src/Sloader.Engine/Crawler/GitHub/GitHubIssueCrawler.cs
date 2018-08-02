@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Sloader.Config.Crawler.GitHub;
+using Sloader.Engine.Util;
 using Sloader.Result.Types;
 using WorldDomination.Net.Http;
 
@@ -94,8 +95,8 @@ namespace Sloader.Engine.Crawler.GitHub
                         Id = gitHubIssue["id"].ToObject<string>(),
                         Number = gitHubIssue["number"].ToObject<string>(),
                         State = gitHubIssue["state"].ToObject<string>(),
-                        Title = gitHubIssue["title"].ToObject<string>(),
-                        Body = gitHubIssue["body"].ToObject<string>(),
+                        Title = gitHubIssue["title"].ToObject<string>().ToCleanString(),
+                        Body = gitHubIssue["body"].ToObject<string>().ToCleanString(),
                         Actor = gitHubIssue["user"]?["login"].ToObject<string>()
                     };
 
@@ -109,12 +110,12 @@ namespace Sloader.Engine.Crawler.GitHub
                     if (issueObject.State == "closed")
                     {
                         issueObject.RelatedDescription = "Closed or merged PR \"" +
-                                                         gitHubIssue["title"]?.ToObject<string>() + "\" (#" +
+                                                         gitHubIssue["title"]?.ToObject<string>().ToCleanString() + "\" (#" +
                                                          gitHubIssue["number"]?.ToObject<string>() + ")";
                     }
                     else if (issueObject.State == "open")
                     {
-                        issueObject.RelatedDescription = "Open PR \"" + gitHubIssue["title"]?.ToObject<string>() +
+                        issueObject.RelatedDescription = "Open PR \"" + gitHubIssue["title"]?.ToObject<string>().ToCleanString() +
                                                          "\" (#" + gitHubIssue["number"]?.ToObject<string>() + ")";
                     }
                 }
@@ -126,12 +127,12 @@ namespace Sloader.Engine.Crawler.GitHub
                     if (issueObject.State == "closed")
                     {
                         issueObject.RelatedDescription = "Closed issue \"" +
-                                                         gitHubIssue["title"]?.ToObject<string>() + "\" (#" +
+                                                         gitHubIssue["title"]?.ToObject<string>().ToCleanString() + "\" (#" +
                                                          gitHubIssue["number"]?.ToObject<string>() + ")";
                     }
                     else if (issueObject.State == "open")
                     {
-                        issueObject.RelatedDescription = "Open issue \"" + gitHubIssue["title"]?.ToObject<string>() +
+                        issueObject.RelatedDescription = "Open issue \"" + gitHubIssue["title"]?.ToObject<string>().ToCleanString() +
                                                          "\" (#" + gitHubIssue["number"]?.ToObject<string>() + ")";
                     }
                 }

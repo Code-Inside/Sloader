@@ -541,13 +541,13 @@ references:
   commentId: Overload:Sloader.Config.SloaderConfig.Drop
   fullName: Sloader.Config.SloaderConfig.Drop
   nameWithType: SloaderConfig.Drop
-- uid: Sloader.Config.SloaderConfig.Load(System.String,Dictionary{System.String,System.String})
+- uid: Sloader.Config.SloaderConfig.Load(System.String,System.Collections.Generic.Dictionary{System.String,System.String})
   name: Load(String, Dictionary<String, String>)
-  href: api/Sloader.Config.SloaderConfig.html#Sloader_Config_SloaderConfig_Load_System_String_Dictionary_System_String_System_String__
-  commentId: M:Sloader.Config.SloaderConfig.Load(System.String,Dictionary{System.String,System.String})
+  href: api/Sloader.Config.SloaderConfig.html#Sloader_Config_SloaderConfig_Load_System_String_System_Collections_Generic_Dictionary_System_String_System_String__
+  commentId: M:Sloader.Config.SloaderConfig.Load(System.String,System.Collections.Generic.Dictionary{System.String,System.String})
   name.vb: Load(String, Dictionary(Of String, String))
-  fullName: Sloader.Config.SloaderConfig.Load(System.String, Dictionary<System.String, System.String>)
-  fullName.vb: Sloader.Config.SloaderConfig.Load(System.String, Dictionary(Of System.String, System.String))
+  fullName: Sloader.Config.SloaderConfig.Load(System.String, System.Collections.Generic.Dictionary<System.String, System.String>)
+  fullName.vb: Sloader.Config.SloaderConfig.Load(System.String, System.Collections.Generic.Dictionary(Of System.String, System.String))
   nameWithType: SloaderConfig.Load(String, Dictionary<String, String>)
   nameWithType.vb: SloaderConfig.Load(String, Dictionary(Of String, String))
 - uid: Sloader.Config.SloaderConfig.Load*
@@ -574,13 +574,13 @@ references:
   commentId: T:Sloader.Config.SloaderConfigDeserializer
   fullName: Sloader.Config.SloaderConfigDeserializer
   nameWithType: SloaderConfigDeserializer
-- uid: Sloader.Config.SloaderConfigDeserializer.GetConfigWithEmbeddedSecrets(System.String,Dictionary{System.String,System.String})
+- uid: Sloader.Config.SloaderConfigDeserializer.GetConfigWithEmbeddedSecrets(System.String,System.Collections.Generic.Dictionary{System.String,System.String})
   name: GetConfigWithEmbeddedSecrets(String, Dictionary<String, String>)
-  href: api/Sloader.Config.SloaderConfigDeserializer.html#Sloader_Config_SloaderConfigDeserializer_GetConfigWithEmbeddedSecrets_System_String_Dictionary_System_String_System_String__
-  commentId: M:Sloader.Config.SloaderConfigDeserializer.GetConfigWithEmbeddedSecrets(System.String,Dictionary{System.String,System.String})
+  href: api/Sloader.Config.SloaderConfigDeserializer.html#Sloader_Config_SloaderConfigDeserializer_GetConfigWithEmbeddedSecrets_System_String_System_Collections_Generic_Dictionary_System_String_System_String__
+  commentId: M:Sloader.Config.SloaderConfigDeserializer.GetConfigWithEmbeddedSecrets(System.String,System.Collections.Generic.Dictionary{System.String,System.String})
   name.vb: GetConfigWithEmbeddedSecrets(String, Dictionary(Of String, String))
-  fullName: Sloader.Config.SloaderConfigDeserializer.GetConfigWithEmbeddedSecrets(System.String, Dictionary<System.String, System.String>)
-  fullName.vb: Sloader.Config.SloaderConfigDeserializer.GetConfigWithEmbeddedSecrets(System.String, Dictionary(Of System.String, System.String))
+  fullName: Sloader.Config.SloaderConfigDeserializer.GetConfigWithEmbeddedSecrets(System.String, System.Collections.Generic.Dictionary<System.String, System.String>)
+  fullName.vb: Sloader.Config.SloaderConfigDeserializer.GetConfigWithEmbeddedSecrets(System.String, System.Collections.Generic.Dictionary(Of System.String, System.String))
   nameWithType: SloaderConfigDeserializer.GetConfigWithEmbeddedSecrets(String, Dictionary<String, String>)
   nameWithType.vb: SloaderConfigDeserializer.GetConfigWithEmbeddedSecrets(String, Dictionary(Of String, String))
 - uid: Sloader.Config.SloaderConfigDeserializer.GetConfigWithEmbeddedSecrets*
@@ -595,13 +595,13 @@ references:
   commentId: T:Sloader.Config.SloaderConfigLoader
   fullName: Sloader.Config.SloaderConfigLoader
   nameWithType: SloaderConfigLoader
-- uid: Sloader.Config.SloaderConfigLoader.GetAsync(System.String,Dictionary{System.String,System.String})
+- uid: Sloader.Config.SloaderConfigLoader.GetAsync(System.String,System.Collections.Generic.Dictionary{System.String,System.String})
   name: GetAsync(String, Dictionary<String, String>)
-  href: api/Sloader.Config.SloaderConfigLoader.html#Sloader_Config_SloaderConfigLoader_GetAsync_System_String_Dictionary_System_String_System_String__
-  commentId: M:Sloader.Config.SloaderConfigLoader.GetAsync(System.String,Dictionary{System.String,System.String})
+  href: api/Sloader.Config.SloaderConfigLoader.html#Sloader_Config_SloaderConfigLoader_GetAsync_System_String_System_Collections_Generic_Dictionary_System_String_System_String__
+  commentId: M:Sloader.Config.SloaderConfigLoader.GetAsync(System.String,System.Collections.Generic.Dictionary{System.String,System.String})
   name.vb: GetAsync(String, Dictionary(Of String, String))
-  fullName: Sloader.Config.SloaderConfigLoader.GetAsync(System.String, Dictionary<System.String, System.String>)
-  fullName.vb: Sloader.Config.SloaderConfigLoader.GetAsync(System.String, Dictionary(Of System.String, System.String))
+  fullName: Sloader.Config.SloaderConfigLoader.GetAsync(System.String, System.Collections.Generic.Dictionary<System.String, System.String>)
+  fullName.vb: Sloader.Config.SloaderConfigLoader.GetAsync(System.String, System.Collections.Generic.Dictionary(Of System.String, System.String))
   nameWithType: SloaderConfigLoader.GetAsync(String, Dictionary<String, String>)
   nameWithType.vb: SloaderConfigLoader.GetAsync(String, Dictionary(Of String, String))
 - uid: Sloader.Config.SloaderConfigLoader.GetAsync*
@@ -622,11 +622,11 @@ references:
   commentId: M:Sloader.Config.SloaderConfigLocator.#ctor
   fullName: Sloader.Config.SloaderConfigLocator.SloaderConfigLocator()
   nameWithType: SloaderConfigLocator.SloaderConfigLocator()
-- uid: Sloader.Config.SloaderConfigLocator.#ctor(FakeHttpMessageHandler)
+- uid: Sloader.Config.SloaderConfigLocator.#ctor(WorldDomination.Net.Http.FakeHttpMessageHandler)
   name: SloaderConfigLocator(FakeHttpMessageHandler)
-  href: api/Sloader.Config.SloaderConfigLocator.html#Sloader_Config_SloaderConfigLocator__ctor_FakeHttpMessageHandler_
-  commentId: M:Sloader.Config.SloaderConfigLocator.#ctor(FakeHttpMessageHandler)
-  fullName: Sloader.Config.SloaderConfigLocator.SloaderConfigLocator(FakeHttpMessageHandler)
+  href: api/Sloader.Config.SloaderConfigLocator.html#Sloader_Config_SloaderConfigLocator__ctor_WorldDomination_Net_Http_FakeHttpMessageHandler_
+  commentId: M:Sloader.Config.SloaderConfigLocator.#ctor(WorldDomination.Net.Http.FakeHttpMessageHandler)
+  fullName: Sloader.Config.SloaderConfigLocator.SloaderConfigLocator(WorldDomination.Net.Http.FakeHttpMessageHandler)
   nameWithType: SloaderConfigLocator.SloaderConfigLocator(FakeHttpMessageHandler)
 - uid: Sloader.Config.SloaderConfigLocator.#ctor*
   name: SloaderConfigLocator
@@ -748,11 +748,11 @@ references:
   commentId: M:Sloader.Engine.Crawler.DependencyServices.TwitterOAuthTokenService.#ctor
   fullName: Sloader.Engine.Crawler.DependencyServices.TwitterOAuthTokenService.TwitterOAuthTokenService()
   nameWithType: TwitterOAuthTokenService.TwitterOAuthTokenService()
-- uid: Sloader.Engine.Crawler.DependencyServices.TwitterOAuthTokenService.#ctor(FakeHttpMessageHandler)
+- uid: Sloader.Engine.Crawler.DependencyServices.TwitterOAuthTokenService.#ctor(WorldDomination.Net.Http.FakeHttpMessageHandler)
   name: TwitterOAuthTokenService(FakeHttpMessageHandler)
-  href: api/Sloader.Engine.Crawler.DependencyServices.TwitterOAuthTokenService.html#Sloader_Engine_Crawler_DependencyServices_TwitterOAuthTokenService__ctor_FakeHttpMessageHandler_
-  commentId: M:Sloader.Engine.Crawler.DependencyServices.TwitterOAuthTokenService.#ctor(FakeHttpMessageHandler)
-  fullName: Sloader.Engine.Crawler.DependencyServices.TwitterOAuthTokenService.TwitterOAuthTokenService(FakeHttpMessageHandler)
+  href: api/Sloader.Engine.Crawler.DependencyServices.TwitterOAuthTokenService.html#Sloader_Engine_Crawler_DependencyServices_TwitterOAuthTokenService__ctor_WorldDomination_Net_Http_FakeHttpMessageHandler_
+  commentId: M:Sloader.Engine.Crawler.DependencyServices.TwitterOAuthTokenService.#ctor(WorldDomination.Net.Http.FakeHttpMessageHandler)
+  fullName: Sloader.Engine.Crawler.DependencyServices.TwitterOAuthTokenService.TwitterOAuthTokenService(WorldDomination.Net.Http.FakeHttpMessageHandler)
   nameWithType: TwitterOAuthTokenService.TwitterOAuthTokenService(FakeHttpMessageHandler)
 - uid: Sloader.Engine.Crawler.DependencyServices.TwitterOAuthTokenService.#ctor*
   name: TwitterOAuthTokenService
@@ -790,11 +790,11 @@ references:
   commentId: M:Sloader.Engine.Crawler.Feed.FacebookShareCountLoader.#ctor
   fullName: Sloader.Engine.Crawler.Feed.FacebookShareCountLoader.FacebookShareCountLoader()
   nameWithType: FacebookShareCountLoader.FacebookShareCountLoader()
-- uid: Sloader.Engine.Crawler.Feed.FacebookShareCountLoader.#ctor(FakeHttpMessageHandler)
+- uid: Sloader.Engine.Crawler.Feed.FacebookShareCountLoader.#ctor(WorldDomination.Net.Http.FakeHttpMessageHandler)
   name: FacebookShareCountLoader(FakeHttpMessageHandler)
-  href: api/Sloader.Engine.Crawler.Feed.FacebookShareCountLoader.html#Sloader_Engine_Crawler_Feed_FacebookShareCountLoader__ctor_FakeHttpMessageHandler_
-  commentId: M:Sloader.Engine.Crawler.Feed.FacebookShareCountLoader.#ctor(FakeHttpMessageHandler)
-  fullName: Sloader.Engine.Crawler.Feed.FacebookShareCountLoader.FacebookShareCountLoader(FakeHttpMessageHandler)
+  href: api/Sloader.Engine.Crawler.Feed.FacebookShareCountLoader.html#Sloader_Engine_Crawler_Feed_FacebookShareCountLoader__ctor_WorldDomination_Net_Http_FakeHttpMessageHandler_
+  commentId: M:Sloader.Engine.Crawler.Feed.FacebookShareCountLoader.#ctor(WorldDomination.Net.Http.FakeHttpMessageHandler)
+  fullName: Sloader.Engine.Crawler.Feed.FacebookShareCountLoader.FacebookShareCountLoader(WorldDomination.Net.Http.FakeHttpMessageHandler)
   nameWithType: FacebookShareCountLoader.FacebookShareCountLoader(FakeHttpMessageHandler)
 - uid: Sloader.Engine.Crawler.Feed.FacebookShareCountLoader.#ctor*
   name: FacebookShareCountLoader
@@ -826,11 +826,11 @@ references:
   commentId: M:Sloader.Engine.Crawler.Feed.FeedCrawler.#ctor
   fullName: Sloader.Engine.Crawler.Feed.FeedCrawler.FeedCrawler()
   nameWithType: FeedCrawler.FeedCrawler()
-- uid: Sloader.Engine.Crawler.Feed.FeedCrawler.#ctor(FakeHttpMessageHandler,Sloader.Engine.Crawler.Feed.IFacebookShareCountLoader)
+- uid: Sloader.Engine.Crawler.Feed.FeedCrawler.#ctor(WorldDomination.Net.Http.FakeHttpMessageHandler,Sloader.Engine.Crawler.Feed.IFacebookShareCountLoader)
   name: FeedCrawler(FakeHttpMessageHandler, IFacebookShareCountLoader)
-  href: api/Sloader.Engine.Crawler.Feed.FeedCrawler.html#Sloader_Engine_Crawler_Feed_FeedCrawler__ctor_FakeHttpMessageHandler_Sloader_Engine_Crawler_Feed_IFacebookShareCountLoader_
-  commentId: M:Sloader.Engine.Crawler.Feed.FeedCrawler.#ctor(FakeHttpMessageHandler,Sloader.Engine.Crawler.Feed.IFacebookShareCountLoader)
-  fullName: Sloader.Engine.Crawler.Feed.FeedCrawler.FeedCrawler(FakeHttpMessageHandler, Sloader.Engine.Crawler.Feed.IFacebookShareCountLoader)
+  href: api/Sloader.Engine.Crawler.Feed.FeedCrawler.html#Sloader_Engine_Crawler_Feed_FeedCrawler__ctor_WorldDomination_Net_Http_FakeHttpMessageHandler_Sloader_Engine_Crawler_Feed_IFacebookShareCountLoader_
+  commentId: M:Sloader.Engine.Crawler.Feed.FeedCrawler.#ctor(WorldDomination.Net.Http.FakeHttpMessageHandler,Sloader.Engine.Crawler.Feed.IFacebookShareCountLoader)
+  fullName: Sloader.Engine.Crawler.Feed.FeedCrawler.FeedCrawler(WorldDomination.Net.Http.FakeHttpMessageHandler, Sloader.Engine.Crawler.Feed.IFacebookShareCountLoader)
   nameWithType: FeedCrawler.FeedCrawler(FakeHttpMessageHandler, IFacebookShareCountLoader)
 - uid: Sloader.Engine.Crawler.Feed.FeedCrawler.#ctor*
   name: FeedCrawler
@@ -868,42 +868,6 @@ references:
   commentId: Overload:Sloader.Engine.Crawler.Feed.IFacebookShareCountLoader.GetAsync
   fullName: Sloader.Engine.Crawler.Feed.IFacebookShareCountLoader.GetAsync
   nameWithType: IFacebookShareCountLoader.GetAsync
-- uid: Sloader.Engine.Crawler.Feed.ISyndicationFeedAbstraction
-  name: ISyndicationFeedAbstraction
-  href: api/Sloader.Engine.Crawler.Feed.ISyndicationFeedAbstraction.html
-  commentId: T:Sloader.Engine.Crawler.Feed.ISyndicationFeedAbstraction
-  fullName: Sloader.Engine.Crawler.Feed.ISyndicationFeedAbstraction
-  nameWithType: ISyndicationFeedAbstraction
-- uid: Sloader.Engine.Crawler.Feed.ISyndicationFeedAbstraction.Get(System.String)
-  name: Get(String)
-  href: api/Sloader.Engine.Crawler.Feed.ISyndicationFeedAbstraction.html#Sloader_Engine_Crawler_Feed_ISyndicationFeedAbstraction_Get_System_String_
-  commentId: M:Sloader.Engine.Crawler.Feed.ISyndicationFeedAbstraction.Get(System.String)
-  fullName: Sloader.Engine.Crawler.Feed.ISyndicationFeedAbstraction.Get(System.String)
-  nameWithType: ISyndicationFeedAbstraction.Get(String)
-- uid: Sloader.Engine.Crawler.Feed.ISyndicationFeedAbstraction.Get*
-  name: Get
-  href: api/Sloader.Engine.Crawler.Feed.ISyndicationFeedAbstraction.html#Sloader_Engine_Crawler_Feed_ISyndicationFeedAbstraction_Get_
-  commentId: Overload:Sloader.Engine.Crawler.Feed.ISyndicationFeedAbstraction.Get
-  fullName: Sloader.Engine.Crawler.Feed.ISyndicationFeedAbstraction.Get
-  nameWithType: ISyndicationFeedAbstraction.Get
-- uid: Sloader.Engine.Crawler.Feed.SyndicationFeedAbstraction
-  name: SyndicationFeedAbstraction
-  href: api/Sloader.Engine.Crawler.Feed.SyndicationFeedAbstraction.html
-  commentId: T:Sloader.Engine.Crawler.Feed.SyndicationFeedAbstraction
-  fullName: Sloader.Engine.Crawler.Feed.SyndicationFeedAbstraction
-  nameWithType: SyndicationFeedAbstraction
-- uid: Sloader.Engine.Crawler.Feed.SyndicationFeedAbstraction.Get(System.String)
-  name: Get(String)
-  href: api/Sloader.Engine.Crawler.Feed.SyndicationFeedAbstraction.html#Sloader_Engine_Crawler_Feed_SyndicationFeedAbstraction_Get_System_String_
-  commentId: M:Sloader.Engine.Crawler.Feed.SyndicationFeedAbstraction.Get(System.String)
-  fullName: Sloader.Engine.Crawler.Feed.SyndicationFeedAbstraction.Get(System.String)
-  nameWithType: SyndicationFeedAbstraction.Get(String)
-- uid: Sloader.Engine.Crawler.Feed.SyndicationFeedAbstraction.Get*
-  name: Get
-  href: api/Sloader.Engine.Crawler.Feed.SyndicationFeedAbstraction.html#Sloader_Engine_Crawler_Feed_SyndicationFeedAbstraction_Get_
-  commentId: Overload:Sloader.Engine.Crawler.Feed.SyndicationFeedAbstraction.Get
-  fullName: Sloader.Engine.Crawler.Feed.SyndicationFeedAbstraction.Get
-  nameWithType: SyndicationFeedAbstraction.Get
 - uid: Sloader.Engine.Crawler.GitHub
   name: Sloader.Engine.Crawler.GitHub
   href: api/Sloader.Engine.Crawler.GitHub.html
@@ -922,11 +886,11 @@ references:
   commentId: M:Sloader.Engine.Crawler.GitHub.GitHubEventCrawler.#ctor
   fullName: Sloader.Engine.Crawler.GitHub.GitHubEventCrawler.GitHubEventCrawler()
   nameWithType: GitHubEventCrawler.GitHubEventCrawler()
-- uid: Sloader.Engine.Crawler.GitHub.GitHubEventCrawler.#ctor(FakeHttpMessageHandler)
+- uid: Sloader.Engine.Crawler.GitHub.GitHubEventCrawler.#ctor(WorldDomination.Net.Http.FakeHttpMessageHandler)
   name: GitHubEventCrawler(FakeHttpMessageHandler)
-  href: api/Sloader.Engine.Crawler.GitHub.GitHubEventCrawler.html#Sloader_Engine_Crawler_GitHub_GitHubEventCrawler__ctor_FakeHttpMessageHandler_
-  commentId: M:Sloader.Engine.Crawler.GitHub.GitHubEventCrawler.#ctor(FakeHttpMessageHandler)
-  fullName: Sloader.Engine.Crawler.GitHub.GitHubEventCrawler.GitHubEventCrawler(FakeHttpMessageHandler)
+  href: api/Sloader.Engine.Crawler.GitHub.GitHubEventCrawler.html#Sloader_Engine_Crawler_GitHub_GitHubEventCrawler__ctor_WorldDomination_Net_Http_FakeHttpMessageHandler_
+  commentId: M:Sloader.Engine.Crawler.GitHub.GitHubEventCrawler.#ctor(WorldDomination.Net.Http.FakeHttpMessageHandler)
+  fullName: Sloader.Engine.Crawler.GitHub.GitHubEventCrawler.GitHubEventCrawler(WorldDomination.Net.Http.FakeHttpMessageHandler)
   nameWithType: GitHubEventCrawler.GitHubEventCrawler(FakeHttpMessageHandler)
 - uid: Sloader.Engine.Crawler.GitHub.GitHubEventCrawler.#ctor*
   name: GitHubEventCrawler
@@ -958,11 +922,11 @@ references:
   commentId: M:Sloader.Engine.Crawler.GitHub.GitHubIssueCrawler.#ctor
   fullName: Sloader.Engine.Crawler.GitHub.GitHubIssueCrawler.GitHubIssueCrawler()
   nameWithType: GitHubIssueCrawler.GitHubIssueCrawler()
-- uid: Sloader.Engine.Crawler.GitHub.GitHubIssueCrawler.#ctor(FakeHttpMessageHandler)
+- uid: Sloader.Engine.Crawler.GitHub.GitHubIssueCrawler.#ctor(WorldDomination.Net.Http.FakeHttpMessageHandler)
   name: GitHubIssueCrawler(FakeHttpMessageHandler)
-  href: api/Sloader.Engine.Crawler.GitHub.GitHubIssueCrawler.html#Sloader_Engine_Crawler_GitHub_GitHubIssueCrawler__ctor_FakeHttpMessageHandler_
-  commentId: M:Sloader.Engine.Crawler.GitHub.GitHubIssueCrawler.#ctor(FakeHttpMessageHandler)
-  fullName: Sloader.Engine.Crawler.GitHub.GitHubIssueCrawler.GitHubIssueCrawler(FakeHttpMessageHandler)
+  href: api/Sloader.Engine.Crawler.GitHub.GitHubIssueCrawler.html#Sloader_Engine_Crawler_GitHub_GitHubIssueCrawler__ctor_WorldDomination_Net_Http_FakeHttpMessageHandler_
+  commentId: M:Sloader.Engine.Crawler.GitHub.GitHubIssueCrawler.#ctor(WorldDomination.Net.Http.FakeHttpMessageHandler)
+  fullName: Sloader.Engine.Crawler.GitHub.GitHubIssueCrawler.GitHubIssueCrawler(WorldDomination.Net.Http.FakeHttpMessageHandler)
   nameWithType: GitHubIssueCrawler.GitHubIssueCrawler(FakeHttpMessageHandler)
 - uid: Sloader.Engine.Crawler.GitHub.GitHubIssueCrawler.#ctor*
   name: GitHubIssueCrawler
@@ -1025,11 +989,11 @@ references:
   commentId: M:Sloader.Engine.Crawler.Twitter.TwitterTimelineCrawler.#ctor
   fullName: Sloader.Engine.Crawler.Twitter.TwitterTimelineCrawler.TwitterTimelineCrawler()
   nameWithType: TwitterTimelineCrawler.TwitterTimelineCrawler()
-- uid: Sloader.Engine.Crawler.Twitter.TwitterTimelineCrawler.#ctor(FakeHttpMessageHandler)
+- uid: Sloader.Engine.Crawler.Twitter.TwitterTimelineCrawler.#ctor(WorldDomination.Net.Http.FakeHttpMessageHandler)
   name: TwitterTimelineCrawler(FakeHttpMessageHandler)
-  href: api/Sloader.Engine.Crawler.Twitter.TwitterTimelineCrawler.html#Sloader_Engine_Crawler_Twitter_TwitterTimelineCrawler__ctor_FakeHttpMessageHandler_
-  commentId: M:Sloader.Engine.Crawler.Twitter.TwitterTimelineCrawler.#ctor(FakeHttpMessageHandler)
-  fullName: Sloader.Engine.Crawler.Twitter.TwitterTimelineCrawler.TwitterTimelineCrawler(FakeHttpMessageHandler)
+  href: api/Sloader.Engine.Crawler.Twitter.TwitterTimelineCrawler.html#Sloader_Engine_Crawler_Twitter_TwitterTimelineCrawler__ctor_WorldDomination_Net_Http_FakeHttpMessageHandler_
+  commentId: M:Sloader.Engine.Crawler.Twitter.TwitterTimelineCrawler.#ctor(WorldDomination.Net.Http.FakeHttpMessageHandler)
+  fullName: Sloader.Engine.Crawler.Twitter.TwitterTimelineCrawler.TwitterTimelineCrawler(WorldDomination.Net.Http.FakeHttpMessageHandler)
   nameWithType: TwitterTimelineCrawler.TwitterTimelineCrawler(FakeHttpMessageHandler)
 - uid: Sloader.Engine.Crawler.Twitter.TwitterTimelineCrawler.#ctor*
   name: TwitterTimelineCrawler
@@ -1073,11 +1037,11 @@ references:
   commentId: M:Sloader.Engine.Crawler.Twitter.TwitterUserCrawler.#ctor
   fullName: Sloader.Engine.Crawler.Twitter.TwitterUserCrawler.TwitterUserCrawler()
   nameWithType: TwitterUserCrawler.TwitterUserCrawler()
-- uid: Sloader.Engine.Crawler.Twitter.TwitterUserCrawler.#ctor(FakeHttpMessageHandler)
+- uid: Sloader.Engine.Crawler.Twitter.TwitterUserCrawler.#ctor(WorldDomination.Net.Http.FakeHttpMessageHandler)
   name: TwitterUserCrawler(FakeHttpMessageHandler)
-  href: api/Sloader.Engine.Crawler.Twitter.TwitterUserCrawler.html#Sloader_Engine_Crawler_Twitter_TwitterUserCrawler__ctor_FakeHttpMessageHandler_
-  commentId: M:Sloader.Engine.Crawler.Twitter.TwitterUserCrawler.#ctor(FakeHttpMessageHandler)
-  fullName: Sloader.Engine.Crawler.Twitter.TwitterUserCrawler.TwitterUserCrawler(FakeHttpMessageHandler)
+  href: api/Sloader.Engine.Crawler.Twitter.TwitterUserCrawler.html#Sloader_Engine_Crawler_Twitter_TwitterUserCrawler__ctor_WorldDomination_Net_Http_FakeHttpMessageHandler_
+  commentId: M:Sloader.Engine.Crawler.Twitter.TwitterUserCrawler.#ctor(WorldDomination.Net.Http.FakeHttpMessageHandler)
+  fullName: Sloader.Engine.Crawler.Twitter.TwitterUserCrawler.TwitterUserCrawler(WorldDomination.Net.Http.FakeHttpMessageHandler)
   nameWithType: TwitterUserCrawler.TwitterUserCrawler(FakeHttpMessageHandler)
 - uid: Sloader.Engine.Crawler.Twitter.TwitterUserCrawler.#ctor*
   name: TwitterUserCrawler
@@ -1242,13 +1206,13 @@ references:
   commentId: M:Sloader.Engine.SloaderRunner.AutoRun(System.String)
   fullName: Sloader.Engine.SloaderRunner.AutoRun(System.String)
   nameWithType: SloaderRunner.AutoRun(String)
-- uid: Sloader.Engine.SloaderRunner.AutoRun(System.String,Dictionary{System.String,System.String})
+- uid: Sloader.Engine.SloaderRunner.AutoRun(System.String,System.Collections.Generic.Dictionary{System.String,System.String})
   name: AutoRun(String, Dictionary<String, String>)
-  href: api/Sloader.Engine.SloaderRunner.html#Sloader_Engine_SloaderRunner_AutoRun_System_String_Dictionary_System_String_System_String__
-  commentId: M:Sloader.Engine.SloaderRunner.AutoRun(System.String,Dictionary{System.String,System.String})
+  href: api/Sloader.Engine.SloaderRunner.html#Sloader_Engine_SloaderRunner_AutoRun_System_String_System_Collections_Generic_Dictionary_System_String_System_String__
+  commentId: M:Sloader.Engine.SloaderRunner.AutoRun(System.String,System.Collections.Generic.Dictionary{System.String,System.String})
   name.vb: AutoRun(String, Dictionary(Of String, String))
-  fullName: Sloader.Engine.SloaderRunner.AutoRun(System.String, Dictionary<System.String, System.String>)
-  fullName.vb: Sloader.Engine.SloaderRunner.AutoRun(System.String, Dictionary(Of System.String, System.String))
+  fullName: Sloader.Engine.SloaderRunner.AutoRun(System.String, System.Collections.Generic.Dictionary<System.String, System.String>)
+  fullName.vb: Sloader.Engine.SloaderRunner.AutoRun(System.String, System.Collections.Generic.Dictionary(Of System.String, System.String))
   nameWithType: SloaderRunner.AutoRun(String, Dictionary<String, String>)
   nameWithType.vb: SloaderRunner.AutoRun(String, Dictionary(Of String, String))
 - uid: Sloader.Engine.SloaderRunner.AutoRun*
@@ -1281,6 +1245,30 @@ references:
   commentId: Overload:Sloader.Engine.SloaderRunner.RunThroughDrop
   fullName: Sloader.Engine.SloaderRunner.RunThroughDrop
   nameWithType: SloaderRunner.RunThroughDrop
+- uid: Sloader.Engine.Util
+  name: Sloader.Engine.Util
+  href: api/Sloader.Engine.Util.html
+  commentId: N:Sloader.Engine.Util
+  fullName: Sloader.Engine.Util
+  nameWithType: Sloader.Engine.Util
+- uid: Sloader.Engine.Util.StringExtensions
+  name: StringExtensions
+  href: api/Sloader.Engine.Util.StringExtensions.html
+  commentId: T:Sloader.Engine.Util.StringExtensions
+  fullName: Sloader.Engine.Util.StringExtensions
+  nameWithType: StringExtensions
+- uid: Sloader.Engine.Util.StringExtensions.ToCleanString(System.String)
+  name: ToCleanString(String)
+  href: api/Sloader.Engine.Util.StringExtensions.html#Sloader_Engine_Util_StringExtensions_ToCleanString_System_String_
+  commentId: M:Sloader.Engine.Util.StringExtensions.ToCleanString(System.String)
+  fullName: Sloader.Engine.Util.StringExtensions.ToCleanString(System.String)
+  nameWithType: StringExtensions.ToCleanString(String)
+- uid: Sloader.Engine.Util.StringExtensions.ToCleanString*
+  name: ToCleanString
+  href: api/Sloader.Engine.Util.StringExtensions.html#Sloader_Engine_Util_StringExtensions_ToCleanString_
+  commentId: Overload:Sloader.Engine.Util.StringExtensions.ToCleanString
+  fullName: Sloader.Engine.Util.StringExtensions.ToCleanString
+  nameWithType: StringExtensions.ToCleanString
 - uid: Sloader.Result
   name: Sloader.Result
   href: api/Sloader.Result.html
@@ -1437,60 +1425,6 @@ references:
   commentId: F:Sloader.Result.KnownResultType.TwitterUser
   fullName: Sloader.Result.KnownResultType.TwitterUser
   nameWithType: KnownResultType.TwitterUser
-- uid: Sloader.Result.ResultConverter
-  name: ResultConverter
-  href: api/Sloader.Result.ResultConverter.html
-  commentId: T:Sloader.Result.ResultConverter
-  fullName: Sloader.Result.ResultConverter
-  nameWithType: ResultConverter
-- uid: Sloader.Result.ResultConverter.CanConvert(System.Type)
-  name: CanConvert(Type)
-  href: api/Sloader.Result.ResultConverter.html#Sloader_Result_ResultConverter_CanConvert_System_Type_
-  commentId: M:Sloader.Result.ResultConverter.CanConvert(System.Type)
-  fullName: Sloader.Result.ResultConverter.CanConvert(System.Type)
-  nameWithType: ResultConverter.CanConvert(Type)
-- uid: Sloader.Result.ResultConverter.CanConvert*
-  name: CanConvert
-  href: api/Sloader.Result.ResultConverter.html#Sloader_Result_ResultConverter_CanConvert_
-  commentId: Overload:Sloader.Result.ResultConverter.CanConvert
-  fullName: Sloader.Result.ResultConverter.CanConvert
-  nameWithType: ResultConverter.CanConvert
-- uid: Sloader.Result.ResultConverter.CanWrite
-  name: CanWrite
-  href: api/Sloader.Result.ResultConverter.html#Sloader_Result_ResultConverter_CanWrite
-  commentId: P:Sloader.Result.ResultConverter.CanWrite
-  fullName: Sloader.Result.ResultConverter.CanWrite
-  nameWithType: ResultConverter.CanWrite
-- uid: Sloader.Result.ResultConverter.CanWrite*
-  name: CanWrite
-  href: api/Sloader.Result.ResultConverter.html#Sloader_Result_ResultConverter_CanWrite_
-  commentId: Overload:Sloader.Result.ResultConverter.CanWrite
-  fullName: Sloader.Result.ResultConverter.CanWrite
-  nameWithType: ResultConverter.CanWrite
-- uid: Sloader.Result.ResultConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
-  name: ReadJson(JsonReader, Type, Object, JsonSerializer)
-  href: api/Sloader.Result.ResultConverter.html#Sloader_Result_ResultConverter_ReadJson_Newtonsoft_Json_JsonReader_System_Type_System_Object_Newtonsoft_Json_JsonSerializer_
-  commentId: M:Sloader.Result.ResultConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
-  fullName: Sloader.Result.ResultConverter.ReadJson(Newtonsoft.Json.JsonReader, System.Type, System.Object, Newtonsoft.Json.JsonSerializer)
-  nameWithType: ResultConverter.ReadJson(JsonReader, Type, Object, JsonSerializer)
-- uid: Sloader.Result.ResultConverter.ReadJson*
-  name: ReadJson
-  href: api/Sloader.Result.ResultConverter.html#Sloader_Result_ResultConverter_ReadJson_
-  commentId: Overload:Sloader.Result.ResultConverter.ReadJson
-  fullName: Sloader.Result.ResultConverter.ReadJson
-  nameWithType: ResultConverter.ReadJson
-- uid: Sloader.Result.ResultConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
-  name: WriteJson(JsonWriter, Object, JsonSerializer)
-  href: api/Sloader.Result.ResultConverter.html#Sloader_Result_ResultConverter_WriteJson_Newtonsoft_Json_JsonWriter_System_Object_Newtonsoft_Json_JsonSerializer_
-  commentId: M:Sloader.Result.ResultConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
-  fullName: Sloader.Result.ResultConverter.WriteJson(Newtonsoft.Json.JsonWriter, System.Object, Newtonsoft.Json.JsonSerializer)
-  nameWithType: ResultConverter.WriteJson(JsonWriter, Object, JsonSerializer)
-- uid: Sloader.Result.ResultConverter.WriteJson*
-  name: WriteJson
-  href: api/Sloader.Result.ResultConverter.html#Sloader_Result_ResultConverter_WriteJson_
-  commentId: Overload:Sloader.Result.ResultConverter.WriteJson
-  fullName: Sloader.Result.ResultConverter.WriteJson
-  nameWithType: ResultConverter.WriteJson
 - uid: Sloader.Result.Types
   name: Sloader.Result.Types
   href: api/Sloader.Result.Types.html

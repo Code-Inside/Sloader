@@ -84,6 +84,7 @@
     <Compile Include="SloaderRunner.cs" />
     <Compile Include="Crawler\Twitter\TwitterTimelineCrawler.cs" />
     <Compile Include="Crawler\Twitter\TwitterUserCrawler.cs" />
+    <Compile Include="Util\StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

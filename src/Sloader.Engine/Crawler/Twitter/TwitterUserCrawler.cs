@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Sloader.Config.Crawler.Twitter;
 using Sloader.Engine.Crawler.DependencyServices;
+using Sloader.Engine.Util;
 using Sloader.Result.Types;
 using WorldDomination.Net.Http;
 
@@ -97,7 +98,7 @@ namespace Sloader.Engine.Crawler.Twitter
                     Name = user["name"].ToObject<string>(),
                     Url = user["url"].ToObject<string>(),
                     FollowersCount = user["followers_count"].ToObject<int>(),
-                    Description = user["description"].ToObject<string>()
+                    Description = user["description"].ToObject<string>().ToCleanString()
                 };
 
                 var userDate = user["created_at"].ToObject<string>();

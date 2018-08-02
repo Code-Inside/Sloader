@@ -89,6 +89,7 @@
     <Compile Include="TestHelperForCurrentProject.cs" />
     <Compile Include="TwitterTimelineCrawlerTests\TwitterTimelineCrawlerTests.cs" />
     <Compile Include="TwitterUserCrawlerTests\TwitterTimelineCrawlerTests.cs" />
+    <Compile Include="UtilTests\StringExtensionCleanerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="FeedCrawlerTests\Samples\GitHubAtom.xml">

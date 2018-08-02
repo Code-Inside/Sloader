@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class GitHubIssueCrawlerConfig
+    <title>Class StringExtensions
    | Welcome to Sloader </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class GitHubIssueCrawlerConfig
+    <meta name="title" content="Class StringExtensions
    | Welcome to Sloader ">
     <meta name="generator" content="docfx 2.12.1.0">
     
@@ -77,27 +77,18 @@
             <article class="content wrap" id="_content">
               
               
-              <h1 id="Sloader_Config_Crawler_GitHub_GitHubIssueCrawlerConfig" data-uid="Sloader.Config.Crawler.GitHub.GitHubIssueCrawlerConfig">Class GitHubIssueCrawlerConfig
+              <h1 id="Sloader_Engine_Util_StringExtensions" data-uid="Sloader.Engine.Util.StringExtensions">Class StringExtensions
               </h1>
-              <div class="markdown level0 summary"><p>Crawler config to read GitHubIssues (PRs and Issues)</p>
-<p>Define a repo, user or organization and sloader will load the desired issue data..</p>
-<p>If you want, you can configure a repository, a user and a org under one key and it will be merged into one list.</p>
+              <div class="markdown level0 summary"><p>Utility functions for strings</p>
 </div>
               <div class="markdown level0 conceptual"></div>
               <div class="inheritance">
                 <h5>Inheritance</h5>
                   <div class="level0"><span class="xref">System.Object</span></div>
-                  <div class="level1"><a class="xref" href="Sloader.Config.Crawler.BaseCrawlerConfig.html">BaseCrawlerConfig</a></div>
-                  <div class="level2"><span class="xref">GitHubIssueCrawlerConfig</span></div>
+                  <div class="level1"><span class="xref">StringExtensions</span></div>
               </div>
               <div class="inheritedMembers">
                 <h5>Inherited Members</h5>
-                <div>
-                  <a class="xref" href="Sloader.Config.Crawler.BaseCrawlerConfig.html#Sloader_Config_Crawler_BaseCrawlerConfig_Key">BaseCrawlerConfig.Key</a>
-                </div>
-                <div>
-                  <a class="xref" href="Sloader.Config.Crawler.BaseCrawlerConfig.html#Sloader_Config_Crawler_BaseCrawlerConfig_IncludeRawContent">BaseCrawlerConfig.IncludeRawContent</a>
-                </div>
                 <div>
                   <span class="xref">System.Object.ToString()</span>
                 </div>
@@ -120,44 +111,50 @@
                   <span class="xref">System.Object.MemberwiseClone()</span>
                 </div>
               </div>
-              <h6><strong>Namespace</strong>:Sloader.Config.Crawler.GitHub</h6>
-              <h6><strong>Assembly</strong>:Sloader.Config.dll</h6>
-              <h5 id="Sloader_Config_Crawler_GitHub_GitHubIssueCrawlerConfig_syntax">Syntax</h5>
+              <h6><strong>Namespace</strong>:Sloader.Engine.Util</h6>
+              <h6><strong>Assembly</strong>:Sloader.Engine.dll</h6>
+              <h5 id="Sloader_Engine_Util_StringExtensions_syntax">Syntax</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public class GitHubIssueCrawlerConfig : BaseCrawlerConfig</code></pre>
+                <pre><code class="lang-csharp hljs">public static class StringExtensions</code></pre>
               </div>
-              <h5 id="Sloader_Config_Crawler_GitHub_GitHubIssueCrawlerConfig_examples"><strong>Examples</strong></h5>
-              
-Demo yml config:
-<pre><code>GitHubIssuesToCrawl:
-- Repository: code-inside/sloader
-  Key: GitHubEventsRepo
-- Organization: code-inside
-  Key: GitHubEventsOrg
-- User: robertmuehsig;oliverguhr
-  Key: GitHubEventsUser</code></pre>
-
-              <h3 id="properties">Properties
+              <h3 id="methods">Methods
               </h3>
               <span class="small pull-right mobile-hide">
                 <span class="divider">|</span>
-                <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Config_Crawler_GitHub_GitHubIssueCrawlerConfig_FilterByState.md&amp;value=---%0Auid%3A%20Sloader.Config.Crawler.GitHub.GitHubIssueCrawlerConfig.FilterByState%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+                <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Engine_Util_StringExtensions_ToCleanString_System_String_.md&amp;value=---%0Auid%3A%20Sloader.Engine.Util.StringExtensions.ToCleanString(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/GitHub/GitHubIssueCrawlerConfig.cs/#L36">View Source</a>
+                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/Util/StringExtensions.cs/#L17">View Source</a>
               </span>
-              <a id="Sloader_Config_Crawler_GitHub_GitHubIssueCrawlerConfig_FilterByState_" data-uid="Sloader.Config.Crawler.GitHub.GitHubIssueCrawlerConfig.FilterByState*"></a>
-              <h4 id="Sloader_Config_Crawler_GitHub_GitHubIssueCrawlerConfig_FilterByState" data-uid="Sloader.Config.Crawler.GitHub.GitHubIssueCrawlerConfig.FilterByState">FilterByState</h4>
-              <div class="markdown level1 summary"><p>Filter issues/PRs by state, default is &quot;open&quot;. </p>
-<p>Possible filters: open, closed, all</p>
-<p>Reference <a href="https://developer.github.com/v3/issues/#list-issues">https://developer.github.com/v3/issues/#list-issues</a></p>
+              <a id="Sloader_Engine_Util_StringExtensions_ToCleanString_" data-uid="Sloader.Engine.Util.StringExtensions.ToCleanString*"></a>
+              <h4 id="Sloader_Engine_Util_StringExtensions_ToCleanString_System_String_" data-uid="Sloader.Engine.Util.StringExtensions.ToCleanString(System.String)">ToCleanString(String)</h4>
+              <div class="markdown level1 summary"><p>Some services may return &quot;bad strings&quot;, e.g. strings with control chars in it. This method removes any &quot;bad&quot; chars.</p>
+<p>Be aware that linefeeds are &quot;OK&quot;</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public string FilterByState { get; set; }</code></pre>
+                <pre><code class="lang-csharp hljs">public static string ToCleanString(this string s)</code></pre>
               </div>
-              <h5 class="propertyValue">Property Value</h5>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">s</span></td>
+                    <td><p>input string</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>
                   <tr>
@@ -168,45 +165,11 @@ Demo yml config:
                 <tbody>
                   <tr>
                     <td><span class="xref">System.String</span></td>
-                    <td></td>
+                    <td><p>clean output string or in case of null it returns string.empty</p>
+</td>
                   </tr>
                 </tbody>
               </table>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Config_Crawler_GitHub_GitHubIssueCrawlerConfig_Repository.md&amp;value=---%0Auid%3A%20Sloader.Config.Crawler.GitHub.GitHubIssueCrawlerConfig.Repository%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/GitHub/GitHubIssueCrawlerConfig.cs/#L29">View Source</a>
-              </span>
-              <a id="Sloader_Config_Crawler_GitHub_GitHubIssueCrawlerConfig_Repository_" data-uid="Sloader.Config.Crawler.GitHub.GitHubIssueCrawlerConfig.Repository*"></a>
-              <h4 id="Sloader_Config_Crawler_GitHub_GitHubIssueCrawlerConfig_Repository" data-uid="Sloader.Config.Crawler.GitHub.GitHubIssueCrawlerConfig.Repository">Repository</h4>
-              <div class="markdown level1 summary"><p>Loads Issues based on a given repository in the form of USER/REPO or ORG/REPO.</p>
-<p>It is allowed to use a ; to load multiple repository events under one key.</p>
-<p>Uses a endpoint like this <a href="https://api.github.com/repos/code-inside/sloader/issues">https://api.github.com/repos/code-inside/sloader/issues</a> </p>
-</div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public string Repository { get; set; }</code></pre>
-              </div>
-              <h5 class="propertyValue">Property Value</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 id="Sloader_Config_Crawler_GitHub_GitHubIssueCrawlerConfig_Repository_examples">Examples</h5>
-              code-inside/sloader;robertmuehsig/EinKofferVollerReisen
                         </article>
           </div>
           
@@ -215,10 +178,10 @@ Demo yml config:
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Config_Crawler_GitHub_GitHubIssueCrawlerConfig.md&amp;value=---%0Auid%3A%20Sloader.Config.Crawler.GitHub.GitHubIssueCrawlerConfig%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Engine_Util_StringExtensions.md&amp;value=---%0Auid%3A%20Sloader.Engine.Util.StringExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Config/Crawler/GitHub/GitHubIssueCrawlerConfig.cs/#L21" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/Util/StringExtensions.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Sloader.Config.Crawler.Twitter;
+using Sloader.Engine.Crawler.DependencyServices;
+using Sloader.Engine.Util;
 using Sloader.Result.Types;
 using WorldDomination.Net.Http;
 
@@ -46,6 +48,7 @@ namespace Sloader.Engine.Crawler.Twitter
         /// <see cref="TwitterOAuthTokenService"/>
         public string OAuthToken { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Actual worker method which will load the timelines for the given users.
         /// </summary>
@@ -100,7 +103,7 @@ namespace Sloader.Engine.Crawler.Twitter
                         new TwitterTimelineResult.Tweet
                         {
                             Id = tweet["id_str"].ToObject<string>(),
-                            Text = tweet["text"].ToObject<string>(),
+                            Text = tweet["text"].ToObject<string>().ToCleanString(),
                             Source = tweet["source"].ToObject<string>(),
                             RetweetCount = tweet["favorite_count"].ToObject<int>(),
                             FavoriteCount = tweet["retweet_count"].ToObject<int>(),
