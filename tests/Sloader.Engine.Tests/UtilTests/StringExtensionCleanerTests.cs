@@ -24,11 +24,11 @@ namespace Sloader.Engine.Tests.UtilTests
         }
 
 	    [Fact]
-	    public void Preserves_rn()
+	    public void Preserves_rnt()
 	    {
-		    string test = "foobar\r\ntest";
+		    string test = "\tfoobar\r\ntest";
 
-		    Assert.Equal("foobar\r\ntest", test.ToCleanString());
+		    Assert.Equal("\tfoobar\r\ntest", test.ToCleanString());
 	    }
 
 		[Fact]
