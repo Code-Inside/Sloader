@@ -11,6 +11,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Sloader Engine</description>
     <releaseNotes>
+      ## Version 0.9.2 ##
+      White list some control chars and ban the rest
       ## Version 0.9.1 ##
       Remove special chars from strings that may break Jeykll and co.
       ## Version 0.9.0 ##

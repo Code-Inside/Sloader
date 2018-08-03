@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 
 namespace Sloader.Engine.Util
 {
@@ -16,10 +15,15 @@ namespace Sloader.Engine.Util
 		/// <returns>clean output string or in case of null it returns string.empty</returns>
 		public static string ToCleanString(this string s)
 		{
-			var hChars = new char[] { '\u007f' };
-
-			return s == null ? string.Empty : new string(s.Where(c => !hChars.Contains(c)).ToArray()); ;
+			return s == null ? string.Empty : new string(s.Where(c => !IsBadControlChar(c)).ToArray()); 
 		}
 
+		private static bool IsBadControlChar(char c)
+		{
+			if (c == '\r' || c == '\n' || c == '\t')
+				return false;
+
+			return char.IsControl(c);
+		}
 	}
 }

@@ -42,5 +42,16 @@ namespace Sloader.Engine.Tests.UtilTests
 			Assert.Equal("foobartest", test.ToCleanString());
 	    }
 
+	    [Fact]
+	    public void Returns_Cleaned_String_With_ControlChar_Pure()
+	    {
+		    // control char \u7f 
+		    char c = '';
+
+		    string test = "foobar" + c + "test";
+
+		    Assert.Equal("foobartest", test.ToCleanString());
+	    }
+
 	}
 }
