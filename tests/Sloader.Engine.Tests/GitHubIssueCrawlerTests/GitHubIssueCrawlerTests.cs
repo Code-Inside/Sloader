@@ -41,7 +41,7 @@ namespace Sloader.Engine.Tests.GitHubIssueCrawlerTests
                 uri = uri + "?state=" + stateFilter;
             }
 
-            var fakeMessageHandler = new FakeHttpMessageHandler(new HttpMessageOptions() { HttpResponseMessage = messageResponse, RequestUri = uri });
+            var fakeMessageHandler = new FakeHttpMessageHandler(new HttpMessageOptions() { HttpResponseMessage = messageResponse, RequestUri = new System.Uri(uri) });
 
             var sut = new GitHubIssueCrawler(fakeMessageHandler);
 

@@ -29,9 +29,9 @@ namespace Sloader.Config.Tests.CrawlerConfigTests
             Assert.Equal("robertmuehsig", configValue.User);
             Assert.Equal("code-inside/sloader", configValue.Repository);
             Assert.True(configValue.Events.Count == 3);
-            Assert.True(configValue.Events.Contains("PullRequestEvent"));
-            Assert.True(configValue.Events.Contains("IssuesEvent"));
-            Assert.True(configValue.Events.Contains("ReleaseEvent"));
+            Assert.Contains("PullRequestEvent", configValue.Events);
+            Assert.Contains("IssuesEvent", configValue.Events);
+            Assert.Contains("ReleaseEvent", configValue.Events);
         }
 
         [Fact]
@@ -50,8 +50,8 @@ namespace Sloader.Config.Tests.CrawlerConfigTests
             var configValue = result.Crawler.GitHubEventsToCrawl.First();
 
             Assert.True(configValue.Events.Count == 2);
-            Assert.True(configValue.Events.Contains("PullRequestEvent"));
-            Assert.True(configValue.Events.Contains("IssuesEvent"));
+            Assert.Contains("PullRequestEvent", configValue.Events);
+            Assert.Contains("IssuesEvent", configValue.Events);
         }
     }
 }
