@@ -71,7 +71,7 @@ namespace Sloader.Engine.Tests.TwitterTimelineCrawlerTests
 
             var firstTestContent = testContent.First.ToString();
 
-            Assert.Equal(null, firstResult.RawContent);
+            Assert.Null(firstResult.RawContent);
         }
 
 

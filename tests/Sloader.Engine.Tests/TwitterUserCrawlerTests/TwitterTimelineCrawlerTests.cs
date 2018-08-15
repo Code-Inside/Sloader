@@ -43,7 +43,7 @@ namespace Sloader.Engine.Tests.TwitterUserCrawlerTests
         public async Task Crawler_Should_Return_One_User()
         {
             var result = await InvokeSut(Guid.NewGuid().ToString(), "Twitter");
-            Assert.Equal(1, result.Users.Count);
+            Assert.Single(result.Users);
         }
 
 

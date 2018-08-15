@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Code Inside Team</Authors>
+    <Company>Code Inside Team</Company>
+    <PackageLicenseUrl>https://github.com/Code-Inside/Sloader/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/Code-Inside/Sloader</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Code-Inside/Sloader</RepositoryUrl>
+    <Version>0.9.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
