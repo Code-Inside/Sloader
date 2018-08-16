@@ -28,14 +28,15 @@ namespace Sloader.Engine.Tests.TwitterTimelineCrawlerTests
 
             var fakeMessageHandler = new FakeHttpMessageHandler(new HttpMessageOptions() { HttpResponseMessage = messageResponse });
 
-            var sut = new TwitterTimelineCrawler(fakeMessageHandler);
-            sut.OAuthToken = oAuthToken;
+	        var sut = new TwitterTimelineCrawler(fakeMessageHandler) {OAuthToken = oAuthToken};
 
-            var config = new TwitterTimelineCrawlerConfig();
-            config.Handle = handle;
-            config.IncludeRawContent = includeRaw;
+	        var config = new TwitterTimelineCrawlerConfig
+	        {
+		        Handle = handle,
+		        IncludeRawContent = includeRaw
+	        };
 
-            var result = await sut.DoWorkAsync(config);
+	        var result = await sut.DoWorkAsync(config);
             return result;
         }
 
