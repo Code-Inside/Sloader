@@ -2,29 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.7.0.0</Version>
-    <PackageReleaseNotes>## Version 0.7.0 ##
-      GitHub Issue Crawler
-      ## Version 0.6.0 ##
-      Feed - TruncateSummary feature
-      ## Version 0.5.0 ##
-      GitHub Event Filter
-      ## Version 0.4.0 ##
-      SloaderConfigLocator introduces to load multiple yml files from GitHub
-      ## Version 0.3.0 ##
-      IncludeRawContent introduced - raw content saving is now optional
-      ## Version 0.2.3 ##
-      Documentation
-      ## Version 0.2.2 ##
-      Fixed NuGet Package (dll...)
-      ## Version 0.2.1 ##
-      Fixed NuGet Package
-      ## Version 0.2.0 ##
-      GitHubEvent Crawler added
-      ## Version 0.1.1 ##
-      Trace Information added
-      ## Version 0.1.0 ##
-      Init</PackageReleaseNotes>
+    <Version>1.0.0.0</Version>
+    <PackageReleaseNotes>See Changelog.md</PackageReleaseNotes>
     <PackageLicenseUrl>https://github.com/Code-Inside/Sloader/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/Code-Inside/Sloader</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Code-Inside/Sloader</RepositoryUrl>

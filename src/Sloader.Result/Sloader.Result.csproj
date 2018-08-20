@@ -3,25 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageReleaseNotes>## Version 0.4.0 ##
-      GitHub Issue Crawler result
-      ## Version 0.3.1 ##
-      Documentation
-      ## Version 0.3.0 ##
-      GitHub Results enhanced (with RelatedBody)
-      ## Version 0.2.2 ##
-      Fixed NuGet Package (dll...)
-      ## Version 0.2.1 ##
-      Fixed NuGet Package
-      ## Version 0.2.0 ##
-      GitHubEvent Crawler added
-      ## Version 0.1 ##
-      Init</PackageReleaseNotes>
+    <PackageReleaseNotes>See Changelog.md</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/Code-Inside/Sloader</PackageProjectUrl>
     <Company />
     <Product />
     <Authors>Code Inside Team</Authors>
-    <Version>0.4.0</Version>
+    <Version>1.0.0</Version>
     <PackageLicenseUrl>https://github.com/Code-Inside/Sloader/blob/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
 
