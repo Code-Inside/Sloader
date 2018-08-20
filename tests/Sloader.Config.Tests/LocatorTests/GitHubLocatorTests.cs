@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
@@ -21,7 +22,7 @@ namespace Sloader.Config.Tests.LocatorTests
             
             var messageResponse = FakeHttpMessageHandler.GetStringHttpResponseMessage(GetTestFileContent());
 
-            var fakeMessageHandler = new FakeHttpMessageHandler(new HttpMessageOptions() { HttpResponseMessage = messageResponse, RequestUri = $"https://api.github.com/repos/{owner}/{repo}/contents/{path}" });
+            var fakeMessageHandler = new FakeHttpMessageHandler(new HttpMessageOptions() { HttpResponseMessage = messageResponse, RequestUri = new Uri($"https://api.github.com/repos/{owner}/{repo}/contents/{path}") });
 
             var sut = new SloaderConfigLocator(fakeMessageHandler);
 
@@ -35,8 +36,8 @@ namespace Sloader.Config.Tests.LocatorTests
             var result = await InvokeSut("Code-Inside", "KnowYourStack", "_data", "*.Sloader.yml");
 
             Assert.Equal(2, result.Count());
-            Assert.True(result.Contains("https://raw.githubusercontent.com/Code-Inside/KnowYourStack/master/_data/AspNetCore.Sloader.yml"));
-            Assert.True(result.Contains("https://raw.githubusercontent.com/Code-Inside/KnowYourStack/master/_data/NuGet.Sloader.yml"));
+            Assert.Contains("https://raw.githubusercontent.com/Code-Inside/KnowYourStack/master/_data/AspNetCore.Sloader.yml", result);
+            Assert.Contains("https://raw.githubusercontent.com/Code-Inside/KnowYourStack/master/_data/NuGet.Sloader.yml", result);
         }
 
         [Fact]
@@ -44,7 +45,7 @@ namespace Sloader.Config.Tests.LocatorTests
         {
             var result = await InvokeSut("Code-Inside", "KnowYourStack", "_data", "*.XSloader.yml");
 
-            Assert.Equal(0, result.Count());
+            Assert.Empty(result);
         }
     }
 }

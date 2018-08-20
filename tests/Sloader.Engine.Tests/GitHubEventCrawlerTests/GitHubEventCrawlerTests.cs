@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
 
             var messageResponse = FakeHttpMessageHandler.GetStringHttpResponseMessage(responseData);
 
-            var fakeMessageHandler = new FakeHttpMessageHandler(new HttpMessageOptions() { HttpResponseMessage = messageResponse, RequestUri = $"https://api.github.com/orgs/{org}/events" });
+            var fakeMessageHandler = new FakeHttpMessageHandler(new HttpMessageOptions() { HttpResponseMessage = messageResponse, RequestUri = new Uri($"https://api.github.com/orgs/{org}/events") });
 
             var sut = new GitHubEventCrawler(fakeMessageHandler);
 
@@ -68,7 +69,7 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
 
             var messageResponse = FakeHttpMessageHandler.GetStringHttpResponseMessage(responseData);
 
-            var fakeMessageHandler = new FakeHttpMessageHandler(new HttpMessageOptions() { HttpResponseMessage = messageResponse, RequestUri = $"https://api.github.com/users/{user}/events" });
+            var fakeMessageHandler = new FakeHttpMessageHandler(new HttpMessageOptions() { HttpResponseMessage = messageResponse, RequestUri = new Uri($"https://api.github.com/users/{user}/events") });
 
             var sut = new GitHubEventCrawler(fakeMessageHandler);
 
@@ -94,7 +95,7 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
 
             var messageResponse = FakeHttpMessageHandler.GetStringHttpResponseMessage(responseData);
 
-            var fakeMessageHandler = new FakeHttpMessageHandler(new HttpMessageOptions() { HttpResponseMessage = messageResponse, RequestUri = $"https://api.github.com/repos/{repo}/events" });
+            var fakeMessageHandler = new FakeHttpMessageHandler(new HttpMessageOptions() { HttpResponseMessage = messageResponse, RequestUri = new Uri($"https://api.github.com/repos/{repo}/events") });
 
             var sut = new GitHubEventCrawler(fakeMessageHandler);
 
@@ -151,7 +152,7 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
 
             var firstTestContent = testContent.First.ToString();
 
-            Assert.Equal(null, firstResult.RawContent);
+            Assert.Null(firstResult.RawContent);
         }
 
         [Fact]
@@ -172,7 +173,7 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
 
             var firstTestContent = testContent.First.ToString();
 
-            Assert.Equal(null, firstResult.RawContent);
+            Assert.Null(firstResult.RawContent);
         }
 
         [Fact]
@@ -369,7 +370,7 @@ namespace Sloader.Engine.Tests.GitHubEventCrawlerTests
 
             var firstTestContent = testContent.First.ToString();
 
-            Assert.Equal(null, firstResult.RawContent);
+            Assert.Null(firstResult.RawContent);
         }
 
 

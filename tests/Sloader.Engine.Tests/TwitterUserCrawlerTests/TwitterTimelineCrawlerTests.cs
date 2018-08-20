@@ -28,14 +28,15 @@ namespace Sloader.Engine.Tests.TwitterUserCrawlerTests
 
             var fakeMessageHandler = new FakeHttpMessageHandler(new HttpMessageOptions() { HttpResponseMessage = messageResponse });
 
-            var sut = new TwitterUserCrawler(fakeMessageHandler);
-            sut.OAuthToken = oAuthToken;
+	        var sut = new TwitterUserCrawler(fakeMessageHandler) {OAuthToken = oAuthToken};
 
-            var config = new TwitterUserCrawlerConfig();
-            config.Handle = handle;
-            config.IncludeRawContent = includeRaw;
+	        var config = new TwitterUserCrawlerConfig
+	        {
+		        Handle = handle,
+		        IncludeRawContent = includeRaw
+	        };
 
-            var result = await sut.DoWorkAsync(config);
+	        var result = await sut.DoWorkAsync(config);
             return result;
         }
 
@@ -43,7 +44,7 @@ namespace Sloader.Engine.Tests.TwitterUserCrawlerTests
         public async Task Crawler_Should_Return_One_User()
         {
             var result = await InvokeSut(Guid.NewGuid().ToString(), "Twitter");
-            Assert.Equal(1, result.Users.Count);
+            Assert.Single(result.Users);
         }
 
 

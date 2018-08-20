@@ -32,37 +32,27 @@ Task("Restore-NuGet-Packages")
 });
 
 Task("BuildPackages")
-    .IsDependentOn("Restore-NuGet-Packages")
-	.IsDependentOn("RunTests")
+	.IsDependentOn("Test")
     .Does(() =>
 {
-    var nuGetPackSettings = new NuGetPackSettings
-	{
-		OutputDirectory = rootAbsoluteDir + @"\artifacts\",
-		IncludeReferencedProjects = true,
-		Properties = new Dictionary<string, string>
-		{
-			{ "Configuration", "Release" }
-		}
-	};
+	 var settings = new DotNetCorePackSettings
+     {
+         Configuration = "Release",
+		 NoBuild = false,
+         OutputDirectory =  rootAbsoluteDir + @"\artifacts\"
+     };
 
-	 var commonMsBuildSettings = new MSBuildSettings {
-		ToolVersion = MSBuildToolVersion.VS2017
-	 };
-	
-	 MSBuild("./src/Sloader.Config/Sloader.Config.csproj", commonMsBuildSettings.SetConfiguration("Release"));
-     NuGetPack("./src/Sloader.Config/Sloader.Config.csproj", nuGetPackSettings);
-	 MSBuild("./src/Sloader.Result/Sloader.Result.csproj", commonMsBuildSettings.SetConfiguration("Release"));
-     NuGetPack("./src/Sloader.Result/Sloader.Result.csproj", nuGetPackSettings);
-	 MSBuild("./src/Sloader.Engine/Sloader.Engine.csproj", commonMsBuildSettings.SetConfiguration("Release"));
-	 NuGetPack("./src/Sloader.Engine/Sloader.Engine.csproj", nuGetPackSettings);
+     DotNetCorePack("./src/Sloader.Config/Sloader.Config.csproj", settings);
+	 DotNetCorePack("./src/Sloader.Result/Sloader.Result.csproj", settings);
+	 DotNetCorePack("./src/Sloader.Engine/Sloader.Engine.csproj", settings);
 });
 
-Task("BuildTests")
-    .IsDependentOn("Restore-NuGet-Packages")
+Task("Test")
+	.IsDependentOn("Restore-NuGet-Packages")
     .Does(() =>
 {
-	var parsedSolution = ParseSolution("./Sloader.sln");
+    Information("Start Building and Running Tests");
+    var parsedSolution = ParseSolution("./Sloader.sln");
 
 	foreach(var project in parsedSolution.Projects)
 	{
@@ -71,28 +61,16 @@ Task("BuildTests")
 		{
         Information("Start Building Test: " + project.Name);
 
-		var settings = new MSBuildSettings()
-                .SetConfiguration("Debug")
-                .SetMSBuildPlatform(MSBuildPlatform.Automatic)
-                .SetVerbosity(Verbosity.Minimal)
-                .WithProperty("SolutionDir", @".\")
-                .WithProperty("OutDir", rootAbsoluteDir + @"\artifacts\_tests\" + project.Name + @"\");
-
-		settings.ToolVersion = MSBuildToolVersion.VS2017;
-
-        MSBuild(project.Path, settings);
+		DotNetCoreTest(
+                project.Path.ToString(),
+                new DotNetCoreTestSettings()
+                {
+                    Configuration = configuration,
+                    NoBuild = false
+                });
 		}
 	
 	}    
-
-});
-
-Task("RunTests")
-    .IsDependentOn("BuildTests")
-    .Does(() =>
-{
-    Information("Start Running Tests");
-    XUnit2("./artifacts/_tests/**/*.Tests.dll");
 });
 
 //////////////////////////////////////////////////////////////////////
@@ -100,7 +78,7 @@ Task("RunTests")
 //////////////////////////////////////////////////////////////////////
 
 Task("Default")
-    .IsDependentOn("RunTests")
+    .IsDependentOn("Test")
 	.IsDependentOn("BuildPackages");
 
 //////////////////////////////////////////////////////////////////////
