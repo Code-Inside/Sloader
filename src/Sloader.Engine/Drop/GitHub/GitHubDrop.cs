@@ -21,6 +21,7 @@ namespace Sloader.Engine.Drop.GitHub
         /// <see cref="SloaderSecrets.GitHubAccessToken"/>
         public string AccessToken { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Actual work method - will write everything to GitHub via Octokit.net.
         /// </summary>
@@ -30,6 +31,11 @@ namespace Sloader.Engine.Drop.GitHub
         public async Task DoWorkAsync(GitHubDropConfig config, CrawlerRun crawlerRun)
         {
             Trace.TraceInformation($"{nameof(GitHubDrop)} dropping stuff for owner '{config.Owner}' on '{config.Repo}':'{config.Branch}' for '{config.FilePath}' ");
+
+	        if (string.IsNullOrWhiteSpace(AccessToken))
+	        {
+		        throw new ArgumentException($"{nameof(AccessToken)} is not applied for {nameof(GitHubDrop)} work action.");
+	        }
 
             var ghClient =
                 new GitHubClient(new ProductHeaderValue("Sloader")) {Credentials = new Credentials(AccessToken)};
@@ -52,7 +58,7 @@ namespace Sloader.Engine.Drop.GitHub
                 await ghClient.Repository.Content.UpdateFile(owner, repo, targetFile,
                    new UpdateFileRequest($"Sloader update on {targetFile}", content, existingFile.First().Sha, branch));
             }
-            catch (Octokit.NotFoundException)
+            catch (NotFoundException)
             {
                 // if file is not found, create it
                 try

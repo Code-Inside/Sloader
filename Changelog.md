@@ -87,6 +87,10 @@ Init
 
 # Sloader.Engine
 
+## Version 1.1.0
+
+Look for secrets in environment variables to support Azure Functions
+
 ## Version 1.0.0
 
 .NET Standard 2.0 Implementation

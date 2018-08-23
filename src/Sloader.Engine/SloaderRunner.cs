@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
@@ -15,204 +16,245 @@ using Sloader.Result;
 
 namespace Sloader.Engine
 {
-    /// <summary>
-    /// The main actor in Sloader:
-    /// <para>Loads the Sloader.Config.</para>
-    /// <para>Run through all crawlers and drops.</para>
-    /// </summary>
-    public class SloaderRunner
-    {
-        /// <summary>
-        /// AutoRun does most of the stuff and will load the config from the defined SloaderConfigPath.
-        /// <para>The AutoRun will also scan all AppSettings and try to fill up all missing Secrets.</para>
-        /// </summary>
-        /// <see cref="FixedConfigKeys.SloaderConfigPath"/>
-        public static async Task AutoRun()
-        {
-            Trace.TraceInformation($"AutoRun invoked.");
-            if (ConfigurationManager.AppSettings[FixedConfigKeys.SloaderConfigPath] != null)
-            {
-                Trace.TraceError($"AppSetting Key with path to Sloader.yml found: '{ConfigurationManager.AppSettings[FixedConfigKeys.SloaderConfigPath]}'.");
+	/// <summary>
+	/// The main actor in Sloader:
+	/// <para>Loads the Sloader.Config.</para>
+	/// <para>Run through all crawlers and drops.</para>
+	/// </summary>
+	public class SloaderRunner
+	{
+		/// <summary>
+		/// AutoRun does most of the stuff and will load the config from the defined SloaderConfigPath.
+		/// <para>The AutoRun will also scan all AppSettings and try to fill up all missing Secrets.</para>
+		/// </summary>
+		/// <see cref="FixedConfigKeys.SloaderConfigPath"/>
+		public static async Task AutoRun()
+		{
+			Trace.TraceInformation($"AutoRun invoked.");
 
-                await AutoRunInternal(ConfigurationManager.AppSettings[FixedConfigKeys.SloaderConfigPath], ConfigurationManager.AppSettings.AllKeys.ToDictionary(k => k,
-                                v => ConfigurationManager.AppSettings[v]));
-            }
-            else
-            {
-                Trace.TraceError($"AppSetting Key with path to Sloader.yml missing: '{FixedConfigKeys.SloaderConfigPath}'");
-            }
-        }
+			var sloaderPathFromEnv = Environment.GetEnvironmentVariable(FixedConfigKeys.SloaderConfigPath);
+			var sloaderPathFromConfig = ConfigurationManager.AppSettings[FixedConfigKeys.SloaderConfigPath];
+			if (string.IsNullOrWhiteSpace(sloaderPathFromEnv) == false || string.IsNullOrWhiteSpace(sloaderPathFromConfig) == false)
+			{
+				string sloaderPath;
+				if (string.IsNullOrWhiteSpace(sloaderPathFromEnv) == false)
+				{
+					sloaderPath = sloaderPathFromEnv;
+					Trace.TraceError($"{FixedConfigKeys.SloaderConfigPath} Key with path to Sloader.yml found in environment: '{sloaderPathFromEnv}'.");
+				}
+				else
+				{
+					sloaderPath = sloaderPathFromConfig;
+					Trace.TraceError($"{FixedConfigKeys.SloaderConfigPath} Key with path to Sloader.yml found in appsettings config: '{sloaderPathFromConfig}'.");
+				}
 
-        /// <summary>
-        /// Same aus the parameterless "AutoRun", but you need to inject the needed SloaderConfigPath.
-        /// <para>Like the parameterless AutoRun this method will also scan all AppSettings and try to fill up all missing Secrets.</para>
-        /// </summary>
-        /// <param name="sloaderConfigPath">Relative or absolute file path or URL to a valid Sloader config.</param>
-        public static async Task AutoRun(string sloaderConfigPath)
-        {
-            Trace.TraceInformation($"AutoRun invoked with {nameof(sloaderConfigPath)}: '{sloaderConfigPath}'.");
+				await AutoRunInternal(sloaderPath, GetSecrectsFromConfigOrEnvironment());
+			}
+			else
+			{
+				Trace.TraceError($"Key with path to Sloader.yml missing in AppSettings or Environment: '{FixedConfigKeys.SloaderConfigPath}'");
+			}
+		}
 
-            await AutoRunInternal(sloaderConfigPath, ConfigurationManager.AppSettings.AllKeys.ToDictionary(k => k,
-                                v => ConfigurationManager.AppSettings[v]));
+		/// <summary>
+		/// Same aus the parameterless "AutoRun", but you need to inject the needed SloaderConfigPath.
+		/// <para>Like the parameterless AutoRun this method will also scan all AppSettings and try to fill up all missing Secrets.</para>
+		/// </summary>
+		/// <param name="sloaderConfigPath">Relative or absolute file path or URL to a valid Sloader config.</param>
+		public static async Task AutoRun(string sloaderConfigPath)
+		{
+			Trace.TraceInformation($"AutoRun invoked with {nameof(sloaderConfigPath)}: '{sloaderConfigPath}'.");
 
-        }
+			var settingsDictionary = GetSecrectsFromConfigOrEnvironment();
 
-        /// <summary>
-        /// Same aus the parameterless "AutoRun", but you need to inject the needed SloaderConfigPath and the Secrets yourself.
-        /// </summary>
-        /// <param name="sloaderConfigPath">Relative or absolute file path or URL to a valid Sloader config.</param>
-        /// <param name="secrets">Secrets, which may be used as placeholders inside the Sloader config.</param>
-        public static async Task AutoRun(string sloaderConfigPath, Dictionary<string, string> secrets)
-        {
-            Trace.TraceInformation($"AutoRun invoked with {nameof(sloaderConfigPath)}: '{sloaderConfigPath}' & '{secrets.Count}' {nameof(secrets)}.");
+			await AutoRunInternal(sloaderConfigPath, settingsDictionary);
 
-            await AutoRunInternal(sloaderConfigPath, secrets);
-        }
+		}
 
-        /// <summary>
-        /// Internal logic for the AutoRun-methods.
-        /// </summary>
-        private static async Task AutoRunInternal(string sloaderConfigPath, Dictionary<string, string> secrets)
-        {
-            var config =
-                 await
-                     SloaderConfig.Load(sloaderConfigPath, secrets);
+		/// <summary>
+		/// Same aus the parameterless "AutoRun", but you need to inject the needed SloaderConfigPath and the Secrets yourself.
+		/// </summary>
+		/// <param name="sloaderConfigPath">Relative or absolute file path or URL to a valid Sloader config.</param>
+		/// <param name="secrets">Secrets, which may be used as placeholders inside the Sloader config.</param>
+		public static async Task AutoRun(string sloaderConfigPath, Dictionary<string, string> secrets)
+		{
+			Trace.TraceInformation($"AutoRun invoked with {nameof(sloaderConfigPath)}: '{sloaderConfigPath}' & '{secrets.Count}' {nameof(secrets)}.");
 
-            Trace.TraceInformation($"SloaderConfig loaded - init {nameof(SloaderRunner)}");
+			await AutoRunInternal(sloaderConfigPath, secrets);
+		}
 
-            var runner = new SloaderRunner(config);
-            var crawlerRun = await runner.RunAllCrawlers();
-            await runner.RunThroughDrop(crawlerRun);
-        }
+		/// <summary>
+		/// Internal logic for the AutoRun-methods.
+		/// </summary>
+		private static async Task AutoRunInternal(string sloaderConfigPath, Dictionary<string, string> secrets)
+		{
+			var config =
+				 await
+					 SloaderConfig.Load(sloaderConfigPath, secrets);
 
-        private readonly SloaderConfig _config;
+			Trace.TraceInformation($"SloaderConfig loaded - init {nameof(SloaderRunner)}");
 
-        public SloaderRunner(SloaderConfig config)
-        {
-            _config = config;
-        }
+			var runner = new SloaderRunner(config);
+			var crawlerRun = await runner.RunAllCrawlers();
+			await runner.RunThroughDrop(crawlerRun);
+		}
 
-        /// <summary>
-        /// Will run through all applied crawlers.
-        /// </summary>
-        public async Task<CrawlerRun> RunAllCrawlers()
-        {
-            Trace.TraceInformation($"{nameof(RunAllCrawlers)} invoked.");
-            var watch = new Stopwatch();
-            watch.Start();
+		private readonly SloaderConfig _config;
 
-            var crawlerRunResult = new CrawlerRun();
+		public SloaderRunner(SloaderConfig config)
+		{
+			_config = config;
+		}
 
-            if (_config.Crawler == null)
-                return crawlerRunResult;
+		/// <summary>
+		/// Will run through all applied crawlers.
+		/// </summary>
+		public async Task<CrawlerRun> RunAllCrawlers()
+		{
+			Trace.TraceInformation($"{nameof(RunAllCrawlers)} invoked.");
+			var watch = new Stopwatch();
+			watch.Start();
 
-            // Feeds
-            if (_config.Crawler.FeedsToCrawl.Any())
-            {
-                foreach (var feedConfig in _config.Crawler.FeedsToCrawl)
-                {
-                    var feedCrawler = new FeedCrawler();
-                    var feedResult = await feedCrawler.DoWorkAsync(feedConfig);
-                    crawlerRunResult.AddResultDataPair(feedConfig.Key, feedResult);
-                }
+			var crawlerRunResult = new CrawlerRun();
 
-            }
+			if (_config.Crawler == null)
+				return crawlerRunResult;
 
-            // GitHubEvents
-            if (_config.Crawler.GitHubEventsToCrawl.Any())
-            {
-                foreach (var githubEventConfig in _config.Crawler.GitHubEventsToCrawl)
-                {
-                    var eventCrawler = new GitHubEventCrawler();
-                    var eventResult = await eventCrawler.DoWorkAsync(githubEventConfig);
-                    crawlerRunResult.AddResultDataPair(githubEventConfig.Key, eventResult);
-                }
-            }
+			// Feeds
+			if (_config.Crawler.FeedsToCrawl.Any())
+			{
+				foreach (var feedConfig in _config.Crawler.FeedsToCrawl)
+				{
+					var feedCrawler = new FeedCrawler();
+					var feedResult = await feedCrawler.DoWorkAsync(feedConfig);
+					crawlerRunResult.AddResultDataPair(feedConfig.Key, feedResult);
+				}
 
-            // GitHubIssues
-            if (_config.Crawler.GitHubIssuesToCrawl.Any())
-            {
-                foreach (var githubIssueConfig in _config.Crawler.GitHubIssuesToCrawl)
-                {
-                    var issueCrawler = new GitHubIssueCrawler();
-                    var issueResult = await issueCrawler.DoWorkAsync(githubIssueConfig);
-                    crawlerRunResult.AddResultDataPair(githubIssueConfig.Key, issueResult);
-                }
-            }
+			}
 
-            // Tweets
-            if (_config.Secrets.IsTwitterConsumerConfigured)
-            {
-                ITwitterOAuthTokenService oAuthTokenLoader = new TwitterOAuthTokenService();
-                var oauth = await oAuthTokenLoader.GetAsync(_config.Secrets.TwitterConsumerKey, _config.Secrets.TwitterConsumerSecret);
+			// GitHubEvents
+			if (_config.Crawler.GitHubEventsToCrawl.Any())
+			{
+				foreach (var githubEventConfig in _config.Crawler.GitHubEventsToCrawl)
+				{
+					var eventCrawler = new GitHubEventCrawler();
+					var eventResult = await eventCrawler.DoWorkAsync(githubEventConfig);
+					crawlerRunResult.AddResultDataPair(githubEventConfig.Key, eventResult);
+				}
+			}
 
-                if (string.IsNullOrWhiteSpace(oauth) == false)
-                {
-                    if (_config.Crawler.TwitterTimelinesToCrawl.Any())
-                    {
-                        foreach (var twitterConfig in _config.Crawler.TwitterTimelinesToCrawl)
-                        {
-                            var twitterTimelineCrawler = new TwitterTimelineCrawler {OAuthToken = oauth};
+			// GitHubIssues
+			if (_config.Crawler.GitHubIssuesToCrawl.Any())
+			{
+				foreach (var githubIssueConfig in _config.Crawler.GitHubIssuesToCrawl)
+				{
+					var issueCrawler = new GitHubIssueCrawler();
+					var issueResult = await issueCrawler.DoWorkAsync(githubIssueConfig);
+					crawlerRunResult.AddResultDataPair(githubIssueConfig.Key, issueResult);
+				}
+			}
 
-                            var twitterTimelineResult = await twitterTimelineCrawler.DoWorkAsync(twitterConfig);
-                            crawlerRunResult.AddResultDataPair(twitterConfig.Key, twitterTimelineResult);
-                        }
-                    }
+			// Tweets
+			if (_config.Secrets.IsTwitterConsumerConfigured)
+			{
+				ITwitterOAuthTokenService oAuthTokenLoader = new TwitterOAuthTokenService();
+				var oauth = await oAuthTokenLoader.GetAsync(_config.Secrets.TwitterConsumerKey, _config.Secrets.TwitterConsumerSecret);
 
-                    if (_config.Crawler.TwitterUsersToCrawl.Any())
-                    {
-                        foreach (var twitterConfig in _config.Crawler.TwitterUsersToCrawl)
-                        {
-                            var twitterUserCrawler = new TwitterUserCrawler {OAuthToken = oauth};
+				if (string.IsNullOrWhiteSpace(oauth) == false)
+				{
+					if (_config.Crawler.TwitterTimelinesToCrawl.Any())
+					{
+						foreach (var twitterConfig in _config.Crawler.TwitterTimelinesToCrawl)
+						{
+							var twitterTimelineCrawler = new TwitterTimelineCrawler { OAuthToken = oauth };
 
-                            var twitterUserResult = await twitterUserCrawler.DoWorkAsync(twitterConfig);
-                            crawlerRunResult.AddResultDataPair(twitterConfig.Key, twitterUserResult);
-                        }
-                    }
-                }
+							var twitterTimelineResult = await twitterTimelineCrawler.DoWorkAsync(twitterConfig);
+							crawlerRunResult.AddResultDataPair(twitterConfig.Key, twitterTimelineResult);
+						}
+					}
 
-            }
+					if (_config.Crawler.TwitterUsersToCrawl.Any())
+					{
+						foreach (var twitterConfig in _config.Crawler.TwitterUsersToCrawl)
+						{
+							var twitterUserCrawler = new TwitterUserCrawler { OAuthToken = oauth };
 
-            watch.Stop();
-            crawlerRunResult.RunDurationInMilliseconds = watch.ElapsedMilliseconds;
-            crawlerRunResult.RunOn = DateTime.UtcNow;
+							var twitterUserResult = await twitterUserCrawler.DoWorkAsync(twitterConfig);
+							crawlerRunResult.AddResultDataPair(twitterConfig.Key, twitterUserResult);
+						}
+					}
+				}
 
-            Trace.TraceInformation($"{nameof(RunAllCrawlers)} done.");
+			}
 
-            return crawlerRunResult;
-        }
+			watch.Stop();
+			crawlerRunResult.RunDurationInMilliseconds = watch.ElapsedMilliseconds;
+			crawlerRunResult.RunOn = DateTime.UtcNow;
 
-        /// <summary>
-        /// Will run through all applied drops.
-        /// </summary>
-        /// <param name="crawlerRun">Will drop the CrawlerRun at the configured drops.</param>
-        public async Task RunThroughDrop(CrawlerRun crawlerRun)
-        {
-            Trace.TraceInformation($"{nameof(RunThroughDrop)} invoked.");
+			Trace.TraceInformation($"{nameof(RunAllCrawlers)} done.");
 
-            if (_config.Drop != null)
-            {
-                foreach (var fileDropConfig in _config.Drop.FileDrops)
-                {
-                    var fileDrop = new FileDrop();
-                    await fileDrop.DoWorkAsync(fileDropConfig, crawlerRun);
-                }
+			return crawlerRunResult;
+		}
 
-                foreach (var gitHubDropConfig in _config.Drop.GitHubDrops)
-                {
-                    if (!string.IsNullOrWhiteSpace(_config.Secrets.GitHubAccessToken))
-                    {
-                        var gitHubDrop = new GitHubDrop
-                        {
-                            AccessToken = _config.Secrets.GitHubAccessToken
-                        };
+		/// <summary>
+		/// Will run through all applied drops.
+		/// </summary>
+		/// <param name="crawlerRun">Will drop the CrawlerRun at the configured drops.</param>
+		public async Task RunThroughDrop(CrawlerRun crawlerRun)
+		{
+			Trace.TraceInformation($"{nameof(RunThroughDrop)} invoked.");
 
-                        await gitHubDrop.DoWorkAsync(gitHubDropConfig, crawlerRun);
-                    }
-                }
-            }
+			if (_config.Drop != null)
+			{
+				foreach (var fileDropConfig in _config.Drop.FileDrops)
+				{
+					var fileDrop = new FileDrop();
+					await fileDrop.DoWorkAsync(fileDropConfig, crawlerRun);
+				}
 
-            Trace.TraceInformation($"{nameof(RunThroughDrop)} done.");
-        }
-    }
+				foreach (var gitHubDropConfig in _config.Drop.GitHubDrops)
+				{
+					if (!string.IsNullOrWhiteSpace(_config.Secrets.GitHubAccessToken))
+					{
+						var gitHubDrop = new GitHubDrop
+						{
+							AccessToken = _config.Secrets.GitHubAccessToken
+						};
+
+						await gitHubDrop.DoWorkAsync(gitHubDropConfig, crawlerRun);
+					}
+				}
+			}
+
+			Trace.TraceInformation($"{nameof(RunThroughDrop)} done.");
+		}
+
+		/// <summary>
+		/// Secrets can be applied via legacy appsettings or environment variables (e.g. for Azure Functions etc.).
+		/// This method will apply all settings in a single dictionary.
+		/// </summary>
+		/// <returns>Dictionary with all applied settings to search for secrets.</returns>
+		private static Dictionary<string, string> GetSecrectsFromConfigOrEnvironment()
+		{
+			Dictionary<string, string> dictionaryForSecretsAndPath = new Dictionary<string, string>();
+
+			if (ConfigurationManager.AppSettings != null && ConfigurationManager.AppSettings.HasKeys())
+			{
+				dictionaryForSecretsAndPath = ConfigurationManager.AppSettings.AllKeys.ToDictionary(k => k,
+					v => ConfigurationManager.AppSettings[v]);
+			}
+
+			var fromEnv = Environment.GetEnvironmentVariables(EnvironmentVariableTarget.Process);
+
+			foreach (DictionaryEntry envVar in fromEnv)
+			{
+				if (dictionaryForSecretsAndPath.ContainsKey(envVar.Key.ToString()) == false)
+				{
+					dictionaryForSecretsAndPath.Add(envVar.Key.ToString(), envVar.Value.ToString());
+				}
+			}
+
+			return dictionaryForSecretsAndPath;
+		}
+	}
 }

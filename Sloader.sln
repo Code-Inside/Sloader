@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		build.cake = build.cake
 		build.ps1 = build.ps1
+		Changelog.md = Changelog.md
 		ReadMe.md = ReadMe.md
 	EndProjectSection
 EndProject
@@ -26,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sloader.Result.Tests", "tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sloader.Engine.Tests", "tests\Sloader.Engine.Tests\Sloader.Engine.Tests.csproj", "{AEF2E474-95DF-4D35-847B-AF47AE82997C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sloader.Hosts.Console", "src\Sloader.Hosts.Console\Sloader.Hosts.Console.csproj", "{8E9B3324-02FD-40FE-ACE3-F221664EA06D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sloader.Hosts.Console", "src\Sloader.Hosts.Console\Sloader.Hosts.Console.csproj", "{8E9B3324-02FD-40FE-ACE3-F221664EA06D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
