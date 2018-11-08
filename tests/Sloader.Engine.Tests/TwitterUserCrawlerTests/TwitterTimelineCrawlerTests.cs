@@ -6,7 +6,6 @@ using WorldDomination.Net.Http;
 using Xunit;
 using System.Linq;
 using Sloader.Engine.Crawler.Twitter;
-using Sloader.Result;
 using Sloader.Result.Types;
 
 namespace Sloader.Engine.Tests.TwitterUserCrawlerTests

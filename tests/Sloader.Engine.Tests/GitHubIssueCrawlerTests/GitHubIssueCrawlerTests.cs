@@ -36,7 +36,7 @@ namespace Sloader.Engine.Tests.GitHubIssueCrawlerTests
 
             string uri = $"https://api.github.com/repos/{repo}/issues";
 
-            if (stateFilter != string.Empty)
+            if (string.IsNullOrWhiteSpace(stateFilter) == false)
             {
                 uri = uri + "?state=" + stateFilter;
             }
@@ -53,6 +53,16 @@ namespace Sloader.Engine.Tests.GitHubIssueCrawlerTests
             };
             var result = await sut.DoWorkAsync(config);
             return result;
+        }
+
+        [Theory]
+        [InlineData(null)]
+        [InlineData(" ")]
+        [InlineData("")]
+        public async Task Crawler_Should_Ignore_Bad_State(string state)
+        {
+            var result = await InvokeSut("electronnet/electron.net", state, false);
+            Assert.Equal(29, result.Issues.Count);
         }
 
         [Fact]

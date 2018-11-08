@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+# Not released
+
+## Sloader.Engine
+
+* AutoRun will try to search for a local Sloader.yml file in the same folder as the executable
+* Fix GitHubIssue crawler to avoid "null" states when fetching data.
+
 # Sloader.Config
 
 ## Version 1.0.0 

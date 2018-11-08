@@ -58,7 +58,7 @@ namespace Sloader.Engine.Crawler.GitHub
                 foreach (var maybeSplittedRepo in maybeSplittedRepos)
                 {
                     var apiCall = $"https://api.github.com/repos/{maybeSplittedRepo}/issues";
-                    if (config.FilterByState != string.Empty)
+                    if (string.IsNullOrWhiteSpace(config.FilterByState) == false)
                     {
                         apiCall = apiCall + "?state=" + config.FilterByState;
                     }
@@ -77,6 +77,12 @@ namespace Sloader.Engine.Crawler.GitHub
             // The server committed a protocol violation. Section=ResponseStatusLine ERROR
             _httpClient.DefaultRequestHeaders.Add("User-Agent", "Anything");
             var response = await _httpClient.GetAsync(apiCall);
+
+            //ToDo: Error handling?
+            //if(response.IsSuccessStatusCode == false)
+            //{
+            //    string test = await response.Content.ReadAsStringAsync();
+            //}
 
             response.EnsureSuccessStatusCode();
 

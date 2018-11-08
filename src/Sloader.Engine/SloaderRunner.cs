@@ -13,6 +13,7 @@ using Sloader.Engine.Crawler.Twitter;
 using Sloader.Engine.Drop.File;
 using Sloader.Engine.Drop.GitHub;
 using Sloader.Result;
+using System.IO;
 
 namespace Sloader.Engine
 {
@@ -24,7 +25,8 @@ namespace Sloader.Engine
 	public class SloaderRunner
 	{
 		/// <summary>
-		/// AutoRun does most of the stuff and will load the config from the defined SloaderConfigPath.
+		/// AutoRun does most of the stuff and will load the config from a local Sloader.yml in the same directory
+        /// or for a file defined via the SloaderConfigPath.
 		/// <para>The AutoRun will also scan all AppSettings and try to fill up all missing Secrets.</para>
 		/// </summary>
 		/// <see cref="FixedConfigKeys.SloaderConfigPath"/>
@@ -32,28 +34,38 @@ namespace Sloader.Engine
 		{
 			Trace.TraceInformation($"AutoRun invoked.");
 
-			var sloaderPathFromEnv = Environment.GetEnvironmentVariable(FixedConfigKeys.SloaderConfigPath);
-			var sloaderPathFromConfig = ConfigurationManager.AppSettings[FixedConfigKeys.SloaderConfigPath];
-			if (string.IsNullOrWhiteSpace(sloaderPathFromEnv) == false || string.IsNullOrWhiteSpace(sloaderPathFromConfig) == false)
-			{
-				string sloaderPath;
-				if (string.IsNullOrWhiteSpace(sloaderPathFromEnv) == false)
-				{
-					sloaderPath = sloaderPathFromEnv;
-					Trace.TraceError($"{FixedConfigKeys.SloaderConfigPath} Key with path to Sloader.yml found in environment: '{sloaderPathFromEnv}'.");
-				}
-				else
-				{
-					sloaderPath = sloaderPathFromConfig;
-					Trace.TraceError($"{FixedConfigKeys.SloaderConfigPath} Key with path to Sloader.yml found in appsettings config: '{sloaderPathFromConfig}'.");
-				}
+            var localSloaderFile = Directory.GetFiles(Directory.GetCurrentDirectory(), "Sloader.yml").FirstOrDefault();
 
-				await AutoRunInternal(sloaderPath, GetSecrectsFromConfigOrEnvironment());
-			}
-			else
-			{
-				Trace.TraceError($"Key with path to Sloader.yml missing in AppSettings or Environment: '{FixedConfigKeys.SloaderConfigPath}'");
-			}
+            if(string.IsNullOrWhiteSpace(localSloaderFile) == false)
+            {
+                await AutoRunInternal(localSloaderFile, GetSecrectsFromConfigOrEnvironment());
+            }
+            else
+            {
+                var sloaderPathFromEnv = Environment.GetEnvironmentVariable(FixedConfigKeys.SloaderConfigPath);
+                var sloaderPathFromConfig = ConfigurationManager.AppSettings[FixedConfigKeys.SloaderConfigPath];
+                if (string.IsNullOrWhiteSpace(sloaderPathFromEnv) == false || string.IsNullOrWhiteSpace(sloaderPathFromConfig) == false)
+                {
+                    string sloaderPath;
+                    if (string.IsNullOrWhiteSpace(sloaderPathFromEnv) == false)
+                    {
+                        sloaderPath = sloaderPathFromEnv;
+                        Trace.TraceError($"{FixedConfigKeys.SloaderConfigPath} Key with path to Sloader.yml found in environment: '{sloaderPathFromEnv}'.");
+                    }
+                    else
+                    {
+                        sloaderPath = sloaderPathFromConfig;
+                        Trace.TraceError($"{FixedConfigKeys.SloaderConfigPath} Key with path to Sloader.yml found in appsettings config: '{sloaderPathFromConfig}'.");
+                    }
+
+                    await AutoRunInternal(sloaderPath, GetSecrectsFromConfigOrEnvironment());
+                }
+                else
+                {
+                    Trace.TraceError($"Key with path to Sloader.yml missing in AppSettings or Environment: '{FixedConfigKeys.SloaderConfigPath}'");
+                }
+            }
+			
 		}
 
 		/// <summary>
