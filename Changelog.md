@@ -3,6 +3,10 @@ Changelog
 
 # Not released
 
+## All Packages
+
+* Enable SourceLink https://blog.nuget.org/20180827/Introducing-Source-Code-Link-for-NuGet-packages.html
+
 ## Sloader.Engine
 
 * AutoRun will try to search for a local Sloader.yml file in the same folder as the executable
