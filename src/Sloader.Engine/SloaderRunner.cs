@@ -25,7 +25,7 @@ namespace Sloader.Engine
 	public class SloaderRunner
 	{
 		/// <summary>
-		/// AutoRun does most of the stuff and will load the config from a local Sloader.yml in the same directory
+		/// AutoRun does most of the stuff convention based and will load the config from a local Sloader.yml in the same directory
         /// or for a file defined via the SloaderConfigPath.
 		/// <para>The AutoRun will also scan all AppSettings and try to fill up all missing Secrets.</para>
 		/// </summary>
@@ -69,7 +69,7 @@ namespace Sloader.Engine
 		}
 
 		/// <summary>
-		/// Same aus the parameterless "AutoRun", but you need to inject the needed SloaderConfigPath.
+		/// Same as the parameterless "AutoRun", but you need to inject the needed SloaderConfigPath.
 		/// <para>Like the parameterless AutoRun this method will also scan all AppSettings and try to fill up all missing Secrets.</para>
 		/// </summary>
 		/// <param name="sloaderConfigPath">Relative or absolute file path or URL to a valid Sloader config.</param>

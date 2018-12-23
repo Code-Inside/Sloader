@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class StringExtensions
    | Welcome to Sloader ">
-    <meta name="generator" content="docfx 2.12.1.0">
+    <meta name="generator" content="docfx 2.40.6.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -18,9 +18,11 @@
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
+    
     <meta property="docfx:rel" content="../">
+    
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -56,11 +58,13 @@
           </div>
         </div>
       </header>
-      <div role="main" class="container body-content">
+      <div class="container body-content">
         
         <div id="search-results">
           <div class="search-list"></div>
-          <div class="sr-items"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
           <ul id="pagination"></ul>
         </div>
       </div>
@@ -74,103 +78,100 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content">
-              
-              
-              <h1 id="Sloader_Engine_Util_StringExtensions" data-uid="Sloader.Engine.Util.StringExtensions">Class StringExtensions
-              </h1>
-              <div class="markdown level0 summary"><p>Utility functions for strings</p>
+            <article class="content wrap" id="_content" data-uid="Sloader.Engine.Util.StringExtensions">
+  
+  
+  <h1 id="Sloader_Engine_Util_StringExtensions" data-uid="Sloader.Engine.Util.StringExtensions" class="text-break">Class StringExtensions
+  </h1>
+  <div class="markdown level0 summary"><p>Utility functions for strings</p>
 </div>
-              <div class="markdown level0 conceptual"></div>
-              <div class="inheritance">
-                <h5>Inheritance</h5>
-                  <div class="level0"><span class="xref">System.Object</span></div>
-                  <div class="level1"><span class="xref">StringExtensions</span></div>
-              </div>
-              <div class="inheritedMembers">
-                <h5>Inherited Members</h5>
-                <div>
-                  <span class="xref">System.Object.ToString()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.Equals(System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.GetHashCode()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.GetType()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.MemberwiseClone()</span>
-                </div>
-              </div>
-              <h6><strong>Namespace</strong>:Sloader.Engine.Util</h6>
-              <h6><strong>Assembly</strong>:Sloader.Engine.dll</h6>
-              <h5 id="Sloader_Engine_Util_StringExtensions_syntax">Syntax</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public static class StringExtensions</code></pre>
-              </div>
-              <h3 id="methods">Methods
-              </h3>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Engine_Util_StringExtensions_ToCleanString_System_String_.md&amp;value=---%0Auid%3A%20Sloader.Engine.Util.StringExtensions.ToCleanString(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/Util/StringExtensions.cs/#L17">View Source</a>
-              </span>
-              <a id="Sloader_Engine_Util_StringExtensions_ToCleanString_" data-uid="Sloader.Engine.Util.StringExtensions.ToCleanString*"></a>
-              <h4 id="Sloader_Engine_Util_StringExtensions_ToCleanString_System_String_" data-uid="Sloader.Engine.Util.StringExtensions.ToCleanString(System.String)">ToCleanString(String)</h4>
-              <div class="markdown level1 summary"><p>Some services may return &quot;bad strings&quot;, e.g. strings with control chars in it. This method removes any &quot;bad&quot; chars.</p>
-<p>Be aware that linefeeds are &quot;OK&quot;</p>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">StringExtensions</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Sloader.Engine.Util.html">Sloader.Engine.Util</a></h6>
+  <h6><strong>Assembly</strong>: Sloader.Engine.dll</h6>
+  <h5 id="Sloader_Engine_Util_StringExtensions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class StringExtensions</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/Util/StringExtensions.cs/#L16">View Source</a>
+  </span>
+  <a id="Sloader_Engine_Util_StringExtensions_ToCleanString_" data-uid="Sloader.Engine.Util.StringExtensions.ToCleanString*"></a>
+  <h4 id="Sloader_Engine_Util_StringExtensions_ToCleanString_System_String_" data-uid="Sloader.Engine.Util.StringExtensions.ToCleanString(System.String)">ToCleanString(String)</h4>
+  <div class="markdown level1 summary"><p>Some services may return &quot;bad strings&quot;, e.g. strings with control chars in it. This method removes any &quot;bad&quot; chars.
+<p>Be aware that linefeeds are &quot;OK&quot;</p></p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public static string ToCleanString(this string s)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">s</span></td>
-                    <td><p>input string</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToCleanString(this string s)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">s</span></td>
+        <td><p>input string</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><p>clean output string or in case of null it returns string.empty</p>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>clean output string or in case of null it returns string.empty</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-                        </article>
+      </tr>
+    </tbody>
+  </table>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -178,10 +179,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Engine_Util_StringExtensions.md&amp;value=---%0Auid%3A%20Sloader.Engine.Util.StringExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/Util/StringExtensions.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/Util/StringExtensions.cs/#L8" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

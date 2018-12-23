@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Namespace Sloader.Config
    | Welcome to Sloader ">
-    <meta name="generator" content="docfx 2.12.1.0">
+    <meta name="generator" content="docfx 2.40.6.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -18,9 +18,11 @@
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
+    
     <meta property="docfx:rel" content="../">
+    
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -56,11 +58,13 @@
           </div>
         </div>
       </header>
-      <div role="main" class="container body-content">
+      <div class="container body-content">
         
         <div id="search-results">
           <div class="search-list"></div>
-          <div class="sr-items"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
           <ul id="pagination"></ul>
         </div>
       </div>
@@ -74,37 +78,37 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content">
-              
-              <h1 id="Sloader_Config" data-uid="Sloader.Config">Namespace Sloader.Config
-              </h1>
-              <div class="markdown level0 summary"></div>
-              <div class="markdown level0 conceptual"></div>
-              <div class="markdown level0 remarks"></div>
-                <h3 id="classes">Classes
-              </h3>
-                  <h4><a class="xref" href="Sloader.Config.Constants.html">Constants</a></h4>
-                  <section><p>Common Constants used in the lib</p>
+            <article class="content wrap" id="_content" data-uid="Sloader.Config">
+  
+  <h1 id="Sloader_Config" data-uid="Sloader.Config" class="text-break">Namespace Sloader.Config
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">Classes
+  </h3>
+      <h4><a class="xref" href="Sloader.Config.Constants.html">Constants</a></h4>
+      <section><p>Common Constants used in the lib</p>
 </section>
-                  <h4><a class="xref" href="Sloader.Config.SloaderConfig.html">SloaderConfig</a></h4>
-                  <section><p>Root config entry, holds secrets, drops, crawler, etc.</p>
+      <h4><a class="xref" href="Sloader.Config.SloaderConfig.html">SloaderConfig</a></h4>
+      <section><p>Root config entry, holds secrets, drops, crawler, etc.</p>
 </section>
-                  <h4><a class="xref" href="Sloader.Config.SloaderConfigDeserializer.html">SloaderConfigDeserializer</a></h4>
-                  <section><p>Searches in the given ymlString for $$PLACEHOLDER$$ and replace it with a given PLACEHOLDER secret value.</p>
-<p>The &quot;full&quot; ymlString is then deserialized to the actual SloaderConfig.</p>
+      <h4><a class="xref" href="Sloader.Config.SloaderConfigDeserializer.html">SloaderConfigDeserializer</a></h4>
+      <section><p>Searches in the given ymlString for $$PLACEHOLDER$$ and replace it with a given PLACEHOLDER secret value.
+<p>The &quot;full&quot; ymlString is then deserialized to the actual SloaderConfig.</p></p>
 </section>
-                  <h4><a class="xref" href="Sloader.Config.SloaderConfigLoader.html">SloaderConfigLoader</a></h4>
-                  <section><p>Can load the actual yml file from a local filepath 
+      <h4><a class="xref" href="Sloader.Config.SloaderConfigLoader.html">SloaderConfigLoader</a></h4>
+      <section><p>Can load the actual yml file from a local filepath 
 or via the HttpClient and invokes the deserializer to embeds the given secrets</p>
 </section>
-                  <h4><a class="xref" href="Sloader.Config.SloaderConfigLocator.html">SloaderConfigLocator</a></h4>
-                  <section><p>Helper class to load sloader config paths from different locations</p>
+      <h4><a class="xref" href="Sloader.Config.SloaderConfigLocator.html">SloaderConfigLocator</a></h4>
+      <section><p>Helper class to load sloader config paths from different locations</p>
 </section>
-                  <h4><a class="xref" href="Sloader.Config.SloaderSecrets.html">SloaderSecrets</a></h4>
-                  <section><p>Common Secrets that are used for various Crawler/Drops.</p>
-<p>Be aware that you can use the $$KEY$$ annotation to replace those values from app.config entries.</p>
+      <h4><a class="xref" href="Sloader.Config.SloaderSecrets.html">SloaderSecrets</a></h4>
+      <section><p>Common Secrets that are used for various Crawler/Drops.
+<p>Be aware that you can use the $$KEY$$ annotation to replace those values from app.config entries.</p></p>
 </section>
-                        </article>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

@@ -23,6 +23,7 @@ references:
   name: SloaderYamlDeserializer
   href: api/Sloader.Config.Constants.html#Sloader_Config_Constants_SloaderYamlDeserializer_
   commentId: Overload:Sloader.Config.Constants.SloaderYamlDeserializer
+  isSpec: "True"
   fullName: Sloader.Config.Constants.SloaderYamlDeserializer
   nameWithType: Constants.SloaderYamlDeserializer
 - uid: Sloader.Config.Crawler
@@ -47,6 +48,7 @@ references:
   name: IncludeRawContent
   href: api/Sloader.Config.Crawler.BaseCrawlerConfig.html#Sloader_Config_Crawler_BaseCrawlerConfig_IncludeRawContent_
   commentId: Overload:Sloader.Config.Crawler.BaseCrawlerConfig.IncludeRawContent
+  isSpec: "True"
   fullName: Sloader.Config.Crawler.BaseCrawlerConfig.IncludeRawContent
   nameWithType: BaseCrawlerConfig.IncludeRawContent
 - uid: Sloader.Config.Crawler.BaseCrawlerConfig.Key
@@ -59,6 +61,7 @@ references:
   name: Key
   href: api/Sloader.Config.Crawler.BaseCrawlerConfig.html#Sloader_Config_Crawler_BaseCrawlerConfig_Key_
   commentId: Overload:Sloader.Config.Crawler.BaseCrawlerConfig.Key
+  isSpec: "True"
   fullName: Sloader.Config.Crawler.BaseCrawlerConfig.Key
   nameWithType: BaseCrawlerConfig.Key
 - uid: Sloader.Config.Crawler.CrawlerConfig
@@ -77,6 +80,7 @@ references:
   name: CrawlerConfig
   href: api/Sloader.Config.Crawler.CrawlerConfig.html#Sloader_Config_Crawler_CrawlerConfig__ctor_
   commentId: Overload:Sloader.Config.Crawler.CrawlerConfig.#ctor
+  isSpec: "True"
   fullName: Sloader.Config.Crawler.CrawlerConfig.CrawlerConfig
   nameWithType: CrawlerConfig.CrawlerConfig
 - uid: Sloader.Config.Crawler.CrawlerConfig.FeedsToCrawl
@@ -89,6 +93,7 @@ references:
   name: FeedsToCrawl
   href: api/Sloader.Config.Crawler.CrawlerConfig.html#Sloader_Config_Crawler_CrawlerConfig_FeedsToCrawl_
   commentId: Overload:Sloader.Config.Crawler.CrawlerConfig.FeedsToCrawl
+  isSpec: "True"
   fullName: Sloader.Config.Crawler.CrawlerConfig.FeedsToCrawl
   nameWithType: CrawlerConfig.FeedsToCrawl
 - uid: Sloader.Config.Crawler.CrawlerConfig.GitHubEventsToCrawl
@@ -101,6 +106,7 @@ references:
   name: GitHubEventsToCrawl
   href: api/Sloader.Config.Crawler.CrawlerConfig.html#Sloader_Config_Crawler_CrawlerConfig_GitHubEventsToCrawl_
   commentId: Overload:Sloader.Config.Crawler.CrawlerConfig.GitHubEventsToCrawl
+  isSpec: "True"
   fullName: Sloader.Config.Crawler.CrawlerConfig.GitHubEventsToCrawl
   nameWithType: CrawlerConfig.GitHubEventsToCrawl
 - uid: Sloader.Config.Crawler.CrawlerConfig.GitHubIssuesToCrawl
@@ -113,6 +119,7 @@ references:
   name: GitHubIssuesToCrawl
   href: api/Sloader.Config.Crawler.CrawlerConfig.html#Sloader_Config_Crawler_CrawlerConfig_GitHubIssuesToCrawl_
   commentId: Overload:Sloader.Config.Crawler.CrawlerConfig.GitHubIssuesToCrawl
+  isSpec: "True"
   fullName: Sloader.Config.Crawler.CrawlerConfig.GitHubIssuesToCrawl
   nameWithType: CrawlerConfig.GitHubIssuesToCrawl
 - uid: Sloader.Config.Crawler.CrawlerConfig.TwitterTimelinesToCrawl
@@ -125,6 +132,7 @@ references:
   name: TwitterTimelinesToCrawl
   href: api/Sloader.Config.Crawler.CrawlerConfig.html#Sloader_Config_Crawler_CrawlerConfig_TwitterTimelinesToCrawl_
   commentId: Overload:Sloader.Config.Crawler.CrawlerConfig.TwitterTimelinesToCrawl
+  isSpec: "True"
   fullName: Sloader.Config.Crawler.CrawlerConfig.TwitterTimelinesToCrawl
   nameWithType: CrawlerConfig.TwitterTimelinesToCrawl
 - uid: Sloader.Config.Crawler.CrawlerConfig.TwitterUsersToCrawl
@@ -137,6 +145,7 @@ references:
   name: TwitterUsersToCrawl
   href: api/Sloader.Config.Crawler.CrawlerConfig.html#Sloader_Config_Crawler_CrawlerConfig_TwitterUsersToCrawl_
   commentId: Overload:Sloader.Config.Crawler.CrawlerConfig.TwitterUsersToCrawl
+  isSpec: "True"
   fullName: Sloader.Config.Crawler.CrawlerConfig.TwitterUsersToCrawl
   nameWithType: CrawlerConfig.TwitterUsersToCrawl
 - uid: Sloader.Config.Crawler.Feed
@@ -161,6 +170,7 @@ references:
   name: FeedCrawlerConfig
   href: api/Sloader.Config.Crawler.Feed.FeedCrawlerConfig.html#Sloader_Config_Crawler_Feed_FeedCrawlerConfig__ctor_
   commentId: Overload:Sloader.Config.Crawler.Feed.FeedCrawlerConfig.#ctor
+  isSpec: "True"
   fullName: Sloader.Config.Crawler.Feed.FeedCrawlerConfig.FeedCrawlerConfig
   nameWithType: FeedCrawlerConfig.FeedCrawlerConfig
 - uid: Sloader.Config.Crawler.Feed.FeedCrawlerConfig.LoadSocialLinkCounters
@@ -173,6 +183,7 @@ references:
   name: LoadSocialLinkCounters
   href: api/Sloader.Config.Crawler.Feed.FeedCrawlerConfig.html#Sloader_Config_Crawler_Feed_FeedCrawlerConfig_LoadSocialLinkCounters_
   commentId: Overload:Sloader.Config.Crawler.Feed.FeedCrawlerConfig.LoadSocialLinkCounters
+  isSpec: "True"
   fullName: Sloader.Config.Crawler.Feed.FeedCrawlerConfig.LoadSocialLinkCounters
   nameWithType: FeedCrawlerConfig.LoadSocialLinkCounters
 - uid: Sloader.Config.Crawler.Feed.FeedCrawlerConfig.SummaryTruncateAt
@@ -185,6 +196,7 @@ references:
   name: SummaryTruncateAt
   href: api/Sloader.Config.Crawler.Feed.FeedCrawlerConfig.html#Sloader_Config_Crawler_Feed_FeedCrawlerConfig_SummaryTruncateAt_
   commentId: Overload:Sloader.Config.Crawler.Feed.FeedCrawlerConfig.SummaryTruncateAt
+  isSpec: "True"
   fullName: Sloader.Config.Crawler.Feed.FeedCrawlerConfig.SummaryTruncateAt
   nameWithType: FeedCrawlerConfig.SummaryTruncateAt
 - uid: Sloader.Config.Crawler.Feed.FeedCrawlerConfig.Url
@@ -197,6 +209,7 @@ references:
   name: Url
   href: api/Sloader.Config.Crawler.Feed.FeedCrawlerConfig.html#Sloader_Config_Crawler_Feed_FeedCrawlerConfig_Url_
   commentId: Overload:Sloader.Config.Crawler.Feed.FeedCrawlerConfig.Url
+  isSpec: "True"
   fullName: Sloader.Config.Crawler.Feed.FeedCrawlerConfig.Url
   nameWithType: FeedCrawlerConfig.Url
 - uid: Sloader.Config.Crawler.GitHub
@@ -221,6 +234,7 @@ references:
   name: GitHubEventCrawlerConfig
   href: api/Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.html#Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig__ctor_
   commentId: Overload:Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.#ctor
+  isSpec: "True"
   fullName: Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.GitHubEventCrawlerConfig
   nameWithType: GitHubEventCrawlerConfig.GitHubEventCrawlerConfig
 - uid: Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Events
@@ -233,6 +247,7 @@ references:
   name: Events
   href: api/Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.html#Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_Events_
   commentId: Overload:Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Events
+  isSpec: "True"
   fullName: Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Events
   nameWithType: GitHubEventCrawlerConfig.Events
 - uid: Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Organization
@@ -245,6 +260,7 @@ references:
   name: Organization
   href: api/Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.html#Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_Organization_
   commentId: Overload:Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Organization
+  isSpec: "True"
   fullName: Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Organization
   nameWithType: GitHubEventCrawlerConfig.Organization
 - uid: Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Repository
@@ -257,6 +273,7 @@ references:
   name: Repository
   href: api/Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.html#Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_Repository_
   commentId: Overload:Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Repository
+  isSpec: "True"
   fullName: Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.Repository
   nameWithType: GitHubEventCrawlerConfig.Repository
 - uid: Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.User
@@ -269,6 +286,7 @@ references:
   name: User
   href: api/Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.html#Sloader_Config_Crawler_GitHub_GitHubEventCrawlerConfig_User_
   commentId: Overload:Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.User
+  isSpec: "True"
   fullName: Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig.User
   nameWithType: GitHubEventCrawlerConfig.User
 - uid: Sloader.Config.Crawler.GitHub.GitHubIssueCrawlerConfig
@@ -287,6 +305,7 @@ references:
   name: FilterByState
   href: api/Sloader.Config.Crawler.GitHub.GitHubIssueCrawlerConfig.html#Sloader_Config_Crawler_GitHub_GitHubIssueCrawlerConfig_FilterByState_
   commentId: Overload:Sloader.Config.Crawler.GitHub.GitHubIssueCrawlerConfig.FilterByState
+  isSpec: "True"
   fullName: Sloader.Config.Crawler.GitHub.GitHubIssueCrawlerConfig.FilterByState
   nameWithType: GitHubIssueCrawlerConfig.FilterByState
 - uid: Sloader.Config.Crawler.GitHub.GitHubIssueCrawlerConfig.Repository
@@ -299,6 +318,7 @@ references:
   name: Repository
   href: api/Sloader.Config.Crawler.GitHub.GitHubIssueCrawlerConfig.html#Sloader_Config_Crawler_GitHub_GitHubIssueCrawlerConfig_Repository_
   commentId: Overload:Sloader.Config.Crawler.GitHub.GitHubIssueCrawlerConfig.Repository
+  isSpec: "True"
   fullName: Sloader.Config.Crawler.GitHub.GitHubIssueCrawlerConfig.Repository
   nameWithType: GitHubIssueCrawlerConfig.Repository
 - uid: Sloader.Config.Crawler.Twitter
@@ -323,6 +343,7 @@ references:
   name: TwitterTimelineCrawlerConfig
   href: api/Sloader.Config.Crawler.Twitter.TwitterTimelineCrawlerConfig.html#Sloader_Config_Crawler_Twitter_TwitterTimelineCrawlerConfig__ctor_
   commentId: Overload:Sloader.Config.Crawler.Twitter.TwitterTimelineCrawlerConfig.#ctor
+  isSpec: "True"
   fullName: Sloader.Config.Crawler.Twitter.TwitterTimelineCrawlerConfig.TwitterTimelineCrawlerConfig
   nameWithType: TwitterTimelineCrawlerConfig.TwitterTimelineCrawlerConfig
 - uid: Sloader.Config.Crawler.Twitter.TwitterTimelineCrawlerConfig.Handle
@@ -335,6 +356,7 @@ references:
   name: Handle
   href: api/Sloader.Config.Crawler.Twitter.TwitterTimelineCrawlerConfig.html#Sloader_Config_Crawler_Twitter_TwitterTimelineCrawlerConfig_Handle_
   commentId: Overload:Sloader.Config.Crawler.Twitter.TwitterTimelineCrawlerConfig.Handle
+  isSpec: "True"
   fullName: Sloader.Config.Crawler.Twitter.TwitterTimelineCrawlerConfig.Handle
   nameWithType: TwitterTimelineCrawlerConfig.Handle
 - uid: Sloader.Config.Crawler.Twitter.TwitterTimelineCrawlerConfig.IncludeRetweets
@@ -347,6 +369,7 @@ references:
   name: IncludeRetweets
   href: api/Sloader.Config.Crawler.Twitter.TwitterTimelineCrawlerConfig.html#Sloader_Config_Crawler_Twitter_TwitterTimelineCrawlerConfig_IncludeRetweets_
   commentId: Overload:Sloader.Config.Crawler.Twitter.TwitterTimelineCrawlerConfig.IncludeRetweets
+  isSpec: "True"
   fullName: Sloader.Config.Crawler.Twitter.TwitterTimelineCrawlerConfig.IncludeRetweets
   nameWithType: TwitterTimelineCrawlerConfig.IncludeRetweets
 - uid: Sloader.Config.Crawler.Twitter.TwitterUserCrawlerConfig
@@ -365,6 +388,7 @@ references:
   name: Handle
   href: api/Sloader.Config.Crawler.Twitter.TwitterUserCrawlerConfig.html#Sloader_Config_Crawler_Twitter_TwitterUserCrawlerConfig_Handle_
   commentId: Overload:Sloader.Config.Crawler.Twitter.TwitterUserCrawlerConfig.Handle
+  isSpec: "True"
   fullName: Sloader.Config.Crawler.Twitter.TwitterUserCrawlerConfig.Handle
   nameWithType: TwitterUserCrawlerConfig.Handle
 - uid: Sloader.Config.Drop
@@ -389,6 +413,7 @@ references:
   name: DropConfig
   href: api/Sloader.Config.Drop.DropConfig.html#Sloader_Config_Drop_DropConfig__ctor_
   commentId: Overload:Sloader.Config.Drop.DropConfig.#ctor
+  isSpec: "True"
   fullName: Sloader.Config.Drop.DropConfig.DropConfig
   nameWithType: DropConfig.DropConfig
 - uid: Sloader.Config.Drop.DropConfig.FileDrops
@@ -401,6 +426,7 @@ references:
   name: FileDrops
   href: api/Sloader.Config.Drop.DropConfig.html#Sloader_Config_Drop_DropConfig_FileDrops_
   commentId: Overload:Sloader.Config.Drop.DropConfig.FileDrops
+  isSpec: "True"
   fullName: Sloader.Config.Drop.DropConfig.FileDrops
   nameWithType: DropConfig.FileDrops
 - uid: Sloader.Config.Drop.DropConfig.GitHubDrops
@@ -413,6 +439,7 @@ references:
   name: GitHubDrops
   href: api/Sloader.Config.Drop.DropConfig.html#Sloader_Config_Drop_DropConfig_GitHubDrops_
   commentId: Overload:Sloader.Config.Drop.DropConfig.GitHubDrops
+  isSpec: "True"
   fullName: Sloader.Config.Drop.DropConfig.GitHubDrops
   nameWithType: DropConfig.GitHubDrops
 - uid: Sloader.Config.Drop.File
@@ -437,6 +464,7 @@ references:
   name: FilePath
   href: api/Sloader.Config.Drop.File.FileDropConfig.html#Sloader_Config_Drop_File_FileDropConfig_FilePath_
   commentId: Overload:Sloader.Config.Drop.File.FileDropConfig.FilePath
+  isSpec: "True"
   fullName: Sloader.Config.Drop.File.FileDropConfig.FilePath
   nameWithType: FileDropConfig.FilePath
 - uid: Sloader.Config.Drop.GitHub
@@ -461,6 +489,7 @@ references:
   name: Branch
   href: api/Sloader.Config.Drop.GitHub.GitHubDropConfig.html#Sloader_Config_Drop_GitHub_GitHubDropConfig_Branch_
   commentId: Overload:Sloader.Config.Drop.GitHub.GitHubDropConfig.Branch
+  isSpec: "True"
   fullName: Sloader.Config.Drop.GitHub.GitHubDropConfig.Branch
   nameWithType: GitHubDropConfig.Branch
 - uid: Sloader.Config.Drop.GitHub.GitHubDropConfig.FilePath
@@ -473,6 +502,7 @@ references:
   name: FilePath
   href: api/Sloader.Config.Drop.GitHub.GitHubDropConfig.html#Sloader_Config_Drop_GitHub_GitHubDropConfig_FilePath_
   commentId: Overload:Sloader.Config.Drop.GitHub.GitHubDropConfig.FilePath
+  isSpec: "True"
   fullName: Sloader.Config.Drop.GitHub.GitHubDropConfig.FilePath
   nameWithType: GitHubDropConfig.FilePath
 - uid: Sloader.Config.Drop.GitHub.GitHubDropConfig.Owner
@@ -485,6 +515,7 @@ references:
   name: Owner
   href: api/Sloader.Config.Drop.GitHub.GitHubDropConfig.html#Sloader_Config_Drop_GitHub_GitHubDropConfig_Owner_
   commentId: Overload:Sloader.Config.Drop.GitHub.GitHubDropConfig.Owner
+  isSpec: "True"
   fullName: Sloader.Config.Drop.GitHub.GitHubDropConfig.Owner
   nameWithType: GitHubDropConfig.Owner
 - uid: Sloader.Config.Drop.GitHub.GitHubDropConfig.Repo
@@ -497,6 +528,7 @@ references:
   name: Repo
   href: api/Sloader.Config.Drop.GitHub.GitHubDropConfig.html#Sloader_Config_Drop_GitHub_GitHubDropConfig_Repo_
   commentId: Overload:Sloader.Config.Drop.GitHub.GitHubDropConfig.Repo
+  isSpec: "True"
   fullName: Sloader.Config.Drop.GitHub.GitHubDropConfig.Repo
   nameWithType: GitHubDropConfig.Repo
 - uid: Sloader.Config.SloaderConfig
@@ -515,6 +547,7 @@ references:
   name: SloaderConfig
   href: api/Sloader.Config.SloaderConfig.html#Sloader_Config_SloaderConfig__ctor_
   commentId: Overload:Sloader.Config.SloaderConfig.#ctor
+  isSpec: "True"
   fullName: Sloader.Config.SloaderConfig.SloaderConfig
   nameWithType: SloaderConfig.SloaderConfig
 - uid: Sloader.Config.SloaderConfig.Crawler
@@ -527,6 +560,7 @@ references:
   name: Crawler
   href: api/Sloader.Config.SloaderConfig.html#Sloader_Config_SloaderConfig_Crawler_
   commentId: Overload:Sloader.Config.SloaderConfig.Crawler
+  isSpec: "True"
   fullName: Sloader.Config.SloaderConfig.Crawler
   nameWithType: SloaderConfig.Crawler
 - uid: Sloader.Config.SloaderConfig.Drop
@@ -539,6 +573,7 @@ references:
   name: Drop
   href: api/Sloader.Config.SloaderConfig.html#Sloader_Config_SloaderConfig_Drop_
   commentId: Overload:Sloader.Config.SloaderConfig.Drop
+  isSpec: "True"
   fullName: Sloader.Config.SloaderConfig.Drop
   nameWithType: SloaderConfig.Drop
 - uid: Sloader.Config.SloaderConfig.Load(System.String,System.Collections.Generic.Dictionary{System.String,System.String})
@@ -554,6 +589,7 @@ references:
   name: Load
   href: api/Sloader.Config.SloaderConfig.html#Sloader_Config_SloaderConfig_Load_
   commentId: Overload:Sloader.Config.SloaderConfig.Load
+  isSpec: "True"
   fullName: Sloader.Config.SloaderConfig.Load
   nameWithType: SloaderConfig.Load
 - uid: Sloader.Config.SloaderConfig.Secrets
@@ -566,6 +602,7 @@ references:
   name: Secrets
   href: api/Sloader.Config.SloaderConfig.html#Sloader_Config_SloaderConfig_Secrets_
   commentId: Overload:Sloader.Config.SloaderConfig.Secrets
+  isSpec: "True"
   fullName: Sloader.Config.SloaderConfig.Secrets
   nameWithType: SloaderConfig.Secrets
 - uid: Sloader.Config.SloaderConfigDeserializer
@@ -587,6 +624,7 @@ references:
   name: GetConfigWithEmbeddedSecrets
   href: api/Sloader.Config.SloaderConfigDeserializer.html#Sloader_Config_SloaderConfigDeserializer_GetConfigWithEmbeddedSecrets_
   commentId: Overload:Sloader.Config.SloaderConfigDeserializer.GetConfigWithEmbeddedSecrets
+  isSpec: "True"
   fullName: Sloader.Config.SloaderConfigDeserializer.GetConfigWithEmbeddedSecrets
   nameWithType: SloaderConfigDeserializer.GetConfigWithEmbeddedSecrets
 - uid: Sloader.Config.SloaderConfigLoader
@@ -608,6 +646,7 @@ references:
   name: GetAsync
   href: api/Sloader.Config.SloaderConfigLoader.html#Sloader_Config_SloaderConfigLoader_GetAsync_
   commentId: Overload:Sloader.Config.SloaderConfigLoader.GetAsync
+  isSpec: "True"
   fullName: Sloader.Config.SloaderConfigLoader.GetAsync
   nameWithType: SloaderConfigLoader.GetAsync
 - uid: Sloader.Config.SloaderConfigLocator
@@ -632,6 +671,7 @@ references:
   name: SloaderConfigLocator
   href: api/Sloader.Config.SloaderConfigLocator.html#Sloader_Config_SloaderConfigLocator__ctor_
   commentId: Overload:Sloader.Config.SloaderConfigLocator.#ctor
+  isSpec: "True"
   fullName: Sloader.Config.SloaderConfigLocator.SloaderConfigLocator
   nameWithType: SloaderConfigLocator.SloaderConfigLocator
 - uid: Sloader.Config.SloaderConfigLocator.FromGitHub(System.String,System.String,System.String,System.String)
@@ -644,6 +684,7 @@ references:
   name: FromGitHub
   href: api/Sloader.Config.SloaderConfigLocator.html#Sloader_Config_SloaderConfigLocator_FromGitHub_
   commentId: Overload:Sloader.Config.SloaderConfigLocator.FromGitHub
+  isSpec: "True"
   fullName: Sloader.Config.SloaderConfigLocator.FromGitHub
   nameWithType: SloaderConfigLocator.FromGitHub
 - uid: Sloader.Config.SloaderSecrets
@@ -662,6 +703,7 @@ references:
   name: GitHubAccessToken
   href: api/Sloader.Config.SloaderSecrets.html#Sloader_Config_SloaderSecrets_GitHubAccessToken_
   commentId: Overload:Sloader.Config.SloaderSecrets.GitHubAccessToken
+  isSpec: "True"
   fullName: Sloader.Config.SloaderSecrets.GitHubAccessToken
   nameWithType: SloaderSecrets.GitHubAccessToken
 - uid: Sloader.Config.SloaderSecrets.IsTwitterConsumerConfigured
@@ -674,6 +716,7 @@ references:
   name: IsTwitterConsumerConfigured
   href: api/Sloader.Config.SloaderSecrets.html#Sloader_Config_SloaderSecrets_IsTwitterConsumerConfigured_
   commentId: Overload:Sloader.Config.SloaderSecrets.IsTwitterConsumerConfigured
+  isSpec: "True"
   fullName: Sloader.Config.SloaderSecrets.IsTwitterConsumerConfigured
   nameWithType: SloaderSecrets.IsTwitterConsumerConfigured
 - uid: Sloader.Config.SloaderSecrets.TwitterConsumerKey
@@ -686,6 +729,7 @@ references:
   name: TwitterConsumerKey
   href: api/Sloader.Config.SloaderSecrets.html#Sloader_Config_SloaderSecrets_TwitterConsumerKey_
   commentId: Overload:Sloader.Config.SloaderSecrets.TwitterConsumerKey
+  isSpec: "True"
   fullName: Sloader.Config.SloaderSecrets.TwitterConsumerKey
   nameWithType: SloaderSecrets.TwitterConsumerKey
 - uid: Sloader.Config.SloaderSecrets.TwitterConsumerSecret
@@ -698,6 +742,7 @@ references:
   name: TwitterConsumerSecret
   href: api/Sloader.Config.SloaderSecrets.html#Sloader_Config_SloaderSecrets_TwitterConsumerSecret_
   commentId: Overload:Sloader.Config.SloaderSecrets.TwitterConsumerSecret
+  isSpec: "True"
   fullName: Sloader.Config.SloaderSecrets.TwitterConsumerSecret
   nameWithType: SloaderSecrets.TwitterConsumerSecret
 - uid: Sloader.Engine
@@ -734,6 +779,7 @@ references:
   name: GetAsync
   href: api/Sloader.Engine.Crawler.DependencyServices.ITwitterOAuthTokenService.html#Sloader_Engine_Crawler_DependencyServices_ITwitterOAuthTokenService_GetAsync_
   commentId: Overload:Sloader.Engine.Crawler.DependencyServices.ITwitterOAuthTokenService.GetAsync
+  isSpec: "True"
   fullName: Sloader.Engine.Crawler.DependencyServices.ITwitterOAuthTokenService.GetAsync
   nameWithType: ITwitterOAuthTokenService.GetAsync
 - uid: Sloader.Engine.Crawler.DependencyServices.TwitterOAuthTokenService
@@ -758,6 +804,7 @@ references:
   name: TwitterOAuthTokenService
   href: api/Sloader.Engine.Crawler.DependencyServices.TwitterOAuthTokenService.html#Sloader_Engine_Crawler_DependencyServices_TwitterOAuthTokenService__ctor_
   commentId: Overload:Sloader.Engine.Crawler.DependencyServices.TwitterOAuthTokenService.#ctor
+  isSpec: "True"
   fullName: Sloader.Engine.Crawler.DependencyServices.TwitterOAuthTokenService.TwitterOAuthTokenService
   nameWithType: TwitterOAuthTokenService.TwitterOAuthTokenService
 - uid: Sloader.Engine.Crawler.DependencyServices.TwitterOAuthTokenService.GetAsync(System.String,System.String)
@@ -770,6 +817,7 @@ references:
   name: GetAsync
   href: api/Sloader.Engine.Crawler.DependencyServices.TwitterOAuthTokenService.html#Sloader_Engine_Crawler_DependencyServices_TwitterOAuthTokenService_GetAsync_
   commentId: Overload:Sloader.Engine.Crawler.DependencyServices.TwitterOAuthTokenService.GetAsync
+  isSpec: "True"
   fullName: Sloader.Engine.Crawler.DependencyServices.TwitterOAuthTokenService.GetAsync
   nameWithType: TwitterOAuthTokenService.GetAsync
 - uid: Sloader.Engine.Crawler.Feed
@@ -800,6 +848,7 @@ references:
   name: FacebookShareCountLoader
   href: api/Sloader.Engine.Crawler.Feed.FacebookShareCountLoader.html#Sloader_Engine_Crawler_Feed_FacebookShareCountLoader__ctor_
   commentId: Overload:Sloader.Engine.Crawler.Feed.FacebookShareCountLoader.#ctor
+  isSpec: "True"
   fullName: Sloader.Engine.Crawler.Feed.FacebookShareCountLoader.FacebookShareCountLoader
   nameWithType: FacebookShareCountLoader.FacebookShareCountLoader
 - uid: Sloader.Engine.Crawler.Feed.FacebookShareCountLoader.GetAsync(System.String)
@@ -812,6 +861,7 @@ references:
   name: GetAsync
   href: api/Sloader.Engine.Crawler.Feed.FacebookShareCountLoader.html#Sloader_Engine_Crawler_Feed_FacebookShareCountLoader_GetAsync_
   commentId: Overload:Sloader.Engine.Crawler.Feed.FacebookShareCountLoader.GetAsync
+  isSpec: "True"
   fullName: Sloader.Engine.Crawler.Feed.FacebookShareCountLoader.GetAsync
   nameWithType: FacebookShareCountLoader.GetAsync
 - uid: Sloader.Engine.Crawler.Feed.FeedCrawler
@@ -836,6 +886,7 @@ references:
   name: FeedCrawler
   href: api/Sloader.Engine.Crawler.Feed.FeedCrawler.html#Sloader_Engine_Crawler_Feed_FeedCrawler__ctor_
   commentId: Overload:Sloader.Engine.Crawler.Feed.FeedCrawler.#ctor
+  isSpec: "True"
   fullName: Sloader.Engine.Crawler.Feed.FeedCrawler.FeedCrawler
   nameWithType: FeedCrawler.FeedCrawler
 - uid: Sloader.Engine.Crawler.Feed.FeedCrawler.DoWorkAsync(Sloader.Config.Crawler.Feed.FeedCrawlerConfig)
@@ -848,6 +899,7 @@ references:
   name: DoWorkAsync
   href: api/Sloader.Engine.Crawler.Feed.FeedCrawler.html#Sloader_Engine_Crawler_Feed_FeedCrawler_DoWorkAsync_
   commentId: Overload:Sloader.Engine.Crawler.Feed.FeedCrawler.DoWorkAsync
+  isSpec: "True"
   fullName: Sloader.Engine.Crawler.Feed.FeedCrawler.DoWorkAsync
   nameWithType: FeedCrawler.DoWorkAsync
 - uid: Sloader.Engine.Crawler.Feed.IFacebookShareCountLoader
@@ -866,6 +918,7 @@ references:
   name: GetAsync
   href: api/Sloader.Engine.Crawler.Feed.IFacebookShareCountLoader.html#Sloader_Engine_Crawler_Feed_IFacebookShareCountLoader_GetAsync_
   commentId: Overload:Sloader.Engine.Crawler.Feed.IFacebookShareCountLoader.GetAsync
+  isSpec: "True"
   fullName: Sloader.Engine.Crawler.Feed.IFacebookShareCountLoader.GetAsync
   nameWithType: IFacebookShareCountLoader.GetAsync
 - uid: Sloader.Engine.Crawler.GitHub
@@ -896,6 +949,7 @@ references:
   name: GitHubEventCrawler
   href: api/Sloader.Engine.Crawler.GitHub.GitHubEventCrawler.html#Sloader_Engine_Crawler_GitHub_GitHubEventCrawler__ctor_
   commentId: Overload:Sloader.Engine.Crawler.GitHub.GitHubEventCrawler.#ctor
+  isSpec: "True"
   fullName: Sloader.Engine.Crawler.GitHub.GitHubEventCrawler.GitHubEventCrawler
   nameWithType: GitHubEventCrawler.GitHubEventCrawler
 - uid: Sloader.Engine.Crawler.GitHub.GitHubEventCrawler.DoWorkAsync(Sloader.Config.Crawler.GitHub.GitHubEventCrawlerConfig)
@@ -908,6 +962,7 @@ references:
   name: DoWorkAsync
   href: api/Sloader.Engine.Crawler.GitHub.GitHubEventCrawler.html#Sloader_Engine_Crawler_GitHub_GitHubEventCrawler_DoWorkAsync_
   commentId: Overload:Sloader.Engine.Crawler.GitHub.GitHubEventCrawler.DoWorkAsync
+  isSpec: "True"
   fullName: Sloader.Engine.Crawler.GitHub.GitHubEventCrawler.DoWorkAsync
   nameWithType: GitHubEventCrawler.DoWorkAsync
 - uid: Sloader.Engine.Crawler.GitHub.GitHubIssueCrawler
@@ -932,6 +987,7 @@ references:
   name: GitHubIssueCrawler
   href: api/Sloader.Engine.Crawler.GitHub.GitHubIssueCrawler.html#Sloader_Engine_Crawler_GitHub_GitHubIssueCrawler__ctor_
   commentId: Overload:Sloader.Engine.Crawler.GitHub.GitHubIssueCrawler.#ctor
+  isSpec: "True"
   fullName: Sloader.Engine.Crawler.GitHub.GitHubIssueCrawler.GitHubIssueCrawler
   nameWithType: GitHubIssueCrawler.GitHubIssueCrawler
 - uid: Sloader.Engine.Crawler.GitHub.GitHubIssueCrawler.DoWorkAsync(Sloader.Config.Crawler.GitHub.GitHubIssueCrawlerConfig)
@@ -944,6 +1000,7 @@ references:
   name: DoWorkAsync
   href: api/Sloader.Engine.Crawler.GitHub.GitHubIssueCrawler.html#Sloader_Engine_Crawler_GitHub_GitHubIssueCrawler_DoWorkAsync_
   commentId: Overload:Sloader.Engine.Crawler.GitHub.GitHubIssueCrawler.DoWorkAsync
+  isSpec: "True"
   fullName: Sloader.Engine.Crawler.GitHub.GitHubIssueCrawler.DoWorkAsync
   nameWithType: GitHubIssueCrawler.DoWorkAsync
 - uid: Sloader.Engine.Crawler.ICrawler`2
@@ -967,6 +1024,7 @@ references:
   name: DoWorkAsync
   href: api/Sloader.Engine.Crawler.ICrawler-2.html#Sloader_Engine_Crawler_ICrawler_2_DoWorkAsync_
   commentId: Overload:Sloader.Engine.Crawler.ICrawler`2.DoWorkAsync
+  isSpec: "True"
   fullName: Sloader.Engine.Crawler.ICrawler<TResult, TConfig>.DoWorkAsync
   fullName.vb: Sloader.Engine.Crawler.ICrawler(Of TResult, TConfig).DoWorkAsync
   nameWithType: ICrawler<TResult, TConfig>.DoWorkAsync
@@ -999,6 +1057,7 @@ references:
   name: TwitterTimelineCrawler
   href: api/Sloader.Engine.Crawler.Twitter.TwitterTimelineCrawler.html#Sloader_Engine_Crawler_Twitter_TwitterTimelineCrawler__ctor_
   commentId: Overload:Sloader.Engine.Crawler.Twitter.TwitterTimelineCrawler.#ctor
+  isSpec: "True"
   fullName: Sloader.Engine.Crawler.Twitter.TwitterTimelineCrawler.TwitterTimelineCrawler
   nameWithType: TwitterTimelineCrawler.TwitterTimelineCrawler
 - uid: Sloader.Engine.Crawler.Twitter.TwitterTimelineCrawler.DoWorkAsync(Sloader.Config.Crawler.Twitter.TwitterTimelineCrawlerConfig)
@@ -1011,6 +1070,7 @@ references:
   name: DoWorkAsync
   href: api/Sloader.Engine.Crawler.Twitter.TwitterTimelineCrawler.html#Sloader_Engine_Crawler_Twitter_TwitterTimelineCrawler_DoWorkAsync_
   commentId: Overload:Sloader.Engine.Crawler.Twitter.TwitterTimelineCrawler.DoWorkAsync
+  isSpec: "True"
   fullName: Sloader.Engine.Crawler.Twitter.TwitterTimelineCrawler.DoWorkAsync
   nameWithType: TwitterTimelineCrawler.DoWorkAsync
 - uid: Sloader.Engine.Crawler.Twitter.TwitterTimelineCrawler.OAuthToken
@@ -1023,6 +1083,7 @@ references:
   name: OAuthToken
   href: api/Sloader.Engine.Crawler.Twitter.TwitterTimelineCrawler.html#Sloader_Engine_Crawler_Twitter_TwitterTimelineCrawler_OAuthToken_
   commentId: Overload:Sloader.Engine.Crawler.Twitter.TwitterTimelineCrawler.OAuthToken
+  isSpec: "True"
   fullName: Sloader.Engine.Crawler.Twitter.TwitterTimelineCrawler.OAuthToken
   nameWithType: TwitterTimelineCrawler.OAuthToken
 - uid: Sloader.Engine.Crawler.Twitter.TwitterUserCrawler
@@ -1047,6 +1108,7 @@ references:
   name: TwitterUserCrawler
   href: api/Sloader.Engine.Crawler.Twitter.TwitterUserCrawler.html#Sloader_Engine_Crawler_Twitter_TwitterUserCrawler__ctor_
   commentId: Overload:Sloader.Engine.Crawler.Twitter.TwitterUserCrawler.#ctor
+  isSpec: "True"
   fullName: Sloader.Engine.Crawler.Twitter.TwitterUserCrawler.TwitterUserCrawler
   nameWithType: TwitterUserCrawler.TwitterUserCrawler
 - uid: Sloader.Engine.Crawler.Twitter.TwitterUserCrawler.DoWorkAsync(Sloader.Config.Crawler.Twitter.TwitterUserCrawlerConfig)
@@ -1059,6 +1121,7 @@ references:
   name: DoWorkAsync
   href: api/Sloader.Engine.Crawler.Twitter.TwitterUserCrawler.html#Sloader_Engine_Crawler_Twitter_TwitterUserCrawler_DoWorkAsync_
   commentId: Overload:Sloader.Engine.Crawler.Twitter.TwitterUserCrawler.DoWorkAsync
+  isSpec: "True"
   fullName: Sloader.Engine.Crawler.Twitter.TwitterUserCrawler.DoWorkAsync
   nameWithType: TwitterUserCrawler.DoWorkAsync
 - uid: Sloader.Engine.Crawler.Twitter.TwitterUserCrawler.OAuthToken
@@ -1071,6 +1134,7 @@ references:
   name: OAuthToken
   href: api/Sloader.Engine.Crawler.Twitter.TwitterUserCrawler.html#Sloader_Engine_Crawler_Twitter_TwitterUserCrawler_OAuthToken_
   commentId: Overload:Sloader.Engine.Crawler.Twitter.TwitterUserCrawler.OAuthToken
+  isSpec: "True"
   fullName: Sloader.Engine.Crawler.Twitter.TwitterUserCrawler.OAuthToken
   nameWithType: TwitterUserCrawler.OAuthToken
 - uid: Sloader.Engine.Drop
@@ -1101,6 +1165,7 @@ references:
   name: DoWorkAsync
   href: api/Sloader.Engine.Drop.File.FileDrop.html#Sloader_Engine_Drop_File_FileDrop_DoWorkAsync_
   commentId: Overload:Sloader.Engine.Drop.File.FileDrop.DoWorkAsync
+  isSpec: "True"
   fullName: Sloader.Engine.Drop.File.FileDrop.DoWorkAsync
   nameWithType: FileDrop.DoWorkAsync
 - uid: Sloader.Engine.Drop.GitHub
@@ -1125,6 +1190,7 @@ references:
   name: AccessToken
   href: api/Sloader.Engine.Drop.GitHub.GitHubDrop.html#Sloader_Engine_Drop_GitHub_GitHubDrop_AccessToken_
   commentId: Overload:Sloader.Engine.Drop.GitHub.GitHubDrop.AccessToken
+  isSpec: "True"
   fullName: Sloader.Engine.Drop.GitHub.GitHubDrop.AccessToken
   nameWithType: GitHubDrop.AccessToken
 - uid: Sloader.Engine.Drop.GitHub.GitHubDrop.DoWorkAsync(Sloader.Config.Drop.GitHub.GitHubDropConfig,Sloader.Result.CrawlerRun)
@@ -1137,6 +1203,7 @@ references:
   name: DoWorkAsync
   href: api/Sloader.Engine.Drop.GitHub.GitHubDrop.html#Sloader_Engine_Drop_GitHub_GitHubDrop_DoWorkAsync_
   commentId: Overload:Sloader.Engine.Drop.GitHub.GitHubDrop.DoWorkAsync
+  isSpec: "True"
   fullName: Sloader.Engine.Drop.GitHub.GitHubDrop.DoWorkAsync
   nameWithType: GitHubDrop.DoWorkAsync
 - uid: Sloader.Engine.Drop.IDrop`1
@@ -1160,6 +1227,7 @@ references:
   name: DoWorkAsync
   href: api/Sloader.Engine.Drop.IDrop-1.html#Sloader_Engine_Drop_IDrop_1_DoWorkAsync_
   commentId: Overload:Sloader.Engine.Drop.IDrop`1.DoWorkAsync
+  isSpec: "True"
   fullName: Sloader.Engine.Drop.IDrop<TConfig>.DoWorkAsync
   fullName.vb: Sloader.Engine.Drop.IDrop(Of TConfig).DoWorkAsync
   nameWithType: IDrop<TConfig>.DoWorkAsync
@@ -1192,6 +1260,7 @@ references:
   name: SloaderRunner
   href: api/Sloader.Engine.SloaderRunner.html#Sloader_Engine_SloaderRunner__ctor_
   commentId: Overload:Sloader.Engine.SloaderRunner.#ctor
+  isSpec: "True"
   fullName: Sloader.Engine.SloaderRunner.SloaderRunner
   nameWithType: SloaderRunner.SloaderRunner
 - uid: Sloader.Engine.SloaderRunner.AutoRun
@@ -1219,6 +1288,7 @@ references:
   name: AutoRun
   href: api/Sloader.Engine.SloaderRunner.html#Sloader_Engine_SloaderRunner_AutoRun_
   commentId: Overload:Sloader.Engine.SloaderRunner.AutoRun
+  isSpec: "True"
   fullName: Sloader.Engine.SloaderRunner.AutoRun
   nameWithType: SloaderRunner.AutoRun
 - uid: Sloader.Engine.SloaderRunner.RunAllCrawlers
@@ -1231,6 +1301,7 @@ references:
   name: RunAllCrawlers
   href: api/Sloader.Engine.SloaderRunner.html#Sloader_Engine_SloaderRunner_RunAllCrawlers_
   commentId: Overload:Sloader.Engine.SloaderRunner.RunAllCrawlers
+  isSpec: "True"
   fullName: Sloader.Engine.SloaderRunner.RunAllCrawlers
   nameWithType: SloaderRunner.RunAllCrawlers
 - uid: Sloader.Engine.SloaderRunner.RunThroughDrop(Sloader.Result.CrawlerRun)
@@ -1243,6 +1314,7 @@ references:
   name: RunThroughDrop
   href: api/Sloader.Engine.SloaderRunner.html#Sloader_Engine_SloaderRunner_RunThroughDrop_
   commentId: Overload:Sloader.Engine.SloaderRunner.RunThroughDrop
+  isSpec: "True"
   fullName: Sloader.Engine.SloaderRunner.RunThroughDrop
   nameWithType: SloaderRunner.RunThroughDrop
 - uid: Sloader.Engine.Util
@@ -1267,6 +1339,7 @@ references:
   name: ToCleanString
   href: api/Sloader.Engine.Util.StringExtensions.html#Sloader_Engine_Util_StringExtensions_ToCleanString_
   commentId: Overload:Sloader.Engine.Util.StringExtensions.ToCleanString
+  isSpec: "True"
   fullName: Sloader.Engine.Util.StringExtensions.ToCleanString
   nameWithType: StringExtensions.ToCleanString
 - uid: Sloader.Result
@@ -1291,6 +1364,7 @@ references:
   name: ResultType
   href: api/Sloader.Result.BaseResult.html#Sloader_Result_BaseResult_ResultType_
   commentId: Overload:Sloader.Result.BaseResult.ResultType
+  isSpec: "True"
   fullName: Sloader.Result.BaseResult.ResultType
   nameWithType: BaseResult.ResultType
 - uid: Sloader.Result.CrawlerRun
@@ -1309,6 +1383,7 @@ references:
   name: CrawlerRun
   href: api/Sloader.Result.CrawlerRun.html#Sloader_Result_CrawlerRun__ctor_
   commentId: Overload:Sloader.Result.CrawlerRun.#ctor
+  isSpec: "True"
   fullName: Sloader.Result.CrawlerRun.CrawlerRun
   nameWithType: CrawlerRun.CrawlerRun
 - uid: Sloader.Result.CrawlerRun.AddResultDataPair(System.String,Sloader.Result.BaseResult)
@@ -1321,6 +1396,7 @@ references:
   name: AddResultDataPair
   href: api/Sloader.Result.CrawlerRun.html#Sloader_Result_CrawlerRun_AddResultDataPair_
   commentId: Overload:Sloader.Result.CrawlerRun.AddResultDataPair
+  isSpec: "True"
   fullName: Sloader.Result.CrawlerRun.AddResultDataPair
   nameWithType: CrawlerRun.AddResultDataPair
 - uid: Sloader.Result.CrawlerRun.Data
@@ -1333,6 +1409,7 @@ references:
   name: Data
   href: api/Sloader.Result.CrawlerRun.html#Sloader_Result_CrawlerRun_Data_
   commentId: Overload:Sloader.Result.CrawlerRun.Data
+  isSpec: "True"
   fullName: Sloader.Result.CrawlerRun.Data
   nameWithType: CrawlerRun.Data
 - uid: Sloader.Result.CrawlerRun.RunDurationInMilliseconds
@@ -1345,6 +1422,7 @@ references:
   name: RunDurationInMilliseconds
   href: api/Sloader.Result.CrawlerRun.html#Sloader_Result_CrawlerRun_RunDurationInMilliseconds_
   commentId: Overload:Sloader.Result.CrawlerRun.RunDurationInMilliseconds
+  isSpec: "True"
   fullName: Sloader.Result.CrawlerRun.RunDurationInMilliseconds
   nameWithType: CrawlerRun.RunDurationInMilliseconds
 - uid: Sloader.Result.CrawlerRun.RunOn
@@ -1357,6 +1435,7 @@ references:
   name: RunOn
   href: api/Sloader.Result.CrawlerRun.html#Sloader_Result_CrawlerRun_RunOn_
   commentId: Overload:Sloader.Result.CrawlerRun.RunOn
+  isSpec: "True"
   fullName: Sloader.Result.CrawlerRun.RunOn
   nameWithType: CrawlerRun.RunOn
 - uid: Sloader.Result.CrawlerRun.ToJson
@@ -1369,6 +1448,7 @@ references:
   name: ToJson
   href: api/Sloader.Result.CrawlerRun.html#Sloader_Result_CrawlerRun_ToJson_
   commentId: Overload:Sloader.Result.CrawlerRun.ToJson
+  isSpec: "True"
   fullName: Sloader.Result.CrawlerRun.ToJson
   nameWithType: CrawlerRun.ToJson
 - uid: Sloader.Result.IHaveRawContent
@@ -1387,6 +1467,7 @@ references:
   name: RawContent
   href: api/Sloader.Result.IHaveRawContent.html#Sloader_Result_IHaveRawContent_RawContent_
   commentId: Overload:Sloader.Result.IHaveRawContent.RawContent
+  isSpec: "True"
   fullName: Sloader.Result.IHaveRawContent.RawContent
   nameWithType: IHaveRawContent.RawContent
 - uid: Sloader.Result.KnownResultType
@@ -1453,6 +1534,7 @@ references:
   name: CommentsCount
   href: api/Sloader.Result.Types.FeedResult.FeedItem.html#Sloader_Result_Types_FeedResult_FeedItem_CommentsCount_
   commentId: Overload:Sloader.Result.Types.FeedResult.FeedItem.CommentsCount
+  isSpec: "True"
   fullName: Sloader.Result.Types.FeedResult.FeedItem.CommentsCount
   nameWithType: FeedResult.FeedItem.CommentsCount
 - uid: Sloader.Result.Types.FeedResult.FeedItem.FacebookCount
@@ -1465,6 +1547,7 @@ references:
   name: FacebookCount
   href: api/Sloader.Result.Types.FeedResult.FeedItem.html#Sloader_Result_Types_FeedResult_FeedItem_FacebookCount_
   commentId: Overload:Sloader.Result.Types.FeedResult.FeedItem.FacebookCount
+  isSpec: "True"
   fullName: Sloader.Result.Types.FeedResult.FeedItem.FacebookCount
   nameWithType: FeedResult.FeedItem.FacebookCount
 - uid: Sloader.Result.Types.FeedResult.FeedItem.Href
@@ -1477,6 +1560,7 @@ references:
   name: Href
   href: api/Sloader.Result.Types.FeedResult.FeedItem.html#Sloader_Result_Types_FeedResult_FeedItem_Href_
   commentId: Overload:Sloader.Result.Types.FeedResult.FeedItem.Href
+  isSpec: "True"
   fullName: Sloader.Result.Types.FeedResult.FeedItem.Href
   nameWithType: FeedResult.FeedItem.Href
 - uid: Sloader.Result.Types.FeedResult.FeedItem.PublishedOn
@@ -1489,6 +1573,7 @@ references:
   name: PublishedOn
   href: api/Sloader.Result.Types.FeedResult.FeedItem.html#Sloader_Result_Types_FeedResult_FeedItem_PublishedOn_
   commentId: Overload:Sloader.Result.Types.FeedResult.FeedItem.PublishedOn
+  isSpec: "True"
   fullName: Sloader.Result.Types.FeedResult.FeedItem.PublishedOn
   nameWithType: FeedResult.FeedItem.PublishedOn
 - uid: Sloader.Result.Types.FeedResult.FeedItem.RawContent
@@ -1501,6 +1586,7 @@ references:
   name: RawContent
   href: api/Sloader.Result.Types.FeedResult.FeedItem.html#Sloader_Result_Types_FeedResult_FeedItem_RawContent_
   commentId: Overload:Sloader.Result.Types.FeedResult.FeedItem.RawContent
+  isSpec: "True"
   fullName: Sloader.Result.Types.FeedResult.FeedItem.RawContent
   nameWithType: FeedResult.FeedItem.RawContent
 - uid: Sloader.Result.Types.FeedResult.FeedItem.Summary
@@ -1513,6 +1599,7 @@ references:
   name: Summary
   href: api/Sloader.Result.Types.FeedResult.FeedItem.html#Sloader_Result_Types_FeedResult_FeedItem_Summary_
   commentId: Overload:Sloader.Result.Types.FeedResult.FeedItem.Summary
+  isSpec: "True"
   fullName: Sloader.Result.Types.FeedResult.FeedItem.Summary
   nameWithType: FeedResult.FeedItem.Summary
 - uid: Sloader.Result.Types.FeedResult.FeedItem.Title
@@ -1525,6 +1612,7 @@ references:
   name: Title
   href: api/Sloader.Result.Types.FeedResult.FeedItem.html#Sloader_Result_Types_FeedResult_FeedItem_Title_
   commentId: Overload:Sloader.Result.Types.FeedResult.FeedItem.Title
+  isSpec: "True"
   fullName: Sloader.Result.Types.FeedResult.FeedItem.Title
   nameWithType: FeedResult.FeedItem.Title
 - uid: Sloader.Result.Types.FeedResult.FeedItems
@@ -1537,6 +1625,7 @@ references:
   name: FeedItems
   href: api/Sloader.Result.Types.FeedResult.html#Sloader_Result_Types_FeedResult_FeedItems_
   commentId: Overload:Sloader.Result.Types.FeedResult.FeedItems
+  isSpec: "True"
   fullName: Sloader.Result.Types.FeedResult.FeedItems
   nameWithType: FeedResult.FeedItems
 - uid: Sloader.Result.Types.FeedResult.ResultType
@@ -1549,6 +1638,7 @@ references:
   name: ResultType
   href: api/Sloader.Result.Types.FeedResult.html#Sloader_Result_Types_FeedResult_ResultType_
   commentId: Overload:Sloader.Result.Types.FeedResult.ResultType
+  isSpec: "True"
   fullName: Sloader.Result.Types.FeedResult.ResultType
   nameWithType: FeedResult.ResultType
 - uid: Sloader.Result.Types.GitHubEventResult
@@ -1573,6 +1663,7 @@ references:
   name: Actor
   href: api/Sloader.Result.Types.GitHubEventResult.Event.html#Sloader_Result_Types_GitHubEventResult_Event_Actor_
   commentId: Overload:Sloader.Result.Types.GitHubEventResult.Event.Actor
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubEventResult.Event.Actor
   nameWithType: GitHubEventResult.Event.Actor
 - uid: Sloader.Result.Types.GitHubEventResult.Event.CreatedAt
@@ -1585,6 +1676,7 @@ references:
   name: CreatedAt
   href: api/Sloader.Result.Types.GitHubEventResult.Event.html#Sloader_Result_Types_GitHubEventResult_Event_CreatedAt_
   commentId: Overload:Sloader.Result.Types.GitHubEventResult.Event.CreatedAt
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubEventResult.Event.CreatedAt
   nameWithType: GitHubEventResult.Event.CreatedAt
 - uid: Sloader.Result.Types.GitHubEventResult.Event.Id
@@ -1597,6 +1689,7 @@ references:
   name: Id
   href: api/Sloader.Result.Types.GitHubEventResult.Event.html#Sloader_Result_Types_GitHubEventResult_Event_Id_
   commentId: Overload:Sloader.Result.Types.GitHubEventResult.Event.Id
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubEventResult.Event.Id
   nameWithType: GitHubEventResult.Event.Id
 - uid: Sloader.Result.Types.GitHubEventResult.Event.Organization
@@ -1609,6 +1702,7 @@ references:
   name: Organization
   href: api/Sloader.Result.Types.GitHubEventResult.Event.html#Sloader_Result_Types_GitHubEventResult_Event_Organization_
   commentId: Overload:Sloader.Result.Types.GitHubEventResult.Event.Organization
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubEventResult.Event.Organization
   nameWithType: GitHubEventResult.Event.Organization
 - uid: Sloader.Result.Types.GitHubEventResult.Event.RawContent
@@ -1621,6 +1715,7 @@ references:
   name: RawContent
   href: api/Sloader.Result.Types.GitHubEventResult.Event.html#Sloader_Result_Types_GitHubEventResult_Event_RawContent_
   commentId: Overload:Sloader.Result.Types.GitHubEventResult.Event.RawContent
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubEventResult.Event.RawContent
   nameWithType: GitHubEventResult.Event.RawContent
 - uid: Sloader.Result.Types.GitHubEventResult.Event.RelatedAction
@@ -1633,6 +1728,7 @@ references:
   name: RelatedAction
   href: api/Sloader.Result.Types.GitHubEventResult.Event.html#Sloader_Result_Types_GitHubEventResult_Event_RelatedAction_
   commentId: Overload:Sloader.Result.Types.GitHubEventResult.Event.RelatedAction
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubEventResult.Event.RelatedAction
   nameWithType: GitHubEventResult.Event.RelatedAction
 - uid: Sloader.Result.Types.GitHubEventResult.Event.RelatedBody
@@ -1645,6 +1741,7 @@ references:
   name: RelatedBody
   href: api/Sloader.Result.Types.GitHubEventResult.Event.html#Sloader_Result_Types_GitHubEventResult_Event_RelatedBody_
   commentId: Overload:Sloader.Result.Types.GitHubEventResult.Event.RelatedBody
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubEventResult.Event.RelatedBody
   nameWithType: GitHubEventResult.Event.RelatedBody
 - uid: Sloader.Result.Types.GitHubEventResult.Event.RelatedDescription
@@ -1657,6 +1754,7 @@ references:
   name: RelatedDescription
   href: api/Sloader.Result.Types.GitHubEventResult.Event.html#Sloader_Result_Types_GitHubEventResult_Event_RelatedDescription_
   commentId: Overload:Sloader.Result.Types.GitHubEventResult.Event.RelatedDescription
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubEventResult.Event.RelatedDescription
   nameWithType: GitHubEventResult.Event.RelatedDescription
 - uid: Sloader.Result.Types.GitHubEventResult.Event.RelatedUrl
@@ -1669,6 +1767,7 @@ references:
   name: RelatedUrl
   href: api/Sloader.Result.Types.GitHubEventResult.Event.html#Sloader_Result_Types_GitHubEventResult_Event_RelatedUrl_
   commentId: Overload:Sloader.Result.Types.GitHubEventResult.Event.RelatedUrl
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubEventResult.Event.RelatedUrl
   nameWithType: GitHubEventResult.Event.RelatedUrl
 - uid: Sloader.Result.Types.GitHubEventResult.Event.Repository
@@ -1681,6 +1780,7 @@ references:
   name: Repository
   href: api/Sloader.Result.Types.GitHubEventResult.Event.html#Sloader_Result_Types_GitHubEventResult_Event_Repository_
   commentId: Overload:Sloader.Result.Types.GitHubEventResult.Event.Repository
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubEventResult.Event.Repository
   nameWithType: GitHubEventResult.Event.Repository
 - uid: Sloader.Result.Types.GitHubEventResult.Event.Type
@@ -1693,6 +1793,7 @@ references:
   name: Type
   href: api/Sloader.Result.Types.GitHubEventResult.Event.html#Sloader_Result_Types_GitHubEventResult_Event_Type_
   commentId: Overload:Sloader.Result.Types.GitHubEventResult.Event.Type
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubEventResult.Event.Type
   nameWithType: GitHubEventResult.Event.Type
 - uid: Sloader.Result.Types.GitHubEventResult.Events
@@ -1705,6 +1806,7 @@ references:
   name: Events
   href: api/Sloader.Result.Types.GitHubEventResult.html#Sloader_Result_Types_GitHubEventResult_Events_
   commentId: Overload:Sloader.Result.Types.GitHubEventResult.Events
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubEventResult.Events
   nameWithType: GitHubEventResult.Events
 - uid: Sloader.Result.Types.GitHubEventResult.ResultType
@@ -1717,6 +1819,7 @@ references:
   name: ResultType
   href: api/Sloader.Result.Types.GitHubEventResult.html#Sloader_Result_Types_GitHubEventResult_ResultType_
   commentId: Overload:Sloader.Result.Types.GitHubEventResult.ResultType
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubEventResult.ResultType
   nameWithType: GitHubEventResult.ResultType
 - uid: Sloader.Result.Types.GitHubIssueResult
@@ -1741,6 +1844,7 @@ references:
   name: Actor
   href: api/Sloader.Result.Types.GitHubIssueResult.Issue.html#Sloader_Result_Types_GitHubIssueResult_Issue_Actor_
   commentId: Overload:Sloader.Result.Types.GitHubIssueResult.Issue.Actor
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubIssueResult.Issue.Actor
   nameWithType: GitHubIssueResult.Issue.Actor
 - uid: Sloader.Result.Types.GitHubIssueResult.Issue.Body
@@ -1753,6 +1857,7 @@ references:
   name: Body
   href: api/Sloader.Result.Types.GitHubIssueResult.Issue.html#Sloader_Result_Types_GitHubIssueResult_Issue_Body_
   commentId: Overload:Sloader.Result.Types.GitHubIssueResult.Issue.Body
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubIssueResult.Issue.Body
   nameWithType: GitHubIssueResult.Issue.Body
 - uid: Sloader.Result.Types.GitHubIssueResult.Issue.CreatedAt
@@ -1765,6 +1870,7 @@ references:
   name: CreatedAt
   href: api/Sloader.Result.Types.GitHubIssueResult.Issue.html#Sloader_Result_Types_GitHubIssueResult_Issue_CreatedAt_
   commentId: Overload:Sloader.Result.Types.GitHubIssueResult.Issue.CreatedAt
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubIssueResult.Issue.CreatedAt
   nameWithType: GitHubIssueResult.Issue.CreatedAt
 - uid: Sloader.Result.Types.GitHubIssueResult.Issue.Id
@@ -1777,6 +1883,7 @@ references:
   name: Id
   href: api/Sloader.Result.Types.GitHubIssueResult.Issue.html#Sloader_Result_Types_GitHubIssueResult_Issue_Id_
   commentId: Overload:Sloader.Result.Types.GitHubIssueResult.Issue.Id
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubIssueResult.Issue.Id
   nameWithType: GitHubIssueResult.Issue.Id
 - uid: Sloader.Result.Types.GitHubIssueResult.Issue.IsPullRequest
@@ -1789,6 +1896,7 @@ references:
   name: IsPullRequest
   href: api/Sloader.Result.Types.GitHubIssueResult.Issue.html#Sloader_Result_Types_GitHubIssueResult_Issue_IsPullRequest_
   commentId: Overload:Sloader.Result.Types.GitHubIssueResult.Issue.IsPullRequest
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubIssueResult.Issue.IsPullRequest
   nameWithType: GitHubIssueResult.Issue.IsPullRequest
 - uid: Sloader.Result.Types.GitHubIssueResult.Issue.Number
@@ -1801,6 +1909,7 @@ references:
   name: Number
   href: api/Sloader.Result.Types.GitHubIssueResult.Issue.html#Sloader_Result_Types_GitHubIssueResult_Issue_Number_
   commentId: Overload:Sloader.Result.Types.GitHubIssueResult.Issue.Number
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubIssueResult.Issue.Number
   nameWithType: GitHubIssueResult.Issue.Number
 - uid: Sloader.Result.Types.GitHubIssueResult.Issue.RawContent
@@ -1813,6 +1922,7 @@ references:
   name: RawContent
   href: api/Sloader.Result.Types.GitHubIssueResult.Issue.html#Sloader_Result_Types_GitHubIssueResult_Issue_RawContent_
   commentId: Overload:Sloader.Result.Types.GitHubIssueResult.Issue.RawContent
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubIssueResult.Issue.RawContent
   nameWithType: GitHubIssueResult.Issue.RawContent
 - uid: Sloader.Result.Types.GitHubIssueResult.Issue.RelatedDescription
@@ -1825,6 +1935,7 @@ references:
   name: RelatedDescription
   href: api/Sloader.Result.Types.GitHubIssueResult.Issue.html#Sloader_Result_Types_GitHubIssueResult_Issue_RelatedDescription_
   commentId: Overload:Sloader.Result.Types.GitHubIssueResult.Issue.RelatedDescription
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubIssueResult.Issue.RelatedDescription
   nameWithType: GitHubIssueResult.Issue.RelatedDescription
 - uid: Sloader.Result.Types.GitHubIssueResult.Issue.State
@@ -1837,6 +1948,7 @@ references:
   name: State
   href: api/Sloader.Result.Types.GitHubIssueResult.Issue.html#Sloader_Result_Types_GitHubIssueResult_Issue_State_
   commentId: Overload:Sloader.Result.Types.GitHubIssueResult.Issue.State
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubIssueResult.Issue.State
   nameWithType: GitHubIssueResult.Issue.State
 - uid: Sloader.Result.Types.GitHubIssueResult.Issue.Title
@@ -1849,6 +1961,7 @@ references:
   name: Title
   href: api/Sloader.Result.Types.GitHubIssueResult.Issue.html#Sloader_Result_Types_GitHubIssueResult_Issue_Title_
   commentId: Overload:Sloader.Result.Types.GitHubIssueResult.Issue.Title
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubIssueResult.Issue.Title
   nameWithType: GitHubIssueResult.Issue.Title
 - uid: Sloader.Result.Types.GitHubIssueResult.Issue.Url
@@ -1861,6 +1974,7 @@ references:
   name: Url
   href: api/Sloader.Result.Types.GitHubIssueResult.Issue.html#Sloader_Result_Types_GitHubIssueResult_Issue_Url_
   commentId: Overload:Sloader.Result.Types.GitHubIssueResult.Issue.Url
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubIssueResult.Issue.Url
   nameWithType: GitHubIssueResult.Issue.Url
 - uid: Sloader.Result.Types.GitHubIssueResult.Issues
@@ -1873,6 +1987,7 @@ references:
   name: Issues
   href: api/Sloader.Result.Types.GitHubIssueResult.html#Sloader_Result_Types_GitHubIssueResult_Issues_
   commentId: Overload:Sloader.Result.Types.GitHubIssueResult.Issues
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubIssueResult.Issues
   nameWithType: GitHubIssueResult.Issues
 - uid: Sloader.Result.Types.GitHubIssueResult.ResultType
@@ -1885,6 +2000,7 @@ references:
   name: ResultType
   href: api/Sloader.Result.Types.GitHubIssueResult.html#Sloader_Result_Types_GitHubIssueResult_ResultType_
   commentId: Overload:Sloader.Result.Types.GitHubIssueResult.ResultType
+  isSpec: "True"
   fullName: Sloader.Result.Types.GitHubIssueResult.ResultType
   nameWithType: GitHubIssueResult.ResultType
 - uid: Sloader.Result.Types.TwitterTimelineResult
@@ -1903,6 +2019,7 @@ references:
   name: ResultType
   href: api/Sloader.Result.Types.TwitterTimelineResult.html#Sloader_Result_Types_TwitterTimelineResult_ResultType_
   commentId: Overload:Sloader.Result.Types.TwitterTimelineResult.ResultType
+  isSpec: "True"
   fullName: Sloader.Result.Types.TwitterTimelineResult.ResultType
   nameWithType: TwitterTimelineResult.ResultType
 - uid: Sloader.Result.Types.TwitterTimelineResult.Tweet
@@ -1921,6 +2038,7 @@ references:
   name: CreatedAt
   href: api/Sloader.Result.Types.TwitterTimelineResult.Tweet.html#Sloader_Result_Types_TwitterTimelineResult_Tweet_CreatedAt_
   commentId: Overload:Sloader.Result.Types.TwitterTimelineResult.Tweet.CreatedAt
+  isSpec: "True"
   fullName: Sloader.Result.Types.TwitterTimelineResult.Tweet.CreatedAt
   nameWithType: TwitterTimelineResult.Tweet.CreatedAt
 - uid: Sloader.Result.Types.TwitterTimelineResult.Tweet.FavoriteCount
@@ -1933,6 +2051,7 @@ references:
   name: FavoriteCount
   href: api/Sloader.Result.Types.TwitterTimelineResult.Tweet.html#Sloader_Result_Types_TwitterTimelineResult_Tweet_FavoriteCount_
   commentId: Overload:Sloader.Result.Types.TwitterTimelineResult.Tweet.FavoriteCount
+  isSpec: "True"
   fullName: Sloader.Result.Types.TwitterTimelineResult.Tweet.FavoriteCount
   nameWithType: TwitterTimelineResult.Tweet.FavoriteCount
 - uid: Sloader.Result.Types.TwitterTimelineResult.Tweet.Id
@@ -1945,6 +2064,7 @@ references:
   name: Id
   href: api/Sloader.Result.Types.TwitterTimelineResult.Tweet.html#Sloader_Result_Types_TwitterTimelineResult_Tweet_Id_
   commentId: Overload:Sloader.Result.Types.TwitterTimelineResult.Tweet.Id
+  isSpec: "True"
   fullName: Sloader.Result.Types.TwitterTimelineResult.Tweet.Id
   nameWithType: TwitterTimelineResult.Tweet.Id
 - uid: Sloader.Result.Types.TwitterTimelineResult.Tweet.RawContent
@@ -1957,6 +2077,7 @@ references:
   name: RawContent
   href: api/Sloader.Result.Types.TwitterTimelineResult.Tweet.html#Sloader_Result_Types_TwitterTimelineResult_Tweet_RawContent_
   commentId: Overload:Sloader.Result.Types.TwitterTimelineResult.Tweet.RawContent
+  isSpec: "True"
   fullName: Sloader.Result.Types.TwitterTimelineResult.Tweet.RawContent
   nameWithType: TwitterTimelineResult.Tweet.RawContent
 - uid: Sloader.Result.Types.TwitterTimelineResult.Tweet.RetweetCount
@@ -1969,6 +2090,7 @@ references:
   name: RetweetCount
   href: api/Sloader.Result.Types.TwitterTimelineResult.Tweet.html#Sloader_Result_Types_TwitterTimelineResult_Tweet_RetweetCount_
   commentId: Overload:Sloader.Result.Types.TwitterTimelineResult.Tweet.RetweetCount
+  isSpec: "True"
   fullName: Sloader.Result.Types.TwitterTimelineResult.Tweet.RetweetCount
   nameWithType: TwitterTimelineResult.Tweet.RetweetCount
 - uid: Sloader.Result.Types.TwitterTimelineResult.Tweet.Source
@@ -1981,6 +2103,7 @@ references:
   name: Source
   href: api/Sloader.Result.Types.TwitterTimelineResult.Tweet.html#Sloader_Result_Types_TwitterTimelineResult_Tweet_Source_
   commentId: Overload:Sloader.Result.Types.TwitterTimelineResult.Tweet.Source
+  isSpec: "True"
   fullName: Sloader.Result.Types.TwitterTimelineResult.Tweet.Source
   nameWithType: TwitterTimelineResult.Tweet.Source
 - uid: Sloader.Result.Types.TwitterTimelineResult.Tweet.Text
@@ -1993,6 +2116,7 @@ references:
   name: Text
   href: api/Sloader.Result.Types.TwitterTimelineResult.Tweet.html#Sloader_Result_Types_TwitterTimelineResult_Tweet_Text_
   commentId: Overload:Sloader.Result.Types.TwitterTimelineResult.Tweet.Text
+  isSpec: "True"
   fullName: Sloader.Result.Types.TwitterTimelineResult.Tweet.Text
   nameWithType: TwitterTimelineResult.Tweet.Text
 - uid: Sloader.Result.Types.TwitterTimelineResult.Tweet.UserScreenname
@@ -2005,6 +2129,7 @@ references:
   name: UserScreenname
   href: api/Sloader.Result.Types.TwitterTimelineResult.Tweet.html#Sloader_Result_Types_TwitterTimelineResult_Tweet_UserScreenname_
   commentId: Overload:Sloader.Result.Types.TwitterTimelineResult.Tweet.UserScreenname
+  isSpec: "True"
   fullName: Sloader.Result.Types.TwitterTimelineResult.Tweet.UserScreenname
   nameWithType: TwitterTimelineResult.Tweet.UserScreenname
 - uid: Sloader.Result.Types.TwitterTimelineResult.Tweets
@@ -2017,6 +2142,7 @@ references:
   name: Tweets
   href: api/Sloader.Result.Types.TwitterTimelineResult.html#Sloader_Result_Types_TwitterTimelineResult_Tweets_
   commentId: Overload:Sloader.Result.Types.TwitterTimelineResult.Tweets
+  isSpec: "True"
   fullName: Sloader.Result.Types.TwitterTimelineResult.Tweets
   nameWithType: TwitterTimelineResult.Tweets
 - uid: Sloader.Result.Types.TwitterUserResult
@@ -2035,6 +2161,7 @@ references:
   name: ResultType
   href: api/Sloader.Result.Types.TwitterUserResult.html#Sloader_Result_Types_TwitterUserResult_ResultType_
   commentId: Overload:Sloader.Result.Types.TwitterUserResult.ResultType
+  isSpec: "True"
   fullName: Sloader.Result.Types.TwitterUserResult.ResultType
   nameWithType: TwitterUserResult.ResultType
 - uid: Sloader.Result.Types.TwitterUserResult.User
@@ -2053,6 +2180,7 @@ references:
   name: CreatedAt
   href: api/Sloader.Result.Types.TwitterUserResult.User.html#Sloader_Result_Types_TwitterUserResult_User_CreatedAt_
   commentId: Overload:Sloader.Result.Types.TwitterUserResult.User.CreatedAt
+  isSpec: "True"
   fullName: Sloader.Result.Types.TwitterUserResult.User.CreatedAt
   nameWithType: TwitterUserResult.User.CreatedAt
 - uid: Sloader.Result.Types.TwitterUserResult.User.Description
@@ -2065,6 +2193,7 @@ references:
   name: Description
   href: api/Sloader.Result.Types.TwitterUserResult.User.html#Sloader_Result_Types_TwitterUserResult_User_Description_
   commentId: Overload:Sloader.Result.Types.TwitterUserResult.User.Description
+  isSpec: "True"
   fullName: Sloader.Result.Types.TwitterUserResult.User.Description
   nameWithType: TwitterUserResult.User.Description
 - uid: Sloader.Result.Types.TwitterUserResult.User.FollowersCount
@@ -2077,6 +2206,7 @@ references:
   name: FollowersCount
   href: api/Sloader.Result.Types.TwitterUserResult.User.html#Sloader_Result_Types_TwitterUserResult_User_FollowersCount_
   commentId: Overload:Sloader.Result.Types.TwitterUserResult.User.FollowersCount
+  isSpec: "True"
   fullName: Sloader.Result.Types.TwitterUserResult.User.FollowersCount
   nameWithType: TwitterUserResult.User.FollowersCount
 - uid: Sloader.Result.Types.TwitterUserResult.User.Id
@@ -2089,6 +2219,7 @@ references:
   name: Id
   href: api/Sloader.Result.Types.TwitterUserResult.User.html#Sloader_Result_Types_TwitterUserResult_User_Id_
   commentId: Overload:Sloader.Result.Types.TwitterUserResult.User.Id
+  isSpec: "True"
   fullName: Sloader.Result.Types.TwitterUserResult.User.Id
   nameWithType: TwitterUserResult.User.Id
 - uid: Sloader.Result.Types.TwitterUserResult.User.Name
@@ -2101,6 +2232,7 @@ references:
   name: Name
   href: api/Sloader.Result.Types.TwitterUserResult.User.html#Sloader_Result_Types_TwitterUserResult_User_Name_
   commentId: Overload:Sloader.Result.Types.TwitterUserResult.User.Name
+  isSpec: "True"
   fullName: Sloader.Result.Types.TwitterUserResult.User.Name
   nameWithType: TwitterUserResult.User.Name
 - uid: Sloader.Result.Types.TwitterUserResult.User.RawContent
@@ -2113,6 +2245,7 @@ references:
   name: RawContent
   href: api/Sloader.Result.Types.TwitterUserResult.User.html#Sloader_Result_Types_TwitterUserResult_User_RawContent_
   commentId: Overload:Sloader.Result.Types.TwitterUserResult.User.RawContent
+  isSpec: "True"
   fullName: Sloader.Result.Types.TwitterUserResult.User.RawContent
   nameWithType: TwitterUserResult.User.RawContent
 - uid: Sloader.Result.Types.TwitterUserResult.User.Url
@@ -2125,6 +2258,7 @@ references:
   name: Url
   href: api/Sloader.Result.Types.TwitterUserResult.User.html#Sloader_Result_Types_TwitterUserResult_User_Url_
   commentId: Overload:Sloader.Result.Types.TwitterUserResult.User.Url
+  isSpec: "True"
   fullName: Sloader.Result.Types.TwitterUserResult.User.Url
   nameWithType: TwitterUserResult.User.Url
 - uid: Sloader.Result.Types.TwitterUserResult.Users
@@ -2137,5 +2271,6 @@ references:
   name: Users
   href: api/Sloader.Result.Types.TwitterUserResult.html#Sloader_Result_Types_TwitterUserResult_Users_
   commentId: Overload:Sloader.Result.Types.TwitterUserResult.Users
+  isSpec: "True"
   fullName: Sloader.Result.Types.TwitterUserResult.Users
   nameWithType: TwitterUserResult.Users
