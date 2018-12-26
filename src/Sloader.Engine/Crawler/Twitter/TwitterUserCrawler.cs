@@ -29,7 +29,7 @@ namespace Sloader.Engine.Crawler.Twitter
         /// </summary>
         public TwitterUserCrawler()
         {
-            _httpClient = new HttpClient();
+            _httpClient = SloaderRunner.HttpClient;
         }
 
         /// <summary>

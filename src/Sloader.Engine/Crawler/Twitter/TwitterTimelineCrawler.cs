@@ -30,7 +30,7 @@ namespace Sloader.Engine.Crawler.Twitter
         /// </summary>
         public TwitterTimelineCrawler()
         {
-            _httpClient = new HttpClient();
+            _httpClient = SloaderRunner.HttpClient;
         }
 
         /// <summary>

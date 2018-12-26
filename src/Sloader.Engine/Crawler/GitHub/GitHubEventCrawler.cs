@@ -25,7 +25,7 @@ namespace Sloader.Engine.Crawler.GitHub
         /// Ctor with default dependencies
         /// </summary>
         public GitHubEventCrawler(){
-            _httpClient = new HttpClient();
+            _httpClient = SloaderRunner.HttpClient; 
         }
 
         /// <summary>

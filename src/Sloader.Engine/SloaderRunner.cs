@@ -14,6 +14,7 @@ using Sloader.Engine.Drop.File;
 using Sloader.Engine.Drop.GitHub;
 using Sloader.Result;
 using System.IO;
+using System.Net.Http;
 
 namespace Sloader.Engine
 {
@@ -24,13 +25,15 @@ namespace Sloader.Engine
 	/// </summary>
 	public class SloaderRunner
 	{
-		/// <summary>
-		/// AutoRun does most of the stuff convention based and will load the config from a local Sloader.yml in the same directory
+        public static HttpClient HttpClient = new HttpClient();
+
+        /// <summary>
+        /// AutoRun does most of the stuff convention based and will load the config from a local Sloader.yml in the same directory
         /// or for a file defined via the SloaderConfigPath.
-		/// <para>The AutoRun will also scan all AppSettings and try to fill up all missing Secrets.</para>
-		/// </summary>
-		/// <see cref="FixedConfigKeys.SloaderConfigPath"/>
-		public static async Task AutoRun()
+        /// <para>The AutoRun will also scan all AppSettings and try to fill up all missing Secrets.</para>
+        /// </summary>
+        /// <see cref="FixedConfigKeys.SloaderConfigPath"/>
+        public static async Task AutoRun()
 		{
 			Trace.TraceInformation($"AutoRun invoked.");
 
