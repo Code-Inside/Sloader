@@ -29,7 +29,7 @@ namespace Sloader.Engine.Crawler.Twitter
         /// </summary>
         public TwitterUserCrawler()
         {
-            _httpClient = new HttpClient();
+            _httpClient = SloaderRunner.HttpClient;
         }
 
         /// <summary>
@@ -78,8 +78,13 @@ namespace Sloader.Engine.Crawler.Twitter
                 "https://api.twitter.com/1.1/users/lookup.json?screen_name={0}";
             apiCall = string.Format(apiCall, screenname);
 
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", oauthToken);
-            var response = await _httpClient.GetAsync(apiCall);
+            HttpResponseMessage response;
+
+            using (var requestMessage = new HttpRequestMessage(HttpMethod.Get, apiCall))
+            {
+                requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", oauthToken);
+                response = await _httpClient.SendAsync(requestMessage);
+            }
 
             response.EnsureSuccessStatusCode();
 

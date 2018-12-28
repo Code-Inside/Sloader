@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Interface ITwitterOAuthTokenService
    | Welcome to Sloader ">
-    <meta name="generator" content="docfx 2.12.1.0">
+    <meta name="generator" content="docfx 2.40.6.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -18,9 +18,11 @@
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
+    
     <meta property="docfx:rel" content="../">
+    
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -56,11 +58,13 @@
           </div>
         </div>
       </header>
-      <div role="main" class="container body-content">
+      <div class="container body-content">
         
         <div id="search-results">
           <div class="search-list"></div>
-          <div class="sr-items"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
           <ul id="pagination"></ul>
         </div>
       </div>
@@ -74,90 +78,84 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content">
-              
-              
-              <h1 id="Sloader_Engine_Crawler_DependencyServices_ITwitterOAuthTokenService" data-uid="Sloader.Engine.Crawler.DependencyServices.ITwitterOAuthTokenService">Interface ITwitterOAuthTokenService
-              </h1>
-              <div class="markdown level0 summary"><p>For using the twitter services an OAuth Token is needed.</p>
-<p>This Service will fetch the needed token with the given key/secret.</p>
+            <article class="content wrap" id="_content" data-uid="Sloader.Engine.Crawler.DependencyServices.ITwitterOAuthTokenService">
+  
+  
+  <h1 id="Sloader_Engine_Crawler_DependencyServices_ITwitterOAuthTokenService" data-uid="Sloader.Engine.Crawler.DependencyServices.ITwitterOAuthTokenService" class="text-break">Interface ITwitterOAuthTokenService
+  </h1>
+  <div class="markdown level0 summary"><p>For using the twitter services an OAuth Token is needed.
+<p>This Service will fetch the needed token with the given key/secret.</p></p>
 </div>
-              <div class="markdown level0 conceptual"></div>
-              <h6><strong>Namespace</strong>:Sloader.Engine.Crawler.DependencyServices</h6>
-              <h6><strong>Assembly</strong>:Sloader.Engine.dll</h6>
-              <h5 id="Sloader_Engine_Crawler_DependencyServices_ITwitterOAuthTokenService_syntax">Syntax</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public interface ITwitterOAuthTokenService</code></pre>
-              </div>
-              <h3 id="methods">Methods
-              </h3>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Engine_Crawler_DependencyServices_ITwitterOAuthTokenService_GetAsync_System_String_System_String_.md&amp;value=---%0Auid%3A%20Sloader.Engine.Crawler.DependencyServices.ITwitterOAuthTokenService.GetAsync(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/Crawler/DependencyServices/ITwitterOAuthTokenService.cs/#L18">View Source</a>
-              </span>
-              <a id="Sloader_Engine_Crawler_DependencyServices_ITwitterOAuthTokenService_GetAsync_" data-uid="Sloader.Engine.Crawler.DependencyServices.ITwitterOAuthTokenService.GetAsync*"></a>
-              <h4 id="Sloader_Engine_Crawler_DependencyServices_ITwitterOAuthTokenService_GetAsync_System_String_System_String_" data-uid="Sloader.Engine.Crawler.DependencyServices.ITwitterOAuthTokenService.GetAsync(System.String,System.String)">GetAsync(String, String)</h4>
-              <div class="markdown level1 summary"><p>Get a valid OAuth token to communicate with the Twitter API.</p>
-<p>See dev.twitter.com for more information.</p>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Sloader.Engine.Crawler.DependencyServices.html">Sloader.Engine.Crawler.DependencyServices</a></h6>
+  <h6><strong>Assembly</strong>: Sloader.Engine.dll</h6>
+  <h5 id="Sloader_Engine_Crawler_DependencyServices_ITwitterOAuthTokenService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface ITwitterOAuthTokenService</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/Crawler/DependencyServices/ITwitterOAuthTokenService.cs/#L18">View Source</a>
+  </span>
+  <a id="Sloader_Engine_Crawler_DependencyServices_ITwitterOAuthTokenService_GetAsync_" data-uid="Sloader.Engine.Crawler.DependencyServices.ITwitterOAuthTokenService.GetAsync*"></a>
+  <h4 id="Sloader_Engine_Crawler_DependencyServices_ITwitterOAuthTokenService_GetAsync_System_String_System_String_" data-uid="Sloader.Engine.Crawler.DependencyServices.ITwitterOAuthTokenService.GetAsync(System.String,System.String)">GetAsync(String, String)</h4>
+  <div class="markdown level1 summary"><p>Get a valid OAuth token to communicate with the Twitter API.
+<p>See dev.twitter.com for more information.</p></p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;string&gt; GetAsync(string consumerKey, string consumerSecret)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">consumerKey</span></td>
-                    <td><p>Twitter API ConsumerKey</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;string&gt; GetAsync(string consumerKey, string consumerSecret)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">consumerKey</span></td>
+        <td><p>Twitter API ConsumerKey</p>
 </td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">consumerSecret</span></td>
-                    <td><p>Twitter API ConsumerSecret</p>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">consumerSecret</span></td>
+        <td><p>Twitter API ConsumerSecret</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.String</span>&gt;</td>
-                    <td><p>Returns the OAuth token as task</p>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>Returns the OAuth token as task</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-                        </article>
+      </tr>
+    </tbody>
+  </table>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
-                  <li>
-                    <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Engine_Crawler_DependencyServices_ITwitterOAuthTokenService.md&amp;value=---%0Auid%3A%20Sloader.Engine.Crawler.DependencyServices.ITwitterOAuthTokenService%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
                   <li>
                     <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/Crawler/DependencyServices/ITwitterOAuthTokenService.cs/#L9" class="contribution-link">View Source</a>
                   </li>

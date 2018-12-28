@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class SloaderRunner
    | Welcome to Sloader ">
-    <meta name="generator" content="docfx 2.12.1.0">
+    <meta name="generator" content="docfx 2.40.6.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -18,9 +18,11 @@
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
+    
     <meta property="docfx:rel" content="../">
+    
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -56,11 +58,13 @@
           </div>
         </div>
       </header>
-      <div role="main" class="container body-content">
+      <div class="container body-content">
         
         <div id="search-results">
           <div class="search-list"></div>
-          <div class="sr-items"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
           <ul id="pagination"></ul>
         </div>
       </div>
@@ -74,305 +78,288 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content">
-              
-              
-              <h1 id="Sloader_Engine_SloaderRunner" data-uid="Sloader.Engine.SloaderRunner">Class SloaderRunner
-              </h1>
-              <div class="markdown level0 summary"><p>The main actor in Sloader:</p>
+            <article class="content wrap" id="_content" data-uid="Sloader.Engine.SloaderRunner">
+  
+  
+  <h1 id="Sloader_Engine_SloaderRunner" data-uid="Sloader.Engine.SloaderRunner" class="text-break">Class SloaderRunner
+  </h1>
+  <div class="markdown level0 summary"><p>The main actor in Sloader:
 <p>Loads the Sloader.Config.</p>
-<p>Run through all crawlers and drops.</p>
+<p>Run through all crawlers and drops.</p></p>
 </div>
-              <div class="markdown level0 conceptual"></div>
-              <div class="inheritance">
-                <h5>Inheritance</h5>
-                  <div class="level0"><span class="xref">System.Object</span></div>
-                  <div class="level1"><span class="xref">SloaderRunner</span></div>
-              </div>
-              <div class="inheritedMembers">
-                <h5>Inherited Members</h5>
-                <div>
-                  <span class="xref">System.Object.ToString()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.Equals(System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.GetHashCode()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.GetType()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.MemberwiseClone()</span>
-                </div>
-              </div>
-              <h6><strong>Namespace</strong>:Sloader.Engine</h6>
-              <h6><strong>Assembly</strong>:Sloader.Engine.dll</h6>
-              <h5 id="Sloader_Engine_SloaderRunner_syntax">Syntax</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public class SloaderRunner</code></pre>
-              </div>
-              <h3 id="constructors">Constructors
-              </h3>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Engine_SloaderRunner__ctor_Sloader_Config_SloaderConfig_.md&amp;value=---%0Auid%3A%20Sloader.Engine.SloaderRunner.%23ctor(Sloader.Config.SloaderConfig)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/SloaderRunner.cs/#L90">View Source</a>
-              </span>
-              <a id="Sloader_Engine_SloaderRunner__ctor_" data-uid="Sloader.Engine.SloaderRunner.#ctor*"></a>
-              <h4 id="Sloader_Engine_SloaderRunner__ctor_Sloader_Config_SloaderConfig_" data-uid="Sloader.Engine.SloaderRunner.#ctor(Sloader.Config.SloaderConfig)">SloaderRunner(SloaderConfig)</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public SloaderRunner(SloaderConfig config)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Sloader.Config.SloaderConfig.html">SloaderConfig</a></td>
-                    <td><span class="parametername">config</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h3 id="methods">Methods
-              </h3>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Engine_SloaderRunner_AutoRun.md&amp;value=---%0Auid%3A%20Sloader.Engine.SloaderRunner.AutoRun%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/SloaderRunner.cs/#L30">View Source</a>
-              </span>
-              <a id="Sloader_Engine_SloaderRunner_AutoRun_" data-uid="Sloader.Engine.SloaderRunner.AutoRun*"></a>
-              <h4 id="Sloader_Engine_SloaderRunner_AutoRun" data-uid="Sloader.Engine.SloaderRunner.AutoRun">AutoRun()</h4>
-              <div class="markdown level1 summary"><p>AutoRun does most of the stuff and will load the config from the defined SloaderConfigPath.</p>
-<p>The AutoRun will also scan all AppSettings and try to fill up all missing Secrets.</p>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">SloaderRunner</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Sloader.Engine.html">Sloader.Engine</a></h6>
+  <h6><strong>Assembly</strong>: Sloader.Engine.dll</h6>
+  <h5 id="Sloader_Engine_SloaderRunner_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SloaderRunner</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/SloaderRunner.cs/#L116">View Source</a>
+  </span>
+  <a id="Sloader_Engine_SloaderRunner__ctor_" data-uid="Sloader.Engine.SloaderRunner.#ctor*"></a>
+  <h4 id="Sloader_Engine_SloaderRunner__ctor_Sloader_Config_SloaderConfig_" data-uid="Sloader.Engine.SloaderRunner.#ctor(Sloader.Config.SloaderConfig)">SloaderRunner(SloaderConfig)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SloaderRunner(SloaderConfig config)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Sloader.Config.SloaderConfig.html">SloaderConfig</a></td>
+        <td><span class="parametername">config</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/SloaderRunner.cs/#L33">View Source</a>
+  </span>
+  <a id="Sloader_Engine_SloaderRunner_AutoRun_" data-uid="Sloader.Engine.SloaderRunner.AutoRun*"></a>
+  <h4 id="Sloader_Engine_SloaderRunner_AutoRun" data-uid="Sloader.Engine.SloaderRunner.AutoRun">AutoRun()</h4>
+  <div class="markdown level1 summary"><p>AutoRun does most of the stuff convention based and will load the config from a local Sloader.yml in the same directory
+or for a file defined via the SloaderConfigPath.
+<p>The AutoRun will also scan all AppSettings and try to fill up all missing Secrets.</p></p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public static Task AutoRun()</code></pre>
-              </div>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Engine_SloaderRunner_AutoRun_System_String_.md&amp;value=---%0Auid%3A%20Sloader.Engine.SloaderRunner.AutoRun(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/SloaderRunner.cs/#L51">View Source</a>
-              </span>
-              <a id="Sloader_Engine_SloaderRunner_AutoRun_" data-uid="Sloader.Engine.SloaderRunner.AutoRun*"></a>
-              <h4 id="Sloader_Engine_SloaderRunner_AutoRun_System_String_" data-uid="Sloader.Engine.SloaderRunner.AutoRun(System.String)">AutoRun(String)</h4>
-              <div class="markdown level1 summary"><p>Same aus the parameterless &quot;AutoRun&quot;, but you need to inject the needed SloaderConfigPath.</p>
-<p>Like the parameterless AutoRun this method will also scan all AppSettings and try to fill up all missing Secrets.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task AutoRun()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/SloaderRunner.cs/#L76">View Source</a>
+  </span>
+  <a id="Sloader_Engine_SloaderRunner_AutoRun_" data-uid="Sloader.Engine.SloaderRunner.AutoRun*"></a>
+  <h4 id="Sloader_Engine_SloaderRunner_AutoRun_System_String_" data-uid="Sloader.Engine.SloaderRunner.AutoRun(System.String)">AutoRun(String)</h4>
+  <div class="markdown level1 summary"><p>Same as the parameterless &quot;AutoRun&quot;, but you need to inject the needed SloaderConfigPath.
+<p>Like the parameterless AutoRun this method will also scan all AppSettings and try to fill up all missing Secrets.</p></p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public static Task AutoRun(string sloaderConfigPath)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">sloaderConfigPath</span></td>
-                    <td><p>Relative or absolute file path or URL to a valid Sloader config.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task AutoRun(string sloaderConfigPath)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sloaderConfigPath</span></td>
+        <td><p>Relative or absolute file path or URL to a valid Sloader config.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Engine_SloaderRunner_AutoRun_System_String_System_Collections_Generic_Dictionary_System_String_System_String__.md&amp;value=---%0Auid%3A%20Sloader.Engine.SloaderRunner.AutoRun(System.String%2CSystem.Collections.Generic.Dictionary%7BSystem.String%2CSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/SloaderRunner.cs/#L65">View Source</a>
-              </span>
-              <a id="Sloader_Engine_SloaderRunner_AutoRun_" data-uid="Sloader.Engine.SloaderRunner.AutoRun*"></a>
-              <h4 id="Sloader_Engine_SloaderRunner_AutoRun_System_String_System_Collections_Generic_Dictionary_System_String_System_String__" data-uid="Sloader.Engine.SloaderRunner.AutoRun(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">AutoRun(String, Dictionary&lt;String, String&gt;)</h4>
-              <div class="markdown level1 summary"><p>Same aus the parameterless &quot;AutoRun&quot;, but you need to inject the needed SloaderConfigPath and the Secrets yourself.</p>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/SloaderRunner.cs/#L91">View Source</a>
+  </span>
+  <a id="Sloader_Engine_SloaderRunner_AutoRun_" data-uid="Sloader.Engine.SloaderRunner.AutoRun*"></a>
+  <h4 id="Sloader_Engine_SloaderRunner_AutoRun_System_String_System_Collections_Generic_Dictionary_System_String_System_String__" data-uid="Sloader.Engine.SloaderRunner.AutoRun(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">AutoRun(String, Dictionary&lt;String, String&gt;)</h4>
+  <div class="markdown level1 summary"><p>Same aus the parameterless &quot;AutoRun&quot;, but you need to inject the needed SloaderConfigPath and the Secrets yourself.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public static Task AutoRun(string sloaderConfigPath, Dictionary&lt;string, string&gt; secrets)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">sloaderConfigPath</span></td>
-                    <td><p>Relative or absolute file path or URL to a valid Sloader config.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task AutoRun(string sloaderConfigPath, Dictionary&lt;string, string&gt; secrets)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sloaderConfigPath</span></td>
+        <td><p>Relative or absolute file path or URL to a valid Sloader config.</p>
 </td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Collections.Generic.Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;</td>
-                    <td><span class="parametername">secrets</span></td>
-                    <td><p>Secrets, which may be used as placeholders inside the Sloader config.</p>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">secrets</span></td>
+        <td><p>Secrets, which may be used as placeholders inside the Sloader config.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Engine_SloaderRunner_RunAllCrawlers.md&amp;value=---%0Auid%3A%20Sloader.Engine.SloaderRunner.RunAllCrawlers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/SloaderRunner.cs/#L98">View Source</a>
-              </span>
-              <a id="Sloader_Engine_SloaderRunner_RunAllCrawlers_" data-uid="Sloader.Engine.SloaderRunner.RunAllCrawlers*"></a>
-              <h4 id="Sloader_Engine_SloaderRunner_RunAllCrawlers" data-uid="Sloader.Engine.SloaderRunner.RunAllCrawlers">RunAllCrawlers()</h4>
-              <div class="markdown level1 summary"><p>Will run through all applied crawlers.</p>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/SloaderRunner.cs/#L124">View Source</a>
+  </span>
+  <a id="Sloader_Engine_SloaderRunner_RunAllCrawlers_" data-uid="Sloader.Engine.SloaderRunner.RunAllCrawlers*"></a>
+  <h4 id="Sloader_Engine_SloaderRunner_RunAllCrawlers" data-uid="Sloader.Engine.SloaderRunner.RunAllCrawlers">RunAllCrawlers()</h4>
+  <div class="markdown level1 summary"><p>Will run through all applied crawlers.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;CrawlerRun&gt; RunAllCrawlers()</code></pre>
-              </div>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Sloader.Result.CrawlerRun.html">CrawlerRun</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <span class="small pull-right mobile-hide">
-                <span class="divider">|</span>
-                <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Engine_SloaderRunner_RunThroughDrop_Sloader_Result_CrawlerRun_.md&amp;value=---%0Auid%3A%20Sloader.Engine.SloaderRunner.RunThroughDrop(Sloader.Result.CrawlerRun)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-              </span>
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/SloaderRunner.cs/#L189">View Source</a>
-              </span>
-              <a id="Sloader_Engine_SloaderRunner_RunThroughDrop_" data-uid="Sloader.Engine.SloaderRunner.RunThroughDrop*"></a>
-              <h4 id="Sloader_Engine_SloaderRunner_RunThroughDrop_Sloader_Result_CrawlerRun_" data-uid="Sloader.Engine.SloaderRunner.RunThroughDrop(Sloader.Result.CrawlerRun)">RunThroughDrop(CrawlerRun)</h4>
-              <div class="markdown level1 summary"><p>Will run through all applied drops.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;CrawlerRun&gt; RunAllCrawlers()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Sloader.Result.CrawlerRun.html">CrawlerRun</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/SloaderRunner.cs/#L215">View Source</a>
+  </span>
+  <a id="Sloader_Engine_SloaderRunner_RunThroughDrop_" data-uid="Sloader.Engine.SloaderRunner.RunThroughDrop*"></a>
+  <h4 id="Sloader_Engine_SloaderRunner_RunThroughDrop_Sloader_Result_CrawlerRun_" data-uid="Sloader.Engine.SloaderRunner.RunThroughDrop(Sloader.Result.CrawlerRun)">RunThroughDrop(CrawlerRun)</h4>
+  <div class="markdown level1 summary"><p>Will run through all applied drops.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task RunThroughDrop(CrawlerRun crawlerRun)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Sloader.Result.CrawlerRun.html">CrawlerRun</a></td>
-                    <td><span class="parametername">crawlerRun</span></td>
-                    <td><p>Will drop the CrawlerRun at the configured drops.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task RunThroughDrop(CrawlerRun crawlerRun)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Sloader.Result.CrawlerRun.html">CrawlerRun</a></td>
+        <td><span class="parametername">crawlerRun</span></td>
+        <td><p>Will drop the CrawlerRun at the configured drops.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-                        </article>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -380,10 +367,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Code-Inside/Sloader/new/master/apiSpec/new?filename=Sloader_Engine_SloaderRunner.md&amp;value=---%0Auid%3A%20Sloader.Engine.SloaderRunner%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/SloaderRunner.cs/#L23" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Code-Inside/Sloader/blob/master/src/Sloader.Engine/SloaderRunner.cs/#L25" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

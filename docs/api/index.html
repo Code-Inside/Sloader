@@ -8,7 +8,7 @@
     <title>Sloader Overview | Welcome to Sloader </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Sloader Overview | Welcome to Sloader ">
-    <meta name="generator" content="docfx 2.12.1.0">
+    <meta name="generator" content="docfx 2.40.6.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -16,9 +16,11 @@
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
+    
     <meta property="docfx:rel" content="../">
+    
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -58,7 +60,9 @@
         
         <div id="search-results">
           <div class="search-list"></div>
-          <div class="sr-items"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
           <ul id="pagination"></ul>
         </div>
       </div>
@@ -73,25 +77,21 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-              <h1 id="sloader-overview">Sloader Overview</h1>
-              
+<h1 id="sloader-overview">Sloader Overview</h1>
+
 <p>Sloader consists of three libraries:</p>
 <ul>
 <li>Sloader.Config: The config lib represents the base config and the specific crawler or drop configs.</li>
 <li>Sloader.Result: The result lib represents the base result and the specific crawler or drop results.  </li>
 <li>Sloader.Engine: The Sloader.Engine, which uses the config and implements the crawler &amp; drops. Each crawler has it&#39;s own config &amp; result &quot;schema&quot;. When all endpoints have been crawled the result will be &quot;dropped&quot; to a configured destination.</li>
 </ul>
-
-            </article>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
-                  <li>
-                    <a href="https://github.com/Code-Inside/Sloader/blob/master/docfx/api/index.md/#L1" class="contribution-link">Improve this Doc</a>
-                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">

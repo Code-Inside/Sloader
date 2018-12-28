@@ -27,7 +27,7 @@ namespace Sloader.Engine.Crawler.Feed
         /// </summary>
         public FeedCrawler()
         {
-            _httpClient = new HttpClient();
+            _httpClient = SloaderRunner.HttpClient;
             _facebookLoader = new FacebookShareCountLoader();
         }
 

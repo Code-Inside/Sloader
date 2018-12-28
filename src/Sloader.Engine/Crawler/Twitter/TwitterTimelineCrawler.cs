@@ -30,7 +30,7 @@ namespace Sloader.Engine.Crawler.Twitter
         /// </summary>
         public TwitterTimelineCrawler()
         {
-            _httpClient = new HttpClient();
+            _httpClient = SloaderRunner.HttpClient;
         }
 
         /// <summary>
@@ -85,8 +85,14 @@ namespace Sloader.Engine.Crawler.Twitter
                 "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name={0}&include_rts={1}&exclude_replies=1";
             var timelineUrl = string.Format(timelineFormat, screenname, Convert.ToInt32(includeRetweets));
 
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", oauthToken);
-            var response = await _httpClient.GetAsync(timelineUrl);
+            HttpResponseMessage response;
+
+            using (var requestMessage = new HttpRequestMessage(HttpMethod.Get, timelineUrl))
+            {
+                requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", oauthToken);
+                response = await _httpClient.SendAsync(requestMessage);
+            }
+
             var resultForThisHandle = new List<TwitterTimelineResult.Tweet>();
 
             if (response.IsSuccessStatusCode)

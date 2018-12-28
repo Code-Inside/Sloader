@@ -22,7 +22,7 @@ namespace Sloader.Engine.Crawler.DependencyServices
         /// </summary>
         public TwitterOAuthTokenService()
         {
-            _httpClient = new HttpClient();
+            _httpClient = SloaderRunner.HttpClient;
         }
 
         /// <summary>
@@ -49,9 +49,14 @@ namespace Sloader.Engine.Crawler.DependencyServices
 
             const string postBody = "grant_type=client_credentials";
 
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authHeaderParameter);
+            HttpResponseMessage response;
 
-            var response = await _httpClient.PostAsync("https://api.twitter.com/oauth2/token", new StringContent(postBody, Encoding.UTF8, "application/x-www-form-urlencoded"));
+            using (var requestMessage = new HttpRequestMessage(HttpMethod.Post, "https://api.twitter.com/oauth2/token"))
+            {
+                requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Basic", authHeaderParameter);
+                requestMessage.Content = new StringContent(postBody, Encoding.UTF8, "application/x-www-form-urlencoded");
+                response = await _httpClient.SendAsync(requestMessage);
+            }
 
             if (response.IsSuccessStatusCode)
             {
