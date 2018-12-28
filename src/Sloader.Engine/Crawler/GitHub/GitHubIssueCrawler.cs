@@ -75,8 +75,13 @@ namespace Sloader.Engine.Crawler.GitHub
         {
             // needed, otherwise GitHub API will return 
             // The server committed a protocol violation. Section=ResponseStatusLine ERROR
-            _httpClient.DefaultRequestHeaders.Add("User-Agent", "Anything");
-            var response = await _httpClient.GetAsync(apiCall);
+            HttpResponseMessage response;
+
+            using (var requestMessage = new HttpRequestMessage(HttpMethod.Get, apiCall))
+            {
+                requestMessage.Headers.Add("User-Agent", "Anything");
+                response = await _httpClient.SendAsync(requestMessage);
+            }
 
             //ToDo: Error handling?
             //if(response.IsSuccessStatusCode == false)
