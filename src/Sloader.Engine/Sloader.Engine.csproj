@@ -5,6 +5,7 @@
     <Authors>Code Inside Team</Authors>
     <Company>Code Inside Team</Company>
     <License>https://github.com/Code-Inside/Sloader/blob/master/LICENSE</License>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/Code-Inside/Sloader</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Code-Inside/Sloader</RepositoryUrl>
     <RepositoryType>git</RepositoryType>

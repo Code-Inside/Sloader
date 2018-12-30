@@ -3,6 +3,14 @@ Changelog
 
 # Not released
 
+## Sloader.Engine
+
+* Single HttpClient instance is now used
+
+## All
+
+* csproj files with PackageLicenseExpression (MIT)
+
 ## All Packages
 
 * Enable SourceLink https://blog.nuget.org/20180827/Introducing-Source-Code-Link-for-NuGet-packages.html
