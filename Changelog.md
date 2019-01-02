@@ -3,24 +3,12 @@ Changelog
 
 # Not released
 
-## Sloader.Engine
+# Sloader.Config
 
-* Single HttpClient instance is now used
-
-## All
+## Version 1.1.0
 
 * csproj files with PackageLicenseExpression (MIT)
-
-## All Packages
-
 * Enable SourceLink https://blog.nuget.org/20180827/Introducing-Source-Code-Link-for-NuGet-packages.html
-
-## Sloader.Engine
-
-* AutoRun will try to search for a local Sloader.yml file in the same folder as the executable
-* Fix GitHubIssue crawler to avoid "null" states when fetching data.
-
-# Sloader.Config
 
 ## Version 1.0.0 
 
@@ -72,6 +60,11 @@ Init
 
 # Sloader.Result
 
+## Version 1.1.0
+
+* csproj files with PackageLicenseExpression (MIT)
+* Enable SourceLink https://blog.nuget.org/20180827/Introducing-Source-Code-Link-for-NuGet-packages.html
+
 ## Version 1.0.0
 
 .NET Standard 2.0 Implementation
@@ -105,6 +98,12 @@ GitHubEvent Crawler added
 Init
 
 # Sloader.Engine
+
+## Version 1.2.0
+
+* AutoRun will try to search for a local Sloader.yml file in the same folder as the executable
+* Fix GitHubIssue crawler to avoid "null" states when fetching data.
+* Single HttpClient instance is now used
 
 ## Version 1.1.0
 
