@@ -24,6 +24,9 @@
     <None Update="FeedCrawlerTests\Samples\GitHubAtom.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="FeedCrawlerTests\Samples\MSWebDevRssWithCategories.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="FeedCrawlerTests\Samples\NuGetBlogAtom.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

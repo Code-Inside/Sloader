@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Sloader.Config.Crawler.Feed
 {
     /// <inheritdoc />
@@ -21,6 +23,7 @@ namespace Sloader.Config.Crawler.Feed
         public FeedCrawlerConfig()
         {
             LoadSocialLinkCounters = false;
+            FilterByCategories = new List<string>();
         }
 
         /// <summary>
@@ -42,5 +45,12 @@ namespace Sloader.Config.Crawler.Feed
         /// <para>Default is false.</para>
         /// </summary>
         public bool LoadSocialLinkCounters { get; set; }
+
+        /// <summary>
+        /// Filter the RSS/Atom entries based on their categories. 
+        /// <para>Leave blank to get all entries.</para>
+        /// </summary>
+        public List<string> FilterByCategories { get; set; }
+
     }
 }

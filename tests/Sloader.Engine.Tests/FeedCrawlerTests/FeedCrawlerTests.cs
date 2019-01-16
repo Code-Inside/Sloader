@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Xml;
@@ -17,6 +18,8 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
         private const string slashdotRssSample = "SlashDotRss.xml";
         private const string gitHubAtomSample = "GitHubAtom.xml";
         private const string nugetBlogAtomSample = "NuGetBlogAtom.xml";
+        private const string msWebDevRssSample = "MSWebDevRssWithCategories.xml";
+
 
         public async Task<FeedResult> InvokeAtomSut(int twitterCounts = 0, int facebookShares = 0, string feed = "https://github.com/robertmuehsig.atom", int truncateAt = 0)
         {
@@ -74,6 +77,35 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
             return await sut.DoWorkAsync(config);
         }
 
+
+        public async Task<FeedResult> InvokeRssWithCategories(List<string> categories, string feed = "https://blogs.msdn.microsoft.com/webdev/feed/", int truncateAt = 0)
+        {
+            var sut = new FeedCrawler();
+            if (feed != string.Empty)
+            {
+                string responseData = TestHelperForCurrentProject.GetTestFileContent(TestHelperForCurrentProject.GetTestFilePath(samplesDirectory, slashdotRssSample));
+
+                var messageResponse = FakeHttpMessageHandler.GetStringHttpResponseMessage(responseData);
+
+                var fakeMessageHandler = new FakeHttpMessageHandler(new HttpMessageOptions() { HttpResponseMessage = messageResponse, RequestUri = new Uri(feed) });
+                var facebokLoaderMock = A.Fake<IFacebookShareCountLoader>();
+
+                sut = new FeedCrawler(fakeMessageHandler, facebokLoaderMock);
+            }
+
+
+            var config = new FeedCrawlerConfig
+            {
+                Url = feed,
+                LoadSocialLinkCounters = false,
+                IncludeRawContent = true,
+                SummaryTruncateAt = truncateAt,
+                FilterByCategories = categories
+            };
+
+            return await sut.DoWorkAsync(config);
+        }
+
         [Fact]
         public async Task Crawler_Detects_Correct_Count_Of_FeedItems()
         {
@@ -105,19 +137,6 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
             Assert.Equal(3, specificFeedItem.CommentsCount);
         }
 
-        //[Fact]
-        //public async Task Crawler_Should_Embed_The_RawContent_From_The_ActualRssItem()
-        //{
-        //    var result = await InvokeRssWithSocialLinksEnabled();
-
-
-        //    var staticFeed = SyndicationFeed.Load(new XmlTextReader(TestHelperForCurrentProject.GetTestFilePath(samplesDirectory, slashdotRssSample)));
-        //    var expectedItem = staticFeed.Items.First();
-
-        //    var firstResult = result.FeedItems.Single(x => x.Title == expectedItem.Title.Text);
-
-        //    Assert.True(firstResult.RawContent.Contains(expectedItem.Title.Text));
-        //}
 
         [Fact]
         public async Task Crawler_Returns_Correct_FacebookShares()
