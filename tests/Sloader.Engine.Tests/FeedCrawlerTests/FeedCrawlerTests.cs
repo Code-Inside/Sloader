@@ -83,7 +83,7 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
             var sut = new FeedCrawler();
             if (feed != string.Empty)
             {
-                string responseData = TestHelperForCurrentProject.GetTestFileContent(TestHelperForCurrentProject.GetTestFilePath(samplesDirectory, slashdotRssSample));
+                string responseData = TestHelperForCurrentProject.GetTestFileContent(TestHelperForCurrentProject.GetTestFilePath(samplesDirectory, msWebDevRssSample));
 
                 var messageResponse = FakeHttpMessageHandler.GetStringHttpResponseMessage(responseData);
 
@@ -135,6 +135,25 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
             var specificFeedItem = result.FeedItems.Single(x => x.Href == staticGuidFromSampleWithThreeComments);
 
             Assert.Equal(3, specificFeedItem.CommentsCount);
+        }
+
+        [Fact]
+        public async Task Crawler_Returns_Can_Filter_RSSEntries_ByCategories()
+        {
+            var result = await InvokeRssWithCategories(new List<string> { "Blazor" });
+
+            Assert.True(result.FeedItems.Count == 1);
+            Assert.True(result.FeedItems[0].Href == "https://blogs.msdn.microsoft.com/webdev/2018/11/15/blazor-0-7-0-experimental-release-now-available/");
+        }
+
+        [Fact]
+        public async Task Crawler_Returns_Can_Filter_RSSEntries_ByCategories_Large_CategoryList()
+        {
+            var result = await InvokeRssWithCategories(new List<string> { "Visual Studio", "Azure" });
+
+            Assert.True(result.FeedItems.Count == 2);
+            Assert.Contains(result.FeedItems, x => x.Href == "https://blogs.msdn.microsoft.com/webdev/2018/11/09/when-should-you-right-click-publish/");
+            Assert.Contains(result.FeedItems, x => x.Href == "https://blogs.msdn.microsoft.com/webdev/2018/10/04/use-hybrid-connections-to-incrementally-migrate-applications-to-the-cloud/");
         }
 
 
