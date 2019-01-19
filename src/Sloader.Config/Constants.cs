@@ -10,7 +10,7 @@ namespace Sloader.Config
         /// <summary>
         /// YamlDeserializer, should make sure that the file itself is enough flexible to host other content as well.
         /// </summary>
-        public static Deserializer SloaderYamlDeserializer => new DeserializerBuilder().IgnoreUnmatchedProperties().Build();
+        public static IDeserializer SloaderYamlDeserializer => new DeserializerBuilder().IgnoreUnmatchedProperties().Build();
     }
 
 }
