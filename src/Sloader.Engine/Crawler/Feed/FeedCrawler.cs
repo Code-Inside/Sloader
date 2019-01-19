@@ -110,6 +110,9 @@ namespace Sloader.Engine.Crawler.Feed
 
             var atomItems = doc.Root.Elements()
                 .Where(i => i.Name.LocalName == "entry");
+
+            bool categoryFilter = config.FilterByCategories.Any();
+
             foreach (var atomItem in atomItems)
             {
                 var crawlerResultItem = new FeedResult.FeedItem
@@ -117,6 +120,38 @@ namespace Sloader.Engine.Crawler.Feed
                     Title = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "title")?.Value,
                     Href = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "link")?.Attribute("href")?.Value
                 };
+
+                if (categoryFilter)
+                {
+                    bool doesMatchCategoryFilter = false;
+
+                    var categoryItems = atomItem.Elements().Where(i => i.Name.LocalName == "category");
+
+                    if (categoryItems.Any())
+                    {
+                        foreach (var categoryItem in categoryItems)
+                        {
+                            if(categoryItem.Attribute("term") != null)
+                            {
+                                var categoryValue = categoryItem.Attribute("term").Value.ToCleanString();
+
+                                if (config.FilterByCategories.Contains(categoryValue, StringComparer.OrdinalIgnoreCase))
+                                {
+                                    doesMatchCategoryFilter = true;
+                                    break;
+                                }
+                            }
+                           
+                        }
+                    }
+
+
+                    if (doesMatchCategoryFilter == false)
+                    {
+                        // exit here, because we applied a category filter, but no filter category was present
+                        continue;
+                    }
+                }
 
                 var summary = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "content")?.Value;
                 if (config.SummaryTruncateAt == 0)

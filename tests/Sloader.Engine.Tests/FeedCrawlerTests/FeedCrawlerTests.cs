@@ -19,6 +19,7 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
         private const string gitHubAtomSample = "GitHubAtom.xml";
         private const string nugetBlogAtomSample = "NuGetBlogAtom.xml";
         private const string msWebDevRssSample = "MSWebDevRssWithCategories.xml";
+        private const string atomWithCategories = "AtomWithCategories.xml";
 
 
         public async Task<FeedResult> InvokeAtomSut(int twitterCounts = 0, int facebookShares = 0, string feed = "https://github.com/robertmuehsig.atom", int truncateAt = 0)
@@ -106,6 +107,34 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
             return await sut.DoWorkAsync(config);
         }
 
+        public async Task<FeedResult> InvokeAtomWithCategories(List<string> categories, string feed = "https://sample.atom/", int truncateAt = 0)
+        {
+            var sut = new FeedCrawler();
+            if (feed != string.Empty)
+            {
+                string responseData = TestHelperForCurrentProject.GetTestFileContent(TestHelperForCurrentProject.GetTestFilePath(samplesDirectory, atomWithCategories));
+
+                var messageResponse = FakeHttpMessageHandler.GetStringHttpResponseMessage(responseData);
+
+                var fakeMessageHandler = new FakeHttpMessageHandler(new HttpMessageOptions() { HttpResponseMessage = messageResponse, RequestUri = new Uri(feed) });
+                var facebokLoaderMock = A.Fake<IFacebookShareCountLoader>();
+
+                sut = new FeedCrawler(fakeMessageHandler, facebokLoaderMock);
+            }
+
+
+            var config = new FeedCrawlerConfig
+            {
+                Url = feed,
+                LoadSocialLinkCounters = false,
+                IncludeRawContent = true,
+                SummaryTruncateAt = truncateAt,
+                FilterByCategories = categories
+            };
+
+            return await sut.DoWorkAsync(config);
+        }
+
         [Fact]
         public async Task Crawler_Detects_Correct_Count_Of_FeedItems()
         {
@@ -138,7 +167,7 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
         }
 
         [Fact]
-        public async Task Crawler_Returns_Can_Filter_RSSEntries_ByCategories()
+        public async Task Crawler_Can_Filter_RSSEntries_ByCategories()
         {
             var result = await InvokeRssWithCategories(new List<string> { "Blazor" });
 
@@ -146,8 +175,19 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
             Assert.True(result.FeedItems[0].Href == "https://blogs.msdn.microsoft.com/webdev/2018/11/15/blazor-0-7-0-experimental-release-now-available/");
         }
 
+
         [Fact]
-        public async Task Crawler_Returns_Can_Filter_RSSEntries_ByCategories_Large_CategoryList()
+        public async Task Crawler_Can_Filter_AtomEntries_ByCategories()
+        {
+            var result = await InvokeAtomWithCategories(new List<string> { "/blognews" });
+
+            Assert.True(result.FeedItems.Count == 2);
+            Assert.True(result.FeedItems[0].Href == "http://blog.case.edu/news/2006/07#009972");
+            Assert.True(result.FeedItems[1].Href == "http://blog.case.edu/news/2006/04#008079");
+        }
+
+        [Fact]
+        public async Task Crawler_Can_Filter_RSSEntries_ByCategories_Large_CategoryList()
         {
             var result = await InvokeRssWithCategories(new List<string> { "Visual Studio", "Azure" });
 

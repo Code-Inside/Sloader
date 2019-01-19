@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-us">
+<title type="text">Blog@Case</title>
+<id>http://blog.case.edu/</id>
+<link rel="alternate" type="application/xhtml+xml" href="http://blog.case.edu/" />
+<link rel="self" type="application/atom+xml" href="http://blog.case.edu/news/feed.atom"/>
+<author>
+<name>jms18</name>
+<uri>http://blog.case.edu/jms18/</uri>
+<email>jeremy.smith@case.edu</email>
+</author>
+<generator uri="http://www.sixapart.com/movabletype/" version="3.121">Movable Type</generator>
+<updated>2006-07-21T17:40:40Z</updated>
+<entry>
+<title type="html">Trackback is Back</title>
+<summary type="text" xml:lang="en">You may have noticed that the trackback functionality of the blog system has been disabled for some time now. We have been engaged in an epic struggle with spammers, and while most of the spammy trackbacks were caught by the...</summary>
+<content type="html">&lt;p&gt;You may have noticed that the &lt;a title=&quot;CaseBlog/FAQ/Tech - CaseWiki&quot; href=&quot;http://wiki.case.edu/CaseBlog/FAQ/Tech#What_is_Trackback&quot;&gt;trackback&lt;/a&gt; functionality of the blog system has been disabled for some time now.  We have been engaged in an epic struggle with spammers, and while most of the &lt;em&gt;spammy&lt;/em&gt; trackbacks were caught by the system, the sheer number of machines attempting to spam us caused an effective &lt;strong&gt;Denial of Service&lt;/strong&gt;, and we were forced to disable trackbacks to keep the blog system operational.&lt;/p&gt;
+
+&lt;p&gt;Well, we&apos;re happy to announce we&apos;ve turned the tide on the spammers and are now blocking those computers that attempt to repeatedly hit the system with trackback or comment spam.  This should also reduce the amount of time you need to go in and spend effort marking icky comments and trackback as spam.&lt;/p&gt;
+
+&lt;p&gt;The new system has been running in a logging mode to gather metrics on what would be acceptable use versus spammer characteristics.  The heuristics used are fairly draconian.  A computer is permanently banned from reaching the blog system if they:&lt;ul&gt;&lt;li&gt;Attempt to submit 5 comments in any 90 minute period and all of those comments end up labelled &quot;moderated&quot; by the other spam measures.&lt;/li&gt;&lt;li&gt;Attempt to submit 2 comments in any 4 hour period from an IP address whose earlier comments were marked as spam by a user of the blog system.&lt;/li&gt;&lt;li&gt;Attempt to trackback to an entry on the blog system 3 times in 90 minute period.&lt;/li&gt;&lt;li&gt;Attempt any trackback from an IP address whose earlier trackback(s) were marked as spam by a user of the blog system.&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
+
+&lt;p&gt;If a computer does get blocked, they are given a message telling them so and asking them to email &lt;a href=&quot;mailto:blog-admin@case.edu&quot;&gt;blog-admin@case.edu&lt;/a&gt; to get their computer unblocked.&lt;/p&gt;
+
+&lt;p&gt;As of right now, the new banning system has been running for under 24 hours and over 1000 IPs have been banned.&lt;/p&gt;
+
+&lt;p&gt;We&apos;re winning the war!  Go off and trackback to your heart&apos;s content!&lt;/p&gt;</content>
+
+<category term="/blognews" scheme="http://blog.case.edu/news/" label="blog-news" />
+
+
+<id>http://blog.case.edu/news/2006/07#009972</id>
+<link rel="alternate" href="http://blog.case.edu/news/2006/07#009972" type="application/xhtml+xml" hreflang="en" />
+<published>2006-07-21T17:37:19Z</published>
+<updated>2006-07-21T17:40:40Z</updated>
+</entry>
+<entry>
+<title type="html">Yet Another Distributed Attack by a Spammer</title>
+<summary type="text" xml:lang="en">We had another spammer target the system; this time targeting comments. We&apos;ve blocked the spammer and cleaned his comments from the database. If you receive email notifications of new comments on your weblog, you may have received a lot of...</summary>
+<content type="html">&lt;p&gt;We had another spammer target the system; this time targeting comments.  We&apos;ve blocked the spammer and cleaned his comments from the database.  If you receive email notifications of new comments on your weblog, you may have received &lt;strong&gt;a lot&lt;/strong&gt; of emails over last night and this morning.  The offending comments have been deleted.&lt;/p&gt;</content>
+
+<category term="/blognews" scheme="http://blog.case.edu/news/" label="blog-news" />
+
+
+<id>http://blog.case.edu/news/2006/04#008079</id>
+<link rel="alternate" href="http://blog.case.edu/news/2006/04#008079" type="application/xhtml+xml" hreflang="en" />
+<published>2006-04-08T19:55:07Z</published>
+<updated>2006-04-08T19:54:16Z</updated>
+</entry>
+<entry>
+<title type="html">Yet Another Distributed Attack by a Spammer TESTTEST</title>
+<summary type="text" xml:lang="en">We had another spammer target the system; this time targeting comments. We&apos;ve blocked the spammer and cleaned his comments from the database. If you receive email notifications of new comments on your weblog, you may have received a lot of...</summary>
+<content type="html">&lt;p&gt;We had another spammer target the system; this time targeting comments.  We&apos;ve blocked the spammer and cleaned his comments from the database.  If you receive email notifications of new comments on your weblog, you may have received &lt;strong&gt;a lot&lt;/strong&gt; of emails over last night and this morning.  The offending comments have been deleted.&lt;/p&gt;</content>
+
+
+<id>http://blog.case.edu/news/2006/04#00805555</id>
+<link rel="alternate" href="http://blog.case.edu/news/2006/04#008079" type="application/xhtml+xml" hreflang="en" />
+<published>2006-04-08T19:55:07Z</published>
+<updated>2006-04-08T19:54:16Z</updated>
+</entry>
+
+</feed>
