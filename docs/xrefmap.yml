@@ -173,6 +173,19 @@ references:
   isSpec: "True"
   fullName: Sloader.Config.Crawler.Feed.FeedCrawlerConfig.FeedCrawlerConfig
   nameWithType: FeedCrawlerConfig.FeedCrawlerConfig
+- uid: Sloader.Config.Crawler.Feed.FeedCrawlerConfig.FilterByCategories
+  name: FilterByCategories
+  href: api/Sloader.Config.Crawler.Feed.FeedCrawlerConfig.html#Sloader_Config_Crawler_Feed_FeedCrawlerConfig_FilterByCategories
+  commentId: P:Sloader.Config.Crawler.Feed.FeedCrawlerConfig.FilterByCategories
+  fullName: Sloader.Config.Crawler.Feed.FeedCrawlerConfig.FilterByCategories
+  nameWithType: FeedCrawlerConfig.FilterByCategories
+- uid: Sloader.Config.Crawler.Feed.FeedCrawlerConfig.FilterByCategories*
+  name: FilterByCategories
+  href: api/Sloader.Config.Crawler.Feed.FeedCrawlerConfig.html#Sloader_Config_Crawler_Feed_FeedCrawlerConfig_FilterByCategories_
+  commentId: Overload:Sloader.Config.Crawler.Feed.FeedCrawlerConfig.FilterByCategories
+  isSpec: "True"
+  fullName: Sloader.Config.Crawler.Feed.FeedCrawlerConfig.FilterByCategories
+  nameWithType: FeedCrawlerConfig.FilterByCategories
 - uid: Sloader.Config.Crawler.Feed.FeedCrawlerConfig.LoadSocialLinkCounters
   name: LoadSocialLinkCounters
   href: api/Sloader.Config.Crawler.Feed.FeedCrawlerConfig.html#Sloader_Config_Crawler_Feed_FeedCrawlerConfig_LoadSocialLinkCounters
@@ -1291,6 +1304,12 @@ references:
   isSpec: "True"
   fullName: Sloader.Engine.SloaderRunner.AutoRun
   nameWithType: SloaderRunner.AutoRun
+- uid: Sloader.Engine.SloaderRunner.HttpClient
+  name: HttpClient
+  href: api/Sloader.Engine.SloaderRunner.html#Sloader_Engine_SloaderRunner_HttpClient
+  commentId: F:Sloader.Engine.SloaderRunner.HttpClient
+  fullName: Sloader.Engine.SloaderRunner.HttpClient
+  nameWithType: SloaderRunner.HttpClient
 - uid: Sloader.Engine.SloaderRunner.RunAllCrawlers
   name: RunAllCrawlers()
   href: api/Sloader.Engine.SloaderRunner.html#Sloader_Engine_SloaderRunner_RunAllCrawlers

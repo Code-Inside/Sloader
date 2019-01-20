@@ -5,6 +5,10 @@ Changelog
 
 # Sloader.Config
 
+## Version 1.2.0
+
+* FeedCrawler with "FilterByCategories" config setting
+
 ## Version 1.1.0
 
 * csproj files with PackageLicenseExpression (MIT)
@@ -98,6 +102,10 @@ GitHubEvent Crawler added
 Init
 
 # Sloader.Engine
+
+## Version 1.3.0
+
+* FeedCrawler with "FilterByCategories"
 
 ## Version 1.2.0
 
