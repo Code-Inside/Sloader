@@ -24,6 +24,22 @@ namespace Sloader.Config.Tests.CrawlerConfigTests
         }
 
         [Fact]
+        public void Default_For_FilterByCategories_List_Is_Not_Null()
+        {
+            StringBuilder fakeYaml = new StringBuilder();
+            fakeYaml.AppendLine("Crawler:");
+            fakeYaml.AppendLine("  FeedsToCrawl:");
+            fakeYaml.AppendLine("  - Url: http://blogin.codeinside.eu/feed");
+            fakeYaml.AppendLine("    Key: Blog");
+
+            var deserializer = Constants.SloaderYamlDeserializer;
+            var result = deserializer.Deserialize<SloaderConfig>(new StringReader(fakeYaml.ToString()));
+            var configValue = result.Crawler.FeedsToCrawl.First();
+
+            Assert.NotNull(configValue.FilterByCategories);
+        }
+
+        [Fact]
         public void Key_Is_Identifier()
         {
             StringBuilder fakeYaml = new StringBuilder();

@@ -1,0 +1,768 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+  <channel>
+    <title>ASP.NET Blog</title>
+    <atom:link href="https://blogs.msdn.microsoft.com/webdev/feed/" rel="self" type="application/rss+xml" />
+    <link>https://blogs.msdn.microsoft.com/webdev</link>
+    <description>.NET web development and tools at Microsoft</description>
+    <lastBuildDate>Tue, 04 Dec 2018 16:53:57 +0000</lastBuildDate>
+    <language>en-US</language>
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
+
+
+    <image>
+      <url>https://msdnshared.blob.core.windows.net/media/2017/02/Microsoft-favicon-cropped6.png</url>
+      <title>ASP.NET Blog</title>
+      <link>https://blogs.msdn.microsoft.com/webdev</link>
+      <width>32</width>
+      <height>32</height>
+    </image>
+    <item>
+      <title>Announcing ASP.NET Core 2.2, available today!</title>
+      <link>https://blogs.msdn.microsoft.com/webdev/2018/12/04/asp-net-core-2-2-available-today/</link>
+      <comments>https://blogs.msdn.microsoft.com/webdev/2018/12/04/asp-net-core-2-2-available-today/#comments</comments>
+      <pubDate>Tue, 04 Dec 2018 16:30:16 +0000</pubDate>
+      <dc:creator><![CDATA[Damian Edwards]]></dc:creator>
+      <category><![CDATA[AspNetCore]]></category>
+
+      <guid isPermaLink="false">https://blogs.msdn.microsoft.com/webdev/?p=15785</guid>
+      <description><![CDATA[I&#8217;m happy to announce that ASP.NET Core 2.2 is available as part of .NET Core 2.2 today! How to get it You can download the new .NET Core SDK (2.2.100) for your dev machine and build servers from the .NET Core 2.2 download page. New Windows Server hosting, runtime installers and binary archives are also... <a aria-label="read more about Announcing ASP.NET Core 2.2, available today!" href="https://blogs.msdn.microsoft.com/webdev/2018/12/04/asp-net-core-2-2-available-today/" class="read-more">Read more</a>]]></description>
+      <content:encoded>
+        <![CDATA[<p>I&#8217;m happy to announce that ASP.NET Core 2.2 is available as part of <a href="https://blogs.msdn.microsoft.com/dotnet/2018/12/04/announcing-net-core-2-2/">.NET Core 2.2</a> today!</p>
+<h2>How to get it</h2>
+<p>You can download the new .NET Core SDK (2.2.100) for your dev machine and build servers from the <a href="https://dotnet.microsoft.com/download/dotnet-core/2.2">.NET Core 2.2 download page</a>. New Windows Server hosting, runtime installers and binary archives are also available from this page for updating servers.</p>
+<p>This release updates <a href="https://blogs.msdn.microsoft.com/dotnet/2018/12/04/announcing-net-core-2-2/">.NET Core</a>, ASP.NET Core, and <a href="https://blogs.msdn.microsoft.com/dotnet/2018/12/04/announcing-entity-framework-core-2-2/">Entity Framework Core</a> to version 2.2.0. The new SDK version is 2.2.100. Visual Studio requirements are as follows:</p>
+<ul>
+<li>Visual Studio version 2017 15.9 or higher</li>
+<li><a href="https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2017-mac-relnotes">Visual Studio for Mac version 7.7 or higher</a></li>
+<li>Visual Studio Code C# extension version 1.17.1 or higher</li>
+</ul>
+<p><a href="https://blogs.msdn.microsoft.com/visualstudio/2018/12/04/making-every-developer-more-productive-with-visual-studio-2019/">Visual Studio 2019 16.0 Preview 1</a>, also available today, includes the .NET Core SDK 2.2.100 as an optional component.</p>
+<h2>What&#8217;s new?</h2>
+<p>The main theme for this ASP.NET Core release was to improve developer productivity and platform functionality with regard to building Web/HTTP APIs. As usual, we made some performance improvements as well. We&#8217;ve posted about these features as part of the preview releases and you as such you can read about them by following the links below:</p>
+<ul>
+<li><a href="https://blogs.msdn.microsoft.com/webdev/2018/08/23/asp-net-core-2-20-preview1-open-api-analyzers-conventions/">Better integration with popular Open API (Swagger) libraries including design-time checks with code analyzers</a></li>
+<li><a href="https://blogs.msdn.microsoft.com/webdev/2018/08/27/asp-net-core-2-2-0-preview1-endpoint-routing/">Introduction of Endpoint Routing with up to 20% improved routing performance in MVC</a></li>
+<li>Improved URL generation with the LinkGenerator class &amp; support for <a href="https://blogs.msdn.microsoft.com/webdev/2018/10/17/asp-net-core-2-2-0-preview3-now-available">route Parameter Transformers</a> (<a href="https://www.hanselman.com/blog/ASPNETCore22ParameterTransformersForCleanURLGenerationAndSlugsInRazorPagesOrMVC.aspx">and a post from Scott Hanselman</a>)</li>
+<li><a href="https://blogs.msdn.microsoft.com/webdev/2018/08/22/asp-net-core-2-2-0-preview1-healthcheck/">New Health Checks API for application health monitoring</a></li>
+<li><a href="https://blogs.msdn.microsoft.com/webdev/2018/09/12/asp-net-core-2-2-0-preview2-now-available/">Up to 400% improved throughput on IIS due to in-process hosting support</a></li>
+<li><a href="https://blogs.msdn.microsoft.com/webdev/2018/10/17/asp-net-core-2-2-0-preview3-now-available">Up to 15% improved MVC model validation performance</a></li>
+<li><a href="https://blogs.msdn.microsoft.com/webdev/2018/09/12/asp-net-core-2-2-0-preview2-now-available/">Problem Details (RFC 7807) support in MVC for detailed API error results</a></li>
+<li><a href="https://blogs.msdn.microsoft.com/webdev/2018/08/22/asp-net-core-2-2-0-preview1-http-2-in-kestrel/">Preview of HTTP/2 server support in ASP.NET Core</a></li>
+<li><a href="https://blogs.msdn.microsoft.com/webdev/2018/09/12/asp-net-core-2-2-0-preview2-now-available/">Template updates for Bootstrap 4 and Angular 6</a></li>
+<li><a href="https://blogs.msdn.microsoft.com/webdev/2018/08/23/asp-net-core-2-2-0-preview1-signalr-java-client/">Java client for ASP.NET Core SignalR</a></li>
+<li><a href="https://blogs.msdn.microsoft.com/webdev/2018/10/17/asp-net-core-2-2-0-preview3-now-available/">Up to 60% improved HTTP Client performance on Linux and 20% on Windows</a></li>
+</ul>
+<h3>Health Checks integration with BeatPulse</h3>
+<p>We&#8217;re happy to announce that the <a href="https://github.com/Xabaril/BeatPulse">BeatPulse project</a> now supports the new Health Checks API, which means you can easily add checks for dozens of popular systems and dependencies using their great support. Here&#8217;s a message from the BeatPulse team about their support for our new Health Checks API:</p>
+<blockquote><p><a href="https://github.com/Xabaril/BeatPulse">BeatPulse</a> is a community driven project that was created to provide health checking mechanisms for systems, networking and a wide variety of services that are common within the enterprise, e.g. SqlServer, MySql,Postgress, Redis, Kafka and many more . When Microsoft announced ASP.NET Core Health Checks for the 2.2 roadmap, the BeatPulse team ported all the existing liveness packages and features to work with the new Microsoft Health Checks abstractions at the repository <a href="https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks">AspNetCore.Diagnostics.HealthChecks</a>. Apart from all the health checking packages, the BeatPulse team also incorporates other features like pulse tracking (Application Insights and Prometheus), failure notifications and a UI interface were we can configure different monitored systems and have a global view of health status. This UI is available as a Docker image published in Docker Hub.</p></blockquote>
+<h3>More coming soon</h3>
+<p>When we announced planning for ASP.NET Core 2.2, we mentioned a number of features that aren&#8217;t detailed above, including API Authorization with IdentityServer4, Open API (Swagger) driven client code generation, and the HTTP REPL command line tool. These features are still being worked on and aren&#8217;t quite ready for release, however we expect to make them available as add-ons in the coming months. Thanks for your patience while we complete these experiences and get them ready for you all to try out.</p>
+<h2>Migrating a project to ASP.NET Core 2.2</h2>
+<p><span>To migrate an ASP.NET Core project from 2.1 to 2.2, open the project’s .csproj file and change the value of the <code>TargetFramework</code> element to <code>netcoreapp2.2</code>. You do not need to do this if you’re targeting .NET Framework 4.x.</span></p>
+<p>Finish by updating your NuGet package references to the latest stable versions. Note that projects targeting .NET Core (rather than .NET Framework) should not have a package version specified for the Microsoft.AspNetCore.App package reference as this will be managed automatically by the SDK. Doing so will now result in a build warning.</p>
+<p>For more information on <a href="https://docs.microsoft.com/en-us/aspnet/core/migration/21-to-22?view=aspnetcore-2.2&amp;tabs=visual-studio">upgrading to ASP.NET Core 2.2 see here</a>.</p>
+<h2>Support life cycle</h2>
+<p>ASP.NET Core 2.2 is the latest release in the &#8220;Current&#8221; .NET Core train. This represents the first release since the declaration of 2.1 LTS that reestablishes a separate LTS and Current train. The Current train is where new features, enhancements, and regular bug fixes are applied and is recommended for most customers. Note that both LTS and Current releases receive servicing updates for security and critical stability fixes. It is currently expected that 2.2 will the last non-servicing release in the 2.x life cycle, and as such customers not using an LTS release will need to migrate to 3.0 GA, within 3 months of its release in the second half of 2019 in order to remain supported.</p>
+<p>Read more about the <a href="https://dotnet.microsoft.com/platform/support-policy/dotnet-core">.NET Core support policy here</a>.</p>
+<h2>Availability in Azure App Service</h2>
+<p>The .NET Core 2.2 SDK, runtime, and updated ASP.NET Core IIS Module are in the process of being deployed to Azure App Service regions around the world. We expect this to be completed before the end of December 2018.</p>
+<p>Some regions may receive the updated runtime before the updated ASP.NET Core IIS Module (ANCM), which is required by default for projects targeting ASP.NET Core 2.2. It&#8217;s also a requirement for the new in-process hosting feature. If you receive startup errors after deploying to Azure App Service, try configuring your project to use the existing version of ANCM by setting the <code>AspNetCoreModule</code> property to the value &#8220;AspNetCoreModule&#8221;, e.g.:</p>
+<pre><code>&lt;PropertyGroup&gt;
+    &lt;TargetFramework&gt;netcoreapp2.2&lt;/TargetFramework&gt;
+    &lt;AspNetCoreModuleName&gt;AspNetCoreModule&lt;/AspNetCoreModuleName&gt;
+    &lt;AspNetCoreHostingModel&gt;OutOfProcess&lt;/AspNetCoreHostingModel&gt;
+&lt;/PropertyGroup&gt;</code></pre>
+<p>Once the target region has been updated with the latest ANCM version, you can remove that property altogether and redeploy the application to have it switch to using the new ANCM.</p>
+<p>This release also adds better 64-bit support for .NET Core in Azure App Service. If you&#8217;re running your ASP.NET Core application on .NET Core 2.2 with in-process hosting, you can simply <a href="https://docs.microsoft.com/en-us/azure/app-service/web-sites-configure">enable the 64-bit option in the Azure Portal</a> and the site will now run in a 64-bit process. For other information on how to run your ASP.NET Core application in a 64-bit process in Azure App Service with other configurations, see <a href="https://blogs.msdn.microsoft.com/webdev/2018/01/09/64-bit-asp-net-core-on-azure-app-service/">this article</a>.</p>
+<h2>Giving feedback</h2>
+<p><span>As always, please provide us feedback by logging issues at </span><a href="https://github.com/aspnet">https://github.com/aspnet/AspNetCore</a><span>. We look forward to hearing from you!</span></p>
+]]>
+      </content:encoded>
+      <wfw:commentRss>https://blogs.msdn.microsoft.com/webdev/2018/12/04/asp-net-core-2-2-available-today/feed/</wfw:commentRss>
+      <slash:comments>17</slash:comments>
+    </item>
+    <item>
+      <title>Razor support in Visual Studio Code now in Preview</title>
+      <link>https://blogs.msdn.microsoft.com/webdev/2018/11/16/razor-support-in-visual-studio-code-now-in-preview/</link>
+      <comments>https://blogs.msdn.microsoft.com/webdev/2018/11/16/razor-support-in-visual-studio-code-now-in-preview/#comments</comments>
+      <pubDate>Fri, 16 Nov 2018 18:00:21 +0000</pubDate>
+      <dc:creator><![CDATA[Daniel Roth]]></dc:creator>
+      <category><![CDATA[AspNetCore]]></category>
+
+      <guid isPermaLink="false">https://blogs.msdn.microsoft.com/webdev/?p=15775</guid>
+      <description><![CDATA[Earlier this week we released a preview of support for working with Razor files (.cshtml) in the C# extension for Visual Studio Code (1.17.1). This initial release introduces C# completions, directive completions, and basic diagnostics (red squiggles for errors) for ASP.NET Core projects. Prerequisites To use this preview of Razor support in Visual Studio Code... <a aria-label="read more about Razor support in Visual Studio Code now in Preview" href="https://blogs.msdn.microsoft.com/webdev/2018/11/16/razor-support-in-visual-studio-code-now-in-preview/" class="read-more">Read more</a>]]></description>
+      <content:encoded>
+        <![CDATA[<p>Earlier this week we released a preview of support for working with Razor files (.cshtml) in the C# extension for Visual Studio Code (1.17.1). This initial release introduces C# completions, directive completions, and basic diagnostics (red squiggles for errors) for ASP.NET Core projects.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>To use this preview of Razor support in Visual Studio Code install the following:</p>
+<ul>
+<li><a href="https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial">.NET Core SDK</a></li>
+<li><a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp">C# extension</a></li>
+</ul>
+<p>If you already installed VS Code and the C# extension in the past, make sure you have updated to the latest versions of both.</p>
+<h2 id="get-started">Get started</h2>
+<p>To try out the new Razor tooling, create a new ASP.NET Core web app and then edit any Razor (.cshtml) file.</p>
+<ol>
+<li>Open Visual Studio Code</li>
+<li>Select <em>Terminal</em> &gt; <em>New Terminal</em></li>
+<li>
+<p>In the new terminal run:</p>
+<pre><code>dotnet<span class="hljs-built_in"> new </span>webapp -o WebApp1`
+code -r WebApp1
+</code></pre>
+</li>
+<li>
+<p>Open <em>About.cshtml</em></p>
+</li>
+<li>
+<p>Try out HTML completions</p>
+<p><img src="https://msdnshared.blob.core.windows.net/media/2018/11/razor-tooling-html-completions.gif" alt="HTML completions"></p>
+</li>
+<li>
+<p>And Razor directive completions</p>
+<p><img src="https://msdnshared.blob.core.windows.net/media/2018/11/razor-tooling-directive-completions.gif" alt="Directive completions"></p>
+</li>
+<li>
+<p>And C# completions</p>
+<p><img src="https://msdnshared.blob.core.windows.net/media/2018/11/razor-tooling-csharp-completions.gif" alt="C# completions"></p>
+</li>
+<li>
+<p>You also get diagnostics (red squiggles)</p>
+<p><img src="https://msdnshared.blob.core.windows.net/media/2018/11/razor-tooling-csharp-diagnostics.png" alt="C# diagnostics"></p>
+</li>
+</ol>
+<h2 id="limitations-and-known-issues">Limitations and known issues</h2>
+<p>This is the first alpha release of the Razor tooling for Visual Studio Code, so there are a number of limitations and known issues:</p>
+<ul>
+<li>Razor editing is currently only supported in ASP.NET Core projects (no support for ASP.NET projects or Blazor projects yet)</li>
+<li>Support for tag helpers and formatting is not yet implemented</li>
+<li>Limited support for colorization</li>
+<li>Loss of HTML completions following C# less than (<code>&lt;</code>) operator</li>
+<li>Error squiggles misaligned for expressions near the start of a new line</li>
+<li>Incorrect errors in Blazor projects for event bindings</li>
+<li>Emmet based abbreviation expansion is not yet supported</li>
+</ul>
+<p>Note that if you need to disable the Razor tooling for any reason:</p>
+<ul>
+<li>Open the Visual Studio Code User Settings: <em>File</em> -&gt; <em>Preferences</em> -&gt; <em>Settings</em></li>
+<li>Search for &quot;razor&quot;</li>
+<li>Check the &quot;Razor: Disabled&quot; checkbox</li>
+</ul>
+<h2 id="feedback">Feedback</h2>
+<p>Even though the functionality of Razor tooling is currently pretty limited, we are shipping this preview now so that we can start collecting  feedback. Any issues or suggestions for the Razor tooling in Visual Studio Code should be reported on the <a href="https://github.com/aspnet/Razor.VSCode">https://github.com/aspnet/Razor.VSCode</a> repo.</p>
+<p>To help us diagnose any reported issues please provide the following information in the GitHub issue:</p>
+<ol>
+<li>Razor (cshtml) file content</li>
+<li>Generated C# code from the Razor CSharp output
+<ul>
+<li>Right-click inside your .cshtml file and select &quot;Command Palette&quot;</li>
+<li>Search for and select &quot;Razor: Show Razor CSharp&quot;</li>
+</ul>
+</li>
+<li>Verbose Razor log output
+<ul>
+<li>See instructions for capturing the Razor log output <a href="https://github.com/aspnet/Razor.VSCode/wiki/How-to-capture-verbose-log-output">here</a></li>
+</ul>
+</li>
+<li>OmniSharp log output
+<ul>
+<li>Open VS Code&#039;s &quot;Output&quot; pane</li>
+<li>In the dropdown choose &quot;OmniSharp Log&quot;</li>
+</ul>
+</li>
+</ol>
+<h2 id="what-s-next-">What&#039;s next?</h2>
+<p>Next up we are working on tag helper support. This will include support for tag helper completions and IntelliSense. Once we have tag helper tooling support in place we can then start work on enabling <a href="https://blazor.net">Blazor</a> tooling support as well. Follow our progress and join in the conversation on the <a href="https://github.com/aspnet/Razor.VSCode">https://github.com/aspnet/Razor.VSCode</a> repo.</p>
+<p>Thanks for trying out this early preview!</p>
+]]>
+      </content:encoded>
+      <wfw:commentRss>https://blogs.msdn.microsoft.com/webdev/2018/11/16/razor-support-in-visual-studio-code-now-in-preview/feed/</wfw:commentRss>
+      <slash:comments>3</slash:comments>
+    </item>
+    <item>
+      <title>Blazor 0.7.0 experimental release now available</title>
+      <link>https://blogs.msdn.microsoft.com/webdev/2018/11/15/blazor-0-7-0-experimental-release-now-available/</link>
+      <comments>https://blogs.msdn.microsoft.com/webdev/2018/11/15/blazor-0-7-0-experimental-release-now-available/#comments</comments>
+      <pubDate>Thu, 15 Nov 2018 18:30:09 +0000</pubDate>
+      <dc:creator><![CDATA[Daniel Roth]]></dc:creator>
+      <category><![CDATA[AspNetCore]]></category>
+      <category><![CDATA[Blazor]]></category>
+
+      <guid isPermaLink="false">https://blogs.msdn.microsoft.com/webdev/?p=15755</guid>
+      <description><![CDATA[Blazor 0.7.0 is now available! This release focuses on enabling component coordination across ancestor-descendent relationships. We&#039;ve also added some improvements to the debugging experience. Here&#039;s what&#039;s new in the Blazor 0.7.0 release: Cascading values and parameters Debugging improvements A full list of the changes in this release can be found in the Blazor 0.7.0 release... <a aria-label="read more about Blazor 0.7.0 experimental release now available" href="https://blogs.msdn.microsoft.com/webdev/2018/11/15/blazor-0-7-0-experimental-release-now-available/" class="read-more">Read more</a>]]></description>
+      <content:encoded>
+        <![CDATA[<p>Blazor 0.7.0 is now available! This release focuses on enabling component coordination across ancestor-descendent relationships. We&#039;ve also added some improvements to the debugging experience.</p>
+<p>Here&#039;s what&#039;s new in the Blazor 0.7.0 release:</p>
+<ul>
+<li>Cascading values and parameters</li>
+<li>Debugging improvements</li>
+</ul>
+<p>A full list of the changes in this release can be found in the <a href="https://github.com/aspnet/Blazor/releases/tag/0.7.0">Blazor 0.7.0 release notes</a>.</p>
+<h2 id="get-blazor-0-7-0">Get Blazor 0.7.0</h2>
+<p>Install the following:</p>
+<ol>
+<li><a href="https://go.microsoft.com/fwlink/?linkid=873092">.NET Core 2.1 SDK</a> (2.1.500 or later).</li>
+<li><a href="https://go.microsoft.com/fwlink/?linkid=873093">Visual Studio 2017</a> (15.9 or later) with the <em>ASP.NET and web development</em> workload selected.</li>
+<li>The latest <a href="https://go.microsoft.com/fwlink/?linkid=870389">Blazor Language Services extension</a> from the Visual Studio Marketplace.</li>
+<li>
+<p>The Blazor templates on the command-line:</p>
+<pre><code>dotnet new -<span class="hljs-selector-tag">i</span> Microsoft<span class="hljs-selector-class">.AspNetCore</span><span class="hljs-selector-class">.Blazor</span><span class="hljs-selector-class">.Templates</span>
+</code></pre>
+</li>
+</ol>
+<p>You can find getting started instructions, docs, and tutorials for Blazor at <a href="https://blazor.net">https://blazor.net</a>.</p>
+<h2 id="upgrade-an-existing-project-to-blazor-0-7-0">Upgrade an existing project to Blazor 0.7.0</h2>
+<p>To upgrade a Blazor 0.6.0 project to 0.7.0:</p>
+<ul>
+<li>Install the prerequisites listed above.</li>
+<li>
+<p>Update the Blazor packages and .NET CLI tool references to 0.7.0. The upgraded Blazor project file should look like this:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Project</span> <span class="hljs-attr">Sdk</span>=<span class="hljs-string">"Microsoft.NET.Sdk.Web"</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">PropertyGroup</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">TargetFramework</span>&gt;</span>netstandard2.0<span class="hljs-tag">&lt;/<span class="hljs-name">TargetFramework</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">RunCommand</span>&gt;</span>dotnet<span class="hljs-tag">&lt;/<span class="hljs-name">RunCommand</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">RunArguments</span>&gt;</span>blazor serve<span class="hljs-tag">&lt;/<span class="hljs-name">RunArguments</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">LangVersion</span>&gt;</span>7.3<span class="hljs-tag">&lt;/<span class="hljs-name">LangVersion</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">PropertyGroup</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">ItemGroup</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">PackageReference</span> <span class="hljs-attr">Include</span>=<span class="hljs-string">"Microsoft.AspNetCore.Blazor.Browser"</span> <span class="hljs-attr">Version</span>=<span class="hljs-string">"0.7.0"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">PackageReference</span> <span class="hljs-attr">Include</span>=<span class="hljs-string">"Microsoft.AspNetCore.Blazor.Build"</span> <span class="hljs-attr">Version</span>=<span class="hljs-string">"0.7.0"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">DotNetCliToolReference</span> <span class="hljs-attr">Include</span>=<span class="hljs-string">"Microsoft.AspNetCore.Blazor.Cli"</span> <span class="hljs-attr">Version</span>=<span class="hljs-string">"0.7.0"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ItemGroup</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">Project</span>&gt;</span>
+</code></pre>
+</li>
+</ul>
+<p>That&#039;s it! You&#039;re now ready to try out the latest Blazor features.</p>
+<h2 id="cascading-values-and-parameters">Cascading values and parameters</h2>
+<p>Blazor components can accept parameters that can be used to flow data into a component and impact the component&#039;s rendering. Parameter values are provided from parent component to child component. Sometimes, however, it&#039;s inconvenient to flow data from an ancestor component to a descendent component, especially when there are many layers in between. Cascading values and parameters solve this problem by providing a convenient way for an ancestor component to provide a value that is then available to all descendent components. They also provide a great way for components to coordinate.</p>
+<p>For example, if you wanted to provide some theme information for a specific part of your app you could flow the relevant styles and classes from component to component, but this would be tedious and cumbersome. Instead, a common ancestor component can provide the theme information as a cascading value that descendents can accept as a cascading parameter and then consume as needed.</p>
+<p>Let&#039;s say the following <code>ThemeInfo</code> class specifies all of the theme information that you want to flow down the component hierarchy so that all of the buttons within that part of your app share the same look and feel:</p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ThemeInfo</span> 
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> ButtonClass { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+}
+</code></pre>
+<p>An ancestor component can provide a cascading value using the <code>CascadingValue</code> component. The <code>CascadingValue</code> component wraps a subtree of the component hierarchy and specifies a single value that will be available to all components within that subtree. For example, we could specify the theme info in our application layout as a cascading parameter for all components that make up the layout body like this:</p>
+<pre><code class="lang-html"><span class="hljs-meta">@inherits</span> <span class="hljs-type">BlazorLayoutComponent</span>
+
+&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"sidebar"</span>&gt;
+    &lt;<span class="hljs-type">NavMenu</span> /&gt;
+&lt;/div&gt;
+
+&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"main"</span>&gt;
+    &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"top-row px-4"</span>&gt;
+        &lt;a href=<span class="hljs-string">"http://blazor.net"</span> target=<span class="hljs-string">"_blank"</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"ml-md-auto"</span>&gt;<span class="hljs-type">About</span>&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;<span class="hljs-type">CascadingValue</span> <span class="hljs-type">Value</span>=<span class="hljs-string">"@theme"</span>&gt;
+        &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"content px-4"</span>&gt;
+            <span class="hljs-meta">@Body</span>
+        &lt;/div&gt;
+    &lt;/<span class="hljs-type">CascadingValue</span>&gt;
+&lt;/div&gt;
+
+<span class="hljs-meta">@functions</span> {
+    <span class="hljs-type">ThemeInfo</span> theme = <span class="hljs-keyword">new</span> <span class="hljs-type">ThemeInfo</span> { <span class="hljs-type">ButtonClass</span> = <span class="hljs-string">"btn-success"</span> };
+}
+</code></pre>
+<p>To make use of cascading values, components can declare cascading parameters using the <code>[CascadingParameter]</code> attribute. Cascading values are bound to cascading parameters by type. In the following example the <code>Counter</code> component is modified to have a cascading parameter that binds to the <code>ThemeInfo</code> cascading value, which is then used to set the class for the button.</p>
+<pre><code class="lang-html">@page <span class="hljs-string">"/counter"</span>
+
+&lt;h1&gt;Counter&lt;/h1&gt;
+
+&lt;p&gt;Current count: @currentCount&lt;/p&gt;
+
+&lt;button <span class="hljs-keyword">class</span>=<span class="hljs-string">"btn @ThemeInfo.ButtonClass"</span> onclick=<span class="hljs-string">"@IncrementCount"</span>&gt;Click me&lt;/button&gt;
+
+@functions {
+    <span class="hljs-keyword">int</span> currentCount = <span class="hljs-number">0</span>;
+
+    [CascadingParameter] <span class="hljs-keyword">protected</span> ThemeInfo ThemeInfo { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">IncrementCount</span>(<span class="hljs-params"></span>)
+    </span>{
+        currentCount++;
+    }
+}
+</code></pre>
+<p>When we run the app we can see that the new style is applied:</p>
+<p><img src="https://msdnshared.blob.core.windows.net/media/2018/11/counter-with-cascading-parameter.png" alt="Counter with cascading parameter"></p>
+<p>Cascading parameters also enable components to collaborate across the component hierarchy. For example, let&#039;s say you have a <code>TabSet</code> component that contains a number of <code>Tab</code> components, like this:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">TabSet</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Tab</span> <span class="hljs-attr">Title</span>=<span class="hljs-string">"First tab"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>First tab<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+        This is the first tab.
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Tab</span>&gt;</span>
+
+    @if (showSecondTab)
+    {
+        <span class="hljs-tag">&lt;<span class="hljs-name">Tab</span> <span class="hljs-attr">Title</span>=<span class="hljs-string">"Second"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>Second tab<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+            You can toggle me.
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Tab</span>&gt;</span>
+    }
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">Tab</span> <span class="hljs-attr">Title</span>=<span class="hljs-string">"Third"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>Third tab<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">@showSecondTab</span> /&gt;</span>
+            Toggle second tab
+        <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Tab</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">TabSet</span>&gt;</span>
+</code></pre>
+<p>In this example the child <code>Tab</code> components are not explicitly passed as parameters to the <code>TabSet</code>. Instead they are simply part of the child content of the <code>TabSet</code>. But the <code>TabSet</code> still needs to know about each <code>Tab</code> so that it can render the headers and the active tab. To enable this coordination without requiring any specific wire up from the user, the <code>TabSet</code> component can provide <em>itself</em> as a cascading value that can then be picked up by the descendent <code>Tab</code> components:</p>
+<p>In <em>TabSet.cshtml</em></p>
+<pre><code class="lang-csharp"><span class="hljs-comment">&lt;!-- Display the tab headers --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">CascadingValue</span> <span class="hljs-attr">Value</span>=<span class="hljs-string">this</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"nav nav-tabs"</span>&gt;</span>
+        @ChildContent
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">CascadingValue</span>&gt;</span>
+</code></pre>
+<p>This allows the descendent <code>Tab</code> components to capture the containing <code>TabSet</code> as a cascading parameter, so they can add themselves to the <code>TabSet</code> and coordinate on which <code>Tab</code> is active:</p>
+<p>In <em>Tab.cshtml</em></p>
+<pre><code class="lang-csharp">[CascadingParameter] TabSet ContainerTabSet { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+</code></pre>
+<p>Check out the full <code>TabSet</code> sample <a href="https://gist.github.com/SteveSandersonMS/f10a552e1761ff759b1631d81a4428c3">here</a>.</p>
+<h2 id="debugging-improvements">Debugging improvements</h2>
+<p>In Blazor 0.5.0 we added some very preliminary support for <a href="https://blazor.net/docs/debugging.html">debugging client-side Blazor apps in the browser</a>. While this initial debugging support demonstrated that debugging .NET apps in the browser was possible, it was still a pretty rough experience. Blazor 0.7.0 picks up the latest runtime updates, which includes some fixes that makes the debugging experience more reliable. You can now more reliably set and remove breakpoints, and the reliability of step debugging has been improved.</p>
+<p><img src="https://msdnshared.blob.core.windows.net/media/2018/11/blazor-debugging-update.png" alt="Improved Blazor debugging"></p>
+<h2 id="give-feedback">Give feedback</h2>
+<p>We hope you enjoy this latest preview release of Blazor. As with previous releases, your feedback is important to us. If you run into issues or have questions while trying out Blazor, <a href="https://github.com/aspnet/blazor/issues">file issues on GitHub</a>. You can also chat with us and the Blazor community on <a href="https://gitter.im/aspnet/blazor">Gitter</a> if you get stuck or to share how Blazor is working for you. After you&#039;ve tried out Blazor for a while please let us know what you think by taking our in-product survey. Click the survey link shown on the app home page when running one of the Blazor project templates:</p>
+<p><img src="https://msdnshared.blob.core.windows.net/media/2018/05/blazor-survey-new.png" alt="Blazor survey"></p>
+<p>Thanks for trying out Blazor!</p>
+]]>
+      </content:encoded>
+      <wfw:commentRss>https://blogs.msdn.microsoft.com/webdev/2018/11/15/blazor-0-7-0-experimental-release-now-available/feed/</wfw:commentRss>
+      <slash:comments>12</slash:comments>
+    </item>
+    <item>
+      <title>ASP.NET SignalR 2.4.0</title>
+      <link>https://blogs.msdn.microsoft.com/webdev/2018/11/14/asp-net-signalr-2-4-0/</link>
+      <comments>https://blogs.msdn.microsoft.com/webdev/2018/11/14/asp-net-signalr-2-4-0/#respond</comments>
+      <pubDate>Wed, 14 Nov 2018 20:19:36 +0000</pubDate>
+      <dc:creator><![CDATA[Brady Gaster]]></dc:creator>
+      <category><![CDATA[AspNet]]></category>
+      <category><![CDATA[SignalR]]></category>
+
+      <guid isPermaLink="false">https://blogs.msdn.microsoft.com/webdev/?p=15735</guid>
+      <description><![CDATA[We&#8217;ve just shipped the final 2.4.0 version of ASP.NET SignalR, the version of SignalR for System.Web and/or OWIN-based applications. As we mentioned in a previous post on the future of ASP.NET SignalR, 2.4.0 is a minor release which contains some small bug fixes and updates. The majority of the features and fixes we implemented for... <a aria-label="read more about ASP.NET SignalR 2.4.0" href="https://blogs.msdn.microsoft.com/webdev/2018/11/14/asp-net-signalr-2-4-0/" class="read-more">Read more</a>]]></description>
+      <content:encoded>
+        <![CDATA[<p>We&#8217;ve just shipped the final 2.4.0 version of ASP.NET SignalR, the version of SignalR for System.Web and/or OWIN-based applications. As we mentioned in a previous post on the <a href="https://blogs.msdn.microsoft.com/webdev/2018/09/17/the-future-of-asp-net-signalr/">future of ASP.NET SignalR</a>, 2.4.0 is a minor release which contains some small bug fixes and updates. The majority of the features and fixes we implemented for ASP.NET SignalR were outlined in the <a href="https://blogs.msdn.microsoft.com/webdev/2018/10/22/asp-net-signalr-2-4-0-preview-2/">2.4.0 Preview 2 post</a>.</p>
+<h2 id="supportforstackexchangeredis20">Support for StackExchange Redis 2.0</h2>
+<p>In 2.4.0 we&#8217;re adding support for the new 2.0 release of the <a href="https://www.nuget.org/packages/StackExchange.Redis/">StackExchange.Redis</a> package. If you&#8217;re using StackExchange&#8217;s Redis package in your SignalR apps and you want to update to the StackExchange Redis 2.0 version, you&#8217;ll need to remove your existing package reference to <a href="https://www.nuget.org/packages/Microsoft.AspNet.SignalR.Redis">Microsoft.AspNet.SignalR.Redis</a>, then add a reference to the new <a href="https://www.nuget.org/packages/Microsoft.AspNet.SignalR.StackExchangeRedis">Microsoft.AspNet.SignalR.StackExchangeRedis</a> package.</p>
+<p>Once you make the package reference changes, you&#8217;ll also want to replace calls to the <code>UseRedis</code> method with <code>UseStackExchangeRedis</code>.</p>
+<h2 id="yourfeedbackiswelcomeandappreciated">Your Feedback is Welcome and Appreciated</h2>
+<p>We recommend you try upgrading to 2.4.0. Your feedback is critical to making sure we produce a stable and compatible update, and has contributed to the continued success of our real-time libraries! You can find details about the release on the <a href="https://github.com/SignalR/SignalR/releases">releases page</a> of the ASP.NET SignalR GitHub repository.</p>
+]]>
+      </content:encoded>
+      <wfw:commentRss>https://blogs.msdn.microsoft.com/webdev/2018/11/14/asp-net-signalr-2-4-0/feed/</wfw:commentRss>
+      <slash:comments>0</slash:comments>
+    </item>
+    <item>
+      <title>When should you right click publish</title>
+      <link>https://blogs.msdn.microsoft.com/webdev/2018/11/09/when-should-you-right-click-publish/</link>
+      <comments>https://blogs.msdn.microsoft.com/webdev/2018/11/09/when-should-you-right-click-publish/#comments</comments>
+      <pubDate>Fri, 09 Nov 2018 21:38:26 +0000</pubDate>
+      <dc:creator><![CDATA[Angelos Petropoulos]]></dc:creator>
+      <category><![CDATA[AspNet]]></category>
+      <category><![CDATA[AspNetCore]]></category>
+      <category><![CDATA[Azure]]></category>
+      <category><![CDATA[Cloud]]></category>
+      <category><![CDATA[Visual Studio]]></category>
+
+      <guid isPermaLink="false">https://blogs.msdn.microsoft.com/webdev/?p=15695</guid>
+      <description><![CDATA[Some people say ‘friends don’t let friends right click publish’ but is that true? If they mean that there are great benefits to setting up a CI/CD workflow, that’s true and we will talk more about these benefits in just a minute. First, let’s remind ourselves that the goal isn’t always coming up with the... <a aria-label="read more about When should you right click publish" href="https://blogs.msdn.microsoft.com/webdev/2018/11/09/when-should-you-right-click-publish/" class="read-more">Read more</a>]]></description>
+      <content:encoded>
+        <![CDATA[<p>Some people say ‘friends don’t let friends right click publish’ but is that true? If they mean that there are <span><a href="https://azure.microsoft.com/en-us/solutions/devops/">great benefits to setting up a CI/CD workflow</a></span>, that’s true and we will talk more about these benefits in just a minute. First, let’s remind ourselves that the goal isn’t always coming up with the best long-term solution.</p>
+<p>Technology moves fast and as developers we are constantly learning and experimenting with new languages, frameworks and platforms. Sometimes we just need to prototype something rather quickly in order to evaluate its capabilities. That’s a classic scenario where right click publish in Visual Studio provides the right balance between how much time you are going to spend (just a few seconds) and the options that become available to you (quite a few depending on the project type) such as publish to IIS, FTP  &amp; Folder (great for xcopy deployments and integration with other tools).</p>
+<p>Continuing with the theme of prototyping and experimenting, right click publish is the perfect way for existing Visual Studio customers to evaluate <span><a href="https://azure.microsoft.com/en-us/services/app-service/">Azure App Service (PAAS)</a></span>. By following the right click publish flow you get the opportunity to provision new instances in Azure and publish your application to them without leaving Visual Studio:</p>
+<p><a href="https://msdnshared.blob.core.windows.net/media/2018/11/image110.png"><img src="https://msdnshared.blob.core.windows.net/media/2018/11/image110.png" alt="" width="800" height="600" class="alignnone size-full wp-image-15715" /></a></p>
+<p><a href="https://msdnshared.blob.core.windows.net/media/2018/11/image210.png"><img src="https://msdnshared.blob.core.windows.net/media/2018/11/image210.png" alt="" width="800" height="600" class="alignnone size-full wp-image-15725" /></a></p>
+<p>When the right click publish flow has been completed, you immediately have a working application running in the cloud:</p>
+<p><a href="https://msdnshared.blob.core.windows.net/media/2018/11/image310.png"><img src="https://msdnshared.blob.core.windows.net/media/2018/11/image310.png" alt="" width="1091" height="748" class="alignnone size-full wp-image-15705" /></a></p>
+<p>Platform evaluations and experiments take time and during that time, right click publish helps you focus on the things that matter. When you are ready and the demand rises for automation, repeatability and traceability that’s when investing into a <span><a href="https://azure.microsoft.com/en-us/solutions/devops/">CI/CD workflow</a></span> starts making a lot of sense:</p>
+<ul>
+<li><strong>Automation:</strong> builds are kicked off and tests are executed as soon as you check in your code</li>
+<li><strong>Repeatability:</strong> it’s impossible to produce binaries without having the source code checked in</li>
+<li><strong>Traceability:</strong> each build can be traced back to a specific version of the codebase in source control which can then be compared with another build and figure out the differences</li>
+</ul>
+<p>The right time to adopt CI/CD typically coincides with a milestone related to maturity; either and application milestone or the team’s that is building it. If you are the only developer working on your application you may feel that setting up CI/CD is overkill, but automation and traceability can be extremely valuable even to a single developer once you start shipping to your customers and you have to support multiple versions in production.</p>
+<p>With a CI/CD workflow you are guaranteed that all binaries produced by a build can be linked back to the matching version of the source code. You can go from a customer bug report to looking at the matching source code easily, quickly and with certainty. In addition, the automation aspects of CI/CD save you valuable time performing common tasks like running tests and deploying to testing and pre-production environments, lowering the overhead of good practices that ensure high quality.</p>
+<p>As always, we want to see you successful, so if you run into any issues using publish in Visual Studio or setting up your CI/CD workload, let me know in the comment section below and I’ll do my best to get your question answered.</p>
+]]>
+      </content:encoded>
+      <wfw:commentRss>https://blogs.msdn.microsoft.com/webdev/2018/11/09/when-should-you-right-click-publish/feed/</wfw:commentRss>
+      <slash:comments>3</slash:comments>
+    </item>
+    <item>
+      <title>A first look at changes coming in ASP.NET Core 3.0</title>
+      <link>https://blogs.msdn.microsoft.com/webdev/2018/10/29/a-first-look-at-changes-coming-in-asp-net-core-3-0/</link>
+      <comments>https://blogs.msdn.microsoft.com/webdev/2018/10/29/a-first-look-at-changes-coming-in-asp-net-core-3-0/#comments</comments>
+      <pubDate>Mon, 29 Oct 2018 22:18:38 +0000</pubDate>
+      <dc:creator><![CDATA[Damian Edwards]]></dc:creator>
+      <category><![CDATA[AspNetCore]]></category>
+
+      <guid isPermaLink="false">https://blogs.msdn.microsoft.com/webdev/?p=15635</guid>
+      <description><![CDATA[While we continue to work on finalizing the next minor version of ASP.NET Core, we’re also working on major updates to our next release that will include some changes in how projects are composed with frameworks, tighter .NET Core integration, and 3rd party open source integration, all with the goal of making it easier and... <a aria-label="read more about A first look at changes coming in ASP.NET Core 3.0" href="https://blogs.msdn.microsoft.com/webdev/2018/10/29/a-first-look-at-changes-coming-in-asp-net-core-3-0/" class="read-more">Read more</a>]]></description>
+      <content:encoded>
+        <![CDATA[<p>While we continue to work on <a href="https://blogs.msdn.microsoft.com/webdev/2018/10/17/asp-net-core-2-2-0-preview3-now-available/">finalizing the next minor version of ASP.NET Core</a>, we’re also working on major updates to our next release that will include some changes in how projects are composed with frameworks, tighter .NET Core integration, and 3<sup>rd</sup> party open source integration, all with the goal of making it easier and faster for you to develop. For broader context around .NET Core 3.0, we encourage you to check out our <a href="https://blogs.msdn.microsoft.com/dotnet/2018/10/04/update-on-net-core-3-0-and-net-framework-4-8/">previous announcements</a> around the addition of WinForms and WPF support to .NET Core 3.0 on Windows. We’ll publish more details about new features coming in ASP.NET Core 3.0 in the near future.</p>
+<h2>Packages vs. Frameworks</h2>
+<p>For historical context, the way projects reference and run on ASP.NET Core has changed through the versions and years. In 1.0, ASP.NET Core itself was “just packages”, and appeared in projects like any other NuGet package reference. This had benefits and drawbacks, and over time we’ve evolved this model to try and balance the advantages of modular references with those of larger, prerequisite frameworks. In 2.1, ASP.NET Core eventually evolved to be available as a .NET Core “shared framework” (like the base of .NET Core itself, Microsoft.NETCore.App, has been since 1.0). This <a href="https://natemcmaster.com/blog/2018/08/29/netcore-primitives-2/">blog post by ASP.NET Core team member Nate McMaster</a> does a good job of explaining how the shared framework works while also highlighting some of the issues with the current approach. Updates we’re introducing in 3.0 are designed to reduce these issues for all our users.</p>
+<p>As part of this change, <a href="https://github.com/aspnet/Announcements/issues/325">some notable sub-components will be removed from the ASP.NET Core shared framework in 3.0</a>:</p>
+<ul>
+<li>Json.NET (Newtonsoft.Json)</li>
+<li>Entity Framework Core (Microsoft.EntityFrameworkCore.*)</li>
+</ul>
+<p>See <a href="https://github.com/dotnet/announcements/issues/90">this announcement for more details regarding the addition of JSON APIs in .NET Core</a>. For places in ASP.NET Core that rely on Json.NET features today (e.g. the JSON formatter in MVC), we’ll continue to ship packages that provide that integration moving forward, however the default experiences will change to use the upcoming in-box JSON APIs.</p>
+<p>Entity Framework Core will ship as “pure” NuGet packages in 3.0. This makes its shipping model the same as all other data access libraries on .NET, and allows it the simplest path to continue innovation while providing support for all the various .NET platforms customers enjoy it on today. Note, Entity Framework Core moving out of the shared framework has no impact on its status as a Microsoft developed, supported, and serviceable library, and it will continue to be covered by the <a href="https://www.microsoft.com/net/platform/support-policy">.NET Core support policy</a>.</p>
+<h2>Fully leveraging .NET Core</h2>
+<p>As <a href="https://blogs.msdn.microsoft.com/dotnet/2018/10/04/update-on-net-core-3-0-and-net-framework-4-8/">announced on the .NET Blog earlier this month</a>, .NET Framework will get fewer of the newer platform and language features that come to .NET Core moving forward, due to the in-place update nature of .NET Framework and the desire to limit changes there that might break existing applications. To ensure ASP.NET Core can fully leverage the improvements coming to .NET Core moving forward, <a href="https://github.com/aspnet/Announcements/issues/324">ASP.NET Core will only run on .NET Core starting from 3.0</a>. Moving forward, you can simply think of ASP.NET Core as being part of .NET Core.</p>
+<p>Customers utilizing ASP.NET Core on .NET Framework today can continue to do so in a fully supported fashion using the <a href="https://www.microsoft.com/net/download/dotnet-core/2.1">2.1 LTS release</a>. Support and servicing for 2.1 will continue until at least August 21, 2021 (3 years after its declaration as an LTS release) in accordance with the <a href="https://www.microsoft.com/net/platform/support-policy">.NET Core support policy</a>.</p>
+<p>For more information about porting from .NET Framework to .NET Core, see this <a href="https://docs.microsoft.com/en-us/dotnet/core/porting/">documentation</a>.</p>
+<p><strong>UPDATE: </strong>In order to give customers a reasonable stepping stone on their path to migrating applications to ASP.NET Core on .NET Core, <strong>we are going to extend support and servicing for ASP.NET Core 2.1.x on .NET Framework</strong> to match the <a href="https://www.asp.net/support">current support policy for the other package-based ASP.NET frameworks</a>, e.g. MVC 5.x, Web API 2.x, SignalR 2.x. This effectively means the ASP.NET Core 2.1.x related packages (final detailed list TBD) will be supported indefinitely, beyond the 3 year LTS period for the .NET Core 2.1 train overall.</p>
+<h2>Delivering more value with focused 3<sup>rd</sup> party open-source integration</h2>
+<p>At the same time we’re drawing a clearer distinction between what constitutes the “platform” in 3.0, and in doing so removing 3<sup>rd</sup> party components from that layer, we recognize that many higher-level scenarios are best assisted by established, capable, and well supported open-source components, and that we can provide support and assistance to the community and our customers by helping to ensure these components integrate as well as possible into ASP.NET Core applications.</p>
+<p>This support will take different forms, including first-class integration APIs &amp; packages built by our team, contributions made to existing libraries by our engineers, project templates in the default experiences that utilize these libraries, <span><a href="https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle">documentation</a></span> <span><a href="https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-nswag">that</a></span> <span><a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#third-party-logging-providers">lives</a></span> <span><a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/http-requests?view=aspnetcore-2.1#use-polly-based-handlers">on</a></span> the official ASP.NET Core docs site, and processes for dealing with critical issues and bug fixes, including security.</p>
+<p>We’ve already begun this in the 2.2 wave, with <span><a href="https://github.com/aspnet/Identity/issues/2033">new integration being developed</a></span> for the popular <span><a href="http://identityserver.io/">IdentityServer</a></span> library, which will help us deliver a simple and functional story for API Authorization in ASP.NET Core applications, while allowing customers to leverage the full power of IdentityServer when they need to.</p>
+<p>We’re also working on streamlining the experience for building HTTP APIs, with new <span><a href="https://blogs.msdn.microsoft.com/webdev/2018/08/23/asp-net-core-2-20-preview1-open-api-analyzers-conventions/">API Conventions and analyzers</a></span> that make working with popular Open API libraries like <span><a href="https://github.com/domaindrivendev/Swashbuckle">Swashbuckle</a></span> and <span><a href="https://github.com/RSuter/NSwag">NSwag</a></span> easier, and a new <span><a href="https://github.com/aspnet/Mvc/issues/7947">API client generation system</a></span> that allows for simple integration with code generators like <span><a href="https://github.com/Azure/autorest">AutoRest</a></span> and <span><a href="https://github.com/RSuter/NSwag">NSwag</a></span>.</p>
+<p>For folks excited by <span><a href="https://blogs.msdn.microsoft.com/webdev/2018/08/22/asp-net-core-2-2-0-preview1-healthcheck/">our new Health Checks feature</a></span>, the owners of the <span><a href="https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks">BeatPulse library are working</a></span> to port their extensive library of checks over.</p>
+<p>We intend to bring these experiences together in a new project template to be made available in the period after 2.2 ships.</p>
+<h2>Conclusion</h2>
+<p>Stay tuned for more updates as we continue working on ASP.NET Core in .NET Core 3.0, including a summary of the new features we’re working to enable as part of this release. We also regularly post details of changes and other information on our <span><a href="https://github.com/aspnet/announcements/issues">announcements repo</a></span>, which we encourage you to subscribe to.</p>
+]]>
+      </content:encoded>
+      <wfw:commentRss>https://blogs.msdn.microsoft.com/webdev/2018/10/29/a-first-look-at-changes-coming-in-asp-net-core-3-0/feed/</wfw:commentRss>
+      <slash:comments>30</slash:comments>
+    </item>
+    <item>
+      <title>Announcing CosmosDB Table Async OutputCache Provider Release and ASP.NET Providers Connected Service Extension Update</title>
+      <link>https://blogs.msdn.microsoft.com/webdev/2018/10/25/announcing-cosmosdb-table-async-outputcache-provider-release-and-asp-net-providers-connected-service-extension-update/</link>
+      <comments>https://blogs.msdn.microsoft.com/webdev/2018/10/25/announcing-cosmosdb-table-async-outputcache-provider-release-and-asp-net-providers-connected-service-extension-update/#comments</comments>
+      <pubDate>Thu, 25 Oct 2018 21:09:49 +0000</pubDate>
+      <dc:creator><![CDATA[Matt FJH]]></dc:creator>
+      <category><![CDATA[AspNet]]></category>
+      <category><![CDATA[ASP.NET]]></category>
+      <category><![CDATA[Connected Service]]></category>
+      <category><![CDATA[OutputCache]]></category>
+
+      <guid isPermaLink="false">https://blogs.msdn.microsoft.com/webdev/?p=15595</guid>
+      <description><![CDATA[Through the years, ASP.NET team have been releasing new ASP.NET SessionState and OutputCache providers to help developers make their web applications ready for the cloud environment. Today we are announcing a new OutputCache provider, Microsoft.AspNet.OutputCache.CosmosDBTableAsyncOutputCacheProvider,  to enable your applications store the OutputCache data into CosmosDB. It supports both Azure CosmosDB Table and Azure Storage Table.... <a aria-label="read more about Announcing CosmosDB Table Async OutputCache Provider Release and ASP.NET Providers Connected Service Extension Update" href="https://blogs.msdn.microsoft.com/webdev/2018/10/25/announcing-cosmosdb-table-async-outputcache-provider-release-and-asp-net-providers-connected-service-extension-update/" class="read-more">Read more</a>]]></description>
+      <content:encoded>
+        <![CDATA[<p>Through the years, ASP.NET team have been releasing new ASP.NET SessionState and OutputCache providers to help developers make their web applications ready for the cloud environment. Today we are announcing a new OutputCache provider, Microsoft.AspNet.OutputCache.CosmosDBTableAsyncOutputCacheProvider,  to enable your applications store the OutputCache data into CosmosDB. It supports both Azure CosmosDB Table and Azure Storage Table.</p>
+<h3><strong>How to Use CosmosDBTableAsyncOutputCacheProvider</strong></h3>
+<ol>
+<li>Open the NuGet package manager and search for Microsoft.AspNet.OutputCache.CosmosDBTableAsyncOutputCacheProvider and install. Make sure that your application is targeted to .NET Framework 4.6.2 or higher version. Download the <u><a href="https://www.microsoft.com/en-us/download/details.aspx?id=53321">.NET Framework 4.6.2 Developer Pack</a></u> if you do not already have it installed.</li>
+<li>The package has dependency on Microsoft.AspNet.OutputCache.OutputCacheModuleAsync Nuget package and Microsoft.Azure.CosmosDB.Table Nuget package. After you install the package, both Microsoft.AspNet.OutputCache.CosmosDBTableAsyncOutputCacheProvider.dll and dependent assemblies will be copied to the Bin folder.<a href="https://msdnshared.blob.core.windows.net/media/2018/10/115.png"><img src="https://msdnshared.blob.core.windows.net/media/2018/10/115-1024x371.png" alt="" width="879" height="318" class="aligncenter size-large wp-image-15605" /></a></li>
+<li>Open the web.config file, you will see two new configuration sections are added, caching and appSettings. The first one is to configure the OutputCache provider, you may want to update the table name. The provider will create the table if it doesn’t exist on the configured Azure service instance. The second one is the appSettings for the storage connection string. Depends on the connection string you use, the provider can work with either Azure CosmosDB Table or Azure Storage Table.<a href="https://msdnshared.blob.core.windows.net/media/2018/10/29.png"><img src="https://msdnshared.blob.core.windows.net/media/2018/10/29-1024x478.png" alt="" width="879" height="410" class="aligncenter size-large wp-image-15615" /></a><strong></strong><br />
+<h3><strong>ASP.NET Providers Connected Service Extension Update</strong></h3>
+<p><span><a href="https://blogs.msdn.microsoft.com/webdev/2018/05/22/announcing-asp-net-providers-connected-service-visual-studio-extension/">5 months ago</a></span>, we released <span><a href="https://marketplace.visualstudio.com/items?itemName=AspnetTeam.AspnetProvidersConnectedService">ASP.NET Providers Connected Service Visual Studio Extension</a></span> to help the developers to pick the right ASP.NET provider and configure it properly to work with Azure resources. Today we are releasing an update for this extension which enables you configure ComosDB table OutputCache provider and Redis cache OutputCache.</p>
+<p><a href="https://msdnshared.blob.core.windows.net/media/2018/10/38.png"><img src="https://msdnshared.blob.core.windows.net/media/2018/10/38-1024x571.png" alt="" width="879" height="490" class="aligncenter size-large wp-image-15625" /></a></p>
+<h3><strong>Summary</strong></h3>
+<p>The new CosmosDBTableAsyncOutputCacheProvider Nuget package enables your ASP.NET application leverage Azure CosmosDB and Azure Storage to store the OutputCache data. The new ASP.NET Providers Connected Service extension adds more Azure ready ASP.NET providers support. Please try it today and let us know you feedback.</li>
+</ol>
+]]>
+      </content:encoded>
+      <wfw:commentRss>https://blogs.msdn.microsoft.com/webdev/2018/10/25/announcing-cosmosdb-table-async-outputcache-provider-release-and-asp-net-providers-connected-service-extension-update/feed/</wfw:commentRss>
+      <slash:comments>2</slash:comments>
+    </item>
+    <item>
+      <title>ASP.NET SignalR 2.4.0 Preview 2</title>
+      <link>https://blogs.msdn.microsoft.com/webdev/2018/10/22/asp-net-signalr-2-4-0-preview-2/</link>
+      <comments>https://blogs.msdn.microsoft.com/webdev/2018/10/22/asp-net-signalr-2-4-0-preview-2/#comments</comments>
+      <pubDate>Mon, 22 Oct 2018 21:01:44 +0000</pubDate>
+      <dc:creator><![CDATA[Andrew Stanton-Nurse]]></dc:creator>
+      <category><![CDATA[Uncategorized]]></category>
+
+      <guid isPermaLink="false">https://blogs.msdn.microsoft.com/webdev/?p=15585</guid>
+      <description><![CDATA[We&#8217;ve just released the second preview of the upcoming 2.4.0 release of ASP.NET SignalR. As we mentioned in our previous blog post on the future of ASP.NET SignalR we are releasing a minor update to ASP.NET SignalR (the version of SignalR for System.Web and/or OWIN-based applications) that includes, support for the Azure SignalR Service, as... <a aria-label="read more about ASP.NET SignalR 2.4.0 Preview 2" href="https://blogs.msdn.microsoft.com/webdev/2018/10/22/asp-net-signalr-2-4-0-preview-2/" class="read-more">Read more</a>]]></description>
+      <content:encoded>
+        <![CDATA[<p>We&#8217;ve just released the second preview of the upcoming 2.4.0 release of ASP.NET SignalR. As we mentioned in our previous blog post on the future of ASP.NET SignalR we are releasing a minor update to ASP.NET SignalR (the version of SignalR for System.Web and/or OWIN-based applications) that includes, support for the Azure SignalR Service, as well as some bug fixes and minor features.</p>
+<p>We recommend you try upgrading to the preview even if you’re not interested in adopting the Azure SignalR Service at this time. Your feedback is critical to making sure we produce a stable and compatible update! You can find details about the release on the <a href="https://github.com/SignalR/SignalR/releases/tag/2.4.0-preview2">releases page of the ASP.NET SignalR GitHub repository</a>.</p>
+<h2 id="highlights">Highlights</h2>
+<p>This preview mostly contains further bug fixes and changes to support the Azure SignalR service. Some of the major fixes include:</p>
+<ul>
+<li><a href="https://github.com/SignalR/SignalR/issues/4213">Fixed issues when using <code>.off</code> and <code>.on</code> with &#8220;bound&#8221; functions in the JavaScript Client</a></li>
+<li><a href="https://github.com/SignalR/SignalR/issues/4102">Removed a deadlock in the .NET client</a></li>
+<li><a href="https://github.com/SignalR/SignalR/issues/4160">Added detection and a clear error message when connecting to an ASP.NET Core SignalR Service, since those are incompatible</a></li>
+<li><a href="https://github.com/SignalR/SignalR/issues/3722">Suppressed a spurious ObjectDisposedExceptions thrown by a background task</a></li>
+<li><a href="https://github.com/SignalR/SignalR/issues/4075">Set an appropriate <code>Content-Type</code> header value to prevent warnings in browser consoles</a> (a community contribution!)</li>
+<li><a href="https://github.com/SignalR/SignalR/issues/4092">Fixed a socket leak that can occur when HTTP requests fail</a></li>
+<li><a href="https://github.com/SignalR/SignalR/issues/4232">Add support for WebSockets to the .NET Standard 2.0 client</a></li>
+<li><a href="https://github.com/SignalR/SignalR/issues/4109">Enabled full support for SourceLink to allow stepping in to SignalR source code when debugging</a></li>
+<li><a href="https://github.com/SignalR/SignalR/issues/4152">Fixed asssembly load errors when using &#8216;signalr.exe&#8217; with an app that has upgraded Newtonsoft.Json</a></li>
+<li><a href="https://github.com/SignalR/SignalR/issues/4126">Fixed a memory leak that can occur if <code>OnDisconnected</code> throws</a></li>
+</ul>
+<p>Other minor fixes are included, for a full list see our <a href="https://github.com/SignalR/SignalR/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+is%3Aclosed+milestone%3A2.4.0+label%3A%22shipped-in%3A+2.4.0-preview2%22+">GitHub issue tracker</a></p>
+]]>
+      </content:encoded>
+      <wfw:commentRss>https://blogs.msdn.microsoft.com/webdev/2018/10/22/asp-net-signalr-2-4-0-preview-2/feed/</wfw:commentRss>
+      <slash:comments>1</slash:comments>
+    </item>
+    <item>
+      <title>ASP.NET Core 2.2.0-preview3 now available</title>
+      <link>https://blogs.msdn.microsoft.com/webdev/2018/10/17/asp-net-core-2-2-0-preview3-now-available/</link>
+      <comments>https://blogs.msdn.microsoft.com/webdev/2018/10/17/asp-net-core-2-2-0-preview3-now-available/#comments</comments>
+      <pubDate>Wed, 17 Oct 2018 17:00:55 +0000</pubDate>
+      <dc:creator><![CDATA[Glenn Condron]]></dc:creator>
+      <category><![CDATA[Uncategorized]]></category>
+
+      <guid isPermaLink="false">https://blogs.msdn.microsoft.com/webdev/?p=15555</guid>
+      <description><![CDATA[Today we&#8217;re very happy to announce that the third preview of the next minor release of ASP.NET Core and .NET Core is now available for you to try out. We’ve been working hard on this release, along with many folks from the community, and it’s now ready for a wider audience to try it out... <a aria-label="read more about ASP.NET Core 2.2.0-preview3 now available" href="https://blogs.msdn.microsoft.com/webdev/2018/10/17/asp-net-core-2-2-0-preview3-now-available/" class="read-more">Read more</a>]]></description>
+      <content:encoded>
+        <![CDATA[<p>Today we&#8217;re very happy to announce that the third preview of the next minor release of ASP.NET Core and .NET Core is now available for you to try out. We’ve been working hard on this release, along with many folks from the community, and it’s now ready for a wider audience to try it out and provide the feedback that will continue to shape the release.</p>
+<h2 id="howdoigetit">How do I get it?</h2>
+<p>You can download the new .NET Core SDK for 2.2.0-preview3 (which includes ASP.NET 2.2.0-preview3) from <a href="https://www.microsoft.com/net/download/dotnet-core/2.2">https://www.microsoft.com/net/download/dotnet-core/2.2</a></p>
+<h2 id="visualstudiorequirements">Visual Studio requirements</h2>
+<p>Customers using Visual Studio should also install and use the <a href="https://www.visualstudio.com/vs/preview/">Preview channel</a> of Visual Studio 2017 (15.9 Preview 3 or later) in addition to the SDK when working with .NET Core 2.2 and ASP.NET Core 2.2 projects. Please note that the Visual Studio preview channel can be installed side-by-side with existing an Visual Studio installation without disrupting your current development environment.</p>
+<h2 id="azureappservicerequirements">Azure App Service Requirements</h2>
+<p>If you are hosting your application on Azure App Service, you can follow <a href="https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/azure-apps/?view=aspnetcore-2.1#install-the-preview-site-extension">these instructions</a> to install the required site extension for hosting your 2.2.0-preview3 applications.</p>
+<h2 id="impacttomachines">Impact to machines</h2>
+<p>Please note that is a preview release and there are likely to be known issues and as-yet-to-be discovered bugs. While the .NET Core SDK and runtime installs are side-by-side, your default SDK will become the latest one. If you run into issues working on existing projects using earlier versions of .NET Core after installing the preview SDK, you can force specific projects to use an earlier installed version of the SDK using a <code>global.json</code> file as <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/global-json">documented here</a>. Please <a href="https://github.com/dotnet/cli/issues">log an issue</a> if you run into such cases as SDK releases are intended to be backwards compatible.</p>
+<h2 id="whatsnewinpreview3">What&#8217;s new in Preview 3</h2>
+<p>For a full list of changes, bug fixes, and known issues you can read the <a href="https://github.com/aspnet/Announcements/issues/323">release announcement</a>.</p>
+<h3 id="routing">Routing</h3>
+<p>We&#8217;ve introduced the concept of Parameter Transformers to routing in ASP.NET Core 2.2. A parameter transformer customizes the route generated by transforming parameter&#8217;s route values, and gives developers new options when generating routes. For example, a custom <code>slugify</code> parameter transformer in route pattern <code>blog\{article:slugify}</code> with <code>Url.Action(new { article = "MyTestArticle" })</code> generates <code>blog\my-test-article</code>. Parameter transformers implement <code>Microsoft.AspNetCore.Routing.IOutboundParameterTransformer</code> and are configured using <a href="https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.routing.routeoptions.constraintmap#Microsoft_AspNetCore_Routing_RouteOptions_ConstraintMap">ConstraintMap</a>.</p>
+<p>These features are specific to the new endpoint routing system used in MVC by default in 2.2.</p>
+<p>Parameter transformers are also used by frameworks to transform the URI to which an endpoint resolves. For example, ASP.NET Core MVC uses parameter transformers to transform the route value used to match an <code>area</code>, <code>controller</code>, <code>action</code>, and <code>page</code>.</p>
+<pre><code class="csharp language-csharp">routes.MapRoute(
+    name: "default",
+    template: "{controller=Home:slugify}/{action=Index:slugify}/{id?}");
+</code></pre>
+<p>With the preceding route, the action <code>SubscriptionManagementController.GetAll()</code> is matched with the URI <code>/subscription-management/get-all</code>. A parameter transformer doesn&#8217;t change the route values used to generate a link. <code>Url.Action("GetAll", "SubscriptionManagement")</code> outputs <code>/subscription-management/get-all</code>.</p>
+<p>ASP.NET Core provides API conventions for using a parameter transformers with generated routes:</p>
+<ul>
+<li>MVC has the <code>Microsoft.AspNetCore.Mvc.ApplicationModels.RouteTokenTransformerConvention</code> API convention. This convention applies a specified parameter transformer to all attribute routes in the app. The parameter transformer will transform attribute route tokens as they are replaced. For more information, see <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/routing?view=aspnetcore-2.2#use-a-parameter-transformer-to-customize-token-replacement">Use a parameter transformer to customize token replacement</a>.</li>
+<li>Razor pages has the <code>Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteTransformerConvention</code> API convention. This convention applies a specified parameter transformer to all automatically discovered Razor pages. The parameter transformer will transform the folder and file name segments of Razor page routes. For more information, see <a href="https://docs.microsoft.com/en-us/aspnet/core/razor-pages/razor-pages-conventions?view=aspnetcore-2.2#use-a-parameter-transformer-to-customize-page-routes">Use a parameter transformer to customize page routes</a>.</li>
+</ul>
+<h3 id="linkgeneration">Link Generation</h3>
+<p>Added a new service called <code>LinkGenerator</code>, it is a singleton service that supports generating paths and absolute URIs both with and without an <code>HttpContext</code>. If you need to generate links in Middleware or somewhere outside of Razor then this new service will be useful to you. You can use it in Razor, but the existing APIs like <code>Url.Action</code> are already backed by the new service so you can continue to use those.</p>
+<pre><code class="csharp language-csharp">return _linkGenerator.GetPathByAction(
+     httpContext,
+     controller: "Home",
+     action: "Index",
+     values: new { id=42 });
+</code></pre>
+<p>For now this is useful to link to MVC actions and pages from outside of MVC. We will add additional features in the next release targeting non-MVC scenarios.</p>
+<h3 id="healthchecks">Health Checks</h3>
+<h4 id="dbcontexthealthcheck">DbContextHealthCheck</h4>
+<p>We added a new <code>DbContext</code> based check for when you are using Entity Framework Core:</p>
+<pre><code class="csharp language-csharp">// Registers required services for health checks
+services.AddHealthChecks()
+        // Registers a health check for the MyContext type. By default the name of the health check will be the
+        // name of the DbContext type. There are other options available through AddDbContextCheck to configure
+        // failure status, tags, and custom test query.
+        .AddDbContextCheck&lt;MyContext&gt;();
+</code></pre>
+<p>This check will make sure that the application can communicate with the database you configured for <code>MyContext</code>. By default the <code>DbContextHealthCheck</code> will call the <code>CanConnectAsync</code> method that is being added to Entity Framework Core 2.2. You can customize what operation is run when checking health using overloads of the <code>AddDbContextCheck</code> method.</p>
+<h4 id="healthcheckpublisher">Health Check Publisher</h4>
+<p>We added the <code>IHealthCheckPublisher</code> interface that has a single method you can implement:</p>
+<pre><code class="csharp language-csharp">Task PublishAsync(HealthReport report, CancellationToken cancellationToken);
+</code></pre>
+<p>If you add an <code>IHealthCheckPublisher</code> to DI then the health checks system will periodically execute your health checks and call <code>PublishAsync</code> with the result. We expect this to be useful when you are interacting with a push based health system that expects each process to call it periodically in order to determine health.</p>
+<h4 id="tags">Tags</h4>
+<p>In preview3 we added the ability to tag health checks with a list of strings when you register them:</p>
+<pre><code class="csharp language-csharp">services.AddHealthChecks()
+        .AddDbContextCheck&lt;MyContext&gt;(tags: new[] { "db" });
+</code></pre>
+<p>Once you&#8217;ve done this then you can filter execution of your checks via tag:</p>
+<pre><code class="csharp language-csharp">app.UseHealthChecks("/liveness", new HealthCheckOptions
+{
+    Predicate = (_) =&gt; false
+});
+
+app.UseHealthChecks("/readiness", new HealthCheckOptions
+{
+    Predicate = (check) =&gt; check.Tags.Contains("db")
+});
+</code></pre>
+<p>We see tags as a way for consumers of health checks, application authors, to use as a convenient grouping and filtering mechanism for their health checks. Not something that health check authors will pre-populate.</p>
+<p>You can also customize what status a failure of this check means for your application, for example if your application is written such that it can handle the database not being available then a database being down might mean <code>Degraded</code> rather than <code>UnHealthy</code>.</p>
+<h3 id="validationperformanceimprovements">Validation Performance Improvements</h3>
+<p>MVC&#8217;s validation system is designed to be extensible and flexible allowing developer to determine on a per request basis what validators apply to a given model. This is great for authoring complex validation providers. However, in the most common case your application only uses the built-in validation pieces such as DataAnnotations (<code>[Required]</code>, <code>[StringLength]</code> etc, or <code>IValidatableObject</code>) and don&#8217;t require this extra flexability.</p>
+<p>In 2.2.0-preview3, we&#8217;re adding a feature that allows MVC to short-circuit validation if it can determine that a given model graph would not require any validation. This results in significant improvements when validating models that cannot or do not have any associated validators. This includes objects such as collections of primitives (<code>byte[]</code>, <code>string[]</code>, <code>Dictionary&lt;string, string&gt;</code> etc), or complex object graphs without many validators.</p>
+<p>For this model &#8211; <a href="https://github.com/aspnet/Mvc/blob/release/2.2/benchmarkapps/BasicApi/Models/Pet.cs">https://github.com/aspnet/Mvc/blob/release/2.2/benchmarkapps/BasicApi/Models/Pet.cs</a> &#8211; the table below compares the difference in Requests Per Second (RPS) with and without the enhancement:</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>RPS</th>
+<th>Memory (MB)</th>
+<th>Avg. Latency (ms)</th>
+<th>Startup (ms)</th>
+<th>First Request (ms)</th>
+<th>Ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baseline</td>
+<td>78,738</td>
+<td>398</td>
+<td>3.5</td>
+<td>547</td>
+<td>111.3</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td>Validation changes</td>
+<td>90,167</td>
+<td>401</td>
+<td>2.9</td>
+<td>541</td>
+<td>115.9</td>
+<td>1.15</td>
+</tr>
+</tbody>
+</table>
+<h3 id="httpclientperformanceimprovements">HTTP Client Performance Improvements</h3>
+<p>Some significant performance improvements have been made to <a href="https://github.com/dotnet/corefx/tree/master/src/System.Net.Http/src/System/Net/Http/SocketsHttpHandler">SocketsHttpHandler</a> by improving the connection pool locking contention. For applications making many outgoing HTTP requests, such as some Microservices architectures, throughput should be significantly improved. Our internal benchmarks show that under load HttpClient throughput has improved by 60% on Linux and 20% on Windows. At the same time the 90th percentile latency was cut down by two on Linux. See <a href="https://github.com/dotnet/corefx/pull/32568">Github #32568</a> for the actual code change that made this improvement.</p>
+<p>Requests Per Second Linux (higher is better)</p>
+<p><img src="https://user-images.githubusercontent.com/234688/46974848-f7188680-d079-11e8-9bdf-0ee301334e45.png" alt="image" /></p>
+<p>Requests Per Second Windows (higher is better)</p>
+<p><img src="https://user-images.githubusercontent.com/234688/46974883-0f88a100-d07a-11e8-91dd-bbd1b1b5a555.png" alt="image" /></p>
+<p>Request Latency Linux (lower is better)</p>
+<p><img src="https://user-images.githubusercontent.com/234688/46974868-039cdf00-d07a-11e8-8240-4bc4d80547d8.png" alt="image" /></p>
+<p>Request Latency Windows (lower is better)</p>
+<p><img src="https://user-images.githubusercontent.com/234688/46974894-16171880-d07a-11e8-84cd-247235ed1242.png" alt="image" /></p>
+<h3 id="aspnetcoremodule">ASP.NET Core Module</h3>
+<p>We added support for the ability to detect client disconnects when you&#8217;re using the new IIS in-process hosting model. The <code>HttpContext.RequestAborted</code> cancellation token now gets tripped when your client disconnnects.</p>
+<p>The ASP.NET Core Module also features enhanced diagnostics logs that configurable via the new handler settings or environment variables that expose a higher fidelity of diagnostic information.</p>
+<pre><code class="xml language-xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;configuration&gt;
+  &lt;location path="." inheritInChildApplications="false"&gt;
+    &lt;system.webServer&gt;
+      &lt;handlers&gt;
+        &lt;add name="aspNetCore" path="*" verb="*" modules="AspNetCoreModuleV2" resourceType="Unspecified" /&gt;
+      &lt;/handlers&gt;
+      &lt;aspNetCore processPath="dotnet" arguments=".\clientdisconnect.dll" stdoutLogEnabled="false" stdoutLogFile=".\logs\stdout" hostingModel="inprocess"&gt;
+        &lt;handlerSettings&gt;
+          &lt;handlerSetting name="debugFile" value="debug.txt" /&gt;
+          &lt;handlerSetting name="debugLevel" value="TRACE" /&gt;
+        &lt;/handlerSettings&gt; 
+      &lt;/aspNetCore&gt;
+    &lt;/system.webServer&gt;
+  &lt;/location&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h3 id="signalrjavaclient">SignalR Java Client</h3>
+<p>Preview 3 includes a few notable changes to the SignalR Java Client as we progress towards a 1.0 release:</p>
+<p>The &#8220;groupId&#8221; for the Maven package has changed to <code>com.microsoft.signalr</code>. To reference the new package from a Maven POM file, add the following dependency:</p>
+<pre><code class="xml language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.microsoft.signalr&lt;/groupId&gt;
+    &lt;artifactId&gt;signalr&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0-preview3-35501&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>Or in Gradle:</p>
+<pre><code class="gradle language-gradle">implementation 'com.microsoft.signalr:signalr:1.0.0-preview3-35501'
+</code></pre>
+<p>In Preview 3 we&#8217;ve changed all the APIs to be asynchronous, using <a href="https://github.com/ReactiveX/RxJava">RxJava</a>. Our <a href="https://docs.microsoft.com/en-us/aspnet/core/signalr/java-client?view=aspnetcore-2.2">Java Client documentation</a> will be updated to show the new usage patterns. We also have support for the <code>invoke</code> method, allowing the client code to wait for the server method to complete. This version also includes support for serializing custom types in method arguments and return values.</p>
+<p>The Java Client currently requires <strong>Android API Level 26</strong> (or higher). We are investigating moving down to a lower API level before RTM. If you are planning to use SignalR in an Java-based Android application, please comment on <a href="https://github.com/aspnet/SignalR/issues/3143">the GitHub issue tracking our Android API level support</a> so we know what API level would work well for our users.</p>
+<h2 id="migratinganaspnetcore21projectto22">Migrating an ASP.NET Core 2.1 project to 2.2</h2>
+<p>To migrate an ASP.NET Core project from 2.1.x to 2.2.0-preview3, open the project’s .csproj file and change the value of the the element to netcoreapp2.2. You do not need to do this if you’re targeting .NET Framework 4.x.</p>
+<h2 id="givingfeedback">Giving Feedback</h2>
+<p>The main purpose of providing previews is to solicit feedback so we can refine and improve the product in time for the final release. Please help provide us feedback by logging issues in the appropriate repository at <a href="https://github.com/aspnet">https://github.com/aspnet</a> or <a href="https://github.com/dotnet">https://github.com/dotnet</a>. We look forward to receiving your feedback!</p>
+]]>
+      </content:encoded>
+      <wfw:commentRss>https://blogs.msdn.microsoft.com/webdev/2018/10/17/asp-net-core-2-2-0-preview3-now-available/feed/</wfw:commentRss>
+      <slash:comments>12</slash:comments>
+    </item>
+    <item>
+      <title>Use Hybrid Connections to Incrementally Migrate Applications to the Cloud</title>
+      <link>https://blogs.msdn.microsoft.com/webdev/2018/10/04/use-hybrid-connections-to-incrementally-migrate-applications-to-the-cloud/</link>
+      <comments>https://blogs.msdn.microsoft.com/webdev/2018/10/04/use-hybrid-connections-to-incrementally-migrate-applications-to-the-cloud/#comments</comments>
+      <pubDate>Thu, 04 Oct 2018 22:57:53 +0000</pubDate>
+      <dc:creator><![CDATA[Andrew B Hall - MSFT]]></dc:creator>
+      <category><![CDATA[AspNet]]></category>
+      <category><![CDATA[Azure]]></category>
+      <category><![CDATA[Cloud]]></category>
+      <category><![CDATA[WCF]]></category>
+      <category><![CDATA[ASP.NET]]></category>
+      <category><![CDATA[cloud]]></category>
+      <category><![CDATA[Lift and Shift]]></category>
+      <category><![CDATA[Migrate to the Cloud]]></category>
+
+      <guid isPermaLink="false">https://blogs.msdn.microsoft.com/webdev/?p=15455</guid>
+      <description><![CDATA[As the software industry shifts to running software in the cloud, organizations are looking to migrate existing applications from on-premises to the cloud. Last week at Microsoft’s Ignite conference, Paul Yuknewicz and I delivered a talk focused on how to get started migrating applications to Azure (watch the talk free) where we walked through the... <a aria-label="read more about Use Hybrid Connections to Incrementally Migrate Applications to the Cloud" href="https://blogs.msdn.microsoft.com/webdev/2018/10/04/use-hybrid-connections-to-incrementally-migrate-applications-to-the-cloud/" class="read-more">Read more</a>]]></description>
+      <content:encoded>
+        <![CDATA[<p>As the software industry shifts to running software in the cloud, organizations are looking to migrate existing applications from on-premises to the cloud. Last week at Microsoft’s Ignite conference, <a href="https://twitter.com/paulyuki99">Paul Yuknewicz</a> and I delivered a talk focused on how to get started migrating applications to Azure (<a href="https://youtu.be/2vp2ZCR6TbI">watch the talk free</a>) where we walked through the business case for migrating to the cloud, and choosing the right hosting and data services.</p>
+<p><a href="https://youtu.be/2vp2ZCR6TbI?t=865">If your application is a candidate for running in App Service</a>, one of the most useful pieces of technology that we showed was <a href="https://docs.microsoft.com/en-us/azure/biztalk-services/integration-hybrid-connection-overview">Hybrid Connections</a>. Hybrid Connections let you host a part of your application in Azure App Service, while calling back into resources and services not running in Azure (e.g. still on-premises). This enables you to try running a small part of your application in the cloud without the need to move your entire application and all of its dependencies at once; which is usually time consuming, and extremely difficult to debug when things don’t work. So, in this post I’ll show you how to host an ASP.NET front application in the cloud, and configure a hybrid connection to connect back to a service on your local machine.</p>
+<h2>Publishing Our Sample App to the Cloud</h2>
+<p>For the purposes of this post, I’m going to use the <a href="https://github.com/paulyuk/modernizewithappservice">Smart Hotel 360 App sample</a> that uses an ASP.NET front end that calls a WCF service which then accesses a SQL Express LocalDB instance on my machine. <i></i></p>
+<p>The first thing I need to do is publish the ASP.NET application to App Service. To do this, right click on the “SmartHotel.Registration.Web” project and choose “Publish”</p>
+<p><a href="https://msdnshared.blob.core.windows.net/media/2018/10/clip_image001.png"><img title="clip_image001" alt="clip_image001" src="https://msdnshared.blob.core.windows.net/media/2018/10/clip_image001_thumb.png" width="513" height="399" border="0" /></a></p>
+<p>The publish target dialog is already on App Service, and I want to create a new one, so I will just click the “Publish” button.</p>
+<p>This will bring up the “Create App Service” dialog.  Next, I will click “Create” and wait for a minute while the resources in the cloud are created and the application is published.</p>
+<p><a href="https://msdnshared.blob.core.windows.net/media/2018/10/clip_image003.jpg"><img title="clip_image003" alt="clip_image003" src="https://msdnshared.blob.core.windows.net/media/2018/10/clip_image003_thumb.jpg" width="784" height="588" border="0" /></a></p>
+<p>When it’s finished publishing, my web browser will open to my published site. At this point, there will be an error loading the page since it cannot connect to the WCF service. To fix this we&#8217;ll add a hybrid connection.</p>
+<p><a href="https://msdnshared.blob.core.windows.net/media/2018/10/image35.png"><img title="image" alt="image" src="https://msdnshared.blob.core.windows.net/media/2018/10/image_thumb28.png" width="1028" height="241" border="0" /></a></p>
+<h2>Create the Hybrid Connection</h2>
+<p>To create the Hybrid Connection, I navigate to the App Service I just created in the Azure Portal. One quick way to do this is to click the “Managed in Cloud Explorer” link on the publish summary page</p>
+<p><a href="https://msdnshared.blob.core.windows.net/media/2018/10/clip_image005.jpg"><img title="clip_image005" alt="clip_image005" src="https://msdnshared.blob.core.windows.net/media/2018/10/clip_image005_thumb.jpg" width="679" height="336" border="0" /></a></p>
+<p>Right click the site, and choose “Open in Portal” (You can manually navigate to the page by logging into <a href="https://portal.azure.com/">the Azure portal</a>, click App Services, and choose your site).</p>
+<p><a href="https://msdnshared.blob.core.windows.net/media/2018/10/clip_image0061.png"><img title="clip_image006" alt="clip_image006" src="https://msdnshared.blob.core.windows.net/media/2018/10/clip_image006_thumb1.png" width="381" height="319" border="0" /></a></p>
+<p>To create the hybrid connection:</p>
+<p>Click the “Networking” tab in the Settings section on the left side of the App Service page</p>
+<p>Click “Configure your hybrid connection endpoints” in the “Hybrid connections” section</p>
+<p><a href="https://msdnshared.blob.core.windows.net/media/2018/10/image36.png"><img title="image" alt="image" src="https://msdnshared.blob.core.windows.net/media/2018/10/image_thumb29.png" width="946" height="1054" border="0" /></a></p>
+<p>Next, click “Add a hybrid connection”</p>
+<p>Then click “Create a new hybrid connection”</p>
+<p><a href="https://msdnshared.blob.core.windows.net/media/2018/10/clip_image010.jpg"><img title="clip_image010" alt="clip_image010" src="https://msdnshared.blob.core.windows.net/media/2018/10/clip_image010_thumb.jpg" width="689" height="121" border="0" /></a></p>
+<p>Fill out the “Create new hybrid connection” form as follows:</p>
+<ul>
+<li><b>Hybrid connection Name: </b>any unique name that you want<b></b></li>
+<li><b>Endpoint Host:</b> This is the machine URL your application is currently using to connect to the on-premises resource. In this case, this is “localhost” (<i>Note: per the documentation, use the hostname rather than a specific IP address if possible as it’s more robust)</i><b></b></li>
+<li><b>Endpoint Port: </b>The port the on-premises resource is listening on. In this case, the WCF service on my local machine is listening on 2901<b></b></li>
+<li><b>Servicebus namespace:</b> If you’ve previously configured hybrid connections you can re-use an existing one, in this case we’ll create a new one, and give it a name<b></b></li>
+</ul>
+<p><a href="https://msdnshared.blob.core.windows.net/media/2018/10/clip_image011.png"><img title="clip_image011" alt="clip_image011" src="https://msdnshared.blob.core.windows.net/media/2018/10/clip_image011_thumb.png" width="389" height="525" border="0" /></a></p>
+<p><b></b></p>
+<p>Click “OK”. It will take about 30 seconds to create the hybrid connection, when it’s done you’ll see it appear on the Hybrid connections page.</p>
+<h3>Configure the Hybrid Connection Locally</h3>
+<p>Now we need to install the Hybrid Connection Manager on the local machine. To do this, click the “Download connection manager” on the Hybrid connections page and install the MSI.</p>
+<p><b><a href="https://msdnshared.blob.core.windows.net/media/2018/10/clip_image013.jpg"><img title="clip_image013" alt="clip_image013" src="https://msdnshared.blob.core.windows.net/media/2018/10/clip_image013_thumb.jpg" width="599" height="206" border="0" /></a></b></p>
+<p>After the connection manager finishes installing, launch the “Hybrid Connections Manager UI”, it should appear in your Windows Start menu if you type “Hybrid Connections”. (If for some reason it doesn’t appear on the Start Menu, launch it manually from “C:\Program Files\Microsoft\HybridConnectionManager &lt;version#&gt;”)</p>
+<p>Click the “Add a new Hybrid Connection” button in the Hybrid Connections Manager UI and login with the same credentials you used to publish your application.</p>
+<p><a href="https://msdnshared.blob.core.windows.net/media/2018/10/clip_image015.jpg"><img title="clip_image015" alt="clip_image015" src="https://msdnshared.blob.core.windows.net/media/2018/10/clip_image015_thumb.jpg" width="783" height="139" border="0" /></a></p>
+<p>Choose the subscription you used published your application from the “Subscription” dropdown, choose the hybrid connection you just created in the portal, and click “Save”.</p>
+<p><a href="https://msdnshared.blob.core.windows.net/media/2018/10/clip_image017.jpg"><img title="clip_image017" alt="clip_image017" src="https://msdnshared.blob.core.windows.net/media/2018/10/clip_image017_thumb.jpg" width="784" height="441" border="0" /></a></p>
+<p>In the overview, you should see the status say “Connected”. <i>Note: If the state won’t change from “Not Connected”, I’ve found that rebooting my machine fixes this (it can take a few minutes to connect after the reboot).<br />
+</i><a href="https://msdnshared.blob.core.windows.net/media/2018/10/clip_image019.jpg"><img title="clip_image019" alt="clip_image019" src="https://msdnshared.blob.core.windows.net/media/2018/10/clip_image019_thumb.jpg" width="785" height="489" border="0" /></a><br />
+<i></i></p>
+<p>Make sure everything is running correctly on your local machine, and then when we open the site running in App Service we can see that it loads with no error. In fact, we can even put a breakpoint in the GetTodayRegistrations() method of Service.svc.cs, hit F5 in Visual Studio, and when the page loads in App Service the breakpoint on the local machine is hit!</p>
+<p><a href="https://msdnshared.blob.core.windows.net/media/2018/10/clip_image021.jpg"><img title="clip_image021" alt="clip_image021" src="https://msdnshared.blob.core.windows.net/media/2018/10/clip_image021_thumb.jpg" width="784" height="204" border="0" /></a></p>
+<h2>Conclusion</h2>
+<p>If you are looking to move applications to the cloud, I hope that this quick introduction to Hybrid Connections will enable you to try moving things incrementally. If you are looking to migrate an application to the cloud, <a href="https://na01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fsurvey.usabilla.com%2Flive%2Fs%2F5b915c0bb07f2415534bbd48&amp;data=02%7C01%7Candrehal%40microsoft.com%7Cd071ab97fea54e6c11f708d62fd1dbed%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636748975724958399&amp;sdata=%2BNyw5keIecujcrgtNsbwFaZnkLe4HGwTTGFP0YMDZvk%3D&amp;reserved=0">please tell us about it by taking this short survey</a>.</p>
+<p>Additionally, you may find these resources helpful:</p>
+<ul>
+<li>Video: <a href="https://www.youtube.com/watch?v=y_zAJZC_8Yk">Azure App Service with Hybrid Connections to On-premises Resources</a></li>
+<li><a href="https://myignite.techcommunity.microsoft.com/sessions/65905#ignite-html-anchor">Watch our talk on migrating applications to Azure</a></li>
+<li><a href="https://www.microsoft.com/net/apps/cloud/migrate-to-azure">Migrate your .NET app to Azure</a></li>
+<li><a href="https://www.microsoft.com/net/learn/dotnet/architecture-guides">.NET application architecture guides</a></li>
+</ul>
+<p>As always, if you have any questions, or problems let me know <a href="https://twitter.com/AndrewBrianHall">via Twitter</a>, or in the comments section below.</p>
+]]>
+      </content:encoded>
+      <wfw:commentRss>https://blogs.msdn.microsoft.com/webdev/2018/10/04/use-hybrid-connections-to-incrementally-migrate-applications-to-the-cloud/feed/</wfw:commentRss>
+      <slash:comments>14</slash:comments>
+    </item>
+  </channel>
+</rss>
