@@ -39,7 +39,8 @@ Task("BuildPackages")
      {
          Configuration = "Release",
 		 NoBuild = false,
-         OutputDirectory =  rootAbsoluteDir + @"\artifacts\"
+         OutputDirectory =  rootAbsoluteDir + @"\artifacts\",
+		 ArgumentCustomization = args=> args.Append("--include-symbols").Append("-p:SymbolPackageFormat=snupkg")
      };
 
      DotNetCorePack("./src/Sloader.Config/Sloader.Config.csproj", settings);
