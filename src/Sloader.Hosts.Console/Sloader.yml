@@ -1,7 +1,7 @@
 ﻿Secrets:
   TwitterConsumerKey: $$Sloader.SecretTwitterConsumerKey$$
   TwitterConsumerSecret: $$Sloader.SecretTwitterConsumerSecret$$
-  GitHubAccessToken: 9aa2cd6637177acf6308fc801b94ea6c32e113f8
+  GitHubAccessToken: $$Sloader.SecretGitHubAccessToken$$
 
 Crawler:
   GitHubIssuesToCrawl:
