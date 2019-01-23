@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.2.0</Version>
+    <Version>1.2.1</Version>
     <PackageReleaseNotes>See Changelog.md</PackageReleaseNotes>
     <License>https://github.com/Code-Inside/Sloader/blob/master/LICENSE</License>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -21,7 +21,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="WorldDomination.HttpClient.Helpers" Version="6.1.0" />
     <PackageReference Include="YamlDotNet" Version="5.3.0" />
   </ItemGroup>

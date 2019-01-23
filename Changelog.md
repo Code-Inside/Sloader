@@ -5,6 +5,10 @@ Changelog
 
 # Sloader.Config
 
+## Version 1.2.1
+
+* Downgrade JSON.NET to 11.02 for Azure Functions
+
 ## Version 1.2.0
 
 * FeedCrawler with "FilterByCategories" config setting
@@ -64,6 +68,10 @@ Init
 
 # Sloader.Result
 
+## Version 1.1.1
+
+* Downgrade JSON.NET to 11.02 for Azure Functions
+
 ## Version 1.1.0
 
 * csproj files with PackageLicenseExpression (MIT)
@@ -102,6 +110,10 @@ GitHubEvent Crawler added
 Init
 
 # Sloader.Engine
+
+## Version 1.3.1
+
+* Downgrade JSON.NET to 11.02 for Azure Functions
 
 ## Version 1.3.0
 

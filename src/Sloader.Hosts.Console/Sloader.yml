@@ -1,22 +1,24 @@
 ﻿Secrets:
   TwitterConsumerKey: $$Sloader.SecretTwitterConsumerKey$$
   TwitterConsumerSecret: $$Sloader.SecretTwitterConsumerSecret$$
-  GitHubAccessToken: $$Sloader.SecretGitHubAccessToken$$
+  GitHubAccessToken: 9aa2cd6637177acf6308fc801b94ea6c32e113f8
 
 Crawler:
   GitHubIssuesToCrawl:
-  - Key: Issues
-    Repository: aspnet/mvc
+  - Repository: aspnet/blazor
+    Key: GitHubIssues
     FilterByState: all
-  GitHubEventsToCrawl:
-  - Key: Test
-    Repository: code-inside/sloader
-    User: robertmuehsig
-    Organization: code-inside
   FeedsToCrawl:
   - Key: Blog
-    Url: https://blog.nuget.org/feeds/atom.xml
+    Url: https://blogs.msdn.microsoft.com/webdev/feed/
     LoadSocialLinkCounters: false
+    SummaryTruncateAt: 200
+    FilterByCategories:
+    - "Blazor"
+
 Drop:
-  FileDrops:
-  - FilePath: "test.json"
+  GitHubDrops:
+  - Owner: "Code-Inside"
+    Repo: "KnowYourStack"
+    Branch: "master"
+    FilePath: "_data/AspNetBlazor.json"
