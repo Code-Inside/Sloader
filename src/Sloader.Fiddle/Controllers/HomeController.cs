@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Sloader.Engine;
 using Sloader.Fiddle.Models;
 
 namespace Sloader.Fiddle.Controllers
@@ -12,7 +13,30 @@ namespace Sloader.Fiddle.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            HomeViewModel viewModel = new HomeViewModel();
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Fiddle(HomeViewModel viewModel)
+        {
+            try
+            {
+                var runner = new SloaderRunner(Sloader.Config.SloaderConfig.Parse(viewModel.Input, new Dictionary<string, string>()));
+                var crawlerRun = await runner.RunAllCrawlers();
+
+                var json = crawlerRun.ToJson();
+                viewModel.Output = json;
+            }
+            catch(Exception exc)
+            {
+                viewModel.HasError = true;
+                viewModel.Output = exc.Message;
+            }
+
+            ModelState.Clear();
+
+            return View("Index", viewModel);
         }
 
         public IActionResult Privacy()

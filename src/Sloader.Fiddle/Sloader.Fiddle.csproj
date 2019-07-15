@@ -14,4 +14,11 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.7.11" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sloader.Config\Sloader.Config.csproj" />
+    <ProjectReference Include="..\Sloader.Engine\Sloader.Engine.csproj" />
+    <ProjectReference Include="..\Sloader.Result\Sloader.Result.csproj" />
+  </ItemGroup>
+
 </Project>
