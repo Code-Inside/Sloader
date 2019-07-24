@@ -3,6 +3,53 @@
     ViewData["Title"] = "Home Page";
 }
 
+
+@section Scripts {
+    <script>
+        @*var require = { paths: { 'vs': '@Url.Content("~/lib/monaco-editor/min/vs/")' } };
+   window.MonacoEnvironment = {
+    getWorkerUrl: function (moduleId, label) {
+        if (label === 'json') {
+	        return "@Url.Content("~/lib/monaco-editor/min/vs/language/json/jsonWorker.js")";
+           }
+
+           return "@Url.Content("~/lib/monaco-editor/min/vs/base/worker/workerMain.js")";
+
+    }
+}*@
+    </script>
+    <script src="~/lib/monaco-editor/min/vs/loader.js"></script>
+    @*<script src="~/lib/monaco-editor/min/vs/editor/editor.main.nls.js"></script>
+        <script src="~/lib/monaco-editor/min/vs/editor/editor.main.js"></script>*@
+
+    <script>
+
+        require.config({ paths: { 'vs': '@Url.Content("~/lib/monaco-editor/min/vs")' }});
+	require(['vs/editor/editor.main'], function() {
+		var editor = monaco.editor.create(document.getElementById('sloader-outputx'), {
+			value: [
+				'function x() {',
+				'\tconsole.log("Hello world!");',
+				'}'
+			].join('\n'),
+			language: 'json'
+		});
+	});
+
+    //var editor = monaco.editor.create(document.getElementById('sloader-outputx'), {
+    //    value: [
+    //        'function x() {',
+    //        '\tconsole.log("Hello world!");',
+    //        '}'
+    //    ].join('\n'),
+    //    language: 'json'
+    //});
+    </script>
+}
+
+
+
+
 <div class="text-center">
     <h1 class="display-4">Sloader Fiddle</h1>
 </div>
@@ -19,6 +66,7 @@
 
     <div class="form-group">
         <label for="sloader-output">Output:</label>
+        <div id="sloader-outputx" style="width:800px;height:600px;border:1px solid grey"></div>
         <textarea class="form-control rounded-0" id="sloader-output" asp-for="Output" rows="10"></textarea>
     </div>
 </form>

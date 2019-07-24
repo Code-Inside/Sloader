@@ -1,0 +1,5 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [ { "library": "monaco-editor@0.17.1", "destination": "wwwroot/lib/monaco-editor"} ]
+}
