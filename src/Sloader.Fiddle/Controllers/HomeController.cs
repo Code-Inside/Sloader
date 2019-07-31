@@ -25,7 +25,7 @@ namespace Sloader.Fiddle.Controllers
                 var runner = new SloaderRunner(Sloader.Config.SloaderConfig.Parse(viewModel.Input, new Dictionary<string, string>()));
                 var crawlerRun = await runner.RunAllCrawlers();
 
-                var json = crawlerRun.ToJson();
+                var json = crawlerRun.ToJson(Newtonsoft.Json.Formatting.Indented);
                 viewModel.Output = json;
             }
             catch(Exception exc)
