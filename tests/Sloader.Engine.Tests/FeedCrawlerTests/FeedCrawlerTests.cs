@@ -212,7 +212,8 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
             var result = await sut.DoWorkAsync(config);
 
             Assert.True(result.FeedItems.Count == 6);
-            Assert.True(result.FeedItems[0].Thumbnail == "https://i3.ytimg.com/vi/27yknlB8xeg/hqdefault.jpg");
+            Assert.True(result.FeedItems[0].Thumbnail == "https://i1.ytimg.com/vi/dNaIOGQj15M/hqdefault.jpg");
+            Assert.True(result.FeedItems[5].Thumbnail == "https://i3.ytimg.com/vi/27yknlB8xeg/hqdefault.jpg");
         }
 
         [Fact]

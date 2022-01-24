@@ -115,6 +115,10 @@ Init
 
 # Sloader.Engine
 
+## Version 1.4.1
+
+* FeedCrawler bugfix for publish date
+
 ## Version 1.4.0
 
 * FeedCrawler detects Thumbnail images

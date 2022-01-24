@@ -170,17 +170,17 @@ namespace Sloader.Engine.Crawler.Feed
                     }
                 }
 
-                var updateDateValue = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "updated")?.Value;
-                if (DateTime.TryParse(updateDateValue, out DateTime updateDateDateTime))
+                var pubDateValue = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "published")?.Value;
+                if (DateTime.TryParse(pubDateValue, out DateTime pubDateDateTime))
                 {
-                    crawlerResultItem.PublishedOn = updateDateDateTime;
+                    crawlerResultItem.PublishedOn = pubDateDateTime;
                 }
                 else
                 {
-                    var pubDateValue = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "published")?.Value;
-                    if (DateTime.TryParse(pubDateValue, out DateTime pubDateDateTime))
+                    var updateDateValue = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "updated")?.Value;
+                    if (DateTime.TryParse(updateDateValue, out DateTime updateDateDateTime))
                     {
-                        crawlerResultItem.PublishedOn = pubDateDateTime;
+                        crawlerResultItem.PublishedOn = updateDateDateTime;
                     }
                 }
 
