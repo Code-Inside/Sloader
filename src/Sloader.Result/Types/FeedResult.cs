@@ -49,6 +49,11 @@ namespace Sloader.Result.Types
             /// JSON serialized complete feeditem
             /// </summary>
             public string RawContent { get; set; }
+
+            /// <summary>
+            /// Thumbnail Url - based on the media NS thumbnail element.
+            /// </summary>
+            public string Thumbnail { get; set; }
         }
 
         /// <summary>

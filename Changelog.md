@@ -68,6 +68,10 @@ Init
 
 # Sloader.Result
 
+## Version 1.2.0
+
+* Thumbnail in FeedItems
+
 ## Version 1.1.1
 
 * Downgrade JSON.NET to 11.02 for Azure Functions
@@ -110,6 +114,10 @@ GitHubEvent Crawler added
 Init
 
 # Sloader.Engine
+
+## Version 1.4.0
+
+* FeedCrawler detects Thumbnail images
 
 ## Version 1.3.1
 

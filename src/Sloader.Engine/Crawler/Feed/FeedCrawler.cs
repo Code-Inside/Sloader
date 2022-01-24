@@ -154,16 +154,20 @@ namespace Sloader.Engine.Crawler.Feed
                 }
 
                 var summary = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "content")?.Value;
-                if (config.SummaryTruncateAt == 0)
+
+                if(summary != null)
                 {
-                    crawlerResultItem.Summary = summary;
-                }
-                else
-                {
-                    var contentDoc = new HtmlDocument();
-                    contentDoc.LoadHtml(summary);
-                    var textContent = contentDoc.DocumentNode.InnerText.Trim();
-                    crawlerResultItem.Summary = TruncateAtWord(textContent, config.SummaryTruncateAt);
+                    if (config.SummaryTruncateAt == 0)
+                    {
+                        crawlerResultItem.Summary = summary;
+                    }
+                    else
+                    {
+                        var contentDoc = new HtmlDocument();
+                        contentDoc.LoadHtml(summary);
+                        var textContent = contentDoc.DocumentNode.InnerText.Trim();
+                        crawlerResultItem.Summary = TruncateAtWord(textContent, config.SummaryTruncateAt);
+                    }
                 }
 
                 var updateDateValue = atomItem.Elements().FirstOrDefault(i => i.Name.LocalName == "updated")?.Value;
@@ -180,7 +184,16 @@ namespace Sloader.Engine.Crawler.Feed
                     }
                 }
 
-               
+                XNamespace media = "http://search.yahoo.com/mrss/";
+                var mediaGroupElement = atomItem.Element(media + "group");
+                if(mediaGroupElement != null)
+                {
+                    var thumbnailElement = mediaGroupElement.Elements().FirstOrDefault(i => i.Name.LocalName == "thumbnail");
+                    if(thumbnailElement != null)
+                    {
+                        crawlerResultItem.Thumbnail = thumbnailElement.Attribute("url").Value;
+                    }
+                }
 
                 if (config.IncludeRawContent)
                 {

@@ -12,7 +12,7 @@ using Xunit;
 
 namespace Sloader.Engine.Tests.FeedCrawlerTests
 {
-	public class FeedCrawlerTests
+    public class FeedCrawlerTests
     {
         private const string samplesDirectory = "FeedCrawlerTests/Samples";
         private const string slashdotRssSample = "SlashDotRss.xml";
@@ -20,6 +20,7 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
         private const string nugetBlogAtomSample = "NuGetBlogAtom.xml";
         private const string msWebDevRssSample = "MSWebDevRssWithCategories.xml";
         private const string atomWithCategories = "AtomWithCategories.xml";
+        private const string youtubeWithMedia = "YouTubeAtom.xml";
 
 
         public async Task<FeedResult> InvokeAtomSut(int twitterCounts = 0, int facebookShares = 0, string feed = "https://github.com/robertmuehsig.atom", int truncateAt = 0)
@@ -187,6 +188,34 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
         }
 
         [Fact]
+        public async Task Crawler_Can_Read_Media_Thumbnail()
+        {
+            string responseData = TestHelperForCurrentProject.GetTestFileContent(TestHelperForCurrentProject.GetTestFilePath(samplesDirectory, youtubeWithMedia));
+            string feed = "https://www.youtube.com/feeds/videos.xml?channel_id=UCqE3og-pkA7DO90lqNHAR5Q";
+
+            var messageResponse = FakeHttpMessageHandler.GetStringHttpResponseMessage(responseData);
+
+            var fakeMessageHandler = new FakeHttpMessageHandler(new HttpMessageOptions() { HttpResponseMessage = messageResponse, RequestUri = new Uri(feed) });
+            var facebokLoaderMock = A.Fake<IFacebookShareCountLoader>();
+
+            var sut = new FeedCrawler(fakeMessageHandler, facebokLoaderMock);
+
+
+            var config = new FeedCrawlerConfig
+            {
+                Url = feed,
+                LoadSocialLinkCounters = false,
+                IncludeRawContent = true,
+                SummaryTruncateAt = 100
+            };
+
+            var result = await sut.DoWorkAsync(config);
+
+            Assert.True(result.FeedItems.Count == 6);
+            Assert.True(result.FeedItems[0].Thumbnail == "https://i3.ytimg.com/vi/27yknlB8xeg/hqdefault.jpg");
+        }
+
+        [Fact]
         public async Task Crawler_Can_Filter_RSSEntries_ByCategories_Large_CategoryList()
         {
             var result = await InvokeRssWithCategories(new List<string> { "Visual Studio", "Azure" });
@@ -211,7 +240,7 @@ namespace Sloader.Engine.Tests.FeedCrawlerTests
         [Fact]
         public async Task Crawler_Must_Not_Return_Null_If_Nothing_Is_Configured()
         {
-            var result = await InvokeRssWithSocialLinksEnabled(0,0, string.Empty);
+            var result = await InvokeRssWithSocialLinksEnabled(0, 0, string.Empty);
             Assert.NotNull(result);
         }
 
