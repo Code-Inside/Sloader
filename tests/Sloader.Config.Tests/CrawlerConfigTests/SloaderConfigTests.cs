@@ -17,7 +17,6 @@ namespace Sloader.Config.Tests.CrawlerConfigTests
 
             Assert.NotNull(result.Crawler);
             Assert.Equal(3, result.Crawler.FeedsToCrawl.Count);
-            Assert.Equal(3, result.Crawler.TwitterTimelinesToCrawl.Count);
         }
 
         [Fact]

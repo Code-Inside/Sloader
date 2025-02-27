@@ -3,6 +3,11 @@ Changelog
 
 # Not released
 
+## Version 2.0
+
+* .NET 8.0 Migration
+* Remove Twitter Crawler Stuff
+
 # Sloader.Config
 
 ## Version 1.2.1

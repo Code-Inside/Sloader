@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Authors>Code Inside Team</Authors>
     <Company>Code Inside Team</Company>
     <License>https://github.com/Code-Inside/Sloader/blob/master/LICENSE</License>
@@ -10,17 +10,17 @@
     <RepositoryUrl>https://github.com/Code-Inside/Sloader</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <Version>1.4.1</Version>
+    <Version>2.0.0</Version>
     <PackageReleaseNotes>See Changelog.md</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="HtmlAgilityPack" Version="1.11.2" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
-    <PackageReference Include="Octokit" Version="0.32.0" />
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
-    <PackageReference Include="WorldDomination.HttpClient.Helpers" Version="6.1.0" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.74" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Octokit" Version="14.0.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.2" />
+    <PackageReference Include="WorldDomination.HttpClient.Helpers" Version="7.3.4" />
   </ItemGroup>
 
   <ItemGroup>

@@ -10,16 +10,16 @@ namespace Sloader.Result.Tests
         public void ToJson_Works()
         {
             CrawlerRun run = new CrawlerRun();
-	        var twitterResult = new TwitterTimelineResult
+	        var feedResult = new FeedResult
 	        {
-		        Tweets = new List<TwitterTimelineResult.Tweet>
+		        FeedItems = new List<FeedResult.FeedItem>
 		        {
-			        new TwitterTimelineResult.Tweet() {Id = "1"},
-			        new TwitterTimelineResult.Tweet() {Id = "2"}
+			        new FeedResult.FeedItem { Title = "1"},
+                    new FeedResult.FeedItem { Title = "2"},
 		        }
 	        };
 
-	        run.AddResultDataPair("test", twitterResult);
+	        run.AddResultDataPair("test", feedResult);
 
             Assert.NotNull(run.ToJson());
 

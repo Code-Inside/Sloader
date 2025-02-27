@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.2.1</Version>
+    <TargetFramework>net8.0</TargetFramework>
+    <Version>2.0.0</Version>
     <PackageReleaseNotes>See Changelog.md</PackageReleaseNotes>
     <License>https://github.com/Code-Inside/Sloader/blob/master/LICENSE</License>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -17,9 +17,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
-    <PackageReference Include="WorldDomination.HttpClient.Helpers" Version="6.1.0" />
-    <PackageReference Include="YamlDotNet" Version="6.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="WorldDomination.HttpClient.Helpers" Version="7.3.4" />
+    <PackageReference Include="YamlDotNet" Version="16.3.0" />
   </ItemGroup>
 
 </Project>

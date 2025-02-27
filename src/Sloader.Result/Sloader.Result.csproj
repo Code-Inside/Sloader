@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageReleaseNotes>See Changelog.md</PackageReleaseNotes>
     <License>https://github.com/Code-Inside/Sloader/blob/master/LICENSE</License>
@@ -13,12 +13,12 @@
     <Company />
     <Product />
     <Authors>Code Inside Team</Authors>
-    <Version>1.2.0</Version>
-    <FileVersion>1.2.0.0</FileVersion>
+    <Version>2.0.0</Version>
+    <FileVersion>2.0.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
 </Project>

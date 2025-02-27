@@ -6,10 +6,8 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using Sloader.Config;
 using System.Linq;
-using Sloader.Engine.Crawler.DependencyServices;
 using Sloader.Engine.Crawler.Feed;
 using Sloader.Engine.Crawler.GitHub;
-using Sloader.Engine.Crawler.Twitter;
 using Sloader.Engine.Drop.File;
 using Sloader.Engine.Drop.GitHub;
 using Sloader.Result;
@@ -167,39 +165,6 @@ namespace Sloader.Engine
 					var issueResult = await issueCrawler.DoWorkAsync(githubIssueConfig);
 					crawlerRunResult.AddResultDataPair(githubIssueConfig.Key, issueResult);
 				}
-			}
-
-			// Tweets
-			if (_config.Secrets.IsTwitterConsumerConfigured)
-			{
-				ITwitterOAuthTokenService oAuthTokenLoader = new TwitterOAuthTokenService();
-				var oauth = await oAuthTokenLoader.GetAsync(_config.Secrets.TwitterConsumerKey, _config.Secrets.TwitterConsumerSecret);
-
-				if (string.IsNullOrWhiteSpace(oauth) == false)
-				{
-					if (_config.Crawler.TwitterTimelinesToCrawl.Any())
-					{
-						foreach (var twitterConfig in _config.Crawler.TwitterTimelinesToCrawl)
-						{
-							var twitterTimelineCrawler = new TwitterTimelineCrawler { OAuthToken = oauth };
-
-							var twitterTimelineResult = await twitterTimelineCrawler.DoWorkAsync(twitterConfig);
-							crawlerRunResult.AddResultDataPair(twitterConfig.Key, twitterTimelineResult);
-						}
-					}
-
-					if (_config.Crawler.TwitterUsersToCrawl.Any())
-					{
-						foreach (var twitterConfig in _config.Crawler.TwitterUsersToCrawl)
-						{
-							var twitterUserCrawler = new TwitterUserCrawler { OAuthToken = oauth };
-
-							var twitterUserResult = await twitterUserCrawler.DoWorkAsync(twitterConfig);
-							crawlerRunResult.AddResultDataPair(twitterConfig.Key, twitterUserResult);
-						}
-					}
-				}
-
 			}
 
 			watch.Stop();

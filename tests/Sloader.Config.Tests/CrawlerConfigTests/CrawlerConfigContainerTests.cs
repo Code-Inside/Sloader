@@ -16,19 +16,5 @@ namespace Sloader.Config.Tests.CrawlerConfigTests
             CrawlerConfig config = new CrawlerConfig();
             Assert.NotNull(config.FeedsToCrawl);
         }
-
-        [Fact]
-        public void TwitterTimelinesToCrawl_Is_Never_Null()
-        {
-            CrawlerConfig config = new CrawlerConfig();
-            Assert.NotNull(config.TwitterTimelinesToCrawl);
-        }
-
-        [Fact]
-        public void TwitterUsersToCrawl_Is_Never_Null()
-        {
-            CrawlerConfig config = new CrawlerConfig();
-            Assert.NotNull(config.TwitterUsersToCrawl);
-        }
     }
 }
