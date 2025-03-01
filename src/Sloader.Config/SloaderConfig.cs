@@ -34,11 +34,23 @@ namespace Sloader.Config
         /// </summary>
         /// <param name="ymlLocation">yml-file location as FilePath or URL</param>
         /// <param name="secrets">List of secret replacements</param>
-        /// <returns></returns>
+        /// <returns>Sloader Config with embedded secrets</returns>
         public static async Task<SloaderConfig> Load(string ymlLocation, Dictionary<string, string> secrets)
         {
             Trace.TraceInformation($"{nameof(SloaderConfig)} loading invoked for '{ymlLocation}'.");
             return await SloaderConfigLoader.GetAsync(ymlLocation, secrets);
+        }
+
+        /// <summary>
+        /// Parse and instantiate the config from a given Yml-string.
+        /// </summary>
+        /// <param name="fullConfig">yml-config</param>
+        /// <param name="secrets">List of secret replacements</param>
+        /// <returns>Sloader Config with embedded secrets</returns>
+        public static SloaderConfig Parse(string fullConfig, Dictionary<string, string> secrets)
+        {
+            var config = SloaderConfigDeserializer.GetConfigWithEmbeddedSecrets(fullConfig, secrets);
+            return config;
         }
 
         /// <summary>

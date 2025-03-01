@@ -51,9 +51,9 @@ namespace Sloader.Result
         /// Serializes the object via JSON.NET
         /// </summary>
         /// <returns>Large JSON with "run" data and actual result data.</returns>
-        public string ToJson()
+        public string ToJson(Formatting formatting = Formatting.None)
         {
-            return JsonConvert.SerializeObject(this);
+            return JsonConvert.SerializeObject(this, formatting);
         }
     }
 }
